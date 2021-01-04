@@ -5,67 +5,10 @@
 package auth_v02
 
 import (
-	"bytes"
-	"encoding/base64"
 	"github.com/moov-io/iso20022/pkg/utils"
 	"reflect"
 	"regexp"
 )
-
-// Must match the pattern [A-Z]{3,3}
-type ActiveCurrencyCode string
-
-func (r ActiveCurrencyCode) Validate() error {
-	reg := regexp.MustCompile(`[A-Z]{3,3}`)
-	if !reg.MatchString(string(r)) {
-		return utils.NewErrValueInvalid("ActiveCurrencyCode")
-	}
-	return nil
-}
-
-// Must match the pattern [A-Z]{3,3}
-type ActiveOrHistoricCurrencyCode string
-
-func (r ActiveOrHistoricCurrencyCode) Validate() error {
-	reg := regexp.MustCompile(`[A-Z]{3,3}`)
-	if !reg.MatchString(string(r)) {
-		return utils.NewErrValueInvalid("ActiveOrHistoricCurrencyCode")
-	}
-	return nil
-}
-
-func (r AddressType2Code) Validate() error {
-	for _, vv := range []string{
-		"ADDR", "PBOX", "HOME", "BIZZ", "MLTO", "DLVY",
-	} {
-		if reflect.DeepEqual(string(r), vv) {
-			return nil
-		}
-	}
-	return utils.NewErrValueInvalid("AddressType2Code")
-}
-
-// Must match the pattern [A-Z0-9]{4,4}[A-Z]{2,2}[A-Z0-9]{2,2}([A-Z0-9]{3,3}){0,1}
-type AnyBICDec2014Identifier string
-
-func (r AnyBICDec2014Identifier) Validate() error {
-	reg := regexp.MustCompile(`[A-Z0-9]{4,4}[A-Z]{2,2}[A-Z0-9]{2,2}([A-Z0-9]{3,3}){0,1}`)
-	if !reg.MatchString(string(r)) {
-		return utils.NewErrValueInvalid("AnyBICDec2014Identifier")
-	}
-	return nil
-}
-
-// Must match the pattern [A-Z0-9]{4,4}[A-Z]{2,2}[A-Z0-9]{2,2}([A-Z0-9]{3,3}){0,1}
-type BICFIDec2014Identifier string
-
-func (r BICFIDec2014Identifier) Validate() error {
-	reg := regexp.MustCompile(`[A-Z0-9]{4,4}[A-Z]{2,2}[A-Z0-9]{2,2}([A-Z0-9]{3,3}){0,1}`)
-	if !reg.MatchString(string(r)) {
-		return utils.NewErrValueInvalid("BICFIDec2014Identifier")
-	}
-	return nil
-}
 
 // May be one of WIBO, TREA, TIBO, TLBO, SWAP, STBO, PRBO, PFAN, NIBO, MAAA, MOSP, LIBO, LIBI, JIBA, ISDA, GCFR, FUSW, EUCH, EUUS, EURI, EONS, EONA, CIBO, CDOR, BUBO, BBSW
 type BenchmarkCurveName2Code string
@@ -80,17 +23,6 @@ func (r BenchmarkCurveName2Code) Validate() error {
 		}
 	}
 	return utils.NewErrValueInvalid("BenchmarkCurveName2Code")
-}
-
-// Must match the pattern [A-Z]{2,2}
-type CountryCode string
-
-func (r CountryCode) Validate() error {
-	reg := regexp.MustCompile(`[A-Z]{2,2}`)
-	if !reg.MatchString(string(r)) {
-		return utils.NewErrValueInvalid("CountryCode")
-	}
-	return nil
 }
 
 // May be one of CRDT, DBIT
@@ -238,17 +170,6 @@ func (r ExternalPersonIdentification1Code) Validate() error {
 	return nil
 }
 
-// Must match the pattern [A-Z]{2,2}[0-9]{2,2}[a-zA-Z0-9]{1,30}
-type IBAN2007Identifier string
-
-func (r IBAN2007Identifier) Validate() error {
-	reg := regexp.MustCompile(`[A-Z]{2,2}[0-9]{2,2}[a-zA-Z0-9]{1,30}`)
-	if !reg.MatchString(string(r)) {
-		return utils.NewErrValueInvalid("IBAN2007Identifier")
-	}
-	return nil
-}
-
 // Must match the pattern [A-Z]{2,2}[A-Z0-9]{9,9}[0-9]{1,1}
 type ISINOct2015Identifier string
 
@@ -258,31 +179,6 @@ func (r ISINOct2015Identifier) Validate() error {
 		return utils.NewErrValueInvalid("ISINOct2015Identifier")
 	}
 	return nil
-}
-
-// Must match the pattern [A-Z0-9]{18,18}[0-9]{2,2}
-type LEIIdentifier string
-
-func (r LEIIdentifier) Validate() error {
-	reg := regexp.MustCompile(`[A-Z0-9]{18,18}[0-9]{2,2}`)
-	if !reg.MatchString(string(r)) {
-		return utils.NewErrValueInvalid("LEIIdentifier")
-	}
-	return nil
-}
-
-// May be one of DOCT, MADM, MISS, MIST, MIKS
-type NamePrefix2Code string
-
-func (r NamePrefix2Code) Validate() error {
-	for _, vv := range []string{
-		"DOCT", "MADM", "MISS", "MIST", "MIKS",
-	} {
-		if reflect.DeepEqual(string(r), vv) {
-			return nil
-		}
-	}
-	return utils.NewErrValueInvalid("NamePrefix2Code")
 }
 
 // May be one of CNTR, ESTM
@@ -339,17 +235,6 @@ func (r RateBasis1Code) Validate() error {
 		}
 	}
 	return utils.NewErrValueInvalid("RateBasis1Code")
-}
-
-// Must match the pattern [0-9]{1,15}
-type Max15NumericText string
-
-func (r Max15NumericText) Validate() error {
-	reg := regexp.MustCompile(`[0-9]{1,15}`)
-	if !reg.MatchString(string(r)) {
-		return utils.NewErrValueInvalid("Max15NumericText")
-	}
-	return nil
 }
 
 // May be one of EMAL, FAXI, FILE, ONLI, PHON, POST, PROP, SWMT, SWMX
@@ -475,27 +360,4 @@ func (r StatisticalReportingStatus1Code) Validate() error {
 		}
 	}
 	return utils.NewErrValueInvalid("StatisticalReportingStatus1Code")
-}
-
-type Max100KBinary []byte
-
-func (t *Max100KBinary) UnmarshalText(text []byte) error {
-	return (*xsdBase64Binary)(t).UnmarshalText(text)
-}
-func (t Max100KBinary) MarshalText() ([]byte, error) {
-	return xsdBase64Binary(t).MarshalText()
-}
-
-type xsdBase64Binary []byte
-
-func (b *xsdBase64Binary) UnmarshalText(text []byte) (err error) {
-	*b, err = base64.StdEncoding.DecodeString(string(text))
-	return
-}
-func (b xsdBase64Binary) MarshalText() ([]byte, error) {
-	var buf bytes.Buffer
-	enc := base64.NewEncoder(base64.StdEncoding, &buf)
-	enc.Write([]byte(b))
-	enc.Close()
-	return buf.Bytes(), nil
 }

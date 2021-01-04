@@ -10,14 +10,14 @@ import (
 )
 
 type AccountSwitchDetails1 struct {
-	UnqRefNb      common.Max35Text           `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 UnqRefNb"`
-	RtgUnqRefNb   common.Max35Text           `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 RtgUnqRefNb"`
-	SwtchRcvdDtTm common.ISODateTime         `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 SwtchRcvdDtTm,omitempty"`
-	SwtchDt       common.ISODate             `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 SwtchDt,omitempty"`
-	SwtchTp       SwitchType1Code            `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 SwtchTp"`
-	SwtchSts      SwitchStatus1Code          `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 SwtchSts,omitempty"`
-	BalTrfWndw    BalanceTransferWindow1Code `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 BalTrfWndw,omitempty"`
-	Rspn          []ResponseDetails1         `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 Rspn,omitempty"`
+	UnqRefNb      common.Max35Text           `xml:"UnqRefNb"`
+	RtgUnqRefNb   common.Max35Text           `xml:"RtgUnqRefNb"`
+	SwtchRcvdDtTm common.ISODateTime         `xml:"SwtchRcvdDtTm,omitempty" json:",omitempty"`
+	SwtchDt       common.ISODate             `xml:"SwtchDt,omitempty" json:",omitempty"`
+	SwtchTp       SwitchType1Code            `xml:"SwtchTp"`
+	SwtchSts      SwitchStatus1Code          `xml:"SwtchSts,omitempty" json:",omitempty"`
+	BalTrfWndw    BalanceTransferWindow1Code `xml:"BalTrfWndw,omitempty" json:",omitempty"`
+	Rspn          []ResponseDetails1         `xml:"Rspn,omitempty" json:",omitempty"`
 }
 
 func (r AccountSwitchDetails1) Validate() error {
@@ -25,9 +25,9 @@ func (r AccountSwitchDetails1) Validate() error {
 }
 
 type AccountSwitchTerminationSwitchV01 struct {
-	MsgId         MessageIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 MsgId"`
-	AcctSwtchDtls AccountSwitchDetails1  `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 AcctSwtchDtls"`
-	SplmtryData   []SupplementaryData1   `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 SplmtryData,omitempty"`
+	MsgId         MessageIdentification1 `xml:"MsgId"`
+	AcctSwtchDtls AccountSwitchDetails1  `xml:"AcctSwtchDtls"`
+	SplmtryData   []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
 func (r AccountSwitchTerminationSwitchV01) Validate() error {
@@ -35,8 +35,8 @@ func (r AccountSwitchTerminationSwitchV01) Validate() error {
 }
 
 type MessageIdentification1 struct {
-	Id      common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 Id"`
-	CreDtTm common.ISODateTime `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 CreDtTm"`
+	Id      common.Max35Text   `xml:"Id"`
+	CreDtTm common.ISODateTime `xml:"CreDtTm"`
 }
 
 func (r MessageIdentification1) Validate() error {
@@ -44,8 +44,8 @@ func (r MessageIdentification1) Validate() error {
 }
 
 type ResponseDetails1 struct {
-	RspnCd    common.Max35Text  `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 RspnCd"`
-	AddtlDtls common.Max350Text `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 AddtlDtls,omitempty"`
+	RspnCd    common.Max35Text  `xml:"RspnCd"`
+	AddtlDtls common.Max350Text `xml:"AddtlDtls,omitempty" json:",omitempty"`
 }
 
 func (r ResponseDetails1) Validate() error {
@@ -53,8 +53,8 @@ func (r ResponseDetails1) Validate() error {
 }
 
 type SupplementaryData1 struct {
-	PlcAndNm common.Max350Text          `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 PlcAndNm,omitempty"`
-	Envlp    SupplementaryDataEnvelope1 `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 Envlp"`
+	PlcAndNm common.Max350Text          `xml:"PlcAndNm,omitempty" json:",omitempty"`
+	Envlp    SupplementaryDataEnvelope1 `xml:"Envlp"`
 }
 
 func (r SupplementaryData1) Validate() error {

@@ -2,12 +2,6 @@
 
 package camt_v03
 
-import (
-	"bytes"
-	"encoding/xml"
-	"time"
-)
-
 type AccountIdentification4Choice struct {
 	IBAN IBAN2007Identifier            `xml:"urn:iso:std:iso:20022:tech:xsd:camt.071.001.03 IBAN"`
 	Othr GenericAccountIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.071.001.03 Othr"`
@@ -18,16 +12,10 @@ type AccountSchemeName1Choice struct {
 	Prtry Max35Text                          `xml:"urn:iso:std:iso:20022:tech:xsd:camt.071.001.03 Prtry"`
 }
 
-// Must match the pattern [A-Z]{3,3}
-type ActiveOrHistoricCurrencyCode string
-
 type AddressType3Choice struct {
 	Cd    AddressType2Code        `xml:"urn:iso:std:iso:20022:tech:xsd:camt.071.001.03 Cd"`
 	Prtry GenericIdentification30 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.071.001.03 Prtry"`
 }
-
-// Must match the pattern [A-Z0-9]{4,4}[A-Z]{2,2}[A-Z0-9]{2,2}([A-Z0-9]{3,3}){0,1}
-type BICFIDec2014Identifier string
 
 type BranchAndFinancialInstitutionIdentification6 struct {
 	FinInstnId FinancialInstitutionIdentification18 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.071.001.03 FinInstnId"`
@@ -63,9 +51,6 @@ type ClearingSystemMemberIdentification2 struct {
 	ClrSysId ClearingSystemIdentification2Choice `xml:"urn:iso:std:iso:20022:tech:xsd:camt.071.001.03 ClrSysId,omitempty"`
 	MmbId    Max35Text                           `xml:"urn:iso:std:iso:20022:tech:xsd:camt.071.001.03 MmbId"`
 }
-
-// Must match the pattern [A-Z]{2,2}
-type CountryCode string
 
 type DeleteStandingOrderV03 struct {
 	MsgHdr      MessageHeader1            `xml:"urn:iso:std:iso:20022:tech:xsd:camt.071.001.03 MsgHdr"`
@@ -127,42 +112,6 @@ type GenericIdentification30 struct {
 	SchmeNm Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:camt.071.001.03 SchmeNm,omitempty"`
 }
 
-// Must match the pattern [A-Z]{2,2}[0-9]{2,2}[a-zA-Z0-9]{1,30}
-type IBAN2007Identifier string
-
-type ISODateTime time.Time
-
-func (t *ISODateTime) UnmarshalText(text []byte) error {
-	return (*xsdDateTime)(t).UnmarshalText(text)
-}
-func (t ISODateTime) MarshalText() ([]byte, error) {
-	return xsdDateTime(t).MarshalText()
-}
-
-// Must match the pattern [A-Z0-9]{18,18}[0-9]{2,2}
-type LEIIdentifier string
-
-// Must be at least 1 items long
-type Max140Text string
-
-// Must be at least 1 items long
-type Max16Text string
-
-// Must be at least 1 items long
-type Max2048Text string
-
-// Must be at least 1 items long
-type Max34Text string
-
-// Must be at least 1 items long
-type Max350Text string
-
-// Must be at least 1 items long
-type Max35Text string
-
-// Must be at least 1 items long
-type Max70Text string
-
 type MessageHeader1 struct {
 	MsgId   Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:camt.071.001.03 MsgId"`
 	CreDtTm ISODateTime `xml:"urn:iso:std:iso:20022:tech:xsd:camt.071.001.03 CreDtTm,omitempty"`
@@ -220,38 +169,4 @@ type SupplementaryData1 struct {
 
 type SupplementaryDataEnvelope1 struct {
 	Item string `xml:",any"`
-}
-
-type xsdDateTime time.Time
-
-func (t *xsdDateTime) UnmarshalText(text []byte) error {
-	return _unmarshalTime(text, (*time.Time)(t), "2006-01-02T15:04:05.999999999")
-}
-func (t xsdDateTime) MarshalText() ([]byte, error) {
-	return []byte((time.Time)(t).Format("2006-01-02T15:04:05.999999999")), nil
-}
-func (t xsdDateTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	if (time.Time)(t).IsZero() {
-		return nil
-	}
-	m, err := t.MarshalText()
-	if err != nil {
-		return err
-	}
-	return e.EncodeElement(m, start)
-}
-func (t xsdDateTime) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
-	if (time.Time)(t).IsZero() {
-		return xml.Attr{}, nil
-	}
-	m, err := t.MarshalText()
-	return xml.Attr{Name: name, Value: string(m)}, err
-}
-func _unmarshalTime(text []byte, t *time.Time, format string) (err error) {
-	s := string(bytes.TrimSpace(text))
-	*t, err = time.Parse(format, s)
-	if _, ok := err.(*time.ParseError); ok {
-		*t, err = time.Parse(format+"Z07:00", s)
-	}
-	return err
 }

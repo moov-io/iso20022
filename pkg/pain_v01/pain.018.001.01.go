@@ -2,12 +2,6 @@
 
 package pain_v01
 
-import (
-	"bytes"
-	"encoding/xml"
-	"time"
-)
-
 type AccountIdentification4Choice struct {
 	IBAN IBAN2007Identifier            `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 IBAN"`
 	Othr GenericAccountIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 Othr"`
@@ -23,19 +17,10 @@ type ActiveCurrencyAndAmount struct {
 	Ccy   ActiveCurrencyCode `xml:"Ccy,attr"`
 }
 
-// Must match the pattern [A-Z]{3,3}
-type ActiveCurrencyCode string
-
 type ActiveOrHistoricCurrencyAndAmount struct {
 	Value float64                      `xml:",chardata"`
 	Ccy   ActiveOrHistoricCurrencyCode `xml:"Ccy,attr"`
 }
-
-// Must match the pattern [A-Z]{3,3}
-type ActiveOrHistoricCurrencyCode string
-
-// Must match the pattern [A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}
-type AnyBICIdentifier string
 
 type AuthenticationChannel1Choice struct {
 	Cd    ExternalAuthenticationChannel1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 Cd"`
@@ -46,12 +31,6 @@ type Authorisation1Choice struct {
 	Cd    Authorisation1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 Cd"`
 	Prtry Max128Text         `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 Prtry"`
 }
-
-// May be one of AUTH, FDET, FSUM, ILEV
-type Authorisation1Code string
-
-// Must match the pattern [A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}
-type BICFIIdentifier string
 
 type BranchAndFinancialInstitutionIdentification5 struct {
 	FinInstnId FinancialInstitutionIdentification8 `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 FinInstnId"`
@@ -100,9 +79,6 @@ type ContactDetails2 struct {
 	EmailAdr Max2048Text     `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 EmailAdr,omitempty"`
 	Othr     Max35Text       `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 Othr,omitempty"`
 }
-
-// Must match the pattern [A-Z]{2,2}
-type CountryCode string
 
 type DateAndPlaceOfBirth struct {
 	BirthDt     ISODate     `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 BirthDt"`
@@ -235,27 +211,6 @@ type GroupHeader47 struct {
 	InstdAgt BranchAndFinancialInstitutionIdentification5 `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 InstdAgt,omitempty"`
 }
 
-// Must match the pattern [A-Z]{2,2}[0-9]{2,2}[a-zA-Z0-9]{1,30}
-type IBAN2007Identifier string
-
-type ISODate time.Time
-
-func (t *ISODate) UnmarshalText(text []byte) error {
-	return (*xsdDate)(t).UnmarshalText(text)
-}
-func (t ISODate) MarshalText() ([]byte, error) {
-	return xsdDate(t).MarshalText()
-}
-
-type ISODateTime time.Time
-
-func (t *ISODateTime) UnmarshalText(text []byte) error {
-	return (*xsdDateTime)(t).UnmarshalText(text)
-}
-func (t ISODateTime) MarshalText() ([]byte, error) {
-	return xsdDateTime(t).MarshalText()
-}
-
 type LocalInstrument2Choice struct {
 	Cd    ExternalLocalInstrument1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 Cd"`
 	Prtry Max35Text                    `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 Prtry"`
@@ -304,9 +259,6 @@ type MandateClassification1Choice struct {
 	Prtry Max35Text                  `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 Prtry"`
 }
 
-// May be one of FIXE, USGB, VARI
-type MandateClassification1Code string
-
 type MandateOccurrences4 struct {
 	SeqTp        SequenceType2Code  `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 SeqTp"`
 	Frqcy        Frequency36Choice  `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 Frqcy,omitempty"`
@@ -352,36 +304,6 @@ type MandateTypeInformation2 struct {
 	Clssfctn  MandateClassification1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 Clssfctn,omitempty"`
 }
 
-// Must be at least 1 items long
-type Max105Text string
-
-// Must be at least 1 items long
-type Max128Text string
-
-// Must be at least 1 items long
-type Max140Text string
-
-// Must be at least 1 items long
-type Max16Text string
-
-// Must be at least 1 items long
-type Max2048Text string
-
-// Must be at least 1 items long
-type Max34Text string
-
-// Must be at least 1 items long
-type Max350Text string
-
-// Must be at least 1 items long
-type Max35Text string
-
-// Must be at least 1 items long
-type Max70Text string
-
-// May be one of DOCT, MIST, MISS, MADM
-type NamePrefix1Code string
-
 type OrganisationIdentification8 struct {
 	AnyBIC AnyBICIdentifier                     `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 AnyBIC,omitempty"`
 	Othr   []GenericOrganisationIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 Othr,omitempty"`
@@ -425,9 +347,6 @@ type PersonIdentificationSchemeName1Choice struct {
 	Cd    ExternalPersonIdentification1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 Cd"`
 	Prtry Max35Text                         `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 Prtry"`
 }
-
-// Must match the pattern \+[0-9]{1,3}-[0-9()+\-]{1,30}
-type PhoneNumber string
 
 type PostalAddress6 struct {
 	AdrTp       AddressType2Code `xml:"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01 AdrTp,omitempty"`
@@ -474,64 +393,4 @@ type SupplementaryData1 struct {
 
 type SupplementaryDataEnvelope1 struct {
 	Item string `xml:",any"`
-}
-
-type xsdDate time.Time
-
-func (t *xsdDate) UnmarshalText(text []byte) error {
-	return _unmarshalTime(text, (*time.Time)(t), "2006-01-02")
-}
-func (t xsdDate) MarshalText() ([]byte, error) {
-	return []byte((time.Time)(t).Format("2006-01-02")), nil
-}
-func (t xsdDate) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	if (time.Time)(t).IsZero() {
-		return nil
-	}
-	m, err := t.MarshalText()
-	if err != nil {
-		return err
-	}
-	return e.EncodeElement(m, start)
-}
-func (t xsdDate) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
-	if (time.Time)(t).IsZero() {
-		return xml.Attr{}, nil
-	}
-	m, err := t.MarshalText()
-	return xml.Attr{Name: name, Value: string(m)}, err
-}
-func _unmarshalTime(text []byte, t *time.Time, format string) (err error) {
-	s := string(bytes.TrimSpace(text))
-	*t, err = time.Parse(format, s)
-	if _, ok := err.(*time.ParseError); ok {
-		*t, err = time.Parse(format+"Z07:00", s)
-	}
-	return err
-}
-
-type xsdDateTime time.Time
-
-func (t *xsdDateTime) UnmarshalText(text []byte) error {
-	return _unmarshalTime(text, (*time.Time)(t), "2006-01-02T15:04:05.999999999")
-}
-func (t xsdDateTime) MarshalText() ([]byte, error) {
-	return []byte((time.Time)(t).Format("2006-01-02T15:04:05.999999999")), nil
-}
-func (t xsdDateTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	if (time.Time)(t).IsZero() {
-		return nil
-	}
-	m, err := t.MarshalText()
-	if err != nil {
-		return err
-	}
-	return e.EncodeElement(m, start)
-}
-func (t xsdDateTime) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
-	if (time.Time)(t).IsZero() {
-		return xml.Attr{}, nil
-	}
-	m, err := t.MarshalText()
-	return xml.Attr{Name: name, Value: string(m)}, err
 }

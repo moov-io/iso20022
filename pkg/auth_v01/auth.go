@@ -57,7 +57,7 @@ func (r AccountAndParties1) Validate() error {
 }
 
 type AccountIdentification4Choice struct {
-	IBAN IBAN2007Identifier            `xml:"IBAN"`
+	IBAN common.IBAN2007Identifier     `xml:"IBAN"`
 	Othr GenericAccountIdentification1 `xml:"Othr"`
 }
 
@@ -116,7 +116,7 @@ func (r BranchData2) Validate() error {
 type CashAccount25 struct {
 	Id   AccountIdentification4Choice                  `xml:"Id"`
 	Tp   *CashAccountType2Choice                       `xml:"Tp,omitempty" json:",omitempty"`
-	Ccy  *ActiveOrHistoricCurrencyCode                 `xml:"Ccy,omitempty" json:",omitempty"`
+	Ccy  *common.ActiveOrHistoricCurrencyCode          `xml:"Ccy,omitempty" json:",omitempty"`
 	Nm   *common.Max70Text                             `xml:"Nm,omitempty" json:",omitempty"`
 	Ownr *PartyIdentification43                        `xml:"Ownr,omitempty" json:",omitempty"`
 	Svcr *BranchAndFinancialInstitutionIdentification5 `xml:"Svcr,omitempty" json:",omitempty"`
@@ -154,13 +154,13 @@ func (r ClearingSystemMemberIdentification2) Validate() error {
 }
 
 type ContactDetails2 struct {
-	NmPrfx   *NamePrefix1Code    `xml:"NmPrfx,omitempty" json:",omitempty"`
-	Nm       *common.Max140Text  `xml:"Nm,omitempty" json:",omitempty"`
-	PhneNb   *common.PhoneNumber `xml:"PhneNb,omitempty" json:",omitempty"`
-	MobNb    *common.PhoneNumber `xml:"MobNb,omitempty" json:",omitempty"`
-	FaxNb    *common.PhoneNumber `xml:"FaxNb,omitempty" json:",omitempty"`
-	EmailAdr *common.Max2048Text `xml:"EmailAdr,omitempty" json:",omitempty"`
-	Othr     *common.Max35Text   `xml:"Othr,omitempty" json:",omitempty"`
+	NmPrfx   *common.NamePrefix1Code `xml:"NmPrfx,omitempty" json:",omitempty"`
+	Nm       *common.Max140Text      `xml:"Nm,omitempty" json:",omitempty"`
+	PhneNb   *common.PhoneNumber     `xml:"PhneNb,omitempty" json:",omitempty"`
+	MobNb    *common.PhoneNumber     `xml:"MobNb,omitempty" json:",omitempty"`
+	FaxNb    *common.PhoneNumber     `xml:"FaxNb,omitempty" json:",omitempty"`
+	EmailAdr *common.Max2048Text     `xml:"EmailAdr,omitempty" json:",omitempty"`
+	Othr     *common.Max35Text       `xml:"Othr,omitempty" json:",omitempty"`
 }
 
 func (r ContactDetails2) Validate() error {
@@ -177,10 +177,10 @@ func (r CustomerIdentification1) Validate() error {
 }
 
 type DateAndPlaceOfBirth struct {
-	BirthDt     common.ISODate    `xml:"BirthDt"`
-	PrvcOfBirth *common.Max35Text `xml:"PrvcOfBirth,omitempty" json:",omitempty"`
-	CityOfBirth *common.Max35Text `xml:"CityOfBirth"`
-	CtryOfBirth CountryCode       `xml:"CtryOfBirth"`
+	BirthDt     common.ISODate     `xml:"BirthDt"`
+	PrvcOfBirth *common.Max35Text  `xml:"PrvcOfBirth,omitempty" json:",omitempty"`
+	CityOfBirth *common.Max35Text  `xml:"CityOfBirth"`
+	CtryOfBirth common.CountryCode `xml:"CtryOfBirth"`
 }
 
 func (r DateAndPlaceOfBirth) Validate() error {
@@ -233,7 +233,7 @@ func (r FinancialIdentificationSchemeName1Choice) Validate() error {
 }
 
 type FinancialInstitutionIdentification8 struct {
-	BICFI       *BICFIIdentifier                     `xml:"BICFI,omitempty" json:",omitempty"`
+	BICFI       *common.BICFIIdentifier              `xml:"BICFI,omitempty" json:",omitempty"`
 	ClrSysMmbId *ClearingSystemMemberIdentification2 `xml:"ClrSysMmbId,omitempty" json:",omitempty"`
 	Nm          *common.Max140Text                   `xml:"Nm,omitempty" json:",omitempty"`
 	PstlAdr     *PostalAddress6                      `xml:"PstlAdr,omitempty" json:",omitempty"`
@@ -303,7 +303,7 @@ func (r LegalMandate1) Validate() error {
 }
 
 type OrganisationIdentification8 struct {
-	AnyBIC *AnyBICIdentifier                    `xml:"AnyBIC,omitempty" json:",omitempty"`
+	AnyBIC *common.AnyBICIdentifier             `xml:"AnyBIC,omitempty" json:",omitempty"`
 	Othr   []GenericOrganisationIdentification1 `xml:"Othr,omitempty" json:",omitempty"`
 }
 
@@ -330,11 +330,11 @@ func (r Party11Choice) Validate() error {
 }
 
 type PartyIdentification43 struct {
-	Nm        *common.Max140Text `xml:"Nm,omitempty" json:",omitempty"`
-	PstlAdr   *PostalAddress6    `xml:"PstlAdr,omitempty" json:",omitempty"`
-	Id        *Party11Choice     `xml:"Id,omitempty" json:",omitempty"`
-	CtryOfRes *CountryCode       `xml:"CtryOfRes,omitempty" json:",omitempty"`
-	CtctDtls  *ContactDetails2   `xml:"CtctDtls,omitempty" json:",omitempty"`
+	Nm        *common.Max140Text  `xml:"Nm,omitempty" json:",omitempty"`
+	PstlAdr   *PostalAddress6     `xml:"PstlAdr,omitempty" json:",omitempty"`
+	Id        *Party11Choice      `xml:"Id,omitempty" json:",omitempty"`
+	CtryOfRes *common.CountryCode `xml:"CtryOfRes,omitempty" json:",omitempty"`
+	CtctDtls  *ContactDetails2    `xml:"CtctDtls,omitempty" json:",omitempty"`
 }
 
 func (r PartyIdentification43) Validate() error {
@@ -370,16 +370,16 @@ func (r PersonIdentificationSchemeName1Choice) Validate() error {
 }
 
 type PostalAddress6 struct {
-	AdrTp       *AddressType2Code  `xml:"AdrTp,omitempty" json:",omitempty"`
-	Dept        *common.Max70Text  `xml:"Dept,omitempty" json:",omitempty"`
-	SubDept     *common.Max70Text  `xml:"SubDept,omitempty" json:",omitempty"`
-	StrtNm      *common.Max70Text  `xml:"StrtNm,omitempty" json:",omitempty"`
-	BldgNb      *common.Max16Text  `xml:"BldgNb,omitempty" json:",omitempty"`
-	PstCd       *common.Max16Text  `xml:"PstCd,omitempty" json:",omitempty"`
-	TwnNm       *common.Max35Text  `xml:"TwnNm,omitempty" json:",omitempty"`
-	CtrySubDvsn *common.Max35Text  `xml:"CtrySubDvsn,omitempty" json:",omitempty"`
-	Ctry        *CountryCode       `xml:"Ctry,omitempty" json:",omitempty"`
-	AdrLine     []common.Max70Text `xml:"AdrLine,omitempty" json:",omitempty"`
+	AdrTp       *common.AddressType2Code `xml:"AdrTp,omitempty" json:",omitempty"`
+	Dept        *common.Max70Text        `xml:"Dept,omitempty" json:",omitempty"`
+	SubDept     *common.Max70Text        `xml:"SubDept,omitempty" json:",omitempty"`
+	StrtNm      *common.Max70Text        `xml:"StrtNm,omitempty" json:",omitempty"`
+	BldgNb      *common.Max16Text        `xml:"BldgNb,omitempty" json:",omitempty"`
+	PstCd       *common.Max16Text        `xml:"PstCd,omitempty" json:",omitempty"`
+	TwnNm       *common.Max35Text        `xml:"TwnNm,omitempty" json:",omitempty"`
+	CtrySubDvsn *common.Max35Text        `xml:"CtrySubDvsn,omitempty" json:",omitempty"`
+	Ctry        *common.CountryCode      `xml:"Ctry,omitempty" json:",omitempty"`
+	AdrLine     []common.Max70Text       `xml:"AdrLine,omitempty" json:",omitempty"`
 }
 
 func (r PostalAddress6) Validate() error {

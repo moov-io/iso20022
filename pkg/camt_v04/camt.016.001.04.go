@@ -2,15 +2,6 @@
 
 package camt_v04
 
-import (
-	"bytes"
-	"encoding/xml"
-	"time"
-)
-
-// Must match the pattern [A-Z]{3,3}
-type ActiveOrHistoricCurrencyCode string
-
 type CurrencyCriteriaDefinition1Choice struct {
 	QryNm   Max35Text                 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.016.001.04 QryNm"`
 	NewCrit CurrencyExchangeCriteria2 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.016.001.04 NewCrit"`
@@ -41,21 +32,6 @@ type GetCurrencyExchangeRateV04 struct {
 	SplmtryData []SupplementaryData1     `xml:"urn:iso:std:iso:20022:tech:xsd:camt.016.001.04 SplmtryData,omitempty"`
 }
 
-type ISODateTime time.Time
-
-func (t *ISODateTime) UnmarshalText(text []byte) error {
-	return (*xsdDateTime)(t).UnmarshalText(text)
-}
-func (t ISODateTime) MarshalText() ([]byte, error) {
-	return xsdDateTime(t).MarshalText()
-}
-
-// Must be at least 1 items long
-type Max350Text string
-
-// Must be at least 1 items long
-type Max35Text string
-
 type MessageHeader1 struct {
 	MsgId   Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:camt.016.001.04 MsgId"`
 	CreDtTm ISODateTime `xml:"urn:iso:std:iso:20022:tech:xsd:camt.016.001.04 CreDtTm,omitempty"`
@@ -71,38 +47,4 @@ type SupplementaryData1 struct {
 
 type SupplementaryDataEnvelope1 struct {
 	Item string `xml:",any"`
-}
-
-type xsdDateTime time.Time
-
-func (t *xsdDateTime) UnmarshalText(text []byte) error {
-	return _unmarshalTime(text, (*time.Time)(t), "2006-01-02T15:04:05.999999999")
-}
-func (t xsdDateTime) MarshalText() ([]byte, error) {
-	return []byte((time.Time)(t).Format("2006-01-02T15:04:05.999999999")), nil
-}
-func (t xsdDateTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	if (time.Time)(t).IsZero() {
-		return nil
-	}
-	m, err := t.MarshalText()
-	if err != nil {
-		return err
-	}
-	return e.EncodeElement(m, start)
-}
-func (t xsdDateTime) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
-	if (time.Time)(t).IsZero() {
-		return xml.Attr{}, nil
-	}
-	m, err := t.MarshalText()
-	return xml.Attr{Name: name, Value: string(m)}, err
-}
-func _unmarshalTime(text []byte, t *time.Time, format string) (err error) {
-	s := string(bytes.TrimSpace(text))
-	*t, err = time.Parse(format, s)
-	if _, ok := err.(*time.ParseError); ok {
-		*t, err = time.Parse(format+"Z07:00", s)
-	}
-	return err
 }

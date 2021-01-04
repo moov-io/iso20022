@@ -2,12 +2,6 @@
 
 package pacs_v04
 
-import (
-	"bytes"
-	"encoding/xml"
-	"time"
-)
-
 type AccountIdentification4Choice struct {
 	IBAN IBAN2007Identifier            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.010.001.04 IBAN"`
 	Othr GenericAccountIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.010.001.04 Othr"`
@@ -23,19 +17,10 @@ type ActiveCurrencyAndAmount struct {
 	Ccy   ActiveCurrencyCode `xml:"Ccy,attr"`
 }
 
-// Must match the pattern [A-Z]{3,3}
-type ActiveCurrencyCode string
-
-// Must match the pattern [A-Z]{3,3}
-type ActiveOrHistoricCurrencyCode string
-
 type AddressType3Choice struct {
 	Cd    AddressType2Code        `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.010.001.04 Cd"`
 	Prtry GenericIdentification30 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.010.001.04 Prtry"`
 }
-
-// Must match the pattern [A-Z0-9]{4,4}[A-Z]{2,2}[A-Z0-9]{2,2}([A-Z0-9]{3,3}){0,1}
-type BICFIDec2014Identifier string
 
 type BranchAndFinancialInstitutionIdentification6 struct {
 	FinInstnId FinancialInstitutionIdentification18 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.010.001.04 FinInstnId"`
@@ -79,9 +64,6 @@ type ClearingSystemMemberIdentification2 struct {
 	ClrSysId ClearingSystemIdentification2Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.010.001.04 ClrSysId,omitempty"`
 	MmbId    Max35Text                           `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.010.001.04 MmbId"`
 }
-
-// Must match the pattern [A-Z]{2,2}
-type CountryCode string
 
 type CreditTransferTransaction47 struct {
 	CdtId             Max35Text                                    `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.010.001.04 CdtId"`
@@ -210,75 +192,15 @@ type GroupHeader92 struct {
 	InstdAgt BranchAndFinancialInstitutionIdentification6 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.010.001.04 InstdAgt,omitempty"`
 }
 
-// Must match the pattern [A-Z]{2,2}[0-9]{2,2}[a-zA-Z0-9]{1,30}
-type IBAN2007Identifier string
-
-type ISODate time.Time
-
-func (t *ISODate) UnmarshalText(text []byte) error {
-	return (*xsdDate)(t).UnmarshalText(text)
-}
-func (t ISODate) MarshalText() ([]byte, error) {
-	return xsdDate(t).MarshalText()
-}
-
-type ISODateTime time.Time
-
-func (t *ISODateTime) UnmarshalText(text []byte) error {
-	return (*xsdDateTime)(t).UnmarshalText(text)
-}
-func (t ISODateTime) MarshalText() ([]byte, error) {
-	return xsdDateTime(t).MarshalText()
-}
-
-type ISOTime time.Time
-
-func (t *ISOTime) UnmarshalText(text []byte) error {
-	return (*xsdTime)(t).UnmarshalText(text)
-}
-func (t ISOTime) MarshalText() ([]byte, error) {
-	return xsdTime(t).MarshalText()
-}
-
 type InstructionForCreditorAgent3 struct {
 	Cd       ExternalCreditorAgentInstruction1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.010.001.04 Cd,omitempty"`
 	InstrInf Max140Text                            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.010.001.04 InstrInf,omitempty"`
 }
 
-// Must match the pattern [A-Z0-9]{18,18}[0-9]{2,2}
-type LEIIdentifier string
-
 type LocalInstrument2Choice struct {
 	Cd    ExternalLocalInstrument1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.010.001.04 Cd"`
 	Prtry Max35Text                    `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.010.001.04 Prtry"`
 }
-
-// Must be at least 1 items long
-type Max140Text string
-
-// Must match the pattern [0-9]{1,15}
-type Max15NumericText string
-
-// Must be at least 1 items long
-type Max16Text string
-
-// Must be at least 1 items long
-type Max2048Text string
-
-// Must be at least 1 items long
-type Max210Text string
-
-// Must be at least 1 items long
-type Max34Text string
-
-// Must be at least 1 items long
-type Max350Text string
-
-// Must be at least 1 items long
-type Max35Text string
-
-// Must be at least 1 items long
-type Max70Text string
 
 type PaymentIdentification13 struct {
 	InstrId    Max35Text        `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.010.001.04 InstrId,omitempty"`
@@ -364,93 +286,4 @@ type SupplementaryData1 struct {
 
 type SupplementaryDataEnvelope1 struct {
 	Item string `xml:",any"`
-}
-
-// Must match the pattern [a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}
-type UUIDv4Identifier string
-
-type xsdDate time.Time
-
-func (t *xsdDate) UnmarshalText(text []byte) error {
-	return _unmarshalTime(text, (*time.Time)(t), "2006-01-02")
-}
-func (t xsdDate) MarshalText() ([]byte, error) {
-	return []byte((time.Time)(t).Format("2006-01-02")), nil
-}
-func (t xsdDate) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	if (time.Time)(t).IsZero() {
-		return nil
-	}
-	m, err := t.MarshalText()
-	if err != nil {
-		return err
-	}
-	return e.EncodeElement(m, start)
-}
-func (t xsdDate) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
-	if (time.Time)(t).IsZero() {
-		return xml.Attr{}, nil
-	}
-	m, err := t.MarshalText()
-	return xml.Attr{Name: name, Value: string(m)}, err
-}
-func _unmarshalTime(text []byte, t *time.Time, format string) (err error) {
-	s := string(bytes.TrimSpace(text))
-	*t, err = time.Parse(format, s)
-	if _, ok := err.(*time.ParseError); ok {
-		*t, err = time.Parse(format+"Z07:00", s)
-	}
-	return err
-}
-
-type xsdDateTime time.Time
-
-func (t *xsdDateTime) UnmarshalText(text []byte) error {
-	return _unmarshalTime(text, (*time.Time)(t), "2006-01-02T15:04:05.999999999")
-}
-func (t xsdDateTime) MarshalText() ([]byte, error) {
-	return []byte((time.Time)(t).Format("2006-01-02T15:04:05.999999999")), nil
-}
-func (t xsdDateTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	if (time.Time)(t).IsZero() {
-		return nil
-	}
-	m, err := t.MarshalText()
-	if err != nil {
-		return err
-	}
-	return e.EncodeElement(m, start)
-}
-func (t xsdDateTime) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
-	if (time.Time)(t).IsZero() {
-		return xml.Attr{}, nil
-	}
-	m, err := t.MarshalText()
-	return xml.Attr{Name: name, Value: string(m)}, err
-}
-
-type xsdTime time.Time
-
-func (t *xsdTime) UnmarshalText(text []byte) error {
-	return _unmarshalTime(text, (*time.Time)(t), "15:04:05.999999999")
-}
-func (t xsdTime) MarshalText() ([]byte, error) {
-	return []byte((time.Time)(t).Format("15:04:05.999999999")), nil
-}
-func (t xsdTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	if (time.Time)(t).IsZero() {
-		return nil
-	}
-	m, err := t.MarshalText()
-	if err != nil {
-		return err
-	}
-	return e.EncodeElement(m, start)
-}
-func (t xsdTime) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
-	if (time.Time)(t).IsZero() {
-		return xml.Attr{}, nil
-	}
-	m, err := t.MarshalText()
-	return xml.Attr{Name: name, Value: string(m)}, err
 }

@@ -2,12 +2,6 @@
 
 package camt_v08
 
-import (
-	"bytes"
-	"encoding/xml"
-	"time"
-)
-
 type AccountIdentification4Choice struct {
 	IBAN IBAN2007Identifier            `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 IBAN"`
 	Othr GenericAccountIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 Othr"`
@@ -50,9 +44,6 @@ type ActiveCurrencyAndAmount struct {
 	Ccy   ActiveCurrencyCode `xml:"Ccy,attr"`
 }
 
-// Must match the pattern [A-Z]{3,3}
-type ActiveCurrencyCode string
-
 type ActiveOrHistoricCurrencyAnd13DecimalAmount struct {
 	Value float64                      `xml:",chardata"`
 	Ccy   ActiveOrHistoricCurrencyCode `xml:"Ccy,attr"`
@@ -68,9 +59,6 @@ type ActiveOrHistoricCurrencyAndAmountRange2 struct {
 	CdtDbtInd CreditDebitCode                   `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 CdtDbtInd,omitempty"`
 	Ccy       ActiveOrHistoricCurrencyCode      `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 Ccy"`
 }
-
-// Must match the pattern [A-Z]{3,3}
-type ActiveOrHistoricCurrencyCode string
 
 type AddressType3Choice struct {
 	Cd    AddressType2Code        `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 Cd"`
@@ -106,9 +94,6 @@ type AmountRangeBoundary1 struct {
 	Incl    bool    `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 Incl"`
 }
 
-// Must match the pattern [A-Z0-9]{4,4}[A-Z]{2,2}[A-Z0-9]{2,2}([A-Z0-9]{3,3}){0,1}
-type AnyBICDec2014Identifier string
-
 // May be one of ATTD, SATT, UATT
 type AttendanceContext1Code string
 
@@ -117,9 +102,6 @@ type AuthenticationEntity1Code string
 
 // May be one of UKNW, BYPS, NPIN, FPIN, CPSG, PPSG, MANU, MERC, SCRT, SNCT, SCNL
 type AuthenticationMethod1Code string
-
-// Must match the pattern [A-Z0-9]{4,4}[A-Z]{2,2}[A-Z0-9]{2,2}([A-Z0-9]{3,3}){0,1}
-type BICFIDec2014Identifier string
 
 type BalanceSubType1Choice struct {
 	Cd    ExternalBalanceSubType1Code `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 Cd"`
@@ -344,19 +326,10 @@ type Contact4 struct {
 	PrefrdMtd PreferredContactMethod1Code `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 PrefrdMtd,omitempty"`
 }
 
-// May be one of CODU, COPY, DUPL
-type CopyDuplicate1Code string
-
 type CorporateAction9 struct {
 	EvtTp Max35Text `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 EvtTp"`
 	EvtId Max35Text `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 EvtId"`
 }
-
-// Must match the pattern [A-Z]{2,2}
-type CountryCode string
-
-// May be one of CRDT, DBIT
-type CreditDebitCode string
 
 type CreditLine3 struct {
 	Incl bool                              `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 Incl"`
@@ -708,41 +681,11 @@ type GroupHeader81 struct {
 	AddtlInf    Max500Text             `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 AddtlInf,omitempty"`
 }
 
-// Must match the pattern [A-Z]{2,2}[0-9]{2,2}[a-zA-Z0-9]{1,30}
-type IBAN2007Identifier string
-
 // Must match the pattern [A-Z]{2,2}[A-Z0-9]{9,9}[0-9]{1,1}
 type ISINOct2015Identifier string
 
 // Must match the pattern [a-z]{2,2}
 type ISO2ALanguageCode string
-
-type ISODate time.Time
-
-func (t *ISODate) UnmarshalText(text []byte) error {
-	return (*xsdDate)(t).UnmarshalText(text)
-}
-func (t ISODate) MarshalText() ([]byte, error) {
-	return xsdDate(t).MarshalText()
-}
-
-type ISODateTime time.Time
-
-func (t *ISODateTime) UnmarshalText(text []byte) error {
-	return (*xsdDateTime)(t).UnmarshalText(text)
-}
-func (t ISODateTime) MarshalText() ([]byte, error) {
-	return xsdDateTime(t).MarshalText()
-}
-
-type ISOYearMonth time.Time
-
-func (t *ISOYearMonth) UnmarshalText(text []byte) error {
-	return (*xsdGYearMonth)(t).UnmarshalText(text)
-}
-func (t ISOYearMonth) MarshalText() ([]byte, error) {
-	return xsdGYearMonth(t).MarshalText()
-}
 
 type IdentificationSource3Choice struct {
 	Cd    ExternalFinancialInstrumentIdentificationType1Code `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 Cd"`
@@ -772,86 +715,20 @@ type InterestType1Choice struct {
 	Prtry Max35Text         `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 Prtry"`
 }
 
-// May be one of INDY, OVRN
-type InterestType1Code string
-
-// Must match the pattern [A-Z0-9]{18,18}[0-9]{2,2}
-type LEIIdentifier string
-
 type LocalInstrument2Choice struct {
 	Cd    ExternalLocalInstrument1Code `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 Cd"`
 	Prtry Max35Text                    `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 Prtry"`
 }
-
-// Must be at least 1 items long
-type Max1025Text string
-
-// Must be at least 1 items long
-type Max105Text string
-
-// Must be at least 1 items long
-type Max128Text string
-
-// Must be at least 1 items long
-type Max140Text string
-
-// Must match the pattern [0-9]{1,15}
-type Max15NumericText string
-
-// Must match the pattern [\+]{0,1}[0-9]{1,15}
-type Max15PlusSignedNumericText string
-
-// Must be at least 1 items long
-type Max16Text string
-
-// Must be at least 1 items long
-type Max2048Text string
-
-// Must be at least 1 items long
-type Max34Text string
-
-// Must be at least 1 items long
-type Max350Text string
-
-// Must be at least 1 items long
-type Max35Text string
-
-// Must match the pattern [0-9]{1,3}
-type Max3NumericText string
-
-// Must be at least 1 items long
-type Max4Text string
-
-// Must be at least 1 items long
-type Max500Text string
-
-// Must match the pattern [0-9]{1,5}
-type Max5NumericText string
-
-// Must be at least 1 items long
-type Max70Text string
 
 type MessageIdentification2 struct {
 	MsgNmId Max35Text `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 MsgNmId,omitempty"`
 	MsgId   Max35Text `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 MsgId,omitempty"`
 }
 
-// Must match the pattern [0-9]{2,3}
-type Min2Max3NumericText string
-
-// Must match the pattern [0-9]{3,4}
-type Min3Max4NumericText string
-
-// Must match the pattern [0-9]{8,28}
-type Min8Max28NumericText string
-
 type NameAndAddress16 struct {
 	Nm  Max140Text      `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 Nm"`
 	Adr PostalAddress24 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 Adr"`
 }
-
-// May be one of DOCT, MADM, MISS, MIST, MIKS
-type NamePrefix2Code string
 
 type NumberAndSumOfTransactions1 struct {
 	NbOfNtries Max15NumericText `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 NbOfNtries,omitempty"`
@@ -969,9 +846,6 @@ type PersonIdentificationSchemeName1Choice struct {
 	Cd    ExternalPersonIdentification1Code `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 Cd"`
 	Prtry Max35Text                         `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 Prtry"`
 }
-
-// Must match the pattern \+[0-9]{1,3}-[0-9()+\-]{1,30}
-type PhoneNumber string
 
 type PlainCardData1 struct {
 	PAN        Min8Max28NumericText     `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 PAN"`
@@ -1450,9 +1324,6 @@ type TransactionReferences6 struct {
 	Prtry             []ProprietaryReference1 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 Prtry,omitempty"`
 }
 
-// Must match the pattern [a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}
-type UUIDv4Identifier string
-
 // May be one of PIEC, TONS, FOOT, GBGA, USGA, GRAM, INCH, KILO, PUND, METR, CMET, MMET, LITR, CELI, MILI, GBOU, USOU, GBQA, USQA, GBPI, USPI, MILE, KMET, YARD, SQKI, HECT, ARES, SMET, SCMT, SMIL, SQMI, SQYA, SQFO, SQIN, ACRE
 type UnitOfMeasure1Code string
 
@@ -1462,90 +1333,4 @@ type UserInterface2Code string
 type YieldedOrValueType1Choice struct {
 	Yldd  bool                `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 Yldd"`
 	ValTp PriceValueType1Code `xml:"urn:iso:std:iso:20022:tech:xsd:camt.052.001.08 ValTp"`
-}
-
-type xsdDate time.Time
-
-func (t *xsdDate) UnmarshalText(text []byte) error {
-	return _unmarshalTime(text, (*time.Time)(t), "2006-01-02")
-}
-func (t xsdDate) MarshalText() ([]byte, error) {
-	return []byte((time.Time)(t).Format("2006-01-02")), nil
-}
-func (t xsdDate) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	if (time.Time)(t).IsZero() {
-		return nil
-	}
-	m, err := t.MarshalText()
-	if err != nil {
-		return err
-	}
-	return e.EncodeElement(m, start)
-}
-func (t xsdDate) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
-	if (time.Time)(t).IsZero() {
-		return xml.Attr{}, nil
-	}
-	m, err := t.MarshalText()
-	return xml.Attr{Name: name, Value: string(m)}, err
-}
-func _unmarshalTime(text []byte, t *time.Time, format string) (err error) {
-	s := string(bytes.TrimSpace(text))
-	*t, err = time.Parse(format, s)
-	if _, ok := err.(*time.ParseError); ok {
-		*t, err = time.Parse(format+"Z07:00", s)
-	}
-	return err
-}
-
-type xsdDateTime time.Time
-
-func (t *xsdDateTime) UnmarshalText(text []byte) error {
-	return _unmarshalTime(text, (*time.Time)(t), "2006-01-02T15:04:05.999999999")
-}
-func (t xsdDateTime) MarshalText() ([]byte, error) {
-	return []byte((time.Time)(t).Format("2006-01-02T15:04:05.999999999")), nil
-}
-func (t xsdDateTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	if (time.Time)(t).IsZero() {
-		return nil
-	}
-	m, err := t.MarshalText()
-	if err != nil {
-		return err
-	}
-	return e.EncodeElement(m, start)
-}
-func (t xsdDateTime) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
-	if (time.Time)(t).IsZero() {
-		return xml.Attr{}, nil
-	}
-	m, err := t.MarshalText()
-	return xml.Attr{Name: name, Value: string(m)}, err
-}
-
-type xsdGYearMonth time.Time
-
-func (t *xsdGYearMonth) UnmarshalText(text []byte) error {
-	return _unmarshalTime(text, (*time.Time)(t), "2006-01")
-}
-func (t xsdGYearMonth) MarshalText() ([]byte, error) {
-	return []byte((time.Time)(t).Format("2006-01")), nil
-}
-func (t xsdGYearMonth) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	if (time.Time)(t).IsZero() {
-		return nil
-	}
-	m, err := t.MarshalText()
-	if err != nil {
-		return err
-	}
-	return e.EncodeElement(m, start)
-}
-func (t xsdGYearMonth) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
-	if (time.Time)(t).IsZero() {
-		return xml.Attr{}, nil
-	}
-	m, err := t.MarshalText()
-	return xml.Attr{Name: name, Value: string(m)}, err
 }
