@@ -55,6 +55,36 @@ func (r Max16Text) Validate() error {
 }
 
 // Must be at least 1 items long
+type Max40Text string
+
+func (r Max40Text) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 40 {
+		return utils.NewErrTextLengthInvalid("Max40Text", 1, 40)
+	}
+	return nil
+}
+
+// Must be at least 1 items long
+type Max12Text string
+
+func (r Max12Text) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 12 {
+		return utils.NewErrTextLengthInvalid("Max12Text", 1, 12)
+	}
+	return nil
+}
+
+// Must be at least 1 items long
+type Max8Text string
+
+func (r Max8Text) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 8 {
+		return utils.NewErrTextLengthInvalid("Max8Text", 1, 8)
+	}
+	return nil
+}
+
+// Must be at least 1 items long
 type Max25Text string
 
 func (r Max25Text) Validate() error {

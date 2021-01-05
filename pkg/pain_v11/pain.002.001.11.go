@@ -553,9 +553,6 @@ type PersonIdentificationSchemeName1Choice struct {
 	Prtry Max35Text                         `xml:"urn:iso:std:iso:20022:tech:xsd:pain.002.001.11 Prtry"`
 }
 
-// Must match the pattern \+[0-9]{1,3}-[0-9()+\-]{1,30}
-type PhoneNumber string
-
 type PostalAddress24 struct {
 	AdrTp       AddressType3Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pain.002.001.11 AdrTp,omitempty"`
 	Dept        Max70Text          `xml:"urn:iso:std:iso:20022:tech:xsd:pain.002.001.11 Dept,omitempty"`
