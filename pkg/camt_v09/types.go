@@ -2,67 +2,7 @@
 // Use of this source code is governed by an Apache License
 // license that can be found in the LICENSE file.
 
-package camt_v07
-
-// May be one of BILA, MULT
-type BalanceCounterparty1Code string
-
-// Must be at least 1 items long
-type ExternalAccountIdentification1Code string
-
-// Must be at least 1 items long
-type ExternalCashAccountType1Code string
-
-// Must be at least 1 items long
-type ExternalClearingSystemIdentification1Code string
-
-// Must be at least 1 items long
-type ExternalEnquiryRequestType1Code string
-
-// Must be at least 1 items long
-type ExternalFinancialInstitutionIdentification1Code string
-
-// Must be at least 1 items long
-type ExternalOrganisationIdentification1Code string
-
-// Must be at least 1 items long
-type ExternalPaymentControlRequestType1Code string
-
-// Must be at least 1 items long
-type ExternalPersonIdentification1Code string
-
-// Must be at least 1 items long
-type ExternalSystemBalanceType1Code string
-
-// May be one of LETT, MAIL, PHON, FAXX, CELL
-type PreferredContactMethod1Code string
-
-// May be one of ALLL, CHNG, MODF, DELD
-type QueryType2Code string
-
-// Must be at least 1 items long
-type ExternalMarketInfrastructure1Code string
-
-// May be one of MULT, BILI, MAND, DISC, NELI, INBI, GLBL, DIDB, SPLC, SPLF, TDLC, TDLF, UCDT, ACOL, EXGT
-type LimitType3Code string
-
-// Must be at least 1 items long
-type ExternalSystemErrorHandling1Code string
-
-// Must be at least 1 items long
-type ExternalSystemEventType1Code string
-
-// May be one of BHOL, SMTN, NOOP, RCVR, ADTW
-type SystemClosureReason1Code string
-
-// May be one of SUSP, ACTV, CLSD, CLSG
-type SystemStatus2Code string
-
-// May be one of CBS, BCK, BAL, CLS, CTR, CBH, CBP, DPG, DPN, EXP, TCH, LMT, LIQ, DPP, DPH, DPS, STF, TRP, TCS, LOA, LOR, TCP, OND, MGL
-type PaymentType3Code string
-
-// May be one of DEBT, CRED, SHAR, SLEV
-type ChargeBearerType1Code string
+package camt_v09
 
 // May be one of RTGS, RTNS, MPNS, BOOK
 type ClearingChannel2Code string
@@ -77,7 +17,13 @@ type DocumentType6Code string
 type Exact2NumericText string
 
 // Must be at least 1 items long
-type ExternalAgentInstruction1Code string
+type ExternalAccountIdentification1Code string
+
+// Must be at least 1 items long
+type ExternalCancellationReason1Code string
+
+// Must be at least 1 items long
+type ExternalCashAccountType1Code string
 
 // Must be at least 1 items long
 type ExternalCashClearingSystem1Code string
@@ -86,13 +32,16 @@ type ExternalCashClearingSystem1Code string
 type ExternalCategoryPurpose1Code string
 
 // Must be at least 1 items long
-type ExternalCreditorAgentInstruction1Code string
+type ExternalClearingSystemIdentification1Code string
 
 // Must be at least 1 items long
 type ExternalDiscountAmountType1Code string
 
 // Must be at least 1 items long
 type ExternalDocumentLineType1Code string
+
+// Must be at least 1 items long
+type ExternalFinancialInstitutionIdentification1Code string
 
 // Must be at least 1 items long
 type ExternalGarnishmentType1Code string
@@ -102,6 +51,12 @@ type ExternalLocalInstrument1Code string
 
 // Must be at least 1 items long
 type ExternalMandateSetupReason1Code string
+
+// Must be at least 1 items long
+type ExternalOrganisationIdentification1Code string
+
+// Must be at least 1 items long
+type ExternalPersonIdentification1Code string
 
 // Must be at least 1 items long
 type ExternalProxyAccountType1Code string
@@ -118,11 +73,11 @@ type ExternalTaxAmountType1Code string
 // May be one of YEAR, MNTH, QURT, MIAN, WEEK, DAIL, ADHO, INDA, FRTN
 type Frequency6Code string
 
-// May be one of PHOA, TELA
-type Instruction4Code string
-
 // May be one of CHK, TRF, DD, TRA
 type PaymentMethod4Code string
+
+// May be one of LETT, MAIL, PHON, FAXX, CELL
+type PreferredContactMethod1Code string
 
 // May be one of HIGH, NORM
 type Priority2Code string

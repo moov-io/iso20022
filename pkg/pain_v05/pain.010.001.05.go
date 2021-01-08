@@ -92,51 +92,8 @@ type DatePeriodDetails1 struct {
 	ToDt ISODate `xml:"urn:iso:std:iso:20022:tech:xsd:pain.010.001.05 ToDt,omitempty"`
 }
 
-type Document struct {
-	MndtAmdmntReq MandateAmendmentRequestV05 `xml:"urn:iso:std:iso:20022:tech:xsd:pain.010.001.05 MndtAmdmntReq"`
-}
-
-// May be one of MSIN, CNFA, DNFA, CINV, CREN, DEBN, HIRI, SBIN, CMCN, SOAC, DISP, BOLD, VCHR, AROI, TSUT, PUOR
-type DocumentType6Code string
-
-// Must match the pattern [0-9]{2}
-type Exact2NumericText string
-
-// Must be at least 1 items long
-type ExternalAccountIdentification1Code string
-
-// Must be at least 1 items long
-type ExternalAuthenticationChannel1Code string
-
-// Must be at least 1 items long
-type ExternalCashAccountType1Code string
-
-// Must be at least 1 items long
-type ExternalCategoryPurpose1Code string
-
-// Must be at least 1 items long
-type ExternalClearingSystemIdentification1Code string
-
-// Must be at least 1 items long
-type ExternalFinancialInstitutionIdentification1Code string
-
-// Must be at least 1 items long
-type ExternalLocalInstrument1Code string
-
 // Must be at least 1 items long
 type ExternalMandateReason1Code string
-
-// Must be at least 1 items long
-type ExternalMandateSetupReason1Code string
-
-// Must be at least 1 items long
-type ExternalOrganisationIdentification1Code string
-
-// Must be at least 1 items long
-type ExternalPersonIdentification1Code string
-
-// Must be at least 1 items long
-type ExternalServiceLevel1Code string
 
 type FinancialIdentificationSchemeName1Choice struct {
 	Cd    ExternalFinancialInstitutionIdentification1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pain.010.001.05 Cd"`
@@ -151,9 +108,6 @@ type FinancialInstitutionIdentification8 struct {
 	Othr        GenericFinancialIdentification1     `xml:"urn:iso:std:iso:20022:tech:xsd:pain.010.001.05 Othr,omitempty"`
 }
 
-// May be one of NEVR, YEAR, RATE, MIAN, QURT
-type Frequency10Code string
-
 type Frequency36Choice struct {
 	Tp     Frequency6Code      `xml:"urn:iso:std:iso:20022:tech:xsd:pain.010.001.05 Tp"`
 	Prd    FrequencyPeriod1    `xml:"urn:iso:std:iso:20022:tech:xsd:pain.010.001.05 Prd"`
@@ -164,9 +118,6 @@ type Frequency37Choice struct {
 	Cd    Frequency10Code `xml:"urn:iso:std:iso:20022:tech:xsd:pain.010.001.05 Cd"`
 	Prtry Max35Text       `xml:"urn:iso:std:iso:20022:tech:xsd:pain.010.001.05 Prtry"`
 }
-
-// May be one of YEAR, MNTH, QURT, MIAN, WEEK, DAIL, ADHO, INDA, FRTN
-type Frequency6Code string
 
 type FrequencyAndMoment1 struct {
 	Tp     Frequency6Code    `xml:"urn:iso:std:iso:20022:tech:xsd:pain.010.001.05 Tp"`
@@ -402,9 +353,6 @@ type ReferredMandateDocument1 struct {
 	CdtrRef Max35Text             `xml:"urn:iso:std:iso:20022:tech:xsd:pain.010.001.05 CdtrRef,omitempty"`
 	RltdDt  ISODate               `xml:"urn:iso:std:iso:20022:tech:xsd:pain.010.001.05 RltdDt,omitempty"`
 }
-
-// May be one of RCUR, OOFF
-type SequenceType2Code string
 
 type ServiceLevel8Choice struct {
 	Cd    ExternalServiceLevel1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pain.010.001.05 Cd"`

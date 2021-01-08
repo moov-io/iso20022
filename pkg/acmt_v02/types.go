@@ -5,10 +5,8 @@
 package acmt_v02
 
 import (
-	"reflect"
-	"regexp"
-
 	"github.com/moov-io/iso20022/pkg/utils"
+	"reflect"
 )
 
 // Must be at least 1 items long
@@ -143,17 +141,6 @@ type ExternalProxyAccountType1Code string
 func (r ExternalProxyAccountType1Code) Validate() error {
 	if len(string(r)) < 1 || len(string(r)) > 4 {
 		return utils.NewErrTextLengthInvalid("ExternalProxyAccountType1Code", 1, 4)
-	}
-	return nil
-}
-
-// Must match the pattern [a-zA-Z0-9]{4}
-type Exact4AlphaNumericText string
-
-func (r Exact4AlphaNumericText) Validate() error {
-	reg := regexp.MustCompile(`[a-zA-Z0-9]{4}`)
-	if !reg.MatchString(string(r)) {
-		return utils.NewErrValueInvalid("Exact4AlphaNumericText")
 	}
 	return nil
 }

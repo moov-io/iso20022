@@ -199,9 +199,9 @@ type GenericIdentification1 struct {
 }
 
 type GenericIdentification30 struct {
-	Id      Exact4AlphaNumericText `xml:"Id"`
-	Issr    common.Max35Text       `xml:"Issr"`
-	SchmeNm common.Max35Text       `xml:"SchmeNm,omitempty" json:",omitempty"`
+	Id      common.Exact4AlphaNumericText `xml:"Id"`
+	Issr    common.Max35Text              `xml:"Issr"`
+	SchmeNm common.Max35Text              `xml:"SchmeNm,omitempty" json:",omitempty"`
 }
 
 type GenericOrganisationIdentification1 struct {

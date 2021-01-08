@@ -16,9 +16,6 @@ type ExternalSystemErrorHandling1Code string
 // May be one of HIGH, NORM, LOWW
 type Priority1Code string
 
-// Must match the pattern [a-zA-Z0-9]{4}
-type Exact4AlphaNumericText string
-
 // Must be at least 1 items long
 type ExternalAccountIdentification1Code string
 

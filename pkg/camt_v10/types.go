@@ -2,64 +2,7 @@
 // Use of this source code is governed by an Apache License
 // license that can be found in the LICENSE file.
 
-package camt_v07
-
-// May be one of BILA, MULT
-type BalanceCounterparty1Code string
-
-// Must be at least 1 items long
-type ExternalAccountIdentification1Code string
-
-// Must be at least 1 items long
-type ExternalCashAccountType1Code string
-
-// Must be at least 1 items long
-type ExternalClearingSystemIdentification1Code string
-
-// Must be at least 1 items long
-type ExternalEnquiryRequestType1Code string
-
-// Must be at least 1 items long
-type ExternalFinancialInstitutionIdentification1Code string
-
-// Must be at least 1 items long
-type ExternalOrganisationIdentification1Code string
-
-// Must be at least 1 items long
-type ExternalPaymentControlRequestType1Code string
-
-// Must be at least 1 items long
-type ExternalPersonIdentification1Code string
-
-// Must be at least 1 items long
-type ExternalSystemBalanceType1Code string
-
-// May be one of LETT, MAIL, PHON, FAXX, CELL
-type PreferredContactMethod1Code string
-
-// May be one of ALLL, CHNG, MODF, DELD
-type QueryType2Code string
-
-// Must be at least 1 items long
-type ExternalMarketInfrastructure1Code string
-
-// May be one of MULT, BILI, MAND, DISC, NELI, INBI, GLBL, DIDB, SPLC, SPLF, TDLC, TDLF, UCDT, ACOL, EXGT
-type LimitType3Code string
-
-// Must be at least 1 items long
-type ExternalSystemErrorHandling1Code string
-
-// Must be at least 1 items long
-type ExternalSystemEventType1Code string
-
-// May be one of BHOL, SMTN, NOOP, RCVR, ADTW
-type SystemClosureReason1Code string
-
-// May be one of SUSP, ACTV, CLSD, CLSG
-type SystemStatus2Code string
-
-// May be one of CBS, BCK, BAL, CLS, CTR, CBH, CBP, DPG, DPN, EXP, TCH, LMT, LIQ, DPP, DPH, DPS, STF, TRP, TCS, LOA, LOR, TCP, OND, MGL
-type PaymentType3Code string
+package camt_v10
 
 // May be one of DEBT, CRED, SHAR, SLEV
 type ChargeBearerType1Code string
@@ -77,13 +20,19 @@ type DocumentType6Code string
 type Exact2NumericText string
 
 // Must be at least 1 items long
-type ExternalAgentInstruction1Code string
+type ExternalAccountIdentification1Code string
+
+// Must be at least 1 items long
+type ExternalCashAccountType1Code string
 
 // Must be at least 1 items long
 type ExternalCashClearingSystem1Code string
 
 // Must be at least 1 items long
 type ExternalCategoryPurpose1Code string
+
+// Must be at least 1 items long
+type ExternalClearingSystemIdentification1Code string
 
 // Must be at least 1 items long
 type ExternalCreditorAgentInstruction1Code string
@@ -95,6 +44,9 @@ type ExternalDiscountAmountType1Code string
 type ExternalDocumentLineType1Code string
 
 // Must be at least 1 items long
+type ExternalFinancialInstitutionIdentification1Code string
+
+// Must be at least 1 items long
 type ExternalGarnishmentType1Code string
 
 // Must be at least 1 items long
@@ -102,6 +54,12 @@ type ExternalLocalInstrument1Code string
 
 // Must be at least 1 items long
 type ExternalMandateSetupReason1Code string
+
+// Must be at least 1 items long
+type ExternalOrganisationIdentification1Code string
+
+// Must be at least 1 items long
+type ExternalPersonIdentification1Code string
 
 // Must be at least 1 items long
 type ExternalProxyAccountType1Code string
@@ -124,6 +82,9 @@ type Instruction4Code string
 // May be one of CHK, TRF, DD, TRA
 type PaymentMethod4Code string
 
+// May be one of LETT, MAIL, PHON, FAXX, CELL
+type PreferredContactMethod1Code string
+
 // May be one of HIGH, NORM
 type Priority2Code string
 
@@ -135,3 +96,30 @@ type SettlementMethod1Code string
 
 // May be one of MM01, MM02, MM03, MM04, MM05, MM06, MM07, MM08, MM09, MM10, MM11, MM12, QTR1, QTR2, QTR3, QTR4, HLF1, HLF2
 type TaxRecordPeriod1Code string
+
+// May be one of ACTC, RJCT, PDNG, ACCP, ACSP, ACSC, ACCR, ACWC
+type TransactionIndividualStatus1Code string
+
+// May be one of RJCR, ACCR, PDCR
+type CancellationIndividualStatus1Code string
+
+// Must be at least 1 items long
+type ExternalChargeType1Code string
+
+// Must be at least 1 items long
+type ExternalClaimNonReceiptRejection1Code string
+
+// Must be at least 1 items long
+type ExternalInvestigationExecutionConfirmation1Code string
+
+// Must be at least 1 items long
+type ExternalPaymentCancellationRejection1Code string
+
+// Must be at least 1 items long
+type ExternalPaymentCompensationReason1Code string
+
+// Must be at least 1 items long
+type ExternalPaymentModificationRejection1Code string
+
+// May be one of PACR, RJCR, ACCR, PDCR
+type GroupCancellationStatus1Code string

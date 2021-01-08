@@ -22,9 +22,6 @@ type SystemEventType2Code string
 // Must match the pattern [BEOVW]{1,1}[0-9]{2,2}|DUM
 type EntryTypeIdentifier string
 
-// Must match the pattern [a-zA-Z0-9]{4}
-type Exact4AlphaNumericText string
-
 // Must be at least 1 items long
 type ExternalClearingSystemIdentification1Code string
 

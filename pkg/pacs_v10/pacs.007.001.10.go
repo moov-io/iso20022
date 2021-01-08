@@ -224,9 +224,6 @@ type EquivalentAmount2 struct {
 // Must match the pattern [0-9]{2}
 type Exact2NumericText string
 
-// Must match the pattern [a-zA-Z0-9]{4}
-type Exact4AlphaNumericText string
-
 // Must be at least 1 items long
 type ExternalAccountIdentification1Code string
 

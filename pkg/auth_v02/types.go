@@ -64,17 +64,6 @@ func (r Exact1NumericText) Validate() error {
 	return nil
 }
 
-// Must match the pattern [a-zA-Z0-9]{4}
-type Exact4AlphaNumericText string
-
-func (r Exact4AlphaNumericText) Validate() error {
-	reg := regexp.MustCompile(`[a-zA-Z0-9]{4}`)
-	if !reg.MatchString(string(r)) {
-		return utils.NewErrValueInvalid("Exact4AlphaNumericText")
-	}
-	return nil
-}
-
 // Must match the pattern [0-9]{5}
 type Exact5NumericText string
 

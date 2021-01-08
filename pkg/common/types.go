@@ -85,11 +85,31 @@ func (r Max8Text) Validate() error {
 }
 
 // Must be at least 1 items long
+type Max20Text string
+
+func (r Max20Text) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 20 {
+		return utils.NewErrTextLengthInvalid("Max20Text", 1, 20)
+	}
+	return nil
+}
+
+// Must be at least 1 items long
 type Max25Text string
 
 func (r Max25Text) Validate() error {
 	if len(string(r)) < 1 || len(string(r)) > 25 {
 		return utils.NewErrTextLengthInvalid("Max25Text", 1, 25)
+	}
+	return nil
+}
+
+// Must be at least 1 items long
+type Max20000Text string
+
+func (r Max20000Text) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 20000 {
+		return utils.NewErrTextLengthInvalid("Max20000Text", 1, 20000)
 	}
 	return nil
 }
@@ -546,6 +566,17 @@ func (r UUIDv4Identifier) Validate() error {
 	reg := regexp.MustCompile(`[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}`)
 	if !reg.MatchString(string(r)) {
 		return utils.NewErrValueInvalid("UUIDv4Identifier")
+	}
+	return nil
+}
+
+// Must match the pattern [a-zA-Z0-9]{4}
+type Exact4AlphaNumericText string
+
+func (r Exact4AlphaNumericText) Validate() error {
+	reg := regexp.MustCompile(`[a-zA-Z0-9]{4}`)
+	if !reg.MatchString(string(r)) {
+		return utils.NewErrValueInvalid("Exact4AlphaNumericText")
 	}
 	return nil
 }
