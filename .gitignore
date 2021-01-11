@@ -13,3 +13,20 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+.idea
+.vscode/
+
+*.exe
+*.test
+*.prof
+
+coverage.html
+cover.out
+coverage.txt
+misspell*
+staticcheck*
+/lint-project.sh
+bin/
+tmp/
+api/*.jar
