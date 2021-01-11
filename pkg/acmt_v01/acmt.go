@@ -10,14 +10,14 @@ import (
 )
 
 type AccountSwitchDetails1 struct {
-	UnqRefNb      common.Max35Text           `xml:"UnqRefNb"`
-	RtgUnqRefNb   common.Max35Text           `xml:"RtgUnqRefNb"`
-	SwtchRcvdDtTm common.ISODateTime         `xml:"SwtchRcvdDtTm,omitempty" json:",omitempty"`
-	SwtchDt       common.ISODate             `xml:"SwtchDt,omitempty" json:",omitempty"`
-	SwtchTp       SwitchType1Code            `xml:"SwtchTp"`
-	SwtchSts      SwitchStatus1Code          `xml:"SwtchSts,omitempty" json:",omitempty"`
-	BalTrfWndw    BalanceTransferWindow1Code `xml:"BalTrfWndw,omitempty" json:",omitempty"`
-	Rspn          []ResponseDetails1         `xml:"Rspn,omitempty" json:",omitempty"`
+	UnqRefNb      common.Max35Text            `xml:"UnqRefNb"`
+	RtgUnqRefNb   common.Max35Text            `xml:"RtgUnqRefNb"`
+	SwtchRcvdDtTm *common.ISODateTime         `xml:"SwtchRcvdDtTm,omitempty" json:",omitempty"`
+	SwtchDt       common.ISODate              `xml:"SwtchDt,omitempty" json:",omitempty"`
+	SwtchTp       SwitchType1Code             `xml:"SwtchTp"`
+	SwtchSts      *SwitchStatus1Code          `xml:"SwtchSts,omitempty" json:",omitempty"`
+	BalTrfWndw    *BalanceTransferWindow1Code `xml:"BalTrfWndw,omitempty" json:",omitempty"`
+	Rspn          []ResponseDetails1          `xml:"Rspn,omitempty" json:",omitempty"`
 }
 
 func (r AccountSwitchDetails1) Validate() error {
@@ -44,8 +44,8 @@ func (r MessageIdentification1) Validate() error {
 }
 
 type ResponseDetails1 struct {
-	RspnCd    common.Max35Text  `xml:"RspnCd"`
-	AddtlDtls common.Max350Text `xml:"AddtlDtls,omitempty" json:",omitempty"`
+	RspnCd    common.Max35Text   `xml:"RspnCd"`
+	AddtlDtls *common.Max350Text `xml:"AddtlDtls,omitempty" json:",omitempty"`
 }
 
 func (r ResponseDetails1) Validate() error {
@@ -53,7 +53,7 @@ func (r ResponseDetails1) Validate() error {
 }
 
 type SupplementaryData1 struct {
-	PlcAndNm common.Max350Text          `xml:"PlcAndNm,omitempty" json:",omitempty"`
+	PlcAndNm *common.Max350Text         `xml:"PlcAndNm,omitempty" json:",omitempty"`
 	Envlp    SupplementaryDataEnvelope1 `xml:"Envlp"`
 }
 

@@ -1,3 +1,7 @@
+// Copyright 2020 The Moov Authors
+// Use of this source code is governed by an Apache License
+// license that can be found in the LICENSE file.
+
 package pain_v05
 
 // May be one of MSIN, CNFA, DNFA, CINV, CREN, DEBN, HIRI, SBIN, CMCN, SOAC, DISP, BOLD, VCHR, AROI, TSUT, PUOR
@@ -47,3 +51,6 @@ type Frequency6Code string
 
 // May be one of RCUR, OOFF
 type SequenceType2Code string
+
+// Must be at least 1 items long
+type ExternalMandateReason1Code string

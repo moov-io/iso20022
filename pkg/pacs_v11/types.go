@@ -2,19 +2,10 @@
 // Use of this source code is governed by an Apache License
 // license that can be found in the LICENSE file.
 
-package pain_v08
+package pacs_v11
 
-// May be one of ADWD, ADND
-type AdviceType1Code string
-
-// May be one of DEBT, CRED, SHAR, SLEV
-type ChargeBearerType1Code string
-
-// May be one of MLDB, MLCD, MLFA, CRDB, CRCD, CRFA, PUDB, PUCD, PUFA, RGDB, RGCD, RGFA
-type ChequeDelivery1Code string
-
-// May be one of CCHQ, CCCH, BCHQ, DRFT, ELDR
-type ChequeType2Code string
+// May be one of RTGS, RTNS, MPNS, BOOK
+type ClearingChannel2Code string
 
 // May be one of RADM, RPIN, FXDR, DISP, PUOR, SCOR
 type DocumentType3Code string
@@ -32,25 +23,19 @@ type ExternalAccountIdentification1Code string
 type ExternalCashAccountType1Code string
 
 // Must be at least 1 items long
+type ExternalCashClearingSystem1Code string
+
+// Must be at least 1 items long
 type ExternalCategoryPurpose1Code string
 
 // Must be at least 1 items long
 type ExternalClearingSystemIdentification1Code string
 
 // Must be at least 1 items long
-type ExternalCreditorAgentInstruction1Code string
-
-// Must be at least 1 items long
 type ExternalDiscountAmountType1Code string
 
 // Must be at least 1 items long
-type ExternalDocumentFormat1Code string
-
-// Must be at least 1 items long
 type ExternalDocumentLineType1Code string
-
-// Must be at least 1 items long
-type ExternalDocumentType1Code string
 
 // Must be at least 1 items long
 type ExternalFinancialInstitutionIdentification1Code string
@@ -68,6 +53,12 @@ type ExternalMandateSetupReason1Code string
 type ExternalOrganisationIdentification1Code string
 
 // Must be at least 1 items long
+type ExternalPaymentGroupStatus1Code string
+
+// Must be at least 1 items long
+type ExternalPaymentTransactionStatus1Code string
+
+// Must be at least 1 items long
 type ExternalPersonIdentification1Code string
 
 // Must be at least 1 items long
@@ -80,13 +71,16 @@ type ExternalPurpose1Code string
 type ExternalServiceLevel1Code string
 
 // Must be at least 1 items long
+type ExternalStatusReason1Code string
+
+// Must be at least 1 items long
 type ExternalTaxAmountType1Code string
 
 // May be one of YEAR, MNTH, QURT, MIAN, WEEK, DAIL, ADHO, INDA, FRTN
 type Frequency6Code string
 
-// May be one of CHK, TRF
-type PaymentMethod7Code string
+// May be one of CHK, TRF, DD, TRA
+type PaymentMethod4Code string
 
 // May be one of LETT, MAIL, PHON, FAXX, CELL
 type PreferredContactMethod1Code string
@@ -94,26 +88,11 @@ type PreferredContactMethod1Code string
 // May be one of HIGH, NORM
 type Priority2Code string
 
-// May be one of CRED, DEBT, BOTH
-type RegulatoryReportingType1Code string
+// May be one of FRST, RCUR, FNAL, OOFF, RPRE
+type SequenceType3Code string
 
-// May be one of FAXI, EDIC, URID, EMAL, POST, SMSM
-type RemittanceLocationMethod2Code string
+// May be one of INDA, INGA, COVE, CLRG
+type SettlementMethod1Code string
 
 // May be one of MM01, MM02, MM03, MM04, MM05, MM06, MM07, MM08, MM09, MM10, MM11, MM12, QTR1, QTR2, QTR3, QTR4, HLF1, HLF2
 type TaxRecordPeriod1Code string
-
-// Must match the pattern [a-zA-Z0-9]{4}
-type Exact4AlphaNumericText string
-
-// Must be at least 1 items long
-type ExternalPaymentGroupStatus1Code string
-
-// Must be at least 1 items long
-type ExternalPaymentTransactionStatus1Code string
-
-// Must be at least 1 items long
-type ExternalStatusReason1Code string
-
-// May be one of CHK, TRF, DD, TRA
-type PaymentMethod4Code string

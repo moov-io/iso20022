@@ -12,8 +12,8 @@ type ClearingSystemIdentification2Choice struct {
 }
 
 type ClearingSystemMemberIdentification2 struct {
-	ClrSysId ClearingSystemIdentification2Choice `xml:"ClrSysId,omitempty" json:",omitempty"`
-	MmbId    common.Max35Text                    `xml:"MmbId"`
+	ClrSysId *ClearingSystemIdentification2Choice `xml:"ClrSysId,omitempty" json:",omitempty"`
+	MmbId    common.Max35Text                     `xml:"MmbId"`
 }
 
 type FinancialIdentificationSchemeName1Choice struct {
@@ -22,27 +22,27 @@ type FinancialIdentificationSchemeName1Choice struct {
 }
 
 type GenericFinancialIdentification1 struct {
-	Id      common.Max35Text                         `xml:"Id"`
-	SchmeNm FinancialIdentificationSchemeName1Choice `xml:"SchmeNm,omitempty" json:",omitempty"`
-	Issr    common.Max35Text                         `xml:"Issr,omitempty" json:",omitempty"`
+	Id      common.Max35Text                          `xml:"Id"`
+	SchmeNm *FinancialIdentificationSchemeName1Choice `xml:"SchmeNm,omitempty" json:",omitempty"`
+	Issr    *common.Max35Text                         `xml:"Issr,omitempty" json:",omitempty"`
 }
 
 type GenericIdentification1 struct {
-	Id      common.Max35Text `xml:"Id"`
-	SchmeNm common.Max35Text `xml:"SchmeNm,omitempty" json:",omitempty"`
-	Issr    common.Max35Text `xml:"Issr,omitempty" json:",omitempty"`
+	Id      common.Max35Text  `xml:"Id"`
+	SchmeNm *common.Max35Text `xml:"SchmeNm,omitempty" json:",omitempty"`
+	Issr    *common.Max35Text `xml:"Issr,omitempty" json:",omitempty"`
 }
 
 type GetMemberV04 struct {
-	MsgHdr      MessageHeader9         `xml:"MsgHdr"`
-	MmbQryDef   MemberQueryDefinition4 `xml:"MmbQryDef,omitempty" json:",omitempty"`
-	SplmtryData []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
+	MsgHdr      MessageHeader9          `xml:"MsgHdr"`
+	MmbQryDef   *MemberQueryDefinition4 `xml:"MmbQryDef,omitempty" json:",omitempty"`
+	SplmtryData []SupplementaryData1    `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
 type MemberCriteria4 struct {
-	NewQryNm common.Max35Text        `xml:"NewQryNm,omitempty" json:",omitempty"`
+	NewQryNm *common.Max35Text       `xml:"NewQryNm,omitempty" json:",omitempty"`
 	SchCrit  []MemberSearchCriteria4 `xml:"SchCrit,omitempty" json:",omitempty"`
-	RtrCrit  MemberReturnCriteria1   `xml:"RtrCrit,omitempty" json:",omitempty"`
+	RtrCrit  *MemberReturnCriteria1  `xml:"RtrCrit,omitempty" json:",omitempty"`
 }
 
 type MemberCriteriaDefinition2Choice struct {
@@ -57,8 +57,8 @@ type MemberIdentification3Choice struct {
 }
 
 type MemberQueryDefinition4 struct {
-	QryTp   QueryType2Code                  `xml:"QryTp,omitempty" json:",omitempty"`
-	MmbCrit MemberCriteriaDefinition2Choice `xml:"MmbCrit,omitempty" json:",omitempty"`
+	QryTp   *QueryType2Code                  `xml:"QryTp,omitempty" json:",omitempty"`
+	MmbCrit *MemberCriteriaDefinition2Choice `xml:"MmbCrit,omitempty" json:",omitempty"`
 }
 
 type MemberReturnCriteria1 struct {
@@ -78,9 +78,9 @@ type MemberSearchCriteria4 struct {
 }
 
 type MessageHeader9 struct {
-	MsgId   common.Max35Text   `xml:"MsgId"`
-	CreDtTm common.ISODateTime `xml:"CreDtTm,omitempty" json:",omitempty"`
-	ReqTp   RequestType4Choice `xml:"ReqTp,omitempty" json:",omitempty"`
+	MsgId   common.Max35Text    `xml:"MsgId"`
+	CreDtTm *common.ISODateTime `xml:"CreDtTm,omitempty" json:",omitempty"`
+	ReqTp   *RequestType4Choice `xml:"ReqTp,omitempty" json:",omitempty"`
 }
 
 type RequestType4Choice struct {
@@ -90,7 +90,7 @@ type RequestType4Choice struct {
 }
 
 type SupplementaryData1 struct {
-	PlcAndNm common.Max350Text          `xml:"PlcAndNm,omitempty" json:",omitempty"`
+	PlcAndNm *common.Max350Text         `xml:"PlcAndNm,omitempty" json:",omitempty"`
 	Envlp    SupplementaryDataEnvelope1 `xml:"Envlp"`
 }
 
@@ -119,11 +119,11 @@ type AccountSchemeName1Choice struct {
 }
 
 type CashAccount38 struct {
-	Id   AccountIdentification4Choice        `xml:"Id"`
-	Tp   CashAccountType2Choice              `xml:"Tp,omitempty" json:",omitempty"`
-	Ccy  common.ActiveOrHistoricCurrencyCode `xml:"Ccy,omitempty" json:",omitempty"`
-	Nm   common.Max70Text                    `xml:"Nm,omitempty" json:",omitempty"`
-	Prxy ProxyAccountIdentification1         `xml:"Prxy,omitempty" json:",omitempty"`
+	Id   AccountIdentification4Choice         `xml:"Id"`
+	Tp   *CashAccountType2Choice              `xml:"Tp,omitempty" json:",omitempty"`
+	Ccy  *common.ActiveOrHistoricCurrencyCode `xml:"Ccy,omitempty" json:",omitempty"`
+	Nm   *common.Max70Text                    `xml:"Nm,omitempty" json:",omitempty"`
+	Prxy *ProxyAccountIdentification1         `xml:"Prxy,omitempty" json:",omitempty"`
 }
 
 type CashAccountType2Choice struct {
@@ -134,12 +134,12 @@ type CashAccountType2Choice struct {
 type CommunicationAddress10 struct {
 	PstlAdr  LongPostalAddress1Choice `xml:"PstlAdr"`
 	PhneNb   common.PhoneNumber       `xml:"PhneNb"`
-	FaxNb    common.PhoneNumber       `xml:"FaxNb,omitempty" json:",omitempty"`
-	EmailAdr common.Max2048Text       `xml:"EmailAdr,omitempty" json:",omitempty"`
+	FaxNb    *common.PhoneNumber      `xml:"FaxNb,omitempty" json:",omitempty"`
+	EmailAdr *common.Max2048Text      `xml:"EmailAdr,omitempty" json:",omitempty"`
 }
 
 type ContactIdentificationAndAddress2 struct {
-	Nm     common.Max35Text       `xml:"Nm,omitempty" json:",omitempty"`
+	Nm     *common.Max35Text      `xml:"Nm,omitempty" json:",omitempty"`
 	Role   PaymentRole1Choice     `xml:"Role"`
 	ComAdr CommunicationAddress10 `xml:"ComAdr"`
 }
@@ -151,21 +151,21 @@ type ErrorHandling1Choice struct {
 
 type ErrorHandling3 struct {
 	Err  ErrorHandling1Choice `xml:"Err"`
-	Desc common.Max140Text    `xml:"Desc,omitempty" json:",omitempty"`
+	Desc *common.Max140Text   `xml:"Desc,omitempty" json:",omitempty"`
 }
 
 type GenericAccountIdentification1 struct {
-	Id      common.Max34Text         `xml:"Id"`
-	SchmeNm AccountSchemeName1Choice `xml:"SchmeNm,omitempty" json:",omitempty"`
-	Issr    common.Max35Text         `xml:"Issr,omitempty" json:",omitempty"`
+	Id      common.Max34Text          `xml:"Id"`
+	SchmeNm *AccountSchemeName1Choice `xml:"SchmeNm,omitempty" json:",omitempty"`
+	Issr    *common.Max35Text         `xml:"Issr,omitempty" json:",omitempty"`
 }
 
 type Member5 struct {
-	Nm      common.Max35Text                   `xml:"Nm,omitempty" json:",omitempty"`
+	Nm      *common.Max35Text                  `xml:"Nm,omitempty" json:",omitempty"`
 	RtrAdr  []MemberIdentification3Choice      `xml:"RtrAdr,omitempty" json:",omitempty"`
 	Acct    []CashAccount38                    `xml:"Acct,omitempty" json:",omitempty"`
-	Tp      SystemMemberType1Choice            `xml:"Tp,omitempty" json:",omitempty"`
-	Sts     SystemMemberStatus1Choice          `xml:"Sts,omitempty" json:",omitempty"`
+	Tp      *SystemMemberType1Choice           `xml:"Tp,omitempty" json:",omitempty"`
+	Sts     *SystemMemberStatus1Choice         `xml:"Sts,omitempty" json:",omitempty"`
 	CtctRef []ContactIdentificationAndAddress2 `xml:"CtctRef,omitempty" json:",omitempty"`
 	ComAdr  CommunicationAddress10             `xml:"ComAdr,omitempty" json:",omitempty"`
 }
@@ -186,17 +186,17 @@ type MemberReportOrError6Choice struct {
 }
 
 type MessageHeader7 struct {
-	MsgId       common.Max35Text       `xml:"MsgId"`
-	CreDtTm     common.ISODateTime     `xml:"CreDtTm,omitempty" json:",omitempty"`
-	ReqTp       RequestType4Choice     `xml:"ReqTp,omitempty" json:",omitempty"`
-	OrgnlBizQry OriginalBusinessQuery1 `xml:"OrgnlBizQry,omitempty" json:",omitempty"`
-	QryNm       common.Max35Text       `xml:"QryNm,omitempty" json:",omitempty"`
+	MsgId       common.Max35Text        `xml:"MsgId"`
+	CreDtTm     *common.ISODateTime     `xml:"CreDtTm,omitempty" json:",omitempty"`
+	ReqTp       *RequestType4Choice     `xml:"ReqTp,omitempty" json:",omitempty"`
+	OrgnlBizQry *OriginalBusinessQuery1 `xml:"OrgnlBizQry,omitempty" json:",omitempty"`
+	QryNm       *common.Max35Text       `xml:"QryNm,omitempty" json:",omitempty"`
 }
 
 type OriginalBusinessQuery1 struct {
-	MsgId   common.Max35Text   `xml:"MsgId"`
-	MsgNmId common.Max35Text   `xml:"MsgNmId,omitempty" json:",omitempty"`
-	CreDtTm common.ISODateTime `xml:"CreDtTm,omitempty" json:",omitempty"`
+	MsgId   common.Max35Text    `xml:"MsgId"`
+	MsgNmId *common.Max35Text   `xml:"MsgNmId,omitempty" json:",omitempty"`
+	CreDtTm *common.ISODateTime `xml:"CreDtTm,omitempty" json:",omitempty"`
 }
 
 type PaymentRole1Choice struct {
@@ -205,8 +205,8 @@ type PaymentRole1Choice struct {
 }
 
 type ProxyAccountIdentification1 struct {
-	Tp ProxyAccountType1Choice `xml:"Tp,omitempty" json:",omitempty"`
-	Id common.Max2048Text      `xml:"Id"`
+	Tp *ProxyAccountType1Choice `xml:"Tp,omitempty" json:",omitempty"`
+	Id common.Max2048Text       `xml:"Id"`
 }
 
 type ProxyAccountType1Choice struct {
@@ -223,12 +223,12 @@ type ReturnMemberV04 struct {
 type CommunicationAddress8 struct {
 	PstlAdr  LongPostalAddress1Choice `xml:"PstlAdr"`
 	PhneNb   common.PhoneNumber       `xml:"PhneNb"`
-	FaxNb    common.PhoneNumber       `xml:"FaxNb,omitempty" json:",omitempty"`
-	EmailAdr common.Max256Text        `xml:"EmailAdr,omitempty" json:",omitempty"`
+	FaxNb    *common.PhoneNumber      `xml:"FaxNb,omitempty" json:",omitempty"`
+	EmailAdr *common.Max256Text       `xml:"EmailAdr,omitempty" json:",omitempty"`
 }
 
 type ContactIdentificationAndAddress1 struct {
-	Nm     common.Max35Text      `xml:"Nm,omitempty" json:",omitempty"`
+	Nm     *common.Max35Text     `xml:"Nm,omitempty" json:",omitempty"`
 	Role   PaymentRole1Code      `xml:"Role"`
 	ComAdr CommunicationAddress8 `xml:"ComAdr"`
 }
@@ -241,12 +241,12 @@ type LongPostalAddress1Choice struct {
 type Member6 struct {
 	MmbRtrAdr []MemberIdentification3Choice      `xml:"MmbRtrAdr,omitempty" json:",omitempty"`
 	CtctRef   []ContactIdentificationAndAddress1 `xml:"CtctRef,omitempty" json:",omitempty"`
-	ComAdr    CommunicationAddress8              `xml:"ComAdr,omitempty" json:",omitempty"`
+	ComAdr    *CommunicationAddress8             `xml:"ComAdr,omitempty" json:",omitempty"`
 }
 
 type MessageHeader1 struct {
-	MsgId   common.Max35Text   `xml:"MsgId"`
-	CreDtTm common.ISODateTime `xml:"CreDtTm,omitempty" json:",omitempty"`
+	MsgId   common.Max35Text    `xml:"MsgId"`
+	CreDtTm *common.ISODateTime `xml:"CreDtTm,omitempty" json:",omitempty"`
 }
 
 type ModifyMemberV04 struct {
@@ -257,18 +257,18 @@ type ModifyMemberV04 struct {
 }
 
 type StructuredLongPostalAddress1 struct {
-	BldgNm     common.Max35Text   `xml:"BldgNm,omitempty" json:",omitempty"`
-	StrtNm     common.Max35Text   `xml:"StrtNm,omitempty" json:",omitempty"`
-	StrtBldgId common.Max35Text   `xml:"StrtBldgId,omitempty" json:",omitempty"`
-	Flr        common.Max16Text   `xml:"Flr,omitempty" json:",omitempty"`
+	BldgNm     *common.Max35Text  `xml:"BldgNm,omitempty" json:",omitempty"`
+	StrtNm     *common.Max35Text  `xml:"StrtNm,omitempty" json:",omitempty"`
+	StrtBldgId *common.Max35Text  `xml:"StrtBldgId,omitempty" json:",omitempty"`
+	Flr        *common.Max16Text  `xml:"Flr,omitempty" json:",omitempty"`
 	TwnNm      common.Max35Text   `xml:"TwnNm"`
-	DstrctNm   common.Max35Text   `xml:"DstrctNm,omitempty" json:",omitempty"`
-	RgnId      common.Max35Text   `xml:"RgnId,omitempty" json:",omitempty"`
-	Stat       common.Max35Text   `xml:"Stat,omitempty" json:",omitempty"`
+	DstrctNm   *common.Max35Text  `xml:"DstrctNm,omitempty" json:",omitempty"`
+	RgnId      *common.Max35Text  `xml:"RgnId,omitempty" json:",omitempty"`
+	Stat       *common.Max35Text  `xml:"Stat,omitempty" json:",omitempty"`
 	CtyId      common.Max35Text   `xml:"CtyId,omitempty" json:",omitempty"`
 	Ctry       common.CountryCode `xml:"Ctry"`
 	PstCdId    common.Max16Text   `xml:"PstCdId"`
-	POB        common.Max16Text   `xml:"POB,omitempty" json:",omitempty"`
+	POB        *common.Max16Text  `xml:"POB,omitempty" json:",omitempty"`
 }
 
 type CurrencyCriteriaDefinition1Choice struct {
@@ -277,7 +277,7 @@ type CurrencyCriteriaDefinition1Choice struct {
 }
 
 type CurrencyExchangeCriteria2 struct {
-	NewQryNm common.Max35Text                  `xml:"NewQryNm,omitempty" json:",omitempty"`
+	NewQryNm *common.Max35Text                 `xml:"NewQryNm,omitempty" json:",omitempty"`
 	SchCrit  []CurrencyExchangeSearchCriteria1 `xml:"SchCrit"`
 }
 
@@ -287,14 +287,14 @@ type CurrencyExchangeSearchCriteria1 struct {
 }
 
 type CurrencyQueryDefinition3 struct {
-	QryTp   QueryType2Code                    `xml:"QryTp,omitempty" json:",omitempty"`
-	CcyCrit CurrencyCriteriaDefinition1Choice `xml:"CcyCrit,omitempty" json:",omitempty"`
+	QryTp   *QueryType2Code                    `xml:"QryTp,omitempty" json:",omitempty"`
+	CcyCrit *CurrencyCriteriaDefinition1Choice `xml:"CcyCrit,omitempty" json:",omitempty"`
 }
 
 type GetCurrencyExchangeRateV04 struct {
-	MsgHdr      MessageHeader1           `xml:"MsgHdr"`
-	CcyQryDef   CurrencyQueryDefinition3 `xml:"CcyQryDef,omitempty" json:",omitempty"`
-	SplmtryData []SupplementaryData1     `xml:"SplmtryData,omitempty" json:",omitempty"`
+	MsgHdr      MessageHeader1            `xml:"MsgHdr"`
+	CcyQryDef   *CurrencyQueryDefinition3 `xml:"CcyQryDef,omitempty" json:",omitempty"`
+	SplmtryData []SupplementaryData1      `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
 type CurrencyExchange7 struct {
@@ -330,14 +330,14 @@ type ReturnCurrencyExchangeRateV04 struct {
 }
 
 type BusinessInformationCriteria1 struct {
-	NewQryNm common.Max35Text                            `xml:"NewQryNm,omitempty" json:",omitempty"`
+	NewQryNm *common.Max35Text                           `xml:"NewQryNm,omitempty" json:",omitempty"`
 	SchCrit  []GeneralBusinessInformationSearchCriteria1 `xml:"SchCrit,omitempty" json:",omitempty"`
-	RtrCrit  GeneralBusinessInformationReturnCriteria1   `xml:"RtrCrit,omitempty" json:",omitempty"`
+	RtrCrit  *GeneralBusinessInformationReturnCriteria1  `xml:"RtrCrit,omitempty" json:",omitempty"`
 }
 
 type BusinessInformationQueryDefinition3 struct {
-	QryTp         QueryType2Code                                      `xml:"QryTp,omitempty" json:",omitempty"`
-	GnlBizInfCrit GeneralBusinessInformationCriteriaDefinition1Choice `xml:"GnlBizInfCrit,omitempty" json:",omitempty"`
+	QryTp         *QueryType2Code                                      `xml:"QryTp,omitempty" json:",omitempty"`
+	GnlBizInfCrit *GeneralBusinessInformationCriteriaDefinition1Choice `xml:"GnlBizInfCrit,omitempty" json:",omitempty"`
 }
 
 type CharacterSearch1Choice struct {
@@ -365,14 +365,14 @@ type GeneralBusinessInformationSearchCriteria1 struct {
 }
 
 type GetGeneralBusinessInformationV04 struct {
-	MsgHdr          MessageHeader1                      `xml:"MsgHdr"`
-	GnlBizInfQryDef BusinessInformationQueryDefinition3 `xml:"GnlBizInfQryDef,omitempty" json:",omitempty"`
-	SplmtryData     []SupplementaryData1                `xml:"SplmtryData,omitempty" json:",omitempty"`
+	MsgHdr          MessageHeader1                       `xml:"MsgHdr"`
+	GnlBizInfQryDef *BusinessInformationQueryDefinition3 `xml:"GnlBizInfQryDef,omitempty" json:",omitempty"`
+	SplmtryData     []SupplementaryData1                 `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
 type InformationQualifierType1 struct {
-	IsFrmtd bool          `xml:"IsFrmtd,omitempty" json:",omitempty"`
-	Prty    Priority1Code `xml:"Prty,omitempty" json:",omitempty"`
+	IsFrmtd bool           `xml:"IsFrmtd,omitempty" json:",omitempty"`
+	Prty    *Priority1Code `xml:"Prty,omitempty" json:",omitempty"`
 }
 
 type CancelCaseAssignmentV04 struct {
@@ -395,14 +395,14 @@ type AddressType3Choice struct {
 
 type BranchAndFinancialInstitutionIdentification6 struct {
 	FinInstnId FinancialInstitutionIdentification18 `xml:"FinInstnId"`
-	BrnchId    BranchData3                          `xml:"BrnchId,omitempty" json:",omitempty"`
+	BrnchId    *BranchData3                         `xml:"BrnchId,omitempty" json:",omitempty"`
 }
 
 type BranchData3 struct {
-	Id      common.Max35Text     `xml:"Id,omitempty" json:",omitempty"`
-	LEI     common.LEIIdentifier `xml:"LEI,omitempty" json:",omitempty"`
-	Nm      common.Max140Text    `xml:"Nm,omitempty" json:",omitempty"`
-	PstlAdr PostalAddress24      `xml:"PstlAdr,omitempty" json:",omitempty"`
+	Id      *common.Max35Text     `xml:"Id,omitempty" json:",omitempty"`
+	LEI     *common.LEIIdentifier `xml:"LEI,omitempty" json:",omitempty"`
+	Nm      *common.Max140Text    `xml:"Nm,omitempty" json:",omitempty"`
+	PstlAdr *PostalAddress24      `xml:"PstlAdr,omitempty" json:",omitempty"`
 }
 
 type Case5 struct {
@@ -418,57 +418,57 @@ type CaseStatusReportRequestV04 struct {
 }
 
 type Contact4 struct {
-	NmPrfx    common.NamePrefix2Code      `xml:"NmPrfx,omitempty" json:",omitempty"`
-	Nm        common.Max140Text           `xml:"Nm,omitempty" json:",omitempty"`
-	PhneNb    common.PhoneNumber          `xml:"PhneNb,omitempty" json:",omitempty"`
-	MobNb     common.PhoneNumber          `xml:"MobNb,omitempty" json:",omitempty"`
-	FaxNb     common.PhoneNumber          `xml:"FaxNb,omitempty" json:",omitempty"`
-	EmailAdr  common.Max2048Text          `xml:"EmailAdr,omitempty" json:",omitempty"`
-	EmailPurp common.Max35Text            `xml:"EmailPurp,omitempty" json:",omitempty"`
-	JobTitl   common.Max35Text            `xml:"JobTitl,omitempty" json:",omitempty"`
-	Rspnsblty common.Max35Text            `xml:"Rspnsblty,omitempty" json:",omitempty"`
-	Dept      common.Max70Text            `xml:"Dept,omitempty" json:",omitempty"`
-	Othr      []OtherContact1             `xml:"Othr,omitempty" json:",omitempty"`
-	PrefrdMtd PreferredContactMethod1Code `xml:"PrefrdMtd,omitempty" json:",omitempty"`
+	NmPrfx    *common.NamePrefix2Code      `xml:"NmPrfx,omitempty" json:",omitempty"`
+	Nm        *common.Max140Text           `xml:"Nm,omitempty" json:",omitempty"`
+	PhneNb    *common.PhoneNumber          `xml:"PhneNb,omitempty" json:",omitempty"`
+	MobNb     *common.PhoneNumber          `xml:"MobNb,omitempty" json:",omitempty"`
+	FaxNb     *common.PhoneNumber          `xml:"FaxNb,omitempty" json:",omitempty"`
+	EmailAdr  *common.Max2048Text          `xml:"EmailAdr,omitempty" json:",omitempty"`
+	EmailPurp *common.Max35Text            `xml:"EmailPurp,omitempty" json:",omitempty"`
+	JobTitl   *common.Max35Text            `xml:"JobTitl,omitempty" json:",omitempty"`
+	Rspnsblty *common.Max35Text            `xml:"Rspnsblty,omitempty" json:",omitempty"`
+	Dept      *common.Max70Text            `xml:"Dept,omitempty" json:",omitempty"`
+	Othr      []OtherContact1              `xml:"Othr,omitempty" json:",omitempty"`
+	PrefrdMtd *PreferredContactMethod1Code `xml:"PrefrdMtd,omitempty" json:",omitempty"`
 }
 
 type DateAndPlaceOfBirth1 struct {
 	BirthDt     common.ISODate     `xml:"BirthDt"`
-	PrvcOfBirth common.Max35Text   `xml:"PrvcOfBirth,omitempty" json:",omitempty"`
+	PrvcOfBirth *common.Max35Text  `xml:"PrvcOfBirth,omitempty" json:",omitempty"`
 	CityOfBirth common.Max35Text   `xml:"CityOfBirth"`
 	CtryOfBirth common.CountryCode `xml:"CtryOfBirth"`
 }
 
 type FinancialInstitutionIdentification18 struct {
-	BICFI       common.BICFIDec2014Identifier       `xml:"BICFI,omitempty" json:",omitempty"`
-	ClrSysMmbId ClearingSystemMemberIdentification2 `xml:"ClrSysMmbId,omitempty" json:",omitempty"`
-	LEI         common.LEIIdentifier                `xml:"LEI,omitempty" json:",omitempty"`
-	Nm          common.Max140Text                   `xml:"Nm,omitempty" json:",omitempty"`
-	PstlAdr     PostalAddress24                     `xml:"PstlAdr,omitempty" json:",omitempty"`
-	Othr        GenericFinancialIdentification1     `xml:"Othr,omitempty" json:",omitempty"`
+	BICFI       *common.BICFIDec2014Identifier       `xml:"BICFI,omitempty" json:",omitempty"`
+	ClrSysMmbId *ClearingSystemMemberIdentification2 `xml:"ClrSysMmbId,omitempty" json:",omitempty"`
+	LEI         *common.LEIIdentifier                `xml:"LEI,omitempty" json:",omitempty"`
+	Nm          *common.Max140Text                   `xml:"Nm,omitempty" json:",omitempty"`
+	PstlAdr     *PostalAddress24                     `xml:"PstlAdr,omitempty" json:",omitempty"`
+	Othr        *GenericFinancialIdentification1     `xml:"Othr,omitempty" json:",omitempty"`
 }
 
 type GenericIdentification30 struct {
 	Id      Exact4AlphaNumericText `xml:"Id"`
 	Issr    common.Max35Text       `xml:"Issr"`
-	SchmeNm common.Max35Text       `xml:"SchmeNm,omitempty" json:",omitempty"`
+	SchmeNm *common.Max35Text      `xml:"SchmeNm,omitempty" json:",omitempty"`
 }
 
 type GenericOrganisationIdentification1 struct {
-	Id      common.Max35Text                            `xml:"Id"`
-	SchmeNm OrganisationIdentificationSchemeName1Choice `xml:"SchmeNm,omitempty" json:",omitempty"`
-	Issr    common.Max35Text                            `xml:"Issr,omitempty" json:",omitempty"`
+	Id      common.Max35Text                             `xml:"Id"`
+	SchmeNm *OrganisationIdentificationSchemeName1Choice `xml:"SchmeNm,omitempty" json:",omitempty"`
+	Issr    *common.Max35Text                            `xml:"Issr,omitempty" json:",omitempty"`
 }
 
 type GenericPersonIdentification1 struct {
-	Id      common.Max35Text                      `xml:"Id"`
-	SchmeNm PersonIdentificationSchemeName1Choice `xml:"SchmeNm,omitempty" json:",omitempty"`
-	Issr    common.Max35Text                      `xml:"Issr,omitempty" json:",omitempty"`
+	Id      common.Max35Text                       `xml:"Id"`
+	SchmeNm *PersonIdentificationSchemeName1Choice `xml:"SchmeNm,omitempty" json:",omitempty"`
+	Issr    *common.Max35Text                      `xml:"Issr,omitempty" json:",omitempty"`
 }
 
 type OrganisationIdentification29 struct {
-	AnyBIC common.AnyBICDec2014Identifier       `xml:"AnyBIC,omitempty" json:",omitempty"`
-	LEI    common.LEIIdentifier                 `xml:"LEI,omitempty" json:",omitempty"`
+	AnyBIC *common.AnyBICDec2014Identifier      `xml:"AnyBIC,omitempty" json:",omitempty"`
+	LEI    *common.LEIIdentifier                `xml:"LEI,omitempty" json:",omitempty"`
 	Othr   []GenericOrganisationIdentification1 `xml:"Othr,omitempty" json:",omitempty"`
 }
 
@@ -478,8 +478,8 @@ type OrganisationIdentificationSchemeName1Choice struct {
 }
 
 type OtherContact1 struct {
-	ChanlTp common.Max4Text   `xml:"ChanlTp"`
-	Id      common.Max128Text `xml:"Id,omitempty" json:",omitempty"`
+	ChanlTp common.Max4Text    `xml:"ChanlTp"`
+	Id      *common.Max128Text `xml:"Id,omitempty" json:",omitempty"`
 }
 
 type Party38Choice struct {
@@ -493,15 +493,15 @@ type Party40Choice struct {
 }
 
 type PartyIdentification135 struct {
-	Nm        common.Max140Text  `xml:"Nm,omitempty" json:",omitempty"`
-	PstlAdr   PostalAddress24    `xml:"PstlAdr,omitempty" json:",omitempty"`
-	Id        Party38Choice      `xml:"Id,omitempty" json:",omitempty"`
-	CtryOfRes common.CountryCode `xml:"CtryOfRes,omitempty" json:",omitempty"`
-	CtctDtls  Contact4           `xml:"CtctDtls,omitempty" json:",omitempty"`
+	Nm        *common.Max140Text  `xml:"Nm,omitempty" json:",omitempty"`
+	PstlAdr   *PostalAddress24    `xml:"PstlAdr,omitempty" json:",omitempty"`
+	Id        *Party38Choice      `xml:"Id,omitempty" json:",omitempty"`
+	CtryOfRes *common.CountryCode `xml:"CtryOfRes,omitempty" json:",omitempty"`
+	CtctDtls  *Contact4           `xml:"CtctDtls,omitempty" json:",omitempty"`
 }
 
 type PersonIdentification13 struct {
-	DtAndPlcOfBirth DateAndPlaceOfBirth1           `xml:"DtAndPlcOfBirth,omitempty" json:",omitempty"`
+	DtAndPlcOfBirth *DateAndPlaceOfBirth1          `xml:"DtAndPlcOfBirth,omitempty" json:",omitempty"`
 	Othr            []GenericPersonIdentification1 `xml:"Othr,omitempty" json:",omitempty"`
 }
 
@@ -511,22 +511,22 @@ type PersonIdentificationSchemeName1Choice struct {
 }
 
 type PostalAddress24 struct {
-	AdrTp       AddressType3Choice `xml:"AdrTp,omitempty" json:",omitempty"`
-	Dept        common.Max70Text   `xml:"Dept,omitempty" json:",omitempty"`
-	SubDept     common.Max70Text   `xml:"SubDept,omitempty" json:",omitempty"`
-	StrtNm      common.Max70Text   `xml:"StrtNm,omitempty" json:",omitempty"`
-	BldgNb      common.Max16Text   `xml:"BldgNb,omitempty" json:",omitempty"`
-	BldgNm      common.Max35Text   `xml:"BldgNm,omitempty" json:",omitempty"`
-	Flr         common.Max70Text   `xml:"Flr,omitempty" json:",omitempty"`
-	PstBx       common.Max16Text   `xml:"PstBx,omitempty" json:",omitempty"`
-	Room        common.Max70Text   `xml:"Room,omitempty" json:",omitempty"`
-	PstCd       common.Max16Text   `xml:"PstCd,omitempty" json:",omitempty"`
-	TwnNm       common.Max35Text   `xml:"TwnNm,omitempty" json:",omitempty"`
-	TwnLctnNm   common.Max35Text   `xml:"TwnLctnNm,omitempty" json:",omitempty"`
-	DstrctNm    common.Max35Text   `xml:"DstrctNm,omitempty" json:",omitempty"`
-	CtrySubDvsn common.Max35Text   `xml:"CtrySubDvsn,omitempty" json:",omitempty"`
-	Ctry        common.CountryCode `xml:"Ctry,omitempty" json:",omitempty"`
-	AdrLine     []common.Max70Text `xml:"AdrLine,omitempty" json:",omitempty"`
+	AdrTp       *AddressType3Choice `xml:"AdrTp,omitempty" json:",omitempty"`
+	Dept        *common.Max70Text   `xml:"Dept,omitempty" json:",omitempty"`
+	SubDept     *common.Max70Text   `xml:"SubDept,omitempty" json:",omitempty"`
+	StrtNm      *common.Max70Text   `xml:"StrtNm,omitempty" json:",omitempty"`
+	BldgNb      *common.Max16Text   `xml:"BldgNb,omitempty" json:",omitempty"`
+	BldgNm      *common.Max35Text   `xml:"BldgNm,omitempty" json:",omitempty"`
+	Flr         *common.Max70Text   `xml:"Flr,omitempty" json:",omitempty"`
+	PstBx       *common.Max16Text   `xml:"PstBx,omitempty" json:",omitempty"`
+	Room        *common.Max70Text   `xml:"Room,omitempty" json:",omitempty"`
+	PstCd       *common.Max16Text   `xml:"PstCd,omitempty" json:",omitempty"`
+	TwnNm       *common.Max35Text   `xml:"TwnNm,omitempty" json:",omitempty"`
+	TwnLctnNm   *common.Max35Text   `xml:"TwnLctnNm,omitempty" json:",omitempty"`
+	DstrctNm    *common.Max35Text   `xml:"DstrctNm,omitempty" json:",omitempty"`
+	CtrySubDvsn *common.Max35Text   `xml:"CtrySubDvsn,omitempty" json:",omitempty"`
+	Ctry        *common.CountryCode `xml:"Ctry,omitempty" json:",omitempty"`
+	AdrLine     []common.Max70Text  `xml:"AdrLine,omitempty" json:",omitempty"`
 }
 
 type ReportHeader5 struct {
@@ -547,8 +547,8 @@ type Amount2Choice struct {
 }
 
 type DatePeriodDetails1 struct {
-	FrDt common.ISODate `xml:"FrDt"`
-	ToDt common.ISODate `xml:"ToDt,omitempty" json:",omitempty"`
+	FrDt common.ISODate  `xml:"FrDt"`
+	ToDt *common.ISODate `xml:"ToDt,omitempty" json:",omitempty"`
 }
 
 type ErrorHandling3Choice struct {
@@ -558,7 +558,7 @@ type ErrorHandling3Choice struct {
 
 type ErrorHandling5 struct {
 	Err  ErrorHandling3Choice `xml:"Err"`
-	Desc common.Max140Text    `xml:"Desc,omitempty" json:",omitempty"`
+	Desc *common.Max140Text   `xml:"Desc,omitempty" json:",omitempty"`
 }
 
 type EventType1Choice struct {
@@ -572,11 +572,11 @@ type ExecutionType1Choice struct {
 }
 
 type MessageHeader6 struct {
-	MsgId       common.Max35Text       `xml:"MsgId"`
-	CreDtTm     common.ISODateTime     `xml:"CreDtTm,omitempty" json:",omitempty"`
-	OrgnlBizQry OriginalBusinessQuery1 `xml:"OrgnlBizQry,omitempty" json:",omitempty"`
-	QryNm       common.Max35Text       `xml:"QryNm,omitempty" json:",omitempty"`
-	ReqTp       RequestType3Choice     `xml:"ReqTp,omitempty" json:",omitempty"`
+	MsgId       common.Max35Text        `xml:"MsgId"`
+	CreDtTm     *common.ISODateTime     `xml:"CreDtTm,omitempty" json:",omitempty"`
+	OrgnlBizQry *OriginalBusinessQuery1 `xml:"OrgnlBizQry,omitempty" json:",omitempty"`
+	QryNm       *common.Max35Text       `xml:"QryNm,omitempty" json:",omitempty"`
+	ReqTp       *RequestType3Choice     `xml:"ReqTp,omitempty" json:",omitempty"`
 }
 
 type RequestType3Choice struct {
@@ -591,32 +591,32 @@ type ReturnStandingOrderV04 struct {
 }
 
 type StandingOrder6 struct {
-	Amt             Amount2Choice                                `xml:"Amt"`
-	CdtDbtInd       common.CreditDebitCode                       `xml:"CdtDbtInd"`
-	Ccy             common.ActiveCurrencyCode                    `xml:"Ccy,omitempty" json:",omitempty"`
-	Tp              StandingOrderType1Choice                     `xml:"Tp,omitempty" json:",omitempty"`
-	AssoctdPoolAcct AccountIdentification4Choice                 `xml:"AssoctdPoolAcct,omitempty" json:",omitempty"`
-	Ref             common.Max35Text                             `xml:"Ref,omitempty" json:",omitempty"`
-	Frqcy           Frequency2Code                               `xml:"Frqcy,omitempty" json:",omitempty"`
-	VldtyPrd        DatePeriodDetails1                           `xml:"VldtyPrd,omitempty" json:",omitempty"`
-	SysMmb          BranchAndFinancialInstitutionIdentification6 `xml:"SysMmb,omitempty" json:",omitempty"`
-	RspnsblPty      BranchAndFinancialInstitutionIdentification6 `xml:"RspnsblPty,omitempty" json:",omitempty"`
-	LkSetId         common.Max35Text                             `xml:"LkSetId,omitempty" json:",omitempty"`
-	LkSetOrdrId     common.Max35Text                             `xml:"LkSetOrdrId,omitempty" json:",omitempty"`
-	LkSetOrdrSeq    float64                                      `xml:"LkSetOrdrSeq,omitempty" json:",omitempty"`
-	ExctnTp         ExecutionType1Choice                         `xml:"ExctnTp,omitempty" json:",omitempty"`
-	Cdtr            BranchAndFinancialInstitutionIdentification6 `xml:"Cdtr,omitempty" json:",omitempty"`
-	CdtrAcct        CashAccount38                                `xml:"CdtrAcct,omitempty" json:",omitempty"`
-	Dbtr            BranchAndFinancialInstitutionIdentification6 `xml:"Dbtr,omitempty" json:",omitempty"`
-	DbtrAcct        CashAccount38                                `xml:"DbtrAcct,omitempty" json:",omitempty"`
-	TtlsPerStgOrdr  StandingOrderTotalAmount1                    `xml:"TtlsPerStgOrdr,omitempty" json:",omitempty"`
-	ZeroSweepInd    bool                                         `xml:"ZeroSweepInd,omitempty" json:",omitempty"`
+	Amt             Amount2Choice                                 `xml:"Amt"`
+	CdtDbtInd       common.CreditDebitCode                        `xml:"CdtDbtInd"`
+	Ccy             *common.ActiveCurrencyCode                    `xml:"Ccy,omitempty" json:",omitempty"`
+	Tp              *StandingOrderType1Choice                     `xml:"Tp,omitempty" json:",omitempty"`
+	AssoctdPoolAcct *AccountIdentification4Choice                 `xml:"AssoctdPoolAcct,omitempty" json:",omitempty"`
+	Ref             *common.Max35Text                             `xml:"Ref,omitempty" json:",omitempty"`
+	Frqcy           *Frequency2Code                               `xml:"Frqcy,omitempty" json:",omitempty"`
+	VldtyPrd        *DatePeriodDetails1                           `xml:"VldtyPrd,omitempty" json:",omitempty"`
+	SysMmb          *BranchAndFinancialInstitutionIdentification6 `xml:"SysMmb,omitempty" json:",omitempty"`
+	RspnsblPty      *BranchAndFinancialInstitutionIdentification6 `xml:"RspnsblPty,omitempty" json:",omitempty"`
+	LkSetId         *common.Max35Text                             `xml:"LkSetId,omitempty" json:",omitempty"`
+	LkSetOrdrId     *common.Max35Text                             `xml:"LkSetOrdrId,omitempty" json:",omitempty"`
+	LkSetOrdrSeq    float64                                       `xml:"LkSetOrdrSeq,omitempty" json:",omitempty"`
+	ExctnTp         *ExecutionType1Choice                         `xml:"ExctnTp,omitempty" json:",omitempty"`
+	Cdtr            *BranchAndFinancialInstitutionIdentification6 `xml:"Cdtr,omitempty" json:",omitempty"`
+	CdtrAcct        *CashAccount38                                `xml:"CdtrAcct,omitempty" json:",omitempty"`
+	Dbtr            *BranchAndFinancialInstitutionIdentification6 `xml:"Dbtr,omitempty" json:",omitempty"`
+	DbtrAcct        *CashAccount38                                `xml:"DbtrAcct,omitempty" json:",omitempty"`
+	TtlsPerStgOrdr  *StandingOrderTotalAmount1                    `xml:"TtlsPerStgOrdr,omitempty" json:",omitempty"`
+	ZeroSweepInd    bool                                          `xml:"ZeroSweepInd,omitempty" json:",omitempty"`
 }
 
 type StandingOrderIdentification4 struct {
-	Id       common.Max35Text                             `xml:"Id,omitempty" json:",omitempty"`
-	Acct     CashAccount38                                `xml:"Acct"`
-	AcctOwnr BranchAndFinancialInstitutionIdentification6 `xml:"AcctOwnr,omitempty" json:",omitempty"`
+	Id       *common.Max35Text                             `xml:"Id,omitempty" json:",omitempty"`
+	Acct     CashAccount38                                 `xml:"Acct"`
+	AcctOwnr *BranchAndFinancialInstitutionIdentification6 `xml:"AcctOwnr,omitempty" json:",omitempty"`
 }
 
 type StandingOrderOrError5Choice struct {
@@ -647,7 +647,7 @@ type StandingOrderType1Choice struct {
 }
 
 type TotalAmountAndCurrency1 struct {
-	TtlAmt    float64                   `xml:"TtlAmt"`
-	CdtDbtInd common.CreditDebitCode    `xml:"CdtDbtInd,omitempty" json:",omitempty"`
-	Ccy       common.ActiveCurrencyCode `xml:"Ccy,omitempty" json:",omitempty"`
+	TtlAmt    float64                    `xml:"TtlAmt"`
+	CdtDbtInd *common.CreditDebitCode    `xml:"CdtDbtInd,omitempty" json:",omitempty"`
+	Ccy       *common.ActiveCurrencyCode `xml:"Ccy,omitempty" json:",omitempty"`
 }

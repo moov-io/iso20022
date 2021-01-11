@@ -1,32 +1,38 @@
+// Copyright 2020 The Moov Authors
+// Use of this source code is governed by an Apache License
+// license that can be found in the LICENSE file.
+
 package reda_v01
 
+import "github.com/moov-io/iso20022/pkg/common"
+
 type AddressType3Choice struct {
-	Cd    AddressType2Code        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Cd"`
+	Cd    common.AddressType2Code `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Cd"`
 	Prtry GenericIdentification30 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Prtry"`
 }
 
 type Contact4 struct {
-	NmPrfx    NamePrefix2Code             `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 NmPrfx,omitempty"`
-	Nm        Max140Text                  `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Nm,omitempty"`
-	PhneNb    PhoneNumber                 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 PhneNb,omitempty"`
-	MobNb     PhoneNumber                 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 MobNb,omitempty"`
-	FaxNb     PhoneNumber                 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 FaxNb,omitempty"`
-	EmailAdr  Max2048Text                 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 EmailAdr,omitempty"`
-	EmailPurp Max35Text                   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 EmailPurp,omitempty"`
-	JobTitl   Max35Text                   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 JobTitl,omitempty"`
-	Rspnsblty Max35Text                   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Rspnsblty,omitempty"`
-	Dept      Max70Text                   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Dept,omitempty"`
+	NmPrfx    common.NamePrefix2Code      `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 NmPrfx,omitempty"`
+	Nm        common.Max140Text           `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Nm,omitempty"`
+	PhneNb    common.PhoneNumber          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 PhneNb,omitempty"`
+	MobNb     common.PhoneNumber          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 MobNb,omitempty"`
+	FaxNb     common.PhoneNumber          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 FaxNb,omitempty"`
+	EmailAdr  common.Max2048Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 EmailAdr,omitempty"`
+	EmailPurp common.Max35Text            `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 EmailPurp,omitempty"`
+	JobTitl   common.Max35Text            `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 JobTitl,omitempty"`
+	Rspnsblty common.Max35Text            `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Rspnsblty,omitempty"`
+	Dept      common.Max70Text            `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Dept,omitempty"`
 	Othr      []OtherContact1             `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Othr,omitempty"`
 	PrefrdMtd PreferredContactMethod1Code `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 PrefrdMtd,omitempty"`
 }
 
 type CreditorEnrolment3 struct {
-	Enrlmnt      CreditorServiceEnrolment1      `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Enrlmnt"`
-	CdtrTradgNm  Max140Text                     `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CdtrTradgNm,omitempty"`
-	Cdtr         RTPPartyIdentification1        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Cdtr"`
-	UltmtCdtr    RTPPartyIdentification1        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 UltmtCdtr,omitempty"`
-	MrchntCtgyCd MerchantCategoryCodeIdentifier `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 MrchntCtgyCd"`
-	CdtrLogo     Max10KBinary                   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CdtrLogo,omitempty"`
+	Enrlmnt      CreditorServiceEnrolment1             `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Enrlmnt"`
+	CdtrTradgNm  common.Max140Text                     `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CdtrTradgNm,omitempty"`
+	Cdtr         RTPPartyIdentification1               `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Cdtr"`
+	UltmtCdtr    RTPPartyIdentification1               `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 UltmtCdtr,omitempty"`
+	MrchntCtgyCd common.MerchantCategoryCodeIdentifier `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 MrchntCtgyCd"`
+	CdtrLogo     common.Max10KBinary                   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CdtrLogo,omitempty"`
 }
 
 type CreditorInvoice3 struct {
@@ -34,7 +40,7 @@ type CreditorInvoice3 struct {
 	CstmrIdTp         CustomerTypeRequest2    `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CstmrIdTp,omitempty"`
 	CtrctFrmtTp       []DocumentFormat2Choice `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CtrctFrmtTp,omitempty"`
 	CtrctRefTp        []DocumentType1Choice   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CtrctRefTp,omitempty"`
-	CdtrInstr         Max500Text              `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CdtrInstr,omitempty"`
+	CdtrInstr         common.Max500Text       `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CdtrInstr,omitempty"`
 	ActvtnReqDlvryPty RTPPartyIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 ActvtnReqDlvryPty"`
 }
 
@@ -43,8 +49,8 @@ type CreditorServiceEnrolment1 struct {
 	EnrlmntEndDt    DateAndDateTime2Choice `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 EnrlmntEndDt,omitempty"`
 	Vsblty          Visibilty1             `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Vsblty,omitempty"`
 	SvcActvtnAllwd  bool                   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 SvcActvtnAllwd"`
-	SvcDescLk       Max2048Text            `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 SvcDescLk,omitempty"`
-	CdtrSvcActvtnLk Max2048Text            `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CdtrSvcActvtnLk,omitempty"`
+	SvcDescLk       common.Max2048Text     `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 SvcDescLk,omitempty"`
+	CdtrSvcActvtnLk common.Max2048Text     `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CdtrSvcActvtnLk,omitempty"`
 }
 
 type CustomerTypeRequest2 struct {
@@ -54,15 +60,15 @@ type CustomerTypeRequest2 struct {
 }
 
 type DateAndDateTime2Choice struct {
-	Dt   ISODate     `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Dt"`
-	DtTm ISODateTime `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 DtTm"`
+	Dt   common.ISODate     `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Dt"`
+	DtTm common.ISODateTime `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 DtTm"`
 }
 
 type DateAndPlaceOfBirth1 struct {
-	BirthDt     ISODate     `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 BirthDt"`
-	PrvcOfBirth Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 PrvcOfBirth,omitempty"`
-	CityOfBirth Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CityOfBirth"`
-	CtryOfBirth CountryCode `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CtryOfBirth"`
+	BirthDt     common.ISODate     `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 BirthDt"`
+	PrvcOfBirth common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 PrvcOfBirth,omitempty"`
+	CityOfBirth common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CityOfBirth"`
+	CtryOfBirth common.CountryCode `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CtryOfBirth"`
 }
 
 type DocumentFormat2Choice struct {
@@ -76,29 +82,29 @@ type DocumentType1Choice struct {
 }
 
 type EnrolmentHeader2 struct {
-	MsgId    Max35Text               `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 MsgId"`
-	CreDtTm  ISODateTime             `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CreDtTm"`
+	MsgId    common.Max35Text        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 MsgId"`
+	CreDtTm  common.ISODateTime      `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CreDtTm"`
 	MsgOrgtr RTPPartyIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 MsgOrgtr,omitempty"`
 	MsgRcpt  RTPPartyIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 MsgRcpt,omitempty"`
 	InitgPty RTPPartyIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 InitgPty"`
 }
 
 type GenericIdentification1 struct {
-	Id      Max35Text `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Id"`
-	SchmeNm Max35Text `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 SchmeNm,omitempty"`
-	Issr    Max35Text `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Issr,omitempty"`
+	Id      common.Max35Text `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Id"`
+	SchmeNm common.Max35Text `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 SchmeNm,omitempty"`
+	Issr    common.Max35Text `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Issr,omitempty"`
 }
 
 type GenericIdentification30 struct {
-	Id      Exact4AlphaNumericText `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Id"`
-	Issr    Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Issr"`
-	SchmeNm Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 SchmeNm,omitempty"`
+	Id      common.Exact4AlphaNumericText `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Id"`
+	Issr    common.Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Issr"`
+	SchmeNm common.Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 SchmeNm,omitempty"`
 }
 
 type GenericOrganisationIdentification1 struct {
-	Id      Max35Text                                   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Id"`
+	Id      common.Max35Text                            `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Id"`
 	SchmeNm OrganisationIdentificationSchemeName1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 SchmeNm,omitempty"`
-	Issr    Max35Text                                   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Issr,omitempty"`
+	Issr    common.Max35Text                            `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Issr,omitempty"`
 }
 
 type GenericOrganisationType1 struct {
@@ -107,9 +113,9 @@ type GenericOrganisationType1 struct {
 }
 
 type GenericPersonIdentification1 struct {
-	Id      Max35Text                             `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Id"`
+	Id      common.Max35Text                      `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Id"`
 	SchmeNm PersonIdentificationSchemeName1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 SchmeNm,omitempty"`
-	Issr    Max35Text                             `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Issr,omitempty"`
+	Issr    common.Max35Text                      `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Issr,omitempty"`
 }
 
 type GenericPersonType1 struct {
@@ -118,15 +124,15 @@ type GenericPersonType1 struct {
 }
 
 type OrganisationIdentification37 struct {
-	AnyBIC   AnyBICDec2014Identifier              `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 AnyBIC,omitempty"`
-	LEI      LEIIdentifier                        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 LEI,omitempty"`
-	EmailAdr Max256Text                           `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 EmailAdr,omitempty"`
+	AnyBIC   common.AnyBICDec2014Identifier       `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 AnyBIC,omitempty"`
+	LEI      common.LEIIdentifier                 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 LEI,omitempty"`
+	EmailAdr common.Max256Text                    `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 EmailAdr,omitempty"`
 	Othr     []GenericOrganisationIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Othr,omitempty"`
 }
 
 type OrganisationIdentificationSchemeName1Choice struct {
 	Cd    ExternalOrganisationIdentification1Code `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Cd"`
-	Prtry Max35Text                               `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Prtry"`
+	Prtry common.Max35Text                        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Prtry"`
 }
 
 type OrganisationType2 struct {
@@ -137,8 +143,8 @@ type OrganisationType2 struct {
 }
 
 type OtherContact1 struct {
-	ChanlTp Max4Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 ChanlTp"`
-	Id      Max128Text `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Id,omitempty"`
+	ChanlTp common.Max4Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 ChanlTp"`
+	Id      common.Max128Text `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Id,omitempty"`
 }
 
 type Party49Choice struct {
@@ -148,13 +154,13 @@ type Party49Choice struct {
 
 type PersonIdentification17 struct {
 	DtAndPlcOfBirth DateAndPlaceOfBirth1           `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 DtAndPlcOfBirth,omitempty"`
-	EmailAdr        Max256Text                     `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 EmailAdr,omitempty"`
+	EmailAdr        common.Max256Text              `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 EmailAdr,omitempty"`
 	Othr            []GenericPersonIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Othr,omitempty"`
 }
 
 type PersonIdentificationSchemeName1Choice struct {
 	Cd    ExternalPersonIdentification1Code `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Cd"`
-	Prtry Max35Text                         `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Prtry"`
+	Prtry common.Max35Text                  `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Prtry"`
 }
 
 type PersonType2 struct {
@@ -165,29 +171,29 @@ type PersonType2 struct {
 
 type PostalAddress24 struct {
 	AdrTp       AddressType3Choice `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 AdrTp,omitempty"`
-	Dept        Max70Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Dept,omitempty"`
-	SubDept     Max70Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 SubDept,omitempty"`
-	StrtNm      Max70Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 StrtNm,omitempty"`
-	BldgNb      Max16Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 BldgNb,omitempty"`
-	BldgNm      Max35Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 BldgNm,omitempty"`
-	Flr         Max70Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Flr,omitempty"`
-	PstBx       Max16Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 PstBx,omitempty"`
-	Room        Max70Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Room,omitempty"`
-	PstCd       Max16Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 PstCd,omitempty"`
-	TwnNm       Max35Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 TwnNm,omitempty"`
-	TwnLctnNm   Max35Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 TwnLctnNm,omitempty"`
-	DstrctNm    Max35Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 DstrctNm,omitempty"`
-	CtrySubDvsn Max35Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CtrySubDvsn,omitempty"`
-	Ctry        CountryCode        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Ctry,omitempty"`
-	AdrLine     []Max70Text        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 AdrLine,omitempty"`
+	Dept        common.Max70Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Dept,omitempty"`
+	SubDept     common.Max70Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 SubDept,omitempty"`
+	StrtNm      common.Max70Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 StrtNm,omitempty"`
+	BldgNb      common.Max16Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 BldgNb,omitempty"`
+	BldgNm      common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 BldgNm,omitempty"`
+	Flr         common.Max70Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Flr,omitempty"`
+	PstBx       common.Max16Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 PstBx,omitempty"`
+	Room        common.Max70Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Room,omitempty"`
+	PstCd       common.Max16Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 PstCd,omitempty"`
+	TwnNm       common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 TwnNm,omitempty"`
+	TwnLctnNm   common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 TwnLctnNm,omitempty"`
+	DstrctNm    common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 DstrctNm,omitempty"`
+	CtrySubDvsn common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CtrySubDvsn,omitempty"`
+	Ctry        common.CountryCode `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Ctry,omitempty"`
+	AdrLine     []common.Max70Text `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 AdrLine,omitempty"`
 }
 
 type RTPPartyIdentification1 struct {
-	Nm        Max140Text      `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Nm,omitempty"`
-	PstlAdr   PostalAddress24 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 PstlAdr,omitempty"`
-	Id        Party49Choice   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Id,omitempty"`
-	CtryOfRes CountryCode     `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CtryOfRes,omitempty"`
-	CtctDtls  Contact4        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CtctDtls,omitempty"`
+	Nm        common.Max140Text  `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Nm,omitempty"`
+	PstlAdr   PostalAddress24    `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 PstlAdr,omitempty"`
+	Id        Party49Choice      `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Id,omitempty"`
+	CtryOfRes common.CountryCode `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CtryOfRes,omitempty"`
+	CtctDtls  Contact4           `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 CtctDtls,omitempty"`
 }
 
 type RequestToPayCreditorEnrolmentRequestV01 struct {
@@ -198,7 +204,7 @@ type RequestToPayCreditorEnrolmentRequestV01 struct {
 }
 
 type SupplementaryData1 struct {
-	PlcAndNm Max350Text                 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 PlcAndNm,omitempty"`
+	PlcAndNm common.Max350Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 PlcAndNm,omitempty"`
 	Envlp    SupplementaryDataEnvelope1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01 Envlp"`
 }
 
@@ -213,12 +219,12 @@ type Visibilty1 struct {
 }
 
 type CreditorEnrolment4 struct {
-	Enrlmnt      CreditorServiceEnrolment1      `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 Enrlmnt,omitempty"`
-	CdtrTradgNm  Max140Text                     `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 CdtrTradgNm,omitempty"`
-	Cdtr         RTPPartyIdentification1        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 Cdtr"`
-	UltmtCdtr    RTPPartyIdentification1        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 UltmtCdtr,omitempty"`
-	MrchntCtgyCd MerchantCategoryCodeIdentifier `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 MrchntCtgyCd,omitempty"`
-	CdtrLogo     Max10KBinary                   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 CdtrLogo,omitempty"`
+	Enrlmnt      CreditorServiceEnrolment1             `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 Enrlmnt,omitempty"`
+	CdtrTradgNm  common.Max140Text                     `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 CdtrTradgNm,omitempty"`
+	Cdtr         RTPPartyIdentification1               `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 Cdtr"`
+	UltmtCdtr    RTPPartyIdentification1               `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 UltmtCdtr,omitempty"`
+	MrchntCtgyCd common.MerchantCategoryCodeIdentifier `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 MrchntCtgyCd,omitempty"`
+	CdtrLogo     common.Max10KBinary                   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 CdtrLogo,omitempty"`
 }
 
 type CreditorEnrolmentAmendment3 struct {
@@ -236,13 +242,13 @@ type CreditorEnrolmentAmendment4 struct {
 
 type CreditorEnrolmentAmendmentReason1Choice struct {
 	Cd    ExternalCreditorEnrolmentAmendmentReason1Code `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 Cd"`
-	Prtry Max35Text                                     `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 Prtry"`
+	Prtry common.Max35Text                              `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 Prtry"`
 }
 
 type CreditorEnrolmentAmendmentReason2 struct {
 	Orgtr    RTPPartyIdentification1                 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 Orgtr,omitempty"`
 	Rsn      CreditorEnrolmentAmendmentReason1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 Rsn"`
-	AddtlInf []Max105Text                            `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 AddtlInf,omitempty"`
+	AddtlInf []common.Max105Text                     `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 AddtlInf,omitempty"`
 }
 
 type CreditorInvoice4 struct {
@@ -250,14 +256,14 @@ type CreditorInvoice4 struct {
 	CstmrIdTp         CustomerTypeRequest2    `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 CstmrIdTp,omitempty"`
 	CtrctFrmtTp       []DocumentFormat2Choice `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 CtrctFrmtTp,omitempty"`
 	CtrctRefTp        []DocumentType1Choice   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 CtrctRefTp,omitempty"`
-	CdtrInstr         Max500Text              `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 CdtrInstr,omitempty"`
+	CdtrInstr         common.Max500Text       `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 CdtrInstr,omitempty"`
 	ActvtnReqDlvryPty RTPPartyIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 ActvtnReqDlvryPty,omitempty"`
 }
 
 type OriginalBusinessInstruction1 struct {
-	MsgId   Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 MsgId"`
-	MsgNmId Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 MsgNmId,omitempty"`
-	CreDtTm ISODateTime `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 CreDtTm,omitempty"`
+	MsgId   common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 MsgId"`
+	MsgNmId common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 MsgNmId,omitempty"`
+	CreDtTm common.ISODateTime `xml:"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01 CreDtTm,omitempty"`
 }
 
 type OriginalEnrolment2Choice struct {
@@ -280,13 +286,13 @@ type CreditorEnrolmentCancellation2 struct {
 
 type CreditorEnrolmentCancellationReason1Choice struct {
 	Cd    ExternalCreditorEnrolmentCancellationReason1Code `xml:"urn:iso:std:iso:20022:tech:xsd:reda.068.001.01 Cd"`
-	Prtry Max35Text                                        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.068.001.01 Prtry"`
+	Prtry common.Max35Text                                 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.068.001.01 Prtry"`
 }
 
 type CreditorEnrolmentCancellationReason2 struct {
 	Orgtr    RTPPartyIdentification1                    `xml:"urn:iso:std:iso:20022:tech:xsd:reda.068.001.01 Orgtr,omitempty"`
 	Rsn      CreditorEnrolmentCancellationReason1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:reda.068.001.01 Rsn"`
-	AddtlInf []Max105Text                               `xml:"urn:iso:std:iso:20022:tech:xsd:reda.068.001.01 AddtlInf,omitempty"`
+	AddtlInf []common.Max105Text                        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.068.001.01 AddtlInf,omitempty"`
 }
 
 type RequestToPayCreditorEnrolmentCancellationRequestV01 struct {
@@ -298,12 +304,12 @@ type RequestToPayCreditorEnrolmentCancellationRequestV01 struct {
 type CreditorEnrolmentStatusReason2 struct {
 	Orgtr    RTPPartyIdentification1              `xml:"urn:iso:std:iso:20022:tech:xsd:reda.069.001.01 Orgtr,omitempty"`
 	Rsn      CreditorEnrolmentStatusReason2Choice `xml:"urn:iso:std:iso:20022:tech:xsd:reda.069.001.01 Rsn"`
-	AddtlInf []Max105Text                         `xml:"urn:iso:std:iso:20022:tech:xsd:reda.069.001.01 AddtlInf,omitempty"`
+	AddtlInf []common.Max105Text                  `xml:"urn:iso:std:iso:20022:tech:xsd:reda.069.001.01 AddtlInf,omitempty"`
 }
 
 type CreditorEnrolmentStatusReason2Choice struct {
 	Cd    ExternalCreditorEnrolmentStatusReason1Code `xml:"urn:iso:std:iso:20022:tech:xsd:reda.069.001.01 Cd"`
-	Prtry Max35Text                                  `xml:"urn:iso:std:iso:20022:tech:xsd:reda.069.001.01 Prtry"`
+	Prtry common.Max35Text                           `xml:"urn:iso:std:iso:20022:tech:xsd:reda.069.001.01 Prtry"`
 }
 
 type EnrolmentStatus2 struct {
@@ -323,12 +329,12 @@ type RequestToPayCreditorEnrolmentStatusReportV01 struct {
 
 type ServiceStatus1Choice struct {
 	Cd    ServiceRequestStatus1Code `xml:"urn:iso:std:iso:20022:tech:xsd:reda.069.001.01 Cd"`
-	Prtry Max35Text                 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.069.001.01 Prtry"`
+	Prtry common.Max35Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.069.001.01 Prtry"`
 }
 
 type ActivationHeader2 struct {
-	MsgId    Max35Text               `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 MsgId"`
-	CreDtTm  ISODateTime             `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 CreDtTm"`
+	MsgId    common.Max35Text        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 MsgId"`
+	CreDtTm  common.ISODateTime      `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 CreDtTm"`
 	MsgOrgtr RTPPartyIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 MsgOrgtr,omitempty"`
 	MsgRcpt  RTPPartyIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 MsgRcpt,omitempty"`
 	InitgPty RTPPartyIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 InitgPty"`
@@ -336,12 +342,12 @@ type ActivationHeader2 struct {
 
 type ContractReference1 struct {
 	Tp  DocumentType1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 Tp,omitempty"`
-	Ref Max500Text          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 Ref"`
+	Ref common.Max500Text   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 Ref"`
 }
 
 type DebtorActivation3 struct {
-	DbtrActvtnId      Max35Text               `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 DbtrActvtnId,omitempty"`
-	DispNm            Max140Text              `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 DispNm,omitempty"`
+	DbtrActvtnId      common.Max35Text        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 DbtrActvtnId,omitempty"`
+	DispNm            common.Max140Text       `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 DispNm,omitempty"`
 	UltmtDbtr         RTPPartyIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 UltmtDbtr,omitempty"`
 	Dbtr              RTPPartyIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 Dbtr"`
 	DbtrSolPrvdr      RTPPartyIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 DbtrSolPrvdr"`
@@ -353,7 +359,7 @@ type DebtorActivation3 struct {
 	ActvtnReqDlvryPty RTPPartyIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 ActvtnReqDlvryPty,omitempty"`
 	StartDt           DateAndDateTime2Choice  `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 StartDt,omitempty"`
 	EndDt             DateAndDateTime2Choice  `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 EndDt,omitempty"`
-	DdctdActvtnCd     Max35Text               `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 DdctdActvtnCd,omitempty"`
+	DdctdActvtnCd     common.Max35Text        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01 DdctdActvtnCd,omitempty"`
 }
 
 type ElectronicInvoice1 struct {
@@ -368,8 +374,8 @@ type RequestToPayDebtorActivationRequestV01 struct {
 }
 
 type DebtorActivation4 struct {
-	DbtrActvtnId      Max35Text               `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 DbtrActvtnId,omitempty"`
-	DispNm            Max140Text              `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 DispNm,omitempty"`
+	DbtrActvtnId      common.Max35Text        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 DbtrActvtnId,omitempty"`
+	DispNm            common.Max140Text       `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 DispNm,omitempty"`
 	UltmtDbtr         RTPPartyIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 UltmtDbtr,omitempty"`
 	Dbtr              RTPPartyIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 Dbtr,omitempty"`
 	DbtrSolPrvdr      RTPPartyIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 DbtrSolPrvdr,omitempty"`
@@ -381,7 +387,7 @@ type DebtorActivation4 struct {
 	ActvtnReqDlvryPty RTPPartyIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 ActvtnReqDlvryPty,omitempty"`
 	StartDt           DateAndDateTime2Choice  `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 StartDt,omitempty"`
 	EndDt             DateAndDateTime2Choice  `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 EndDt,omitempty"`
-	DdctdActvtnCd     Max35Text               `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 DdctdActvtnCd,omitempty"`
+	DdctdActvtnCd     common.Max35Text        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 DdctdActvtnCd,omitempty"`
 }
 
 type DebtorActivationAmendment3 struct {
@@ -399,13 +405,13 @@ type DebtorActivationAmendment4 struct {
 
 type DebtorActivationAmendmentReason1Choice struct {
 	Cd    ExternalDebtorActivationAmendmentReason1Code `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 Cd"`
-	Prtry Max35Text                                    `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 Prtry"`
+	Prtry common.Max35Text                             `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 Prtry"`
 }
 
 type DebtorActivationAmendmentReason2 struct {
 	Orgtr    RTPPartyIdentification1                `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 Orgtr,omitempty"`
 	Rsn      DebtorActivationAmendmentReason1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 Rsn"`
-	AddtlInf []Max105Text                           `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 AddtlInf,omitempty"`
+	AddtlInf []common.Max105Text                    `xml:"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01 AddtlInf,omitempty"`
 }
 
 type RequestToPayDebtorActivationAmendmentRequestV01 struct {
@@ -423,13 +429,13 @@ type DebtorActivationCancellation2 struct {
 
 type DebtorActivationCancellationReason1Choice struct {
 	Cd    ExternalDebtorActivationCancellationReason1Code `xml:"urn:iso:std:iso:20022:tech:xsd:reda.072.001.01 Cd"`
-	Prtry Max35Text                                       `xml:"urn:iso:std:iso:20022:tech:xsd:reda.072.001.01 Prtry"`
+	Prtry common.Max35Text                                `xml:"urn:iso:std:iso:20022:tech:xsd:reda.072.001.01 Prtry"`
 }
 
 type DebtorActivationCancellationReason2 struct {
 	Orgtr    RTPPartyIdentification1                   `xml:"urn:iso:std:iso:20022:tech:xsd:reda.072.001.01 Orgtr,omitempty"`
 	Rsn      DebtorActivationCancellationReason1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:reda.072.001.01 Rsn"`
-	AddtlInf []Max105Text                              `xml:"urn:iso:std:iso:20022:tech:xsd:reda.072.001.01 AddtlInf,omitempty"`
+	AddtlInf []common.Max105Text                       `xml:"urn:iso:std:iso:20022:tech:xsd:reda.072.001.01 AddtlInf,omitempty"`
 }
 
 type OriginalActivation2Choice struct {
@@ -454,13 +460,13 @@ type ActivationStatus2 struct {
 
 type DebtorActivationStatusReason1Choice struct {
 	Cd    ExternalDebtorActivationStatusReason1Code `xml:"urn:iso:std:iso:20022:tech:xsd:reda.073.001.01 Cd"`
-	Prtry Max35Text                                 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.073.001.01 Prtry"`
+	Prtry common.Max35Text                          `xml:"urn:iso:std:iso:20022:tech:xsd:reda.073.001.01 Prtry"`
 }
 
 type DebtorActivationStatusReason2 struct {
 	Orgtr    RTPPartyIdentification1             `xml:"urn:iso:std:iso:20022:tech:xsd:reda.073.001.01 Orgtr,omitempty"`
 	Rsn      DebtorActivationStatusReason1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:reda.073.001.01 Rsn"`
-	AddtlInf []Max105Text                        `xml:"urn:iso:std:iso:20022:tech:xsd:reda.073.001.01 AddtlInf,omitempty"`
+	AddtlInf []common.Max105Text                 `xml:"urn:iso:std:iso:20022:tech:xsd:reda.073.001.01 AddtlInf,omitempty"`
 }
 
 type RequestToPayDebtorActivationStatusReportV01 struct {
