@@ -4,9 +4,6 @@
 
 package remt_v02
 
-// Must match the pattern [a-zA-Z0-9]{4}
-type Exact4AlphaNumericText string
-
 // Must be at least 1 items long
 type ExternalClearingSystemIdentification1Code string
 

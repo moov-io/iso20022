@@ -81,9 +81,9 @@ type GenericFinancialIdentification1 struct {
 }
 
 type GenericIdentification30 struct {
-	Id      Exact4AlphaNumericText `xml:"urn:iso:std:iso:20022:tech:xsd:remt.002.001.02 Id"`
-	Issr    common.Max35Text       `xml:"urn:iso:std:iso:20022:tech:xsd:remt.002.001.02 Issr"`
-	SchmeNm common.Max35Text       `xml:"urn:iso:std:iso:20022:tech:xsd:remt.002.001.02 SchmeNm,omitempty"`
+	Id      common.Exact4AlphaNumericText `xml:"urn:iso:std:iso:20022:tech:xsd:remt.002.001.02 Id"`
+	Issr    common.Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:remt.002.001.02 Issr"`
+	SchmeNm common.Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:remt.002.001.02 SchmeNm,omitempty"`
 }
 
 type GenericOrganisationIdentification1 struct {

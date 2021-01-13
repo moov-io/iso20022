@@ -5,9 +5,10 @@
 package auth_v02
 
 import (
-	"github.com/moov-io/iso20022/pkg/utils"
 	"reflect"
 	"regexp"
+
+	"github.com/moov-io/iso20022/pkg/utils"
 )
 
 // May be one of WIBO, TREA, TIBO, TLBO, SWAP, STBO, PRBO, PFAN, NIBO, MAAA, MOSP, LIBO, LIBI, JIBA, ISDA, GCFR, FUSW, EUCH, EUUS, EURI, EONS, EONA, CIBO, CDOR, BUBO, BBSW

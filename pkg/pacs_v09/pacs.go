@@ -251,8 +251,8 @@ type Frequency36Choice struct {
 }
 
 type FrequencyAndMoment1 struct {
-	Tp     Frequency6Code    `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.008.001.09 Tp"`
-	PtInTm Exact2NumericText `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.008.001.09 PtInTm"`
+	Tp     Frequency6Code           `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.008.001.09 Tp"`
+	PtInTm common.Exact2NumericText `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.008.001.09 PtInTm"`
 }
 
 type FrequencyPeriod1 struct {
@@ -294,9 +294,9 @@ type GenericFinancialIdentification1 struct {
 }
 
 type GenericIdentification30 struct {
-	Id      Exact4AlphaNumericText `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.008.001.09 Id"`
-	Issr    common.Max35Text       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.008.001.09 Issr"`
-	SchmeNm common.Max35Text       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.008.001.09 SchmeNm,omitempty"`
+	Id      common.Exact4AlphaNumericText `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.008.001.09 Id"`
+	Issr    common.Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.008.001.09 Issr"`
+	SchmeNm common.Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.008.001.09 SchmeNm,omitempty"`
 }
 
 type GenericOrganisationIdentification1 struct {

@@ -121,8 +121,8 @@ type Frequency37Choice struct {
 }
 
 type FrequencyAndMoment1 struct {
-	Tp     Frequency6Code    `xml:"urn:iso:std:iso:20022:tech:xsd:pain.017.001.01 Tp"`
-	PtInTm Exact2NumericText `xml:"urn:iso:std:iso:20022:tech:xsd:pain.017.001.01 PtInTm"`
+	Tp     Frequency6Code           `xml:"urn:iso:std:iso:20022:tech:xsd:pain.017.001.01 Tp"`
+	PtInTm common.Exact2NumericText `xml:"urn:iso:std:iso:20022:tech:xsd:pain.017.001.01 PtInTm"`
 }
 
 type FrequencyPeriod1 struct {

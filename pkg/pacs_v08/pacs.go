@@ -43,7 +43,7 @@ type AmendmentInformationDetails13 struct {
 	OrgnlFnlColltnDt common.ISODate                               `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlFnlColltnDt,omitempty"`
 	OrgnlFrqcy       Frequency36Choice                            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlFrqcy,omitempty"`
 	OrgnlRsn         MandateSetupReason1Choice                    `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlRsn,omitempty"`
-	OrgnlTrckgDays   Exact2NumericText                            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlTrckgDays,omitempty"`
+	OrgnlTrckgDays   common.Exact2NumericText                     `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlTrckgDays,omitempty"`
 }
 
 type Authorisation1Choice struct {
@@ -255,8 +255,8 @@ type Frequency36Choice struct {
 }
 
 type FrequencyAndMoment1 struct {
-	Tp     Frequency6Code    `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Tp"`
-	PtInTm Exact2NumericText `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PtInTm"`
+	Tp     Frequency6Code           `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Tp"`
+	PtInTm common.Exact2NumericText `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PtInTm"`
 }
 
 type FrequencyPeriod1 struct {
@@ -298,9 +298,9 @@ type GenericFinancialIdentification1 struct {
 }
 
 type GenericIdentification30 struct {
-	Id      Exact4AlphaNumericText `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Id"`
-	Issr    common.Max35Text       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Issr"`
-	SchmeNm common.Max35Text       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SchmeNm,omitempty"`
+	Id      common.Exact4AlphaNumericText `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Id"`
+	Issr    common.Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Issr"`
+	SchmeNm common.Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SchmeNm,omitempty"`
 }
 
 type GenericOrganisationIdentification1 struct {
@@ -345,7 +345,7 @@ type MandateRelatedInformation14 struct {
 	FnlColltnDt   common.ISODate                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 FnlColltnDt,omitempty"`
 	Frqcy         Frequency36Choice             `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Frqcy,omitempty"`
 	Rsn           MandateSetupReason1Choice     `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Rsn,omitempty"`
-	TrckgDays     Exact2NumericText             `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TrckgDays,omitempty"`
+	TrckgDays     common.Exact2NumericText      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TrckgDays,omitempty"`
 }
 
 type MandateSetupReason1Choice struct {

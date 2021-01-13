@@ -22,9 +22,6 @@ type DocumentType3Code string
 // May be one of MSIN, CNFA, DNFA, CINV, CREN, DEBN, HIRI, SBIN, CMCN, SOAC, DISP, BOLD, VCHR, AROI, TSUT, PUOR
 type DocumentType6Code string
 
-// Must match the pattern [0-9]{2}
-type Exact2NumericText string
-
 // Must be at least 1 items long
 type ExternalAccountIdentification1Code string
 
@@ -102,9 +99,6 @@ type RemittanceLocationMethod2Code string
 
 // May be one of MM01, MM02, MM03, MM04, MM05, MM06, MM07, MM08, MM09, MM10, MM11, MM12, QTR1, QTR2, QTR3, QTR4, HLF1, HLF2
 type TaxRecordPeriod1Code string
-
-// Must match the pattern [a-zA-Z0-9]{4}
-type Exact4AlphaNumericText string
 
 // Must be at least 1 items long
 type ExternalPaymentGroupStatus1Code string

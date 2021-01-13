@@ -4,11 +4,18 @@
 
 package camt_v10
 
-import "github.com/moov-io/iso20022/pkg/common"
+import (
+	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
+)
 
 type AccountIdentification4Choice struct {
 	IBAN common.IBAN2007Identifier     `xml:"IBAN"`
 	Othr GenericAccountIdentification1 `xml:"Othr"`
+}
+
+func (r AccountIdentification4Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type AccountSchemeName1Choice struct {
@@ -16,9 +23,17 @@ type AccountSchemeName1Choice struct {
 	Prtry common.Max35Text                   `xml:"Prtry"`
 }
 
+func (r AccountSchemeName1Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ActiveOrHistoricCurrencyAndAmount struct {
 	Value float64                             `xml:",chardata"`
 	Ccy   common.ActiveOrHistoricCurrencyCode `xml:"Ccy,attr"`
+}
+
+func (r ActiveOrHistoricCurrencyAndAmount) Validate() error {
+	return utils.Validate(&r)
 }
 
 type AdditionalPaymentInformationV10 struct {
@@ -29,9 +44,17 @@ type AdditionalPaymentInformationV10 struct {
 	SplmtryData []SupplementaryData1             `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
+func (r AdditionalPaymentInformationV10) Validate() error {
+	return utils.Validate(&r)
+}
+
 type AddressType3Choice struct {
 	Cd    common.AddressType2Code `xml:"Cd"`
 	Prtry GenericIdentification30 `xml:"Prtry"`
+}
+
+func (r AddressType3Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type AmendmentInformationDetails13 struct {
@@ -46,7 +69,11 @@ type AmendmentInformationDetails13 struct {
 	OrgnlFnlColltnDt *common.ISODate                               `xml:"OrgnlFnlColltnDt,omitempty" json:",omitempty"`
 	OrgnlFrqcy       *Frequency36Choice                            `xml:"OrgnlFrqcy,omitempty" json:",omitempty"`
 	OrgnlRsn         *MandateSetupReason1Choice                    `xml:"OrgnlRsn,omitempty" json:",omitempty"`
-	OrgnlTrckgDays   *Exact2NumericText                            `xml:"OrgnlTrckgDays,omitempty" json:",omitempty"`
+	OrgnlTrckgDays   *common.Exact2NumericText                     `xml:"OrgnlTrckgDays,omitempty" json:",omitempty"`
+}
+
+func (r AmendmentInformationDetails13) Validate() error {
+	return utils.Validate(&r)
 }
 
 type AmountType4Choice struct {
@@ -54,9 +81,17 @@ type AmountType4Choice struct {
 	EqvtAmt  EquivalentAmount2                 `xml:"EqvtAmt"`
 }
 
+func (r AmountType4Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type BranchAndFinancialInstitutionIdentification6 struct {
 	FinInstnId FinancialInstitutionIdentification18 `xml:"FinInstnId"`
 	BrnchId    *BranchData3                         `xml:"BrnchId,omitempty" json:",omitempty"`
+}
+
+func (r BranchAndFinancialInstitutionIdentification6) Validate() error {
+	return utils.Validate(&r)
 }
 
 type BranchData3 struct {
@@ -66,10 +101,18 @@ type BranchData3 struct {
 	PstlAdr *PostalAddress24      `xml:"PstlAdr,omitempty" json:",omitempty"`
 }
 
+func (r BranchData3) Validate() error {
+	return utils.Validate(&r)
+}
+
 type Case5 struct {
 	Id             common.Max35Text `xml:"Id"`
 	Cretr          Party40Choice    `xml:"Cretr"`
 	ReopCaseIndctn bool             `xml:"ReopCaseIndctn,omitempty" json:",omitempty"`
+}
+
+func (r Case5) Validate() error {
+	return utils.Validate(&r)
 }
 
 type CaseAssignment5 struct {
@@ -77,6 +120,10 @@ type CaseAssignment5 struct {
 	Assgnr  Party40Choice      `xml:"Assgnr"`
 	Assgne  Party40Choice      `xml:"Assgne"`
 	CreDtTm common.ISODateTime `xml:"CreDtTm"`
+}
+
+func (r CaseAssignment5) Validate() error {
+	return utils.Validate(&r)
 }
 
 type CashAccount38 struct {
@@ -87,9 +134,17 @@ type CashAccount38 struct {
 	Prxy *ProxyAccountIdentification1         `xml:"Prxy,omitempty" json:",omitempty"`
 }
 
+func (r CashAccount38) Validate() error {
+	return utils.Validate(&r)
+}
+
 type CashAccountType2Choice struct {
 	Cd    ExternalCashAccountType1Code `xml:"Cd"`
 	Prtry common.Max35Text             `xml:"Prtry"`
+}
+
+func (r CashAccountType2Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type CategoryPurpose1Choice struct {
@@ -97,9 +152,17 @@ type CategoryPurpose1Choice struct {
 	Prtry common.Max35Text             `xml:"Prtry"`
 }
 
+func (r CategoryPurpose1Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ClearingSystemIdentification2Choice struct {
 	Cd    ExternalClearingSystemIdentification1Code `xml:"Cd"`
 	Prtry common.Max35Text                          `xml:"Prtry"`
+}
+
+func (r ClearingSystemIdentification2Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ClearingSystemIdentification3Choice struct {
@@ -107,9 +170,17 @@ type ClearingSystemIdentification3Choice struct {
 	Prtry common.Max35Text                `xml:"Prtry"`
 }
 
+func (r ClearingSystemIdentification3Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ClearingSystemMemberIdentification2 struct {
 	ClrSysId *ClearingSystemIdentification2Choice `xml:"ClrSysId,omitempty" json:",omitempty"`
 	MmbId    common.Max35Text                     `xml:"MmbId"`
+}
+
+func (r ClearingSystemMemberIdentification2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type Contact4 struct {
@@ -127,6 +198,10 @@ type Contact4 struct {
 	PrefrdMtd *PreferredContactMethod1Code `xml:"PrefrdMtd,omitempty" json:",omitempty"`
 }
 
+func (r Contact4) Validate() error {
+	return utils.Validate(&r)
+}
+
 type CreditTransferMandateData1 struct {
 	MndtId       *common.Max35Text          `xml:"MndtId,omitempty" json:",omitempty"`
 	Tp           *MandateTypeInformation2   `xml:"Tp,omitempty" json:",omitempty"`
@@ -139,9 +214,17 @@ type CreditTransferMandateData1 struct {
 	Rsn          *MandateSetupReason1Choice `xml:"Rsn,omitempty" json:",omitempty"`
 }
 
+func (r CreditTransferMandateData1) Validate() error {
+	return utils.Validate(&r)
+}
+
 type CreditorReferenceInformation2 struct {
 	Tp  *CreditorReferenceType2 `xml:"Tp,omitempty" json:",omitempty"`
 	Ref *common.Max35Text       `xml:"Ref,omitempty" json:",omitempty"`
+}
+
+func (r CreditorReferenceInformation2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type CreditorReferenceType2 struct {
@@ -149,9 +232,17 @@ type CreditorReferenceType2 struct {
 	Issr      *common.Max35Text            `xml:"Issr,omitempty" json:",omitempty"`
 }
 
+func (r CreditorReferenceType2) Validate() error {
+	return utils.Validate(&r)
+}
+
 type DateAndDateTime2Choice struct {
 	Dt   common.ISODate     `xml:"Dt"`
 	DtTm common.ISODateTime `xml:"DtTm"`
+}
+
+func (r DateAndDateTime2Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type DateAndPlaceOfBirth1 struct {
@@ -161,9 +252,17 @@ type DateAndPlaceOfBirth1 struct {
 	CtryOfBirth common.CountryCode `xml:"CtryOfBirth"`
 }
 
+func (r DateAndPlaceOfBirth1) Validate() error {
+	return utils.Validate(&r)
+}
+
 type DatePeriod2 struct {
 	FrDt common.ISODate `xml:"FrDt"`
 	ToDt common.ISODate `xml:"ToDt"`
+}
+
+func (r DatePeriod2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type DiscountAmountAndType1 struct {
@@ -171,9 +270,17 @@ type DiscountAmountAndType1 struct {
 	Amt ActiveOrHistoricCurrencyAndAmount `xml:"Amt"`
 }
 
+func (r DiscountAmountAndType1) Validate() error {
+	return utils.Validate(&r)
+}
+
 type DiscountAmountType1Choice struct {
 	Cd    ExternalDiscountAmountType1Code `xml:"Cd"`
 	Prtry common.Max35Text                `xml:"Prtry"`
+}
+
+func (r DiscountAmountType1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type DocumentAdjustment1 struct {
@@ -183,10 +290,18 @@ type DocumentAdjustment1 struct {
 	AddtlInf  *common.Max140Text                `xml:"AddtlInf,omitempty" json:",omitempty"`
 }
 
+func (r DocumentAdjustment1) Validate() error {
+	return utils.Validate(&r)
+}
+
 type DocumentLineIdentification1 struct {
 	Tp     *DocumentLineType1 `xml:"Tp,omitempty" json:",omitempty"`
 	Nb     *common.Max35Text  `xml:"Nb,omitempty" json:",omitempty"`
 	RltdDt *common.ISODate    `xml:"RltdDt,omitempty" json:",omitempty"`
+}
+
+func (r DocumentLineIdentification1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type DocumentLineInformation1 struct {
@@ -195,9 +310,17 @@ type DocumentLineInformation1 struct {
 	Amt  *RemittanceAmount3            `xml:"Amt,omitempty" json:",omitempty"`
 }
 
+func (r DocumentLineInformation1) Validate() error {
+	return utils.Validate(&r)
+}
+
 type DocumentLineType1 struct {
 	CdOrPrtry DocumentLineType1Choice `xml:"CdOrPrtry"`
 	Issr      *common.Max35Text       `xml:"Issr,omitempty" json:",omitempty"`
+}
+
+func (r DocumentLineType1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type DocumentLineType1Choice struct {
@@ -205,14 +328,26 @@ type DocumentLineType1Choice struct {
 	Prtry common.Max35Text              `xml:"Prtry"`
 }
 
+func (r DocumentLineType1Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type EquivalentAmount2 struct {
 	Amt      ActiveOrHistoricCurrencyAndAmount   `xml:"Amt"`
 	CcyOfTrf common.ActiveOrHistoricCurrencyCode `xml:"CcyOfTrf"`
 }
 
+func (r EquivalentAmount2) Validate() error {
+	return utils.Validate(&r)
+}
+
 type FinancialIdentificationSchemeName1Choice struct {
 	Cd    ExternalFinancialInstitutionIdentification1Code `xml:"Cd"`
 	Prtry common.Max35Text                                `xml:"Prtry"`
+}
+
+func (r FinancialIdentificationSchemeName1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type FinancialInstitutionIdentification18 struct {
@@ -224,20 +359,36 @@ type FinancialInstitutionIdentification18 struct {
 	Othr        *GenericFinancialIdentification1     `xml:"Othr,omitempty" json:",omitempty"`
 }
 
+func (r FinancialInstitutionIdentification18) Validate() error {
+	return utils.Validate(&r)
+}
+
 type Frequency36Choice struct {
 	Tp     Frequency6Code      `xml:"Tp"`
 	Prd    FrequencyPeriod1    `xml:"Prd"`
 	PtInTm FrequencyAndMoment1 `xml:"PtInTm"`
 }
 
+func (r Frequency36Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type FrequencyAndMoment1 struct {
-	Tp     Frequency6Code    `xml:"Tp"`
-	PtInTm Exact2NumericText `xml:"PtInTm"`
+	Tp     Frequency6Code           `xml:"Tp"`
+	PtInTm common.Exact2NumericText `xml:"PtInTm"`
+}
+
+func (r FrequencyAndMoment1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type FrequencyPeriod1 struct {
 	Tp        Frequency6Code `xml:"Tp"`
 	CntPerPrd float64        `xml:"CntPerPrd"`
+}
+
+func (r FrequencyPeriod1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type Garnishment3 struct {
@@ -251,14 +402,26 @@ type Garnishment3 struct {
 	MplyeeTermntnInd  bool                               `xml:"MplyeeTermntnInd,omitempty" json:",omitempty"`
 }
 
+func (r Garnishment3) Validate() error {
+	return utils.Validate(&r)
+}
+
 type GarnishmentType1 struct {
 	CdOrPrtry GarnishmentType1Choice `xml:"CdOrPrtry"`
 	Issr      *common.Max35Text      `xml:"Issr,omitempty" json:",omitempty"`
 }
 
+func (r GarnishmentType1) Validate() error {
+	return utils.Validate(&r)
+}
+
 type GarnishmentType1Choice struct {
 	Cd    ExternalGarnishmentType1Code `xml:"Cd"`
 	Prtry common.Max35Text             `xml:"Prtry"`
+}
+
+func (r GarnishmentType1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type GenericAccountIdentification1 struct {
@@ -267,10 +430,18 @@ type GenericAccountIdentification1 struct {
 	Issr    *common.Max35Text         `xml:"Issr,omitempty" json:",omitempty"`
 }
 
+func (r GenericAccountIdentification1) Validate() error {
+	return utils.Validate(&r)
+}
+
 type GenericFinancialIdentification1 struct {
 	Id      common.Max35Text                          `xml:"Id"`
 	SchmeNm *FinancialIdentificationSchemeName1Choice `xml:"SchmeNm,omitempty" json:",omitempty"`
 	Issr    *common.Max35Text                         `xml:"Issr,omitempty" json:",omitempty"`
+}
+
+func (r GenericFinancialIdentification1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type GenericIdentification30 struct {
@@ -279,10 +450,18 @@ type GenericIdentification30 struct {
 	SchmeNm *common.Max35Text             `xml:"SchmeNm,omitempty" json:",omitempty"`
 }
 
+func (r GenericIdentification30) Validate() error {
+	return utils.Validate(&r)
+}
+
 type GenericOrganisationIdentification1 struct {
 	Id      common.Max35Text                             `xml:"Id"`
 	SchmeNm *OrganisationIdentificationSchemeName1Choice `xml:"SchmeNm,omitempty" json:",omitempty"`
 	Issr    *common.Max35Text                            `xml:"Issr,omitempty" json:",omitempty"`
+}
+
+func (r GenericOrganisationIdentification1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type GenericPersonIdentification1 struct {
@@ -291,9 +470,17 @@ type GenericPersonIdentification1 struct {
 	Issr    *common.Max35Text                      `xml:"Issr,omitempty" json:",omitempty"`
 }
 
+func (r GenericPersonIdentification1) Validate() error {
+	return utils.Validate(&r)
+}
+
 type InstructionForCreditorAgent3 struct {
 	Cd       *ExternalCreditorAgentInstruction1Code `xml:"Cd,omitempty" json:",omitempty"`
 	InstrInf *common.Max140Text                     `xml:"InstrInf,omitempty" json:",omitempty"`
+}
+
+func (r InstructionForCreditorAgent3) Validate() error {
+	return utils.Validate(&r)
 }
 
 type InstructionForNextAgent1 struct {
@@ -301,9 +488,17 @@ type InstructionForNextAgent1 struct {
 	InstrInf *common.Max140Text `xml:"InstrInf,omitempty" json:",omitempty"`
 }
 
+func (r InstructionForNextAgent1) Validate() error {
+	return utils.Validate(&r)
+}
+
 type LocalInstrument2Choice struct {
 	Cd    ExternalLocalInstrument1Code `xml:"Cd"`
 	Prtry common.Max35Text             `xml:"Prtry"`
+}
+
+func (r LocalInstrument2Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type MandateClassification1Choice struct {
@@ -311,9 +506,17 @@ type MandateClassification1Choice struct {
 	Prtry common.Max35Text                  `xml:"Prtry"`
 }
 
+func (r MandateClassification1Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type MandateRelatedData1Choice struct {
 	DrctDbtMndt *MandateRelatedInformation14 `xml:"DrctDbtMndt,omitempty" json:",omitempty"`
 	CdtTrfMndt  *CreditTransferMandateData1  `xml:"CdtTrfMndt,omitempty" json:",omitempty"`
+}
+
+func (r MandateRelatedData1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type MandateRelatedInformation14 struct {
@@ -326,12 +529,20 @@ type MandateRelatedInformation14 struct {
 	FnlColltnDt   *common.ISODate                `xml:"FnlColltnDt,omitempty" json:",omitempty"`
 	Frqcy         *Frequency36Choice             `xml:"Frqcy,omitempty" json:",omitempty"`
 	Rsn           *MandateSetupReason1Choice     `xml:"Rsn,omitempty" json:",omitempty"`
-	TrckgDays     *Exact2NumericText             `xml:"TrckgDays,omitempty" json:",omitempty"`
+	TrckgDays     *common.Exact2NumericText      `xml:"TrckgDays,omitempty" json:",omitempty"`
+}
+
+func (r MandateRelatedInformation14) Validate() error {
+	return utils.Validate(&r)
 }
 
 type MandateSetupReason1Choice struct {
 	Cd    ExternalMandateSetupReason1Code `xml:"Cd"`
 	Prtry common.Max70Text                `xml:"Prtry"`
+}
+
+func (r MandateSetupReason1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type MandateTypeInformation2 struct {
@@ -341,10 +552,18 @@ type MandateTypeInformation2 struct {
 	Clssfctn  *MandateClassification1Choice `xml:"Clssfctn,omitempty" json:",omitempty"`
 }
 
+func (r MandateTypeInformation2) Validate() error {
+	return utils.Validate(&r)
+}
+
 type OrganisationIdentification29 struct {
 	AnyBIC *common.AnyBICDec2014Identifier      `xml:"AnyBIC,omitempty" json:",omitempty"`
 	LEI    *common.LEIIdentifier                `xml:"LEI,omitempty" json:",omitempty"`
 	Othr   []GenericOrganisationIdentification1 `xml:"Othr,omitempty" json:",omitempty"`
+}
+
+func (r OrganisationIdentification29) Validate() error {
+	return utils.Validate(&r)
 }
 
 type OrganisationIdentificationSchemeName1Choice struct {
@@ -352,10 +571,18 @@ type OrganisationIdentificationSchemeName1Choice struct {
 	Prtry common.Max35Text                        `xml:"Prtry"`
 }
 
+func (r OrganisationIdentificationSchemeName1Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type OriginalGroupInformation29 struct {
 	OrgnlMsgId   common.Max35Text    `xml:"OrgnlMsgId"`
 	OrgnlMsgNmId common.Max35Text    `xml:"OrgnlMsgNmId"`
 	OrgnlCreDtTm *common.ISODateTime `xml:"OrgnlCreDtTm,omitempty" json:",omitempty"`
+}
+
+func (r OriginalGroupInformation29) Validate() error {
+	return utils.Validate(&r)
 }
 
 type OriginalTransactionReference31 struct {
@@ -383,9 +610,17 @@ type OriginalTransactionReference31 struct {
 	Purp           *Purpose2Choice                               `xml:"Purp,omitempty" json:",omitempty"`
 }
 
+func (r OriginalTransactionReference31) Validate() error {
+	return utils.Validate(&r)
+}
+
 type OtherContact1 struct {
 	ChanlTp common.Max4Text    `xml:"ChanlTp"`
 	Id      *common.Max128Text `xml:"Id,omitempty" json:",omitempty"`
+}
+
+func (r OtherContact1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type Party38Choice struct {
@@ -393,9 +628,17 @@ type Party38Choice struct {
 	PrvtId PersonIdentification13       `xml:"PrvtId"`
 }
 
+func (r Party38Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type Party40Choice struct {
 	Pty PartyIdentification135                       `xml:"Pty"`
 	Agt BranchAndFinancialInstitutionIdentification6 `xml:"Agt"`
+}
+
+func (r Party40Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type PartyIdentification135 struct {
@@ -404,6 +647,10 @@ type PartyIdentification135 struct {
 	Id        *Party38Choice      `xml:"Id,omitempty" json:",omitempty"`
 	CtryOfRes *common.CountryCode `xml:"CtryOfRes,omitempty" json:",omitempty"`
 	CtctDtls  *Contact4           `xml:"CtctDtls,omitempty" json:",omitempty"`
+}
+
+func (r PartyIdentification135) Validate() error {
+	return utils.Validate(&r)
 }
 
 type PaymentComplementaryInformation9 struct {
@@ -447,6 +694,10 @@ type PaymentComplementaryInformation9 struct {
 	RmtInf            *RemittanceInformation16                      `xml:"RmtInf,omitempty" json:",omitempty"`
 }
 
+func (r PaymentComplementaryInformation9) Validate() error {
+	return utils.Validate(&r)
+}
+
 type PaymentTypeInformation27 struct {
 	InstrPrty *Priority2Code          `xml:"InstrPrty,omitempty" json:",omitempty"`
 	ClrChanl  *ClearingChannel2Code   `xml:"ClrChanl,omitempty" json:",omitempty"`
@@ -456,14 +707,26 @@ type PaymentTypeInformation27 struct {
 	CtgyPurp  *CategoryPurpose1Choice `xml:"CtgyPurp,omitempty" json:",omitempty"`
 }
 
+func (r PaymentTypeInformation27) Validate() error {
+	return utils.Validate(&r)
+}
+
 type PersonIdentification13 struct {
 	DtAndPlcOfBirth *DateAndPlaceOfBirth1          `xml:"DtAndPlcOfBirth,omitempty" json:",omitempty"`
 	Othr            []GenericPersonIdentification1 `xml:"Othr,omitempty" json:",omitempty"`
 }
 
+func (r PersonIdentification13) Validate() error {
+	return utils.Validate(&r)
+}
+
 type PersonIdentificationSchemeName1Choice struct {
 	Cd    ExternalPersonIdentification1Code `xml:"Cd"`
 	Prtry common.Max35Text                  `xml:"Prtry"`
+}
+
+func (r PersonIdentificationSchemeName1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type PostalAddress24 struct {
@@ -485,9 +748,17 @@ type PostalAddress24 struct {
 	AdrLine     []common.Max70Text  `xml:"AdrLine,omitempty" json:",omitempty"`
 }
 
+func (r PostalAddress24) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ProxyAccountIdentification1 struct {
 	Tp *ProxyAccountType1Choice `xml:"Tp,omitempty" json:",omitempty"`
 	Id common.Max2048Text       `xml:"Id"`
+}
+
+func (r ProxyAccountIdentification1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ProxyAccountType1Choice struct {
@@ -495,9 +766,17 @@ type ProxyAccountType1Choice struct {
 	Prtry common.Max35Text              `xml:"Prtry"`
 }
 
+func (r ProxyAccountType1Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type Purpose2Choice struct {
 	Cd    ExternalPurpose1Code `xml:"Cd"`
 	Prtry common.Max35Text     `xml:"Prtry"`
+}
+
+func (r Purpose2Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ReferredDocumentInformation7 struct {
@@ -507,14 +786,26 @@ type ReferredDocumentInformation7 struct {
 	LineDtls []DocumentLineInformation1 `xml:"LineDtls,omitempty" json:",omitempty"`
 }
 
+func (r ReferredDocumentInformation7) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ReferredDocumentType3Choice struct {
 	Cd    DocumentType6Code `xml:"Cd"`
 	Prtry common.Max35Text  `xml:"Prtry"`
 }
 
+func (r ReferredDocumentType3Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ReferredDocumentType4 struct {
 	CdOrPrtry ReferredDocumentType3Choice `xml:"CdOrPrtry"`
 	Issr      *common.Max35Text           `xml:"Issr,omitempty" json:",omitempty"`
+}
+
+func (r ReferredDocumentType4) Validate() error {
+	return utils.Validate(&r)
 }
 
 type RemittanceAmount2 struct {
@@ -526,6 +817,10 @@ type RemittanceAmount2 struct {
 	RmtdAmt           *ActiveOrHistoricCurrencyAndAmount `xml:"RmtdAmt,omitempty" json:",omitempty"`
 }
 
+func (r RemittanceAmount2) Validate() error {
+	return utils.Validate(&r)
+}
+
 type RemittanceAmount3 struct {
 	DuePyblAmt        *ActiveOrHistoricCurrencyAndAmount `xml:"DuePyblAmt,omitempty" json:",omitempty"`
 	DscntApldAmt      []DiscountAmountAndType1           `xml:"DscntApldAmt,omitempty" json:",omitempty"`
@@ -535,14 +830,26 @@ type RemittanceAmount3 struct {
 	RmtdAmt           *ActiveOrHistoricCurrencyAndAmount `xml:"RmtdAmt,omitempty" json:",omitempty"`
 }
 
+func (r RemittanceAmount3) Validate() error {
+	return utils.Validate(&r)
+}
+
 type RemittanceInformation16 struct {
 	Ustrd []common.Max140Text                 `xml:"Ustrd,omitempty" json:",omitempty"`
 	Strd  []StructuredRemittanceInformation16 `xml:"Strd,omitempty" json:",omitempty"`
 }
 
+func (r RemittanceInformation16) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ServiceLevel8Choice struct {
 	Cd    ExternalServiceLevel1Code `xml:"Cd"`
 	Prtry common.Max35Text          `xml:"Prtry"`
+}
+
+func (r ServiceLevel8Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type SettlementInstruction7 struct {
@@ -557,6 +864,10 @@ type SettlementInstruction7 struct {
 	ThrdRmbrsmntAgtAcct  *CashAccount38                                `xml:"ThrdRmbrsmntAgtAcct,omitempty" json:",omitempty"`
 }
 
+func (r SettlementInstruction7) Validate() error {
+	return utils.Validate(&r)
+}
+
 type StructuredRemittanceInformation16 struct {
 	RfrdDocInf  []ReferredDocumentInformation7 `xml:"RfrdDocInf,omitempty" json:",omitempty"`
 	RfrdDocAmt  *RemittanceAmount2             `xml:"RfrdDocAmt,omitempty" json:",omitempty"`
@@ -568,13 +879,25 @@ type StructuredRemittanceInformation16 struct {
 	AddtlRmtInf []common.Max140Text            `xml:"AddtlRmtInf,omitempty" json:",omitempty"`
 }
 
+func (r StructuredRemittanceInformation16) Validate() error {
+	return utils.Validate(&r)
+}
+
 type SupplementaryData1 struct {
 	PlcAndNm *common.Max350Text         `xml:"PlcAndNm,omitempty" json:",omitempty"`
 	Envlp    SupplementaryDataEnvelope1 `xml:"Envlp"`
 }
 
+func (r SupplementaryData1) Validate() error {
+	return utils.Validate(&r)
+}
+
 type SupplementaryDataEnvelope1 struct {
 	Item string `xml:",any"`
+}
+
+func (r SupplementaryDataEnvelope1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type TaxAmount2 struct {
@@ -584,9 +907,17 @@ type TaxAmount2 struct {
 	Dtls         []TaxRecordDetails2                `xml:"Dtls,omitempty" json:",omitempty"`
 }
 
+func (r TaxAmount2) Validate() error {
+	return utils.Validate(&r)
+}
+
 type TaxAmountAndType1 struct {
 	Tp  *TaxAmountType1Choice             `xml:"Tp,omitempty" json:",omitempty"`
 	Amt ActiveOrHistoricCurrencyAndAmount `xml:"Amt"`
+}
+
+func (r TaxAmountAndType1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type TaxAmountType1Choice struct {
@@ -594,9 +925,17 @@ type TaxAmountType1Choice struct {
 	Prtry common.Max35Text           `xml:"Prtry"`
 }
 
+func (r TaxAmountType1Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type TaxAuthorisation1 struct {
 	Titl *common.Max35Text  `xml:"Titl,omitempty" json:",omitempty"`
 	Nm   *common.Max140Text `xml:"Nm,omitempty" json:",omitempty"`
+}
+
+func (r TaxAuthorisation1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type TaxInformation7 struct {
@@ -613,10 +952,18 @@ type TaxInformation7 struct {
 	Rcrd            []TaxRecord2                       `xml:"Rcrd,omitempty" json:",omitempty"`
 }
 
+func (r TaxInformation7) Validate() error {
+	return utils.Validate(&r)
+}
+
 type TaxParty1 struct {
 	TaxId  *common.Max35Text `xml:"TaxId,omitempty" json:",omitempty"`
 	RegnId *common.Max35Text `xml:"RegnId,omitempty" json:",omitempty"`
 	TaxTp  *common.Max35Text `xml:"TaxTp,omitempty" json:",omitempty"`
+}
+
+func (r TaxParty1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type TaxParty2 struct {
@@ -626,10 +973,18 @@ type TaxParty2 struct {
 	Authstn *TaxAuthorisation1 `xml:"Authstn,omitempty" json:",omitempty"`
 }
 
+func (r TaxParty2) Validate() error {
+	return utils.Validate(&r)
+}
+
 type TaxPeriod2 struct {
 	Yr     *common.ISODate       `xml:"Yr,omitempty" json:",omitempty"`
 	Tp     *TaxRecordPeriod1Code `xml:"Tp,omitempty" json:",omitempty"`
 	FrToDt *DatePeriod2          `xml:"FrToDt,omitempty" json:",omitempty"`
+}
+
+func (r TaxPeriod2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type TaxRecord2 struct {
@@ -644,9 +999,17 @@ type TaxRecord2 struct {
 	AddtlInf *common.Max140Text `xml:"AddtlInf,omitempty" json:",omitempty"`
 }
 
+func (r TaxRecord2) Validate() error {
+	return utils.Validate(&r)
+}
+
 type TaxRecordDetails2 struct {
 	Prd *TaxPeriod2                       `xml:"Prd,omitempty" json:",omitempty"`
 	Amt ActiveOrHistoricCurrencyAndAmount `xml:"Amt"`
+}
+
+func (r TaxRecordDetails2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type UnderlyingGroupInformation1 struct {
@@ -654,6 +1017,10 @@ type UnderlyingGroupInformation1 struct {
 	OrgnlMsgNmId       common.Max35Text    `xml:"OrgnlMsgNmId"`
 	OrgnlCreDtTm       *common.ISODateTime `xml:"OrgnlCreDtTm,omitempty" json:",omitempty"`
 	OrgnlMsgDlvryChanl *common.Max35Text   `xml:"OrgnlMsgDlvryChanl,omitempty" json:",omitempty"`
+}
+
+func (r UnderlyingGroupInformation1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type UnderlyingPaymentInstruction6 struct {
@@ -668,6 +1035,10 @@ type UnderlyingPaymentInstruction6 struct {
 	OrgnlTxRef      *OriginalTransactionReference31   `xml:"OrgnlTxRef,omitempty" json:",omitempty"`
 }
 
+func (r UnderlyingPaymentInstruction6) Validate() error {
+	return utils.Validate(&r)
+}
+
 type UnderlyingPaymentTransaction5 struct {
 	OrgnlGrpInf         *UnderlyingGroupInformation1      `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
 	OrgnlInstrId        *common.Max35Text                 `xml:"OrgnlInstrId,omitempty" json:",omitempty"`
@@ -679,11 +1050,19 @@ type UnderlyingPaymentTransaction5 struct {
 	OrgnlTxRef          *OriginalTransactionReference31   `xml:"OrgnlTxRef,omitempty" json:",omitempty"`
 }
 
+func (r UnderlyingPaymentTransaction5) Validate() error {
+	return utils.Validate(&r)
+}
+
 type UnderlyingStatementEntry3 struct {
 	OrgnlGrpInf *OriginalGroupInformation29 `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
 	OrgnlStmtId *common.Max35Text           `xml:"OrgnlStmtId,omitempty" json:",omitempty"`
 	OrgnlNtryId *common.Max35Text           `xml:"OrgnlNtryId,omitempty" json:",omitempty"`
 	OrgnlUETR   *common.UUIDv4Identifier    `xml:"OrgnlUETR,omitempty" json:",omitempty"`
+}
+
+func (r UnderlyingStatementEntry3) Validate() error {
+	return utils.Validate(&r)
 }
 
 type UnderlyingTransaction6Choice struct {
@@ -692,14 +1071,26 @@ type UnderlyingTransaction6Choice struct {
 	StmtNtry UnderlyingStatementEntry3     `xml:"StmtNtry"`
 }
 
+func (r UnderlyingTransaction6Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ActiveCurrencyAndAmount struct {
 	Value float64                   `xml:",chardata"`
 	Ccy   common.ActiveCurrencyCode `xml:"Ccy,attr"`
 }
 
+func (r ActiveCurrencyAndAmount) Validate() error {
+	return utils.Validate(&r)
+}
+
 type CancellationStatusReason3Choice struct {
 	Cd    ExternalPaymentCancellationRejection1Code `xml:"Cd"`
 	Prtry common.Max35Text                          `xml:"Prtry"`
+}
+
+func (r CancellationStatusReason3Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type CancellationStatusReason4 struct {
@@ -708,9 +1099,17 @@ type CancellationStatusReason4 struct {
 	AddtlInf []common.Max105Text              `xml:"AddtlInf,omitempty" json:",omitempty"`
 }
 
+func (r CancellationStatusReason4) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ChargeType3Choice struct {
 	Cd    ExternalChargeType1Code `xml:"Cd"`
 	Prtry GenericIdentification3  `xml:"Prtry"`
+}
+
+func (r ChargeType3Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type Charges6 struct {
@@ -718,10 +1117,18 @@ type Charges6 struct {
 	Rcrd              []ChargesRecord3                   `xml:"Rcrd,omitempty" json:",omitempty"`
 }
 
+func (r Charges6) Validate() error {
+	return utils.Validate(&r)
+}
+
 type Charges8 struct {
 	Amt     ActiveOrHistoricCurrencyAndAmount            `xml:"Amt"`
 	Agt     BranchAndFinancialInstitutionIdentification6 `xml:"Agt"`
 	AgtAcct *CashAccount38                               `xml:"AgtAcct,omitempty" json:",omitempty"`
+}
+
+func (r Charges8) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ChargesRecord3 struct {
@@ -735,9 +1142,17 @@ type ChargesRecord3 struct {
 	Tax         *TaxCharges2                                  `xml:"Tax,omitempty" json:",omitempty"`
 }
 
+func (r ChargesRecord3) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ClaimNonReceipt2 struct {
 	DtPrcd      common.ISODate                                `xml:"DtPrcd"`
 	OrgnlNxtAgt *BranchAndFinancialInstitutionIdentification6 `xml:"OrgnlNxtAgt,omitempty" json:",omitempty"`
+}
+
+func (r ClaimNonReceipt2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ClaimNonReceipt2Choice struct {
@@ -745,9 +1160,17 @@ type ClaimNonReceipt2Choice struct {
 	Rjctd  ClaimNonReceiptRejectReason1Choice `xml:"Rjctd"`
 }
 
+func (r ClaimNonReceipt2Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ClaimNonReceiptRejectReason1Choice struct {
 	Cd    ExternalClaimNonReceiptRejection1Code `xml:"Cd"`
 	Prtry common.Max35Text                      `xml:"Prtry"`
+}
+
+func (r ClaimNonReceiptRejectReason1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type Compensation3 struct {
@@ -759,15 +1182,27 @@ type Compensation3 struct {
 	Rsn         CompensationReason1Choice                    `xml:"Rsn"`
 }
 
+func (r Compensation3) Validate() error {
+	return utils.Validate(&r)
+}
+
 type CompensationReason1Choice struct {
 	Cd    ExternalPaymentCompensationReason1Code `xml:"Cd"`
 	Prtry common.Max35Text                       `xml:"Prtry"`
+}
+
+func (r CompensationReason1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type CorrectiveGroupInformation1 struct {
 	MsgId   common.Max35Text    `xml:"MsgId"`
 	MsgNmId common.Max35Text    `xml:"MsgNmId"`
 	CreDtTm *common.ISODateTime `xml:"CreDtTm,omitempty" json:",omitempty"`
+}
+
+func (r CorrectiveGroupInformation1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type CorrectiveInterbankTransaction2 struct {
@@ -778,6 +1213,10 @@ type CorrectiveInterbankTransaction2 struct {
 	UETR           *common.UUIDv4Identifier          `xml:"UETR,omitempty" json:",omitempty"`
 	IntrBkSttlmAmt ActiveOrHistoricCurrencyAndAmount `xml:"IntrBkSttlmAmt"`
 	IntrBkSttlmDt  common.ISODate                    `xml:"IntrBkSttlmDt"`
+}
+
+func (r CorrectiveInterbankTransaction2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type CorrectivePaymentInitiation4 struct {
@@ -791,9 +1230,17 @@ type CorrectivePaymentInitiation4 struct {
 	ReqdColltnDt *common.ISODate                   `xml:"ReqdColltnDt,omitempty" json:",omitempty"`
 }
 
+func (r CorrectivePaymentInitiation4) Validate() error {
+	return utils.Validate(&r)
+}
+
 type CorrectiveTransaction4Choice struct {
 	Initn  CorrectivePaymentInitiation4    `xml:"Initn"`
 	IntrBk CorrectiveInterbankTransaction2 `xml:"IntrBk"`
+}
+
+func (r CorrectiveTransaction4Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type CreditorReferenceType1Choice struct {
@@ -801,9 +1248,17 @@ type CreditorReferenceType1Choice struct {
 	Prtry common.Max35Text  `xml:"Prtry"`
 }
 
+func (r CreditorReferenceType1Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type GenericIdentification3 struct {
 	Id   common.Max35Text  `xml:"Id"`
 	Issr *common.Max35Text `xml:"Issr,omitempty" json:",omitempty"`
+}
+
+func (r GenericIdentification3) Validate() error {
+	return utils.Validate(&r)
 }
 
 type InvestigationStatus5Choice struct {
@@ -813,9 +1268,17 @@ type InvestigationStatus5Choice struct {
 	AssgnmtCxlConf bool                                            `xml:"AssgnmtCxlConf"`
 }
 
+func (r InvestigationStatus5Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ModificationStatusReason1Choice struct {
 	Cd    ExternalPaymentModificationRejection1Code `xml:"Cd"`
 	Prtry common.Max35Text                          `xml:"Prtry"`
+}
+
+func (r ModificationStatusReason1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ModificationStatusReason2 struct {
@@ -824,16 +1287,28 @@ type ModificationStatusReason2 struct {
 	AddtlInf []common.Max105Text              `xml:"AddtlInf,omitempty" json:",omitempty"`
 }
 
+func (r ModificationStatusReason2) Validate() error {
+	return utils.Validate(&r)
+}
+
 type NumberOfCancellationsPerStatus1 struct {
 	DtldNbOfTxs common.Max15NumericText           `xml:"DtldNbOfTxs"`
 	DtldSts     CancellationIndividualStatus1Code `xml:"DtldSts"`
 	DtldCtrlSum float64                           `xml:"DtldCtrlSum,omitempty" json:",omitempty"`
 }
 
+func (r NumberOfCancellationsPerStatus1) Validate() error {
+	return utils.Validate(&r)
+}
+
 type NumberOfTransactionsPerStatus1 struct {
 	DtldNbOfTxs common.Max15NumericText          `xml:"DtldNbOfTxs"`
 	DtldSts     TransactionIndividualStatus1Code `xml:"DtldSts"`
 	DtldCtrlSum float64                          `xml:"DtldCtrlSum,omitempty" json:",omitempty"`
+}
+
+func (r NumberOfTransactionsPerStatus1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type OriginalGroupHeader14 struct {
@@ -849,6 +1324,10 @@ type OriginalGroupHeader14 struct {
 	NbOfTxsPerCxlSts []NumberOfTransactionsPerStatus1 `xml:"NbOfTxsPerCxlSts,omitempty" json:",omitempty"`
 }
 
+func (r OriginalGroupHeader14) Validate() error {
+	return utils.Validate(&r)
+}
+
 type OriginalPaymentInstruction35 struct {
 	OrgnlPmtInfCxlId *common.Max35Text                 `xml:"OrgnlPmtInfCxlId,omitempty" json:",omitempty"`
 	RslvdCase        *Case5                            `xml:"RslvdCase,omitempty" json:",omitempty"`
@@ -860,6 +1339,10 @@ type OriginalPaymentInstruction35 struct {
 	CxlStsRsnInf     []CancellationStatusReason4       `xml:"CxlStsRsnInf,omitempty" json:",omitempty"`
 	NbOfTxsPerCxlSts []NumberOfCancellationsPerStatus1 `xml:"NbOfTxsPerCxlSts,omitempty" json:",omitempty"`
 	TxInfAndSts      []PaymentTransaction122           `xml:"TxInfAndSts,omitempty" json:",omitempty"`
+}
+
+func (r OriginalPaymentInstruction35) Validate() error {
+	return utils.Validate(&r)
 }
 
 type PaymentTransaction116 struct {
@@ -881,6 +1364,10 @@ type PaymentTransaction116 struct {
 	OrgnlTxRef          *OriginalTransactionReference31    `xml:"OrgnlTxRef,omitempty" json:",omitempty"`
 }
 
+func (r PaymentTransaction116) Validate() error {
+	return utils.Validate(&r)
+}
+
 type PaymentTransaction122 struct {
 	CxlStsId          *common.Max35Text                  `xml:"CxlStsId,omitempty" json:",omitempty"`
 	RslvdCase         *Case5                             `xml:"RslvdCase,omitempty" json:",omitempty"`
@@ -893,6 +1380,10 @@ type PaymentTransaction122 struct {
 	OrgnlReqdExctnDt  *DateAndDateTime2Choice            `xml:"OrgnlReqdExctnDt,omitempty" json:",omitempty"`
 	OrgnlReqdColltnDt *common.ISODate                    `xml:"OrgnlReqdColltnDt,omitempty" json:",omitempty"`
 	OrgnlTxRef        *OriginalTransactionReference31    `xml:"OrgnlTxRef,omitempty" json:",omitempty"`
+}
+
+func (r PaymentTransaction122) Validate() error {
+	return utils.Validate(&r)
 }
 
 type PaymentTransaction127 struct {
@@ -914,6 +1405,10 @@ type PaymentTransaction127 struct {
 	OrgnlTxRef          *OriginalTransactionReference31    `xml:"OrgnlTxRef,omitempty" json:",omitempty"`
 }
 
+func (r PaymentTransaction127) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ResolutionData2 struct {
 	EndToEndId     *common.Max35Text                  `xml:"EndToEndId,omitempty" json:",omitempty"`
 	TxId           *common.Max35Text                  `xml:"TxId,omitempty" json:",omitempty"`
@@ -923,6 +1418,10 @@ type ResolutionData2 struct {
 	ClrChanl       *ClearingChannel2Code              `xml:"ClrChanl,omitempty" json:",omitempty"`
 	Compstn        *Compensation3                     `xml:"Compstn,omitempty" json:",omitempty"`
 	Chrgs          []Charges8                         `xml:"Chrgs,omitempty" json:",omitempty"`
+}
+
+func (r ResolutionData2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ResolutionOfInvestigationV10 struct {
@@ -938,6 +1437,10 @@ type ResolutionOfInvestigationV10 struct {
 	SplmtryData   []SupplementaryData1          `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
+func (r ResolutionOfInvestigationV10) Validate() error {
+	return utils.Validate(&r)
+}
+
 type StatementResolutionEntry4 struct {
 	OrgnlGrpInf *OriginalGroupInformation29        `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
 	OrgnlStmtId *common.Max35Text                  `xml:"OrgnlStmtId,omitempty" json:",omitempty"`
@@ -948,14 +1451,26 @@ type StatementResolutionEntry4 struct {
 	Purp        *Purpose2Choice                    `xml:"Purp,omitempty" json:",omitempty"`
 }
 
+func (r StatementResolutionEntry4) Validate() error {
+	return utils.Validate(&r)
+}
+
 type TaxCharges2 struct {
 	Id   common.Max35Text                   `xml:"Id,omitempty" json:",omitempty"`
 	Rate float64                            `xml:"Rate,omitempty" json:",omitempty"`
 	Amt  *ActiveOrHistoricCurrencyAndAmount `xml:"Amt,omitempty" json:",omitempty"`
 }
 
+func (r TaxCharges2) Validate() error {
+	return utils.Validate(&r)
+}
+
 type UnderlyingTransaction25 struct {
 	OrgnlGrpInfAndSts *OriginalGroupHeader14         `xml:"OrgnlGrpInfAndSts,omitempty" json:",omitempty"`
 	OrgnlPmtInfAndSts []OriginalPaymentInstruction35 `xml:"OrgnlPmtInfAndSts,omitempty" json:",omitempty"`
 	TxInfAndSts       []PaymentTransaction127        `xml:"TxInfAndSts,omitempty" json:",omitempty"`
+}
+
+func (r UnderlyingTransaction25) Validate() error {
+	return utils.Validate(&r)
 }
