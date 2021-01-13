@@ -22,12 +22,6 @@ type DocumentType3Code string
 // May be one of MSIN, CNFA, DNFA, CINV, CREN, DEBN, HIRI, SBIN, CMCN, SOAC, DISP, BOLD, VCHR, AROI, TSUT, PUOR
 type DocumentType6Code string
 
-// Must match the pattern [0-9]{2}
-type Exact2NumericText string
-
-// Must match the pattern [a-zA-Z0-9]{4}
-type Exact4AlphaNumericText string
-
 // May be one of SPOT, SALE, AGRD
 type ExchangeRateType1Code string
 

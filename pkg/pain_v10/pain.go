@@ -273,8 +273,8 @@ type Frequency36Choice struct {
 }
 
 type FrequencyAndMoment1 struct {
-	Tp     Frequency6Code    `xml:"urn:iso:std:iso:20022:tech:xsd:pain.001.001.10 Tp"`
-	PtInTm Exact2NumericText `xml:"urn:iso:std:iso:20022:tech:xsd:pain.001.001.10 PtInTm"`
+	Tp     Frequency6Code           `xml:"urn:iso:std:iso:20022:tech:xsd:pain.001.001.10 Tp"`
+	PtInTm common.Exact2NumericText `xml:"urn:iso:std:iso:20022:tech:xsd:pain.001.001.10 PtInTm"`
 }
 
 type FrequencyPeriod1 struct {
@@ -316,9 +316,9 @@ type GenericFinancialIdentification1 struct {
 }
 
 type GenericIdentification30 struct {
-	Id      Exact4AlphaNumericText `xml:"urn:iso:std:iso:20022:tech:xsd:pain.001.001.10 Id"`
-	Issr    common.Max35Text       `xml:"urn:iso:std:iso:20022:tech:xsd:pain.001.001.10 Issr"`
-	SchmeNm common.Max35Text       `xml:"urn:iso:std:iso:20022:tech:xsd:pain.001.001.10 SchmeNm,omitempty"`
+	Id      common.Exact4AlphaNumericText `xml:"urn:iso:std:iso:20022:tech:xsd:pain.001.001.10 Id"`
+	Issr    common.Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:pain.001.001.10 Issr"`
+	SchmeNm common.Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:pain.001.001.10 SchmeNm,omitempty"`
 }
 
 type GenericOrganisationIdentification1 struct {
@@ -688,7 +688,7 @@ type AmendmentInformationDetails13 struct {
 	OrgnlFnlColltnDt common.ISODate                               `xml:"urn:iso:std:iso:20022:tech:xsd:pain.007.001.10 OrgnlFnlColltnDt,omitempty"`
 	OrgnlFrqcy       Frequency36Choice                            `xml:"urn:iso:std:iso:20022:tech:xsd:pain.007.001.10 OrgnlFrqcy,omitempty"`
 	OrgnlRsn         MandateSetupReason1Choice                    `xml:"urn:iso:std:iso:20022:tech:xsd:pain.007.001.10 OrgnlRsn,omitempty"`
-	OrgnlTrckgDays   Exact2NumericText                            `xml:"urn:iso:std:iso:20022:tech:xsd:pain.007.001.10 OrgnlTrckgDays,omitempty"`
+	OrgnlTrckgDays   common.Exact2NumericText                     `xml:"urn:iso:std:iso:20022:tech:xsd:pain.007.001.10 OrgnlTrckgDays,omitempty"`
 }
 
 type ClearingSystemIdentification3Choice struct {
@@ -731,7 +731,7 @@ type MandateRelatedInformation14 struct {
 	FnlColltnDt   common.ISODate                `xml:"urn:iso:std:iso:20022:tech:xsd:pain.007.001.10 FnlColltnDt,omitempty"`
 	Frqcy         Frequency36Choice             `xml:"urn:iso:std:iso:20022:tech:xsd:pain.007.001.10 Frqcy,omitempty"`
 	Rsn           MandateSetupReason1Choice     `xml:"urn:iso:std:iso:20022:tech:xsd:pain.007.001.10 Rsn,omitempty"`
-	TrckgDays     Exact2NumericText             `xml:"urn:iso:std:iso:20022:tech:xsd:pain.007.001.10 TrckgDays,omitempty"`
+	TrckgDays     common.Exact2NumericText      `xml:"urn:iso:std:iso:20022:tech:xsd:pain.007.001.10 TrckgDays,omitempty"`
 }
 
 type OriginalGroupHeader16 struct {

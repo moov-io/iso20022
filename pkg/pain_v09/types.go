@@ -16,9 +16,6 @@ type DocumentType3Code string
 // May be one of MSIN, CNFA, DNFA, CINV, CREN, DEBN, HIRI, SBIN, CMCN, SOAC, DISP, BOLD, VCHR, AROI, TSUT, PUOR
 type DocumentType6Code string
 
-// Must match the pattern [0-9]{2}
-type Exact2NumericText string
-
 // Must be at least 1 items long
 type ExternalAccountIdentification1Code string
 

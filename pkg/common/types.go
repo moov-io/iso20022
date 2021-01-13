@@ -8,10 +8,11 @@ import (
 	"bytes"
 	"encoding/base64"
 	"encoding/xml"
-	"github.com/moov-io/iso20022/pkg/utils"
 	"reflect"
 	"regexp"
 	"time"
+
+	"github.com/moov-io/iso20022/pkg/utils"
 )
 
 // Must be at least 1 items long
@@ -577,6 +578,17 @@ func (r Exact4AlphaNumericText) Validate() error {
 	reg := regexp.MustCompile(`[a-zA-Z0-9]{4}`)
 	if !reg.MatchString(string(r)) {
 		return utils.NewErrValueInvalid("Exact4AlphaNumericText")
+	}
+	return nil
+}
+
+// Must match the pattern [0-9]{2}
+type Exact2NumericText string
+
+func (r Exact2NumericText) Validate() error {
+	reg := regexp.MustCompile(`[0-9]{2}`)
+	if !reg.MatchString(string(r)) {
+		return utils.NewErrValueInvalid("Exact2NumericText")
 	}
 	return nil
 }

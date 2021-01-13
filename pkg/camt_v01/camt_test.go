@@ -5,8 +5,9 @@
 package camt_v01
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestDocumentAuth018001V02(t *testing.T) {
