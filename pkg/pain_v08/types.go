@@ -4,24 +4,6 @@
 
 package pain_v08
 
-// May be one of ADWD, ADND
-type AdviceType1Code string
-
-// May be one of DEBT, CRED, SHAR, SLEV
-type ChargeBearerType1Code string
-
-// May be one of MLDB, MLCD, MLFA, CRDB, CRCD, CRFA, PUDB, PUCD, PUFA, RGDB, RGCD, RGFA
-type ChequeDelivery1Code string
-
-// May be one of CCHQ, CCCH, BCHQ, DRFT, ELDR
-type ChequeType2Code string
-
-// May be one of RADM, RPIN, FXDR, DISP, PUOR, SCOR
-type DocumentType3Code string
-
-// May be one of MSIN, CNFA, DNFA, CINV, CREN, DEBN, HIRI, SBIN, CMCN, SOAC, DISP, BOLD, VCHR, AROI, TSUT, PUOR
-type DocumentType6Code string
-
 // Must be at least 1 items long
 type ExternalAccountIdentification1Code string
 
@@ -79,6 +61,33 @@ type ExternalServiceLevel1Code string
 // Must be at least 1 items long
 type ExternalTaxAmountType1Code string
 
+// Must be at least 1 items long
+type ExternalPaymentGroupStatus1Code string
+
+// Must be at least 1 items long
+type ExternalPaymentTransactionStatus1Code string
+
+// Must be at least 1 items long
+type ExternalStatusReason1Code string
+
+// May be one of ADWD, ADND
+type AdviceType1Code string
+
+// May be one of DEBT, CRED, SHAR, SLEV
+type ChargeBearerType1Code string
+
+// May be one of MLDB, MLCD, MLFA, CRDB, CRCD, CRFA, PUDB, PUCD, PUFA, RGDB, RGCD, RGFA
+type ChequeDelivery1Code string
+
+// May be one of CCHQ, CCCH, BCHQ, DRFT, ELDR
+type ChequeType2Code string
+
+// May be one of RADM, RPIN, FXDR, DISP, PUOR, SCOR
+type DocumentType3Code string
+
+// May be one of MSIN, CNFA, DNFA, CINV, CREN, DEBN, HIRI, SBIN, CMCN, SOAC, DISP, BOLD, VCHR, AROI, TSUT, PUOR
+type DocumentType6Code string
+
 // May be one of YEAR, MNTH, QURT, MIAN, WEEK, DAIL, ADHO, INDA, FRTN
 type Frequency6Code string
 
@@ -99,15 +108,6 @@ type RemittanceLocationMethod2Code string
 
 // May be one of MM01, MM02, MM03, MM04, MM05, MM06, MM07, MM08, MM09, MM10, MM11, MM12, QTR1, QTR2, QTR3, QTR4, HLF1, HLF2
 type TaxRecordPeriod1Code string
-
-// Must be at least 1 items long
-type ExternalPaymentGroupStatus1Code string
-
-// Must be at least 1 items long
-type ExternalPaymentTransactionStatus1Code string
-
-// Must be at least 1 items long
-type ExternalStatusReason1Code string
 
 // May be one of CHK, TRF, DD, TRA
 type PaymentMethod4Code string

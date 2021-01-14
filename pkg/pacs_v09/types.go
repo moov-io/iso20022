@@ -4,12 +4,6 @@
 
 package pacs_v09
 
-// May be one of RADM, RPIN, FXDR, DISP, PUOR, SCOR
-type DocumentType3Code string
-
-// May be one of MSIN, CNFA, DNFA, CINV, CREN, DEBN, HIRI, SBIN, CMCN, SOAC, DISP, BOLD, VCHR, AROI, TSUT, PUOR
-type DocumentType6Code string
-
 // Must be at least 1 items long
 type ExternalAccountIdentification1Code string
 
@@ -63,6 +57,12 @@ type ExternalServiceLevel1Code string
 
 // Must be at least 1 items long
 type ExternalTaxAmountType1Code string
+
+// May be one of RADM, RPIN, FXDR, DISP, PUOR, SCOR
+type DocumentType3Code string
+
+// May be one of MSIN, CNFA, DNFA, CINV, CREN, DEBN, HIRI, SBIN, CMCN, SOAC, DISP, BOLD, VCHR, AROI, TSUT, PUOR
+type DocumentType6Code string
 
 // May be one of YEAR, MNTH, QURT, MIAN, WEEK, DAIL, ADHO, INDA, FRTN
 type Frequency6Code string

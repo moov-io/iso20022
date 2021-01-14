@@ -4,9 +4,6 @@
 
 package pain_v01
 
-// May be one of MSIN, CNFA, DNFA, CINV, CREN, DEBN, HIRI, SBIN, CMCN, SOAC, DISP, BOLD, VCHR, AROI, TSUT, PUOR
-type DocumentType6Code string
-
 // Must be at least 1 items long
 type ExternalAccountIdentification1Code string
 
@@ -43,6 +40,12 @@ type ExternalPersonIdentification1Code string
 // Must be at least 1 items long
 type ExternalServiceLevel1Code string
 
+// Must be at least 1 items long
+type ExternalMandateSuspensionReason1Code string
+
+// May be one of MSIN, CNFA, DNFA, CINV, CREN, DEBN, HIRI, SBIN, CMCN, SOAC, DISP, BOLD, VCHR, AROI, TSUT, PUOR
+type DocumentType6Code string
+
 // May be one of NEVR, YEAR, RATE, MIAN, QURT
 type Frequency10Code string
 
@@ -51,6 +54,3 @@ type Frequency6Code string
 
 // May be one of RCUR, OOFF
 type SequenceType2Code string
-
-// Must be at least 1 items long
-type ExternalMandateSuspensionReason1Code string

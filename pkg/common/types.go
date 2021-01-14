@@ -26,6 +26,16 @@ func (r Max140Text) Validate() error {
 }
 
 // Must be at least 1 items long
+type Max210Text string
+
+func (r Max210Text) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 210 {
+		return utils.NewErrTextLengthInvalid("Max210Text", 1, 210)
+	}
+	return nil
+}
+
+// Must be at least 1 items long
 type Max10Text string
 
 func (r Max10Text) Validate() error {

@@ -4,27 +4,6 @@
 
 package pain_v10
 
-// May be one of ADWD, ADND
-type AdviceType1Code string
-
-// May be one of DEBT, CRED, SHAR, SLEV
-type ChargeBearerType1Code string
-
-// May be one of MLDB, MLCD, MLFA, CRDB, CRCD, CRFA, PUDB, PUCD, PUFA, RGDB, RGCD, RGFA
-type ChequeDelivery1Code string
-
-// May be one of CCHQ, CCCH, BCHQ, DRFT, ELDR
-type ChequeType2Code string
-
-// May be one of RADM, RPIN, FXDR, DISP, PUOR, SCOR
-type DocumentType3Code string
-
-// May be one of MSIN, CNFA, DNFA, CINV, CREN, DEBN, HIRI, SBIN, CMCN, SOAC, DISP, BOLD, VCHR, AROI, TSUT, PUOR
-type DocumentType6Code string
-
-// May be one of SPOT, SALE, AGRD
-type ExchangeRateType1Code string
-
 // Must be at least 1 items long
 type ExternalAccountIdentification1Code string
 
@@ -79,6 +58,33 @@ type ExternalServiceLevel1Code string
 // Must be at least 1 items long
 type ExternalTaxAmountType1Code string
 
+// Must be at least 1 items long
+type ExternalCashClearingSystem1Code string
+
+// Must be at least 1 items long
+type ExternalReversalReason1Code string
+
+// May be one of ADWD, ADND
+type AdviceType1Code string
+
+// May be one of DEBT, CRED, SHAR, SLEV
+type ChargeBearerType1Code string
+
+// May be one of MLDB, MLCD, MLFA, CRDB, CRCD, CRFA, PUDB, PUCD, PUFA, RGDB, RGCD, RGFA
+type ChequeDelivery1Code string
+
+// May be one of CCHQ, CCCH, BCHQ, DRFT, ELDR
+type ChequeType2Code string
+
+// May be one of RADM, RPIN, FXDR, DISP, PUOR, SCOR
+type DocumentType3Code string
+
+// May be one of MSIN, CNFA, DNFA, CINV, CREN, DEBN, HIRI, SBIN, CMCN, SOAC, DISP, BOLD, VCHR, AROI, TSUT, PUOR
+type DocumentType6Code string
+
+// May be one of SPOT, SALE, AGRD
+type ExchangeRateType1Code string
+
 // May be one of YEAR, MNTH, QURT, MIAN, WEEK, DAIL, ADHO, INDA, FRTN
 type Frequency6Code string
 
@@ -102,12 +108,6 @@ type TaxRecordPeriod1Code string
 
 // May be one of RTGS, RTNS, MPNS, BOOK
 type ClearingChannel2Code string
-
-// Must be at least 1 items long
-type ExternalCashClearingSystem1Code string
-
-// Must be at least 1 items long
-type ExternalReversalReason1Code string
 
 // May be one of CHK, TRF, DD, TRA
 type PaymentMethod4Code string

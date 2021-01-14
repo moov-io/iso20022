@@ -4,18 +4,6 @@
 
 package remt_v04
 
-// May be one of MM01, MM02, MM03, MM04, MM05, MM06, MM07, MM08, MM09, MM10, MM11, MM12, QTR1, QTR2, QTR3, QTR4, HLF1, HLF2
-type TaxRecordPeriod1Code string
-
-// May be one of LETT, MAIL, PHON, FAXX, CELL
-type PreferredContactMethod1Code string
-
-// May be one of HIGH, NORM
-type Priority2Code string
-
-// May be one of SPOT, SALE, AGRD
-type ExchangeRateType1Code string
-
 // Must be at least 1 items long
 type ExternalAccountIdentification1Code string
 
@@ -57,6 +45,18 @@ type ExternalServiceLevel1Code string
 
 // Must be at least 1 items long
 type ExternalTaxAmountType1Code string
+
+// May be one of MM01, MM02, MM03, MM04, MM05, MM06, MM07, MM08, MM09, MM10, MM11, MM12, QTR1, QTR2, QTR3, QTR4, HLF1, HLF2
+type TaxRecordPeriod1Code string
+
+// May be one of LETT, MAIL, PHON, FAXX, CELL
+type PreferredContactMethod1Code string
+
+// May be one of HIGH, NORM
+type Priority2Code string
+
+// May be one of SPOT, SALE, AGRD
+type ExchangeRateType1Code string
 
 // May be one of RADM, RPIN, FXDR, DISP, PUOR, SCOR
 type DocumentType3Code string
