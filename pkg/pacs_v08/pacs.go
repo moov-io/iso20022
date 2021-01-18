@@ -4,16 +4,27 @@
 
 package pacs_v08
 
-import "github.com/moov-io/iso20022/pkg/common"
+import (
+	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
+)
 
 type AccountIdentification4Choice struct {
-	IBAN common.IBAN2007Identifier     `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 IBAN"`
-	Othr GenericAccountIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Othr"`
+	IBAN common.IBAN2007Identifier     `xml:"IBAN"`
+	Othr GenericAccountIdentification1 `xml:"Othr"`
+}
+
+func (r AccountIdentification4Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type AccountSchemeName1Choice struct {
-	Cd    ExternalAccountIdentification1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text                   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalAccountIdentification1Code `xml:"Cd"`
+	Prtry common.Max35Text                   `xml:"Prtry"`
+}
+
+func (r AccountSchemeName1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ActiveCurrencyAndAmount struct {
@@ -21,608 +32,960 @@ type ActiveCurrencyAndAmount struct {
 	Ccy   common.ActiveCurrencyCode `xml:"Ccy,attr"`
 }
 
+func (r ActiveCurrencyAndAmount) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ActiveOrHistoricCurrencyAndAmount struct {
 	Value float64                             `xml:",chardata"`
 	Ccy   common.ActiveOrHistoricCurrencyCode `xml:"Ccy,attr"`
 }
 
+func (r ActiveOrHistoricCurrencyAndAmount) Validate() error {
+	return utils.Validate(&r)
+}
+
 type AddressType3Choice struct {
-	Cd    common.AddressType2Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry GenericIdentification30 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    common.AddressType2Code `xml:"Cd"`
+	Prtry GenericIdentification30 `xml:"Prtry"`
+}
+
+func (r AddressType3Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type AmendmentInformationDetails13 struct {
-	OrgnlMndtId      common.Max35Text                             `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlMndtId,omitempty"`
-	OrgnlCdtrSchmeId PartyIdentification135                       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlCdtrSchmeId,omitempty"`
-	OrgnlCdtrAgt     BranchAndFinancialInstitutionIdentification6 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlCdtrAgt,omitempty"`
-	OrgnlCdtrAgtAcct CashAccount38                                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlCdtrAgtAcct,omitempty"`
-	OrgnlDbtr        PartyIdentification135                       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlDbtr,omitempty"`
-	OrgnlDbtrAcct    CashAccount38                                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlDbtrAcct,omitempty"`
-	OrgnlDbtrAgt     BranchAndFinancialInstitutionIdentification6 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlDbtrAgt,omitempty"`
-	OrgnlDbtrAgtAcct CashAccount38                                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlDbtrAgtAcct,omitempty"`
-	OrgnlFnlColltnDt common.ISODate                               `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlFnlColltnDt,omitempty"`
-	OrgnlFrqcy       Frequency36Choice                            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlFrqcy,omitempty"`
-	OrgnlRsn         MandateSetupReason1Choice                    `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlRsn,omitempty"`
-	OrgnlTrckgDays   common.Exact2NumericText                     `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgnlTrckgDays,omitempty"`
+	OrgnlMndtId      *common.Max35Text                             `xml:"OrgnlMndtId,omitempty" json:",omitempty"`
+	OrgnlCdtrSchmeId *PartyIdentification135                       `xml:"OrgnlCdtrSchmeId,omitempty" json:",omitempty"`
+	OrgnlCdtrAgt     *BranchAndFinancialInstitutionIdentification6 `xml:"OrgnlCdtrAgt,omitempty" json:",omitempty"`
+	OrgnlCdtrAgtAcct *CashAccount38                                `xml:"OrgnlCdtrAgtAcct,omitempty" json:",omitempty"`
+	OrgnlDbtr        *PartyIdentification135                       `xml:"OrgnlDbtr,omitempty" json:",omitempty"`
+	OrgnlDbtrAcct    *CashAccount38                                `xml:"OrgnlDbtrAcct,omitempty" json:",omitempty"`
+	OrgnlDbtrAgt     *BranchAndFinancialInstitutionIdentification6 `xml:"OrgnlDbtrAgt,omitempty" json:",omitempty"`
+	OrgnlDbtrAgtAcct *CashAccount38                                `xml:"OrgnlDbtrAgtAcct,omitempty" json:",omitempty"`
+	OrgnlFnlColltnDt *common.ISODate                               `xml:"OrgnlFnlColltnDt,omitempty" json:",omitempty"`
+	OrgnlFrqcy       *Frequency36Choice                            `xml:"OrgnlFrqcy,omitempty" json:",omitempty"`
+	OrgnlRsn         *MandateSetupReason1Choice                    `xml:"OrgnlRsn,omitempty" json:",omitempty"`
+	OrgnlTrckgDays   *common.Exact2NumericText                     `xml:"OrgnlTrckgDays,omitempty" json:",omitempty"`
+}
+
+func (r AmendmentInformationDetails13) Validate() error {
+	return utils.Validate(&r)
 }
 
 type Authorisation1Choice struct {
-	Cd    common.Authorisation1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max128Text         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    common.Authorisation1Code `xml:"Cd"`
+	Prtry common.Max128Text         `xml:"Prtry"`
+}
+
+func (r Authorisation1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type BranchAndFinancialInstitutionIdentification6 struct {
-	FinInstnId FinancialInstitutionIdentification18 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 FinInstnId"`
-	BrnchId    BranchData3                          `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 BrnchId,omitempty"`
+	FinInstnId FinancialInstitutionIdentification18 `xml:"FinInstnId"`
+	BrnchId    *BranchData3                         `xml:"BrnchId,omitempty" json:",omitempty"`
+}
+
+func (r BranchAndFinancialInstitutionIdentification6) Validate() error {
+	return utils.Validate(&r)
 }
 
 type BranchData3 struct {
-	Id      common.Max35Text     `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Id,omitempty"`
-	LEI     common.LEIIdentifier `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 LEI,omitempty"`
-	Nm      common.Max140Text    `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Nm,omitempty"`
-	PstlAdr PostalAddress24      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PstlAdr,omitempty"`
+	Id      *common.Max35Text     `xml:"Id,omitempty" json:",omitempty"`
+	LEI     *common.LEIIdentifier `xml:"LEI,omitempty" json:",omitempty"`
+	Nm      *common.Max140Text    `xml:"Nm,omitempty" json:",omitempty"`
+	PstlAdr *PostalAddress24      `xml:"PstlAdr,omitempty" json:",omitempty"`
+}
+
+func (r BranchData3) Validate() error {
+	return utils.Validate(&r)
 }
 
 type CashAccount38 struct {
-	Id   AccountIdentification4Choice        `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Id"`
-	Tp   CashAccountType2Choice              `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Tp,omitempty"`
-	Ccy  common.ActiveOrHistoricCurrencyCode `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Ccy,omitempty"`
-	Nm   common.Max70Text                    `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Nm,omitempty"`
-	Prxy ProxyAccountIdentification1         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prxy,omitempty"`
+	Id   AccountIdentification4Choice         `xml:"Id"`
+	Tp   *CashAccountType2Choice              `xml:"Tp,omitempty" json:",omitempty"`
+	Ccy  *common.ActiveOrHistoricCurrencyCode `xml:"Ccy,omitempty" json:",omitempty"`
+	Nm   *common.Max70Text                    `xml:"Nm,omitempty" json:",omitempty"`
+	Prxy *ProxyAccountIdentification1         `xml:"Prxy,omitempty" json:",omitempty"`
+}
+
+func (r CashAccount38) Validate() error {
+	return utils.Validate(&r)
 }
 
 type CashAccountType2Choice struct {
-	Cd    ExternalCashAccountType1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text             `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalCashAccountType1Code `xml:"Cd"`
+	Prtry common.Max35Text             `xml:"Prtry"`
+}
+
+func (r CashAccountType2Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type CategoryPurpose1Choice struct {
-	Cd    ExternalCategoryPurpose1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text             `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalCategoryPurpose1Code `xml:"Cd"`
+	Prtry common.Max35Text             `xml:"Prtry"`
+}
+
+func (r CategoryPurpose1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type Charges7 struct {
-	Amt ActiveOrHistoricCurrencyAndAmount            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Amt"`
-	Agt BranchAndFinancialInstitutionIdentification6 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Agt"`
+	Amt ActiveOrHistoricCurrencyAndAmount            `xml:"Amt"`
+	Agt BranchAndFinancialInstitutionIdentification6 `xml:"Agt"`
+}
+
+func (r Charges7) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ClearingSystemIdentification2Choice struct {
-	Cd    ExternalClearingSystemIdentification1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text                          `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalClearingSystemIdentification1Code `xml:"Cd"`
+	Prtry common.Max35Text                          `xml:"Prtry"`
+}
+
+func (r ClearingSystemIdentification2Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ClearingSystemIdentification3Choice struct {
-	Cd    ExternalCashClearingSystem1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalCashClearingSystem1Code `xml:"Cd"`
+	Prtry common.Max35Text                `xml:"Prtry"`
+}
+
+func (r ClearingSystemIdentification3Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ClearingSystemMemberIdentification2 struct {
-	ClrSysId ClearingSystemIdentification2Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 ClrSysId,omitempty"`
-	MmbId    common.Max35Text                    `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 MmbId"`
+	ClrSysId *ClearingSystemIdentification2Choice `xml:"ClrSysId,omitempty" json:",omitempty"`
+	MmbId    common.Max35Text                     `xml:"MmbId"`
+}
+
+func (r ClearingSystemMemberIdentification2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type Contact4 struct {
-	NmPrfx    common.NamePrefix2Code      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 NmPrfx,omitempty"`
-	Nm        common.Max140Text           `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Nm,omitempty"`
-	PhneNb    common.PhoneNumber          `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PhneNb,omitempty"`
-	MobNb     common.PhoneNumber          `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 MobNb,omitempty"`
-	FaxNb     common.PhoneNumber          `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 FaxNb,omitempty"`
-	EmailAdr  common.Max2048Text          `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 EmailAdr,omitempty"`
-	EmailPurp common.Max35Text            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 EmailPurp,omitempty"`
-	JobTitl   common.Max35Text            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 JobTitl,omitempty"`
-	Rspnsblty common.Max35Text            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Rspnsblty,omitempty"`
-	Dept      common.Max70Text            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Dept,omitempty"`
-	Othr      []OtherContact1             `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Othr,omitempty"`
-	PrefrdMtd PreferredContactMethod1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PrefrdMtd,omitempty"`
+	NmPrfx    *common.NamePrefix2Code      `xml:"NmPrfx,omitempty" json:",omitempty"`
+	Nm        *common.Max140Text           `xml:"Nm,omitempty" json:",omitempty"`
+	PhneNb    *common.PhoneNumber          `xml:"PhneNb,omitempty" json:",omitempty"`
+	MobNb     *common.PhoneNumber          `xml:"MobNb,omitempty" json:",omitempty"`
+	FaxNb     *common.PhoneNumber          `xml:"FaxNb,omitempty" json:",omitempty"`
+	EmailAdr  *common.Max2048Text          `xml:"EmailAdr,omitempty" json:",omitempty"`
+	EmailPurp *common.Max35Text            `xml:"EmailPurp,omitempty" json:",omitempty"`
+	JobTitl   *common.Max35Text            `xml:"JobTitl,omitempty" json:",omitempty"`
+	Rspnsblty *common.Max35Text            `xml:"Rspnsblty,omitempty" json:",omitempty"`
+	Dept      *common.Max70Text            `xml:"Dept,omitempty" json:",omitempty"`
+	Othr      []OtherContact1              `xml:"Othr,omitempty" json:",omitempty"`
+	PrefrdMtd *PreferredContactMethod1Code `xml:"PrefrdMtd,omitempty" json:",omitempty"`
+}
+
+func (r Contact4) Validate() error {
+	return utils.Validate(&r)
 }
 
 type CreditorReferenceInformation2 struct {
-	Tp  CreditorReferenceType2 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Tp,omitempty"`
-	Ref common.Max35Text       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Ref,omitempty"`
+	Tp  *CreditorReferenceType2 `xml:"Tp,omitempty" json:",omitempty"`
+	Ref *common.Max35Text       `xml:"Ref,omitempty" json:",omitempty"`
+}
+
+func (r CreditorReferenceInformation2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type CreditorReferenceType1Choice struct {
-	Cd    DocumentType3Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    DocumentType3Code `xml:"Cd"`
+	Prtry common.Max35Text  `xml:"Prtry"`
+}
+
+func (r CreditorReferenceType1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type CreditorReferenceType2 struct {
-	CdOrPrtry CreditorReferenceType1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CdOrPrtry"`
-	Issr      common.Max35Text             `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Issr,omitempty"`
+	CdOrPrtry CreditorReferenceType1Choice `xml:"CdOrPrtry"`
+	Issr      *common.Max35Text            `xml:"Issr,omitempty" json:",omitempty"`
+}
+
+func (r CreditorReferenceType2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type DateAndPlaceOfBirth1 struct {
-	BirthDt     common.ISODate     `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 BirthDt"`
-	PrvcOfBirth common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PrvcOfBirth,omitempty"`
-	CityOfBirth common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CityOfBirth"`
-	CtryOfBirth common.CountryCode `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CtryOfBirth"`
+	BirthDt     common.ISODate     `xml:"BirthDt"`
+	PrvcOfBirth *common.Max35Text  `xml:"PrvcOfBirth,omitempty" json:",omitempty"`
+	CityOfBirth common.Max35Text   `xml:"CityOfBirth"`
+	CtryOfBirth common.CountryCode `xml:"CtryOfBirth"`
+}
+
+func (r DateAndPlaceOfBirth1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type DatePeriod2 struct {
-	FrDt common.ISODate `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 FrDt"`
-	ToDt common.ISODate `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 ToDt"`
+	FrDt common.ISODate `xml:"FrDt"`
+	ToDt common.ISODate `xml:"ToDt"`
+}
+
+func (r DatePeriod2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type DirectDebitTransaction10 struct {
-	MndtRltdInf MandateRelatedInformation14 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 MndtRltdInf,omitempty"`
-	CdtrSchmeId PartyIdentification135      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CdtrSchmeId,omitempty"`
-	PreNtfctnId common.Max35Text            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PreNtfctnId,omitempty"`
-	PreNtfctnDt common.ISODate              `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PreNtfctnDt,omitempty"`
+	MndtRltdInf *MandateRelatedInformation14 `xml:"MndtRltdInf,omitempty" json:",omitempty"`
+	CdtrSchmeId *PartyIdentification135      `xml:"CdtrSchmeId,omitempty" json:",omitempty"`
+	PreNtfctnId *common.Max35Text            `xml:"PreNtfctnId,omitempty" json:",omitempty"`
+	PreNtfctnDt *common.ISODate              `xml:"PreNtfctnDt,omitempty" json:",omitempty"`
+}
+
+func (r DirectDebitTransaction10) Validate() error {
+	return utils.Validate(&r)
 }
 
 type DirectDebitTransactionInformation24 struct {
-	PmtId          PaymentIdentification7                       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PmtId"`
-	PmtTpInf       PaymentTypeInformation27                     `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PmtTpInf,omitempty"`
-	IntrBkSttlmAmt ActiveCurrencyAndAmount                      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 IntrBkSttlmAmt"`
-	IntrBkSttlmDt  common.ISODate                               `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 IntrBkSttlmDt,omitempty"`
-	SttlmPrty      Priority3Code                                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SttlmPrty,omitempty"`
-	SttlmTmIndctn  SettlementDateTimeIndication1                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SttlmTmIndctn,omitempty"`
-	InstdAmt       ActiveOrHistoricCurrencyAndAmount            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 InstdAmt,omitempty"`
-	XchgRate       float64                                      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 XchgRate,omitempty"`
-	ChrgBr         ChargeBearerType1Code                        `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 ChrgBr"`
-	ChrgsInf       []Charges7                                   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 ChrgsInf,omitempty"`
-	ReqdColltnDt   common.ISODate                               `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 ReqdColltnDt,omitempty"`
-	DrctDbtTx      DirectDebitTransaction10                     `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 DrctDbtTx,omitempty"`
-	Cdtr           PartyIdentification135                       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cdtr"`
-	CdtrAcct       CashAccount38                                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CdtrAcct,omitempty"`
-	CdtrAgt        BranchAndFinancialInstitutionIdentification6 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CdtrAgt"`
-	CdtrAgtAcct    CashAccount38                                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CdtrAgtAcct,omitempty"`
-	UltmtCdtr      PartyIdentification135                       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 UltmtCdtr,omitempty"`
-	InitgPty       PartyIdentification135                       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 InitgPty,omitempty"`
-	InstgAgt       BranchAndFinancialInstitutionIdentification6 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 InstgAgt,omitempty"`
-	InstdAgt       BranchAndFinancialInstitutionIdentification6 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 InstdAgt,omitempty"`
-	IntrmyAgt1     BranchAndFinancialInstitutionIdentification6 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 IntrmyAgt1,omitempty"`
-	IntrmyAgt1Acct CashAccount38                                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 IntrmyAgt1Acct,omitempty"`
-	IntrmyAgt2     BranchAndFinancialInstitutionIdentification6 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 IntrmyAgt2,omitempty"`
-	IntrmyAgt2Acct CashAccount38                                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 IntrmyAgt2Acct,omitempty"`
-	IntrmyAgt3     BranchAndFinancialInstitutionIdentification6 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 IntrmyAgt3,omitempty"`
-	IntrmyAgt3Acct CashAccount38                                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 IntrmyAgt3Acct,omitempty"`
-	Dbtr           PartyIdentification135                       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Dbtr"`
-	DbtrAcct       CashAccount38                                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 DbtrAcct"`
-	DbtrAgt        BranchAndFinancialInstitutionIdentification6 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 DbtrAgt"`
-	DbtrAgtAcct    CashAccount38                                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 DbtrAgtAcct,omitempty"`
-	UltmtDbtr      PartyIdentification135                       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 UltmtDbtr,omitempty"`
-	Purp           Purpose2Choice                               `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Purp,omitempty"`
-	RgltryRptg     []RegulatoryReporting3                       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 RgltryRptg,omitempty"`
-	RltdRmtInf     []RemittanceLocation7                        `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 RltdRmtInf,omitempty"`
-	RmtInf         RemittanceInformation16                      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 RmtInf,omitempty"`
-	SplmtryData    []SupplementaryData1                         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SplmtryData,omitempty"`
+	PmtId          PaymentIdentification7                        `xml:"PmtId"`
+	PmtTpInf       *PaymentTypeInformation27                     `xml:"PmtTpInf,omitempty" json:",omitempty"`
+	IntrBkSttlmAmt ActiveCurrencyAndAmount                       `xml:"IntrBkSttlmAmt"`
+	IntrBkSttlmDt  *common.ISODate                               `xml:"IntrBkSttlmDt,omitempty" json:",omitempty"`
+	SttlmPrty      *Priority3Code                                `xml:"SttlmPrty,omitempty" json:",omitempty"`
+	SttlmTmIndctn  *SettlementDateTimeIndication1                `xml:"SttlmTmIndctn,omitempty" json:",omitempty"`
+	InstdAmt       *ActiveOrHistoricCurrencyAndAmount            `xml:"InstdAmt,omitempty" json:",omitempty"`
+	XchgRate       float64                                       `xml:"XchgRate,omitempty" json:",omitempty"`
+	ChrgBr         ChargeBearerType1Code                         `xml:"ChrgBr"`
+	ChrgsInf       []Charges7                                    `xml:"ChrgsInf,omitempty" json:",omitempty"`
+	ReqdColltnDt   *common.ISODate                               `xml:"ReqdColltnDt,omitempty" json:",omitempty"`
+	DrctDbtTx      *DirectDebitTransaction10                     `xml:"DrctDbtTx,omitempty" json:",omitempty"`
+	Cdtr           PartyIdentification135                        `xml:"Cdtr"`
+	CdtrAcct       *CashAccount38                                `xml:"CdtrAcct,omitempty" json:",omitempty"`
+	CdtrAgt        BranchAndFinancialInstitutionIdentification6  `xml:"CdtrAgt"`
+	CdtrAgtAcct    *CashAccount38                                `xml:"CdtrAgtAcct,omitempty" json:",omitempty"`
+	UltmtCdtr      *PartyIdentification135                       `xml:"UltmtCdtr,omitempty" json:",omitempty"`
+	InitgPty       *PartyIdentification135                       `xml:"InitgPty,omitempty" json:",omitempty"`
+	InstgAgt       *BranchAndFinancialInstitutionIdentification6 `xml:"InstgAgt,omitempty" json:",omitempty"`
+	InstdAgt       *BranchAndFinancialInstitutionIdentification6 `xml:"InstdAgt,omitempty" json:",omitempty"`
+	IntrmyAgt1     *BranchAndFinancialInstitutionIdentification6 `xml:"IntrmyAgt1,omitempty" json:",omitempty"`
+	IntrmyAgt1Acct *CashAccount38                                `xml:"IntrmyAgt1Acct,omitempty" json:",omitempty"`
+	IntrmyAgt2     *BranchAndFinancialInstitutionIdentification6 `xml:"IntrmyAgt2,omitempty" json:",omitempty"`
+	IntrmyAgt2Acct *CashAccount38                                `xml:"IntrmyAgt2Acct,omitempty" json:",omitempty"`
+	IntrmyAgt3     *BranchAndFinancialInstitutionIdentification6 `xml:"IntrmyAgt3,omitempty" json:",omitempty"`
+	IntrmyAgt3Acct *CashAccount38                                `xml:"IntrmyAgt3Acct,omitempty" json:",omitempty"`
+	Dbtr           PartyIdentification135                        `xml:"Dbtr"`
+	DbtrAcct       CashAccount38                                 `xml:"DbtrAcct"`
+	DbtrAgt        BranchAndFinancialInstitutionIdentification6  `xml:"DbtrAgt"`
+	DbtrAgtAcct    *CashAccount38                                `xml:"DbtrAgtAcct,omitempty" json:",omitempty"`
+	UltmtDbtr      *PartyIdentification135                       `xml:"UltmtDbtr,omitempty" json:",omitempty"`
+	Purp           *Purpose2Choice                               `xml:"Purp,omitempty" json:",omitempty"`
+	RgltryRptg     []RegulatoryReporting3                        `xml:"RgltryRptg,omitempty" json:",omitempty"`
+	RltdRmtInf     []RemittanceLocation7                         `xml:"RltdRmtInf,omitempty" json:",omitempty"`
+	RmtInf         *RemittanceInformation16                      `xml:"RmtInf,omitempty" json:",omitempty"`
+	SplmtryData    []SupplementaryData1                          `xml:"SplmtryData,omitempty" json:",omitempty"`
+}
+
+func (r DirectDebitTransactionInformation24) Validate() error {
+	return utils.Validate(&r)
 }
 
 type DiscountAmountAndType1 struct {
-	Tp  DiscountAmountType1Choice         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Tp,omitempty"`
-	Amt ActiveOrHistoricCurrencyAndAmount `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Amt"`
+	Tp  *DiscountAmountType1Choice        `xml:"Tp,omitempty" json:",omitempty"`
+	Amt ActiveOrHistoricCurrencyAndAmount `xml:"Amt"`
+}
+
+func (r DiscountAmountAndType1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type DiscountAmountType1Choice struct {
-	Cd    ExternalDiscountAmountType1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalDiscountAmountType1Code `xml:"Cd"`
+	Prtry common.Max35Text                `xml:"Prtry"`
+}
+
+func (r DiscountAmountType1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type DocumentAdjustment1 struct {
-	Amt       ActiveOrHistoricCurrencyAndAmount `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Amt"`
-	CdtDbtInd common.CreditDebitCode            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CdtDbtInd,omitempty"`
-	Rsn       common.Max4Text                   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Rsn,omitempty"`
-	AddtlInf  common.Max140Text                 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 AddtlInf,omitempty"`
+	Amt       ActiveOrHistoricCurrencyAndAmount `xml:"Amt"`
+	CdtDbtInd *common.CreditDebitCode           `xml:"CdtDbtInd,omitempty" json:",omitempty"`
+	Rsn       *common.Max4Text                  `xml:"Rsn,omitempty" json:",omitempty"`
+	AddtlInf  *common.Max140Text                `xml:"AddtlInf,omitempty" json:",omitempty"`
+}
+
+func (r DocumentAdjustment1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type DocumentLineIdentification1 struct {
-	Tp     DocumentLineType1 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Tp,omitempty"`
-	Nb     common.Max35Text  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Nb,omitempty"`
-	RltdDt common.ISODate    `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 RltdDt,omitempty"`
+	Tp     *DocumentLineType1 `xml:"Tp,omitempty" json:",omitempty"`
+	Nb     *common.Max35Text  `xml:"Nb,omitempty" json:",omitempty"`
+	RltdDt *common.ISODate    `xml:"RltdDt,omitempty" json:",omitempty"`
+}
+
+func (r DocumentLineIdentification1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type DocumentLineInformation1 struct {
-	Id   []DocumentLineIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Id"`
-	Desc common.Max2048Text            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Desc,omitempty"`
-	Amt  RemittanceAmount3             `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Amt,omitempty"`
+	Id   []DocumentLineIdentification1 `xml:"Id"`
+	Desc *common.Max2048Text           `xml:"Desc,omitempty" json:",omitempty"`
+	Amt  *RemittanceAmount3            `xml:"Amt,omitempty" json:",omitempty"`
+}
+
+func (r DocumentLineInformation1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type DocumentLineType1 struct {
-	CdOrPrtry DocumentLineType1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CdOrPrtry"`
-	Issr      common.Max35Text        `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Issr,omitempty"`
+	CdOrPrtry DocumentLineType1Choice `xml:"CdOrPrtry"`
+	Issr      *common.Max35Text       `xml:"Issr,omitempty" json:",omitempty"`
+}
+
+func (r DocumentLineType1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type DocumentLineType1Choice struct {
-	Cd    ExternalDocumentLineType1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalDocumentLineType1Code `xml:"Cd"`
+	Prtry common.Max35Text              `xml:"Prtry"`
+}
+
+func (r DocumentLineType1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type FIToFICustomerDirectDebitV08 struct {
-	GrpHdr       GroupHeader94                         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 GrpHdr"`
-	DrctDbtTxInf []DirectDebitTransactionInformation24 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 DrctDbtTxInf"`
-	SplmtryData  []SupplementaryData1                  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SplmtryData,omitempty"`
+	GrpHdr       GroupHeader94                         `xml:"GrpHdr"`
+	DrctDbtTxInf []DirectDebitTransactionInformation24 `xml:"DrctDbtTxInf"`
+	SplmtryData  []SupplementaryData1                  `xml:"SplmtryData,omitempty" json:",omitempty"`
+}
+
+func (r FIToFICustomerDirectDebitV08) Validate() error {
+	return utils.Validate(&r)
 }
 
 type FinancialIdentificationSchemeName1Choice struct {
-	Cd    ExternalFinancialInstitutionIdentification1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text                                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalFinancialInstitutionIdentification1Code `xml:"Cd"`
+	Prtry common.Max35Text                                `xml:"Prtry"`
+}
+
+func (r FinancialIdentificationSchemeName1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type FinancialInstitutionIdentification18 struct {
-	BICFI       common.BICFIDec2014Identifier       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 BICFI,omitempty"`
-	ClrSysMmbId ClearingSystemMemberIdentification2 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 ClrSysMmbId,omitempty"`
-	LEI         common.LEIIdentifier                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 LEI,omitempty"`
-	Nm          common.Max140Text                   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Nm,omitempty"`
-	PstlAdr     PostalAddress24                     `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PstlAdr,omitempty"`
-	Othr        GenericFinancialIdentification1     `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Othr,omitempty"`
+	BICFI       *common.BICFIDec2014Identifier       `xml:"BICFI,omitempty" json:",omitempty"`
+	ClrSysMmbId *ClearingSystemMemberIdentification2 `xml:"ClrSysMmbId,omitempty" json:",omitempty"`
+	LEI         *common.LEIIdentifier                `xml:"LEI,omitempty" json:",omitempty"`
+	Nm          *common.Max140Text                   `xml:"Nm,omitempty" json:",omitempty"`
+	PstlAdr     *PostalAddress24                     `xml:"PstlAdr,omitempty" json:",omitempty"`
+	Othr        *GenericFinancialIdentification1     `xml:"Othr,omitempty" json:",omitempty"`
+}
+
+func (r FinancialInstitutionIdentification18) Validate() error {
+	return utils.Validate(&r)
 }
 
 type Frequency36Choice struct {
-	Tp     Frequency6Code      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Tp"`
-	Prd    FrequencyPeriod1    `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prd"`
-	PtInTm FrequencyAndMoment1 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PtInTm"`
+	Tp     Frequency6Code      `xml:"Tp"`
+	Prd    FrequencyPeriod1    `xml:"Prd"`
+	PtInTm FrequencyAndMoment1 `xml:"PtInTm"`
+}
+
+func (r Frequency36Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type FrequencyAndMoment1 struct {
-	Tp     Frequency6Code           `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Tp"`
-	PtInTm common.Exact2NumericText `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PtInTm"`
+	Tp     Frequency6Code           `xml:"Tp"`
+	PtInTm common.Exact2NumericText `xml:"PtInTm"`
+}
+
+func (r FrequencyAndMoment1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type FrequencyPeriod1 struct {
-	Tp        Frequency6Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Tp"`
-	CntPerPrd float64        `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CntPerPrd"`
+	Tp        Frequency6Code `xml:"Tp"`
+	CntPerPrd float64        `xml:"CntPerPrd"`
+}
+
+func (r FrequencyPeriod1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type Garnishment3 struct {
-	Tp                GarnishmentType1                  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Tp"`
-	Grnshee           PartyIdentification135            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Grnshee,omitempty"`
-	GrnshmtAdmstr     PartyIdentification135            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 GrnshmtAdmstr,omitempty"`
-	RefNb             common.Max140Text                 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 RefNb,omitempty"`
-	Dt                common.ISODate                    `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Dt,omitempty"`
-	RmtdAmt           ActiveOrHistoricCurrencyAndAmount `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 RmtdAmt,omitempty"`
-	FmlyMdclInsrncInd bool                              `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 FmlyMdclInsrncInd,omitempty"`
-	MplyeeTermntnInd  bool                              `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 MplyeeTermntnInd,omitempty"`
+	Tp                GarnishmentType1                   `xml:"Tp"`
+	Grnshee           *PartyIdentification135            `xml:"Grnshee,omitempty" json:",omitempty"`
+	GrnshmtAdmstr     *PartyIdentification135            `xml:"GrnshmtAdmstr,omitempty" json:",omitempty"`
+	RefNb             *common.Max140Text                 `xml:"RefNb,omitempty" json:",omitempty"`
+	Dt                *common.ISODate                    `xml:"Dt,omitempty" json:",omitempty"`
+	RmtdAmt           *ActiveOrHistoricCurrencyAndAmount `xml:"RmtdAmt,omitempty" json:",omitempty"`
+	FmlyMdclInsrncInd bool                               `xml:"FmlyMdclInsrncInd,omitempty" json:",omitempty"`
+	MplyeeTermntnInd  bool                               `xml:"MplyeeTermntnInd,omitempty" json:",omitempty"`
+}
+
+func (r Garnishment3) Validate() error {
+	return utils.Validate(&r)
 }
 
 type GarnishmentType1 struct {
-	CdOrPrtry GarnishmentType1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CdOrPrtry"`
-	Issr      common.Max35Text       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Issr,omitempty"`
+	CdOrPrtry GarnishmentType1Choice `xml:"CdOrPrtry"`
+	Issr      *common.Max35Text      `xml:"Issr,omitempty" json:",omitempty"`
+}
+
+func (r GarnishmentType1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type GarnishmentType1Choice struct {
-	Cd    ExternalGarnishmentType1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text             `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalGarnishmentType1Code `xml:"Cd"`
+	Prtry common.Max35Text             `xml:"Prtry"`
+}
+
+func (r GarnishmentType1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type GenericAccountIdentification1 struct {
-	Id      common.Max34Text         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Id"`
-	SchmeNm AccountSchemeName1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SchmeNm,omitempty"`
-	Issr    common.Max35Text         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Issr,omitempty"`
+	Id      common.Max34Text          `xml:"Id"`
+	SchmeNm *AccountSchemeName1Choice `xml:"SchmeNm,omitempty" json:",omitempty"`
+	Issr    *common.Max35Text         `xml:"Issr,omitempty" json:",omitempty"`
+}
+
+func (r GenericAccountIdentification1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type GenericFinancialIdentification1 struct {
-	Id      common.Max35Text                         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Id"`
-	SchmeNm FinancialIdentificationSchemeName1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SchmeNm,omitempty"`
-	Issr    common.Max35Text                         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Issr,omitempty"`
+	Id      common.Max35Text                          `xml:"Id"`
+	SchmeNm *FinancialIdentificationSchemeName1Choice `xml:"SchmeNm,omitempty" json:",omitempty"`
+	Issr    *common.Max35Text                         `xml:"Issr,omitempty" json:",omitempty"`
+}
+
+func (r GenericFinancialIdentification1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type GenericIdentification30 struct {
-	Id      common.Exact4AlphaNumericText `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Id"`
-	Issr    common.Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Issr"`
-	SchmeNm common.Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SchmeNm,omitempty"`
+	Id      common.Exact4AlphaNumericText `xml:"Id"`
+	Issr    common.Max35Text              `xml:"Issr"`
+	SchmeNm *common.Max35Text             `xml:"SchmeNm,omitempty" json:",omitempty"`
+}
+
+func (r GenericIdentification30) Validate() error {
+	return utils.Validate(&r)
 }
 
 type GenericOrganisationIdentification1 struct {
-	Id      common.Max35Text                            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Id"`
-	SchmeNm OrganisationIdentificationSchemeName1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SchmeNm,omitempty"`
-	Issr    common.Max35Text                            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Issr,omitempty"`
+	Id      common.Max35Text                             `xml:"Id"`
+	SchmeNm *OrganisationIdentificationSchemeName1Choice `xml:"SchmeNm,omitempty" json:",omitempty"`
+	Issr    *common.Max35Text                            `xml:"Issr,omitempty" json:",omitempty"`
+}
+
+func (r GenericOrganisationIdentification1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type GenericPersonIdentification1 struct {
-	Id      common.Max35Text                      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Id"`
-	SchmeNm PersonIdentificationSchemeName1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SchmeNm,omitempty"`
-	Issr    common.Max35Text                      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Issr,omitempty"`
+	Id      common.Max35Text                       `xml:"Id"`
+	SchmeNm *PersonIdentificationSchemeName1Choice `xml:"SchmeNm,omitempty" json:",omitempty"`
+	Issr    *common.Max35Text                      `xml:"Issr,omitempty" json:",omitempty"`
+}
+
+func (r GenericPersonIdentification1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type GroupHeader94 struct {
-	MsgId             common.Max35Text                             `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 MsgId"`
-	CreDtTm           common.ISODateTime                           `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CreDtTm"`
-	Authstn           []Authorisation1Choice                       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Authstn,omitempty"`
-	BtchBookg         bool                                         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 BtchBookg,omitempty"`
-	NbOfTxs           common.Max15NumericText                      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 NbOfTxs"`
-	CtrlSum           float64                                      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CtrlSum,omitempty"`
-	TtlIntrBkSttlmAmt ActiveCurrencyAndAmount                      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TtlIntrBkSttlmAmt,omitempty"`
-	IntrBkSttlmDt     common.ISODate                               `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 IntrBkSttlmDt,omitempty"`
-	SttlmInf          SettlementInstruction8                       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SttlmInf"`
-	PmtTpInf          PaymentTypeInformation27                     `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PmtTpInf,omitempty"`
-	InstgAgt          BranchAndFinancialInstitutionIdentification6 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 InstgAgt,omitempty"`
-	InstdAgt          BranchAndFinancialInstitutionIdentification6 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 InstdAgt,omitempty"`
+	MsgId             common.Max35Text                              `xml:"MsgId"`
+	CreDtTm           common.ISODateTime                            `xml:"CreDtTm"`
+	Authstn           []Authorisation1Choice                        `xml:"Authstn,omitempty" json:",omitempty"`
+	BtchBookg         bool                                          `xml:"BtchBookg,omitempty" json:",omitempty"`
+	NbOfTxs           common.Max15NumericText                       `xml:"NbOfTxs"`
+	CtrlSum           float64                                       `xml:"CtrlSum,omitempty" json:",omitempty"`
+	TtlIntrBkSttlmAmt *ActiveCurrencyAndAmount                      `xml:"TtlIntrBkSttlmAmt,omitempty" json:",omitempty"`
+	IntrBkSttlmDt     *common.ISODate                               `xml:"IntrBkSttlmDt,omitempty" json:",omitempty"`
+	SttlmInf          SettlementInstruction8                        `xml:"SttlmInf"`
+	PmtTpInf          *PaymentTypeInformation27                     `xml:"PmtTpInf,omitempty" json:",omitempty"`
+	InstgAgt          *BranchAndFinancialInstitutionIdentification6 `xml:"InstgAgt,omitempty" json:",omitempty"`
+	InstdAgt          *BranchAndFinancialInstitutionIdentification6 `xml:"InstdAgt,omitempty" json:",omitempty"`
+}
+
+func (r GroupHeader94) Validate() error {
+	return utils.Validate(&r)
 }
 
 type LocalInstrument2Choice struct {
-	Cd    ExternalLocalInstrument1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text             `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalLocalInstrument1Code `xml:"Cd"`
+	Prtry common.Max35Text             `xml:"Prtry"`
+}
+
+func (r LocalInstrument2Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type MandateRelatedInformation14 struct {
-	MndtId        common.Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 MndtId,omitempty"`
-	DtOfSgntr     common.ISODate                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 DtOfSgntr,omitempty"`
-	AmdmntInd     bool                          `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 AmdmntInd,omitempty"`
-	AmdmntInfDtls AmendmentInformationDetails13 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 AmdmntInfDtls,omitempty"`
-	ElctrncSgntr  common.Max1025Text            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 ElctrncSgntr,omitempty"`
-	FrstColltnDt  common.ISODate                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 FrstColltnDt,omitempty"`
-	FnlColltnDt   common.ISODate                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 FnlColltnDt,omitempty"`
-	Frqcy         Frequency36Choice             `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Frqcy,omitempty"`
-	Rsn           MandateSetupReason1Choice     `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Rsn,omitempty"`
-	TrckgDays     common.Exact2NumericText      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TrckgDays,omitempty"`
+	MndtId        *common.Max35Text              `xml:"MndtId,omitempty" json:",omitempty"`
+	DtOfSgntr     *common.ISODate                `xml:"DtOfSgntr,omitempty" json:",omitempty"`
+	AmdmntInd     bool                           `xml:"AmdmntInd,omitempty" json:",omitempty"`
+	AmdmntInfDtls *AmendmentInformationDetails13 `xml:"AmdmntInfDtls,omitempty" json:",omitempty"`
+	ElctrncSgntr  *common.Max1025Text            `xml:"ElctrncSgntr,omitempty" json:",omitempty"`
+	FrstColltnDt  *common.ISODate                `xml:"FrstColltnDt,omitempty" json:",omitempty"`
+	FnlColltnDt   *common.ISODate                `xml:"FnlColltnDt,omitempty" json:",omitempty"`
+	Frqcy         *Frequency36Choice             `xml:"Frqcy,omitempty" json:",omitempty"`
+	Rsn           *MandateSetupReason1Choice     `xml:"Rsn,omitempty" json:",omitempty"`
+	TrckgDays     *common.Exact2NumericText      `xml:"TrckgDays,omitempty" json:",omitempty"`
+}
+
+func (r MandateRelatedInformation14) Validate() error {
+	return utils.Validate(&r)
 }
 
 type MandateSetupReason1Choice struct {
-	Cd    ExternalMandateSetupReason1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max70Text                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalMandateSetupReason1Code `xml:"Cd"`
+	Prtry common.Max70Text                `xml:"Prtry"`
+}
+
+func (r MandateSetupReason1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type NameAndAddress16 struct {
-	Nm  common.Max140Text `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Nm"`
-	Adr PostalAddress24   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Adr"`
+	Nm  common.Max140Text `xml:"Nm"`
+	Adr PostalAddress24   `xml:"Adr"`
+}
+
+func (r NameAndAddress16) Validate() error {
+	return utils.Validate(&r)
 }
 
 type OrganisationIdentification29 struct {
-	AnyBIC common.AnyBICDec2014Identifier       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 AnyBIC,omitempty"`
-	LEI    common.LEIIdentifier                 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 LEI,omitempty"`
-	Othr   []GenericOrganisationIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Othr,omitempty"`
+	AnyBIC *common.AnyBICDec2014Identifier      `xml:"AnyBIC,omitempty" json:",omitempty"`
+	LEI    *common.LEIIdentifier                `xml:"LEI,omitempty" json:",omitempty"`
+	Othr   []GenericOrganisationIdentification1 `xml:"Othr,omitempty" json:",omitempty"`
+}
+
+func (r OrganisationIdentification29) Validate() error {
+	return utils.Validate(&r)
 }
 
 type OrganisationIdentificationSchemeName1Choice struct {
-	Cd    ExternalOrganisationIdentification1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text                        `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalOrganisationIdentification1Code `xml:"Cd"`
+	Prtry common.Max35Text                        `xml:"Prtry"`
+}
+
+func (r OrganisationIdentificationSchemeName1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type OtherContact1 struct {
-	ChanlTp common.Max4Text   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 ChanlTp"`
-	Id      common.Max128Text `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Id,omitempty"`
+	ChanlTp common.Max4Text    `xml:"ChanlTp"`
+	Id      *common.Max128Text `xml:"Id,omitempty" json:",omitempty"`
+}
+
+func (r OtherContact1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type Party38Choice struct {
-	OrgId  OrganisationIdentification29 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 OrgId"`
-	PrvtId PersonIdentification13       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PrvtId"`
+	OrgId  OrganisationIdentification29 `xml:"OrgId"`
+	PrvtId PersonIdentification13       `xml:"PrvtId"`
+}
+
+func (r Party38Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type PartyIdentification135 struct {
-	Nm        common.Max140Text  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Nm,omitempty"`
-	PstlAdr   PostalAddress24    `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PstlAdr,omitempty"`
-	Id        Party38Choice      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Id,omitempty"`
-	CtryOfRes common.CountryCode `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CtryOfRes,omitempty"`
-	CtctDtls  Contact4           `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CtctDtls,omitempty"`
+	Nm        *common.Max140Text  `xml:"Nm,omitempty" json:",omitempty"`
+	PstlAdr   *PostalAddress24    `xml:"PstlAdr,omitempty" json:",omitempty"`
+	Id        *Party38Choice      `xml:"Id,omitempty" json:",omitempty"`
+	CtryOfRes *common.CountryCode `xml:"CtryOfRes,omitempty" json:",omitempty"`
+	CtctDtls  *Contact4           `xml:"CtctDtls,omitempty" json:",omitempty"`
+}
+
+func (r PartyIdentification135) Validate() error {
+	return utils.Validate(&r)
 }
 
 type PaymentIdentification7 struct {
-	InstrId    common.Max35Text        `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 InstrId,omitempty"`
-	EndToEndId common.Max35Text        `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 EndToEndId"`
-	TxId       common.Max35Text        `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TxId,omitempty"`
-	UETR       common.UUIDv4Identifier `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 UETR,omitempty"`
-	ClrSysRef  common.Max35Text        `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 ClrSysRef,omitempty"`
+	InstrId    *common.Max35Text        `xml:"InstrId,omitempty" json:",omitempty"`
+	EndToEndId common.Max35Text         `xml:"EndToEndId"`
+	TxId       *common.Max35Text        `xml:"TxId,omitempty" json:",omitempty"`
+	UETR       *common.UUIDv4Identifier `xml:"UETR,omitempty" json:",omitempty"`
+	ClrSysRef  *common.Max35Text        `xml:"ClrSysRef,omitempty" json:",omitempty"`
+}
+
+func (r PaymentIdentification7) Validate() error {
+	return utils.Validate(&r)
 }
 
 type PaymentTypeInformation27 struct {
-	InstrPrty Priority2Code          `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 InstrPrty,omitempty"`
-	ClrChanl  ClearingChannel2Code   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 ClrChanl,omitempty"`
-	SvcLvl    []ServiceLevel8Choice  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SvcLvl,omitempty"`
-	LclInstrm LocalInstrument2Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 LclInstrm,omitempty"`
-	SeqTp     SequenceType3Code      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SeqTp,omitempty"`
-	CtgyPurp  CategoryPurpose1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CtgyPurp,omitempty"`
+	InstrPrty *Priority2Code          `xml:"InstrPrty,omitempty" json:",omitempty"`
+	ClrChanl  *ClearingChannel2Code   `xml:"ClrChanl,omitempty" json:",omitempty"`
+	SvcLvl    []ServiceLevel8Choice   `xml:"SvcLvl,omitempty" json:",omitempty"`
+	LclInstrm *LocalInstrument2Choice `xml:"LclInstrm,omitempty" json:",omitempty"`
+	SeqTp     *SequenceType3Code      `xml:"SeqTp,omitempty" json:",omitempty"`
+	CtgyPurp  *CategoryPurpose1Choice `xml:"CtgyPurp,omitempty" json:",omitempty"`
+}
+
+func (r PaymentTypeInformation27) Validate() error {
+	return utils.Validate(&r)
 }
 
 type PersonIdentification13 struct {
-	DtAndPlcOfBirth DateAndPlaceOfBirth1           `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 DtAndPlcOfBirth,omitempty"`
-	Othr            []GenericPersonIdentification1 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Othr,omitempty"`
+	DtAndPlcOfBirth *DateAndPlaceOfBirth1          `xml:"DtAndPlcOfBirth,omitempty" json:",omitempty"`
+	Othr            []GenericPersonIdentification1 `xml:"Othr,omitempty" json:",omitempty"`
+}
+
+func (r PersonIdentification13) Validate() error {
+	return utils.Validate(&r)
 }
 
 type PersonIdentificationSchemeName1Choice struct {
-	Cd    ExternalPersonIdentification1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text                  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalPersonIdentification1Code `xml:"Cd"`
+	Prtry common.Max35Text                  `xml:"Prtry"`
+}
+
+func (r PersonIdentificationSchemeName1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type PostalAddress24 struct {
-	AdrTp       AddressType3Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 AdrTp,omitempty"`
-	Dept        common.Max70Text   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Dept,omitempty"`
-	SubDept     common.Max70Text   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SubDept,omitempty"`
-	StrtNm      common.Max70Text   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 StrtNm,omitempty"`
-	BldgNb      common.Max16Text   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 BldgNb,omitempty"`
-	BldgNm      common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 BldgNm,omitempty"`
-	Flr         common.Max70Text   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Flr,omitempty"`
-	PstBx       common.Max16Text   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PstBx,omitempty"`
-	Room        common.Max70Text   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Room,omitempty"`
-	PstCd       common.Max16Text   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PstCd,omitempty"`
-	TwnNm       common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TwnNm,omitempty"`
-	TwnLctnNm   common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TwnLctnNm,omitempty"`
-	DstrctNm    common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 DstrctNm,omitempty"`
-	CtrySubDvsn common.Max35Text   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CtrySubDvsn,omitempty"`
-	Ctry        common.CountryCode `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Ctry,omitempty"`
-	AdrLine     []common.Max70Text `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 AdrLine,omitempty"`
+	AdrTp       *AddressType3Choice `xml:"AdrTp,omitempty" json:",omitempty"`
+	Dept        *common.Max70Text   `xml:"Dept,omitempty" json:",omitempty"`
+	SubDept     *common.Max70Text   `xml:"SubDept,omitempty" json:",omitempty"`
+	StrtNm      *common.Max70Text   `xml:"StrtNm,omitempty" json:",omitempty"`
+	BldgNb      *common.Max16Text   `xml:"BldgNb,omitempty" json:",omitempty"`
+	BldgNm      *common.Max35Text   `xml:"BldgNm,omitempty" json:",omitempty"`
+	Flr         *common.Max70Text   `xml:"Flr,omitempty" json:",omitempty"`
+	PstBx       *common.Max16Text   `xml:"PstBx,omitempty" json:",omitempty"`
+	Room        *common.Max70Text   `xml:"Room,omitempty" json:",omitempty"`
+	PstCd       *common.Max16Text   `xml:"PstCd,omitempty" json:",omitempty"`
+	TwnNm       *common.Max35Text   `xml:"TwnNm,omitempty" json:",omitempty"`
+	TwnLctnNm   *common.Max35Text   `xml:"TwnLctnNm,omitempty" json:",omitempty"`
+	DstrctNm    *common.Max35Text   `xml:"DstrctNm,omitempty" json:",omitempty"`
+	CtrySubDvsn *common.Max35Text   `xml:"CtrySubDvsn,omitempty" json:",omitempty"`
+	Ctry        *common.CountryCode `xml:"Ctry,omitempty" json:",omitempty"`
+	AdrLine     []common.Max70Text  `xml:"AdrLine,omitempty" json:",omitempty"`
+}
+
+func (r PostalAddress24) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ProxyAccountIdentification1 struct {
-	Tp ProxyAccountType1Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Tp,omitempty"`
-	Id common.Max2048Text      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Id"`
+	Tp *ProxyAccountType1Choice `xml:"Tp,omitempty" json:",omitempty"`
+	Id common.Max2048Text       `xml:"Id"`
+}
+
+func (r ProxyAccountIdentification1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ProxyAccountType1Choice struct {
-	Cd    ExternalProxyAccountType1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text              `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalProxyAccountType1Code `xml:"Cd"`
+	Prtry common.Max35Text              `xml:"Prtry"`
+}
+
+func (r ProxyAccountType1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type Purpose2Choice struct {
-	Cd    ExternalPurpose1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text     `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalPurpose1Code `xml:"Cd"`
+	Prtry common.Max35Text     `xml:"Prtry"`
+}
+
+func (r Purpose2Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ReferredDocumentInformation7 struct {
-	Tp       ReferredDocumentType4      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Tp,omitempty"`
-	Nb       common.Max35Text           `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Nb,omitempty"`
-	RltdDt   common.ISODate             `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 RltdDt,omitempty"`
-	LineDtls []DocumentLineInformation1 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 LineDtls,omitempty"`
+	Tp       *ReferredDocumentType4     `xml:"Tp,omitempty" json:",omitempty"`
+	Nb       *common.Max35Text          `xml:"Nb,omitempty" json:",omitempty"`
+	RltdDt   *common.ISODate            `xml:"RltdDt,omitempty" json:",omitempty"`
+	LineDtls []DocumentLineInformation1 `xml:"LineDtls,omitempty" json:",omitempty"`
+}
+
+func (r ReferredDocumentInformation7) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ReferredDocumentType3Choice struct {
-	Cd    DocumentType6Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    DocumentType6Code `xml:"Cd"`
+	Prtry common.Max35Text  `xml:"Prtry"`
+}
+
+func (r ReferredDocumentType3Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ReferredDocumentType4 struct {
-	CdOrPrtry ReferredDocumentType3Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CdOrPrtry"`
-	Issr      common.Max35Text            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Issr,omitempty"`
+	CdOrPrtry ReferredDocumentType3Choice `xml:"CdOrPrtry"`
+	Issr      *common.Max35Text           `xml:"Issr,omitempty" json:",omitempty"`
+}
+
+func (r ReferredDocumentType4) Validate() error {
+	return utils.Validate(&r)
 }
 
 type RegulatoryAuthority2 struct {
-	Nm   common.Max140Text  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Nm,omitempty"`
-	Ctry common.CountryCode `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Ctry,omitempty"`
+	Nm   *common.Max140Text  `xml:"Nm,omitempty" json:",omitempty"`
+	Ctry *common.CountryCode `xml:"Ctry,omitempty" json:",omitempty"`
+}
+
+func (r RegulatoryAuthority2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type RegulatoryReporting3 struct {
-	DbtCdtRptgInd RegulatoryReportingType1Code     `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 DbtCdtRptgInd,omitempty"`
-	Authrty       RegulatoryAuthority2             `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Authrty,omitempty"`
-	Dtls          []StructuredRegulatoryReporting3 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Dtls,omitempty"`
+	DbtCdtRptgInd *RegulatoryReportingType1Code    `xml:"DbtCdtRptgInd,omitempty" json:",omitempty"`
+	Authrty       *RegulatoryAuthority2            `xml:"Authrty,omitempty" json:",omitempty"`
+	Dtls          []StructuredRegulatoryReporting3 `xml:"Dtls,omitempty" json:",omitempty"`
+}
+
+func (r RegulatoryReporting3) Validate() error {
+	return utils.Validate(&r)
 }
 
 type RemittanceAmount2 struct {
-	DuePyblAmt        ActiveOrHistoricCurrencyAndAmount `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 DuePyblAmt,omitempty"`
-	DscntApldAmt      []DiscountAmountAndType1          `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 DscntApldAmt,omitempty"`
-	CdtNoteAmt        ActiveOrHistoricCurrencyAndAmount `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CdtNoteAmt,omitempty"`
-	TaxAmt            []TaxAmountAndType1               `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TaxAmt,omitempty"`
-	AdjstmntAmtAndRsn []DocumentAdjustment1             `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 AdjstmntAmtAndRsn,omitempty"`
-	RmtdAmt           ActiveOrHistoricCurrencyAndAmount `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 RmtdAmt,omitempty"`
+	DuePyblAmt        *ActiveOrHistoricCurrencyAndAmount `xml:"DuePyblAmt,omitempty" json:",omitempty"`
+	DscntApldAmt      []DiscountAmountAndType1           `xml:"DscntApldAmt,omitempty" json:",omitempty"`
+	CdtNoteAmt        *ActiveOrHistoricCurrencyAndAmount `xml:"CdtNoteAmt,omitempty" json:",omitempty"`
+	TaxAmt            []TaxAmountAndType1                `xml:"TaxAmt,omitempty" json:",omitempty"`
+	AdjstmntAmtAndRsn []DocumentAdjustment1              `xml:"AdjstmntAmtAndRsn,omitempty" json:",omitempty"`
+	RmtdAmt           *ActiveOrHistoricCurrencyAndAmount `xml:"RmtdAmt,omitempty" json:",omitempty"`
+}
+
+func (r RemittanceAmount2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type RemittanceAmount3 struct {
-	DuePyblAmt        ActiveOrHistoricCurrencyAndAmount `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 DuePyblAmt,omitempty"`
-	DscntApldAmt      []DiscountAmountAndType1          `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 DscntApldAmt,omitempty"`
-	CdtNoteAmt        ActiveOrHistoricCurrencyAndAmount `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CdtNoteAmt,omitempty"`
-	TaxAmt            []TaxAmountAndType1               `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TaxAmt,omitempty"`
-	AdjstmntAmtAndRsn []DocumentAdjustment1             `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 AdjstmntAmtAndRsn,omitempty"`
-	RmtdAmt           ActiveOrHistoricCurrencyAndAmount `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 RmtdAmt,omitempty"`
+	DuePyblAmt        *ActiveOrHistoricCurrencyAndAmount `xml:"DuePyblAmt,omitempty" json:",omitempty"`
+	DscntApldAmt      []DiscountAmountAndType1           `xml:"DscntApldAmt,omitempty" json:",omitempty"`
+	CdtNoteAmt        *ActiveOrHistoricCurrencyAndAmount `xml:"CdtNoteAmt,omitempty" json:",omitempty"`
+	TaxAmt            []TaxAmountAndType1                `xml:"TaxAmt,omitempty" json:",omitempty"`
+	AdjstmntAmtAndRsn []DocumentAdjustment1              `xml:"AdjstmntAmtAndRsn,omitempty" json:",omitempty"`
+	RmtdAmt           *ActiveOrHistoricCurrencyAndAmount `xml:"RmtdAmt,omitempty" json:",omitempty"`
+}
+
+func (r RemittanceAmount3) Validate() error {
+	return utils.Validate(&r)
 }
 
 type RemittanceInformation16 struct {
-	Ustrd []common.Max140Text                 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Ustrd,omitempty"`
-	Strd  []StructuredRemittanceInformation16 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Strd,omitempty"`
+	Ustrd []common.Max140Text                 `xml:"Ustrd,omitempty" json:",omitempty"`
+	Strd  []StructuredRemittanceInformation16 `xml:"Strd,omitempty" json:",omitempty"`
+}
+
+func (r RemittanceInformation16) Validate() error {
+	return utils.Validate(&r)
 }
 
 type RemittanceLocation7 struct {
-	RmtId       common.Max35Text          `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 RmtId,omitempty"`
-	RmtLctnDtls []RemittanceLocationData1 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 RmtLctnDtls,omitempty"`
+	RmtId       *common.Max35Text         `xml:"RmtId,omitempty" json:",omitempty"`
+	RmtLctnDtls []RemittanceLocationData1 `xml:"RmtLctnDtls,omitempty" json:",omitempty"`
+}
+
+func (r RemittanceLocation7) Validate() error {
+	return utils.Validate(&r)
 }
 
 type RemittanceLocationData1 struct {
-	Mtd        RemittanceLocationMethod2Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Mtd"`
-	ElctrncAdr common.Max2048Text            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 ElctrncAdr,omitempty"`
-	PstlAdr    NameAndAddress16              `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PstlAdr,omitempty"`
+	Mtd        RemittanceLocationMethod2Code `xml:"Mtd"`
+	ElctrncAdr *common.Max2048Text           `xml:"ElctrncAdr,omitempty" json:",omitempty"`
+	PstlAdr    *NameAndAddress16             `xml:"PstlAdr,omitempty" json:",omitempty"`
+}
+
+func (r RemittanceLocationData1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type ServiceLevel8Choice struct {
-	Cd    ExternalServiceLevel1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text          `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalServiceLevel1Code `xml:"Cd"`
+	Prtry common.Max35Text          `xml:"Prtry"`
+}
+
+func (r ServiceLevel8Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type SettlementDateTimeIndication1 struct {
-	DbtDtTm common.ISODateTime `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 DbtDtTm,omitempty"`
-	CdtDtTm common.ISODateTime `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CdtDtTm,omitempty"`
+	DbtDtTm *common.ISODateTime `xml:"DbtDtTm,omitempty" json:",omitempty"`
+	CdtDtTm *common.ISODateTime `xml:"CdtDtTm,omitempty" json:",omitempty"`
+}
+
+func (r SettlementDateTimeIndication1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type SettlementInstruction8 struct {
-	SttlmMtd  SettlementMethod2Code               `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SttlmMtd"`
-	SttlmAcct CashAccount38                       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SttlmAcct,omitempty"`
-	ClrSys    ClearingSystemIdentification3Choice `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 ClrSys,omitempty"`
+	SttlmMtd  SettlementMethod2Code                `xml:"SttlmMtd"`
+	SttlmAcct *CashAccount38                       `xml:"SttlmAcct,omitempty" json:",omitempty"`
+	ClrSys    *ClearingSystemIdentification3Choice `xml:"ClrSys,omitempty" json:",omitempty"`
+}
+
+func (r SettlementInstruction8) Validate() error {
+	return utils.Validate(&r)
 }
 
 type StructuredRegulatoryReporting3 struct {
-	Tp   common.Max35Text                  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Tp,omitempty"`
-	Dt   common.ISODate                    `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Dt,omitempty"`
-	Ctry common.CountryCode                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Ctry,omitempty"`
-	Cd   common.Max10Text                  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd,omitempty"`
-	Amt  ActiveOrHistoricCurrencyAndAmount `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Amt,omitempty"`
-	Inf  []common.Max35Text                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Inf,omitempty"`
+	Tp   *common.Max35Text                  `xml:"Tp,omitempty" json:",omitempty"`
+	Dt   *common.ISODate                    `xml:"Dt,omitempty" json:",omitempty"`
+	Ctry *common.CountryCode                `xml:"Ctry,omitempty" json:",omitempty"`
+	Cd   *common.Max10Text                  `xml:"Cd,omitempty" json:",omitempty"`
+	Amt  *ActiveOrHistoricCurrencyAndAmount `xml:"Amt,omitempty" json:",omitempty"`
+	Inf  []common.Max35Text                 `xml:"Inf,omitempty" json:",omitempty"`
+}
+
+func (r StructuredRegulatoryReporting3) Validate() error {
+	return utils.Validate(&r)
 }
 
 type StructuredRemittanceInformation16 struct {
-	RfrdDocInf  []ReferredDocumentInformation7 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 RfrdDocInf,omitempty"`
-	RfrdDocAmt  RemittanceAmount2              `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 RfrdDocAmt,omitempty"`
-	CdtrRefInf  CreditorReferenceInformation2  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CdtrRefInf,omitempty"`
-	Invcr       PartyIdentification135         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Invcr,omitempty"`
-	Invcee      PartyIdentification135         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Invcee,omitempty"`
-	TaxRmt      TaxInformation7                `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TaxRmt,omitempty"`
-	GrnshmtRmt  Garnishment3                   `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 GrnshmtRmt,omitempty"`
-	AddtlRmtInf []common.Max140Text            `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 AddtlRmtInf,omitempty"`
+	RfrdDocInf  []ReferredDocumentInformation7 `xml:"RfrdDocInf,omitempty" json:",omitempty"`
+	RfrdDocAmt  *RemittanceAmount2             `xml:"RfrdDocAmt,omitempty" json:",omitempty"`
+	CdtrRefInf  *CreditorReferenceInformation2 `xml:"CdtrRefInf,omitempty" json:",omitempty"`
+	Invcr       *PartyIdentification135        `xml:"Invcr,omitempty" json:",omitempty"`
+	Invcee      *PartyIdentification135        `xml:"Invcee,omitempty" json:",omitempty"`
+	TaxRmt      *TaxInformation7               `xml:"TaxRmt,omitempty" json:",omitempty"`
+	GrnshmtRmt  *Garnishment3                  `xml:"GrnshmtRmt,omitempty" json:",omitempty"`
+	AddtlRmtInf []common.Max140Text            `xml:"AddtlRmtInf,omitempty" json:",omitempty"`
+}
+
+func (r StructuredRemittanceInformation16) Validate() error {
+	return utils.Validate(&r)
 }
 
 type SupplementaryData1 struct {
-	PlcAndNm common.Max350Text          `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 PlcAndNm,omitempty"`
-	Envlp    SupplementaryDataEnvelope1 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Envlp"`
+	PlcAndNm *common.Max350Text         `xml:"PlcAndNm,omitempty" json:",omitempty"`
+	Envlp    SupplementaryDataEnvelope1 `xml:"Envlp"`
+}
+
+func (r SupplementaryData1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type SupplementaryDataEnvelope1 struct {
 	Item string `xml:",any"`
 }
 
+func (r SupplementaryDataEnvelope1) Validate() error {
+	return utils.Validate(&r)
+}
+
 type TaxAmount2 struct {
-	Rate         float64                           `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Rate,omitempty"`
-	TaxblBaseAmt ActiveOrHistoricCurrencyAndAmount `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TaxblBaseAmt,omitempty"`
-	TtlAmt       ActiveOrHistoricCurrencyAndAmount `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TtlAmt,omitempty"`
-	Dtls         []TaxRecordDetails2               `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Dtls,omitempty"`
+	Rate         float64                            `xml:"Rate,omitempty" json:",omitempty"`
+	TaxblBaseAmt *ActiveOrHistoricCurrencyAndAmount `xml:"TaxblBaseAmt,omitempty" json:",omitempty"`
+	TtlAmt       *ActiveOrHistoricCurrencyAndAmount `xml:"TtlAmt,omitempty" json:",omitempty"`
+	Dtls         []TaxRecordDetails2                `xml:"Dtls,omitempty" json:",omitempty"`
+}
+
+func (r TaxAmount2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type TaxAmountAndType1 struct {
-	Tp  TaxAmountType1Choice              `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Tp,omitempty"`
-	Amt ActiveOrHistoricCurrencyAndAmount `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Amt"`
+	Tp  *TaxAmountType1Choice             `xml:"Tp,omitempty" json:",omitempty"`
+	Amt ActiveOrHistoricCurrencyAndAmount `xml:"Amt"`
+}
+
+func (r TaxAmountAndType1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type TaxAmountType1Choice struct {
-	Cd    ExternalTaxAmountType1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cd"`
-	Prtry common.Max35Text           `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prtry"`
+	Cd    ExternalTaxAmountType1Code `xml:"Cd"`
+	Prtry common.Max35Text           `xml:"Prtry"`
+}
+
+func (r TaxAmountType1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type TaxAuthorisation1 struct {
-	Titl common.Max35Text  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Titl,omitempty"`
-	Nm   common.Max140Text `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Nm,omitempty"`
+	Titl *common.Max35Text  `xml:"Titl,omitempty" json:",omitempty"`
+	Nm   *common.Max140Text `xml:"Nm,omitempty" json:",omitempty"`
+}
+
+func (r TaxAuthorisation1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type TaxInformation7 struct {
-	Cdtr            TaxParty1                         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Cdtr,omitempty"`
-	Dbtr            TaxParty2                         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Dbtr,omitempty"`
-	UltmtDbtr       TaxParty2                         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 UltmtDbtr,omitempty"`
-	AdmstnZone      common.Max35Text                  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 AdmstnZone,omitempty"`
-	RefNb           common.Max140Text                 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 RefNb,omitempty"`
-	Mtd             common.Max35Text                  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Mtd,omitempty"`
-	TtlTaxblBaseAmt ActiveOrHistoricCurrencyAndAmount `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TtlTaxblBaseAmt,omitempty"`
-	TtlTaxAmt       ActiveOrHistoricCurrencyAndAmount `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TtlTaxAmt,omitempty"`
-	Dt              common.ISODate                    `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Dt,omitempty"`
-	SeqNb           float64                           `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 SeqNb,omitempty"`
-	Rcrd            []TaxRecord2                      `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Rcrd,omitempty"`
+	Cdtr            *TaxParty1                         `xml:"Cdtr,omitempty" json:",omitempty"`
+	Dbtr            *TaxParty2                         `xml:"Dbtr,omitempty" json:",omitempty"`
+	UltmtDbtr       *TaxParty2                         `xml:"UltmtDbtr,omitempty" json:",omitempty"`
+	AdmstnZone      *common.Max35Text                  `xml:"AdmstnZone,omitempty" json:",omitempty"`
+	RefNb           *common.Max140Text                 `xml:"RefNb,omitempty" json:",omitempty"`
+	Mtd             *common.Max35Text                  `xml:"Mtd,omitempty" json:",omitempty"`
+	TtlTaxblBaseAmt *ActiveOrHistoricCurrencyAndAmount `xml:"TtlTaxblBaseAmt,omitempty" json:",omitempty"`
+	TtlTaxAmt       *ActiveOrHistoricCurrencyAndAmount `xml:"TtlTaxAmt,omitempty" json:",omitempty"`
+	Dt              *common.ISODate                    `xml:"Dt,omitempty" json:",omitempty"`
+	SeqNb           float64                            `xml:"SeqNb,omitempty" json:",omitempty"`
+	Rcrd            []TaxRecord2                       `xml:"Rcrd,omitempty" json:",omitempty"`
+}
+
+func (r TaxInformation7) Validate() error {
+	return utils.Validate(&r)
 }
 
 type TaxParty1 struct {
-	TaxId  common.Max35Text `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TaxId,omitempty"`
-	RegnId common.Max35Text `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 RegnId,omitempty"`
-	TaxTp  common.Max35Text `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TaxTp,omitempty"`
+	TaxId  *common.Max35Text `xml:"TaxId,omitempty" json:",omitempty"`
+	RegnId *common.Max35Text `xml:"RegnId,omitempty" json:",omitempty"`
+	TaxTp  *common.Max35Text `xml:"TaxTp,omitempty" json:",omitempty"`
+}
+
+func (r TaxParty1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type TaxParty2 struct {
-	TaxId   common.Max35Text  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TaxId,omitempty"`
-	RegnId  common.Max35Text  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 RegnId,omitempty"`
-	TaxTp   common.Max35Text  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TaxTp,omitempty"`
-	Authstn TaxAuthorisation1 `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Authstn,omitempty"`
+	TaxId   *common.Max35Text  `xml:"TaxId,omitempty" json:",omitempty"`
+	RegnId  *common.Max35Text  `xml:"RegnId,omitempty" json:",omitempty"`
+	TaxTp   *common.Max35Text  `xml:"TaxTp,omitempty" json:",omitempty"`
+	Authstn *TaxAuthorisation1 `xml:"Authstn,omitempty" json:",omitempty"`
+}
+
+func (r TaxParty2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type TaxPeriod2 struct {
-	Yr     common.ISODate       `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Yr,omitempty"`
-	Tp     TaxRecordPeriod1Code `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Tp,omitempty"`
-	FrToDt DatePeriod2          `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 FrToDt,omitempty"`
+	Yr     *common.ISODate       `xml:"Yr,omitempty" json:",omitempty"`
+	Tp     *TaxRecordPeriod1Code `xml:"Tp,omitempty" json:",omitempty"`
+	FrToDt *DatePeriod2          `xml:"FrToDt,omitempty" json:",omitempty"`
+}
+
+func (r TaxPeriod2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type TaxRecord2 struct {
-	Tp       common.Max35Text  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Tp,omitempty"`
-	Ctgy     common.Max35Text  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Ctgy,omitempty"`
-	CtgyDtls common.Max35Text  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CtgyDtls,omitempty"`
-	DbtrSts  common.Max35Text  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 DbtrSts,omitempty"`
-	CertId   common.Max35Text  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 CertId,omitempty"`
-	FrmsCd   common.Max35Text  `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 FrmsCd,omitempty"`
-	Prd      TaxPeriod2        `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prd,omitempty"`
-	TaxAmt   TaxAmount2        `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 TaxAmt,omitempty"`
-	AddtlInf common.Max140Text `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 AddtlInf,omitempty"`
+	Tp       *common.Max35Text  `xml:"Tp,omitempty" json:",omitempty"`
+	Ctgy     *common.Max35Text  `xml:"Ctgy,omitempty" json:",omitempty"`
+	CtgyDtls *common.Max35Text  `xml:"CtgyDtls,omitempty" json:",omitempty"`
+	DbtrSts  *common.Max35Text  `xml:"DbtrSts,omitempty" json:",omitempty"`
+	CertId   *common.Max35Text  `xml:"CertId,omitempty" json:",omitempty"`
+	FrmsCd   *common.Max35Text  `xml:"FrmsCd,omitempty" json:",omitempty"`
+	Prd      *TaxPeriod2        `xml:"Prd,omitempty" json:",omitempty"`
+	TaxAmt   *TaxAmount2        `xml:"TaxAmt,omitempty" json:",omitempty"`
+	AddtlInf *common.Max140Text `xml:"AddtlInf,omitempty" json:",omitempty"`
+}
+
+func (r TaxRecord2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type TaxRecordDetails2 struct {
-	Prd TaxPeriod2                        `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Prd,omitempty"`
-	Amt ActiveOrHistoricCurrencyAndAmount `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08 Amt"`
+	Prd *TaxPeriod2                       `xml:"Prd,omitempty" json:",omitempty"`
+	Amt ActiveOrHistoricCurrencyAndAmount `xml:"Amt"`
+}
+
+func (r TaxRecordDetails2) Validate() error {
+	return utils.Validate(&r)
 }
