@@ -361,7 +361,7 @@ func (r GenericPersonIdentification1) Validate() error {
 
 type Group4 struct {
 	GrpId common.Max4AlphaNumericText `xml:"GrpId"`
-	Pty   []PartyAndCertificate4      `xml:"Pty"`
+	Pty   []PartyAndCertificate4      `xml:"Pty" json:",omitempty"`
 }
 
 func (r Group4) Validate() error {
@@ -388,11 +388,11 @@ func (r MessageIdentification1) Validate() error {
 
 type OperationMandate4 struct {
 	Id           common.Max35Text                  `xml:"Id"`
-	AplblChanl   []Channel2Choice                  `xml:"AplblChanl"`
+	AplblChanl   []Channel2Choice                  `xml:"AplblChanl" json:",omitempty"`
 	ReqrdSgntrNb common.Max15PlusSignedNumericText `xml:"ReqrdSgntrNb"`
 	SgntrOrdrInd bool                              `xml:"SgntrOrdrInd"`
 	MndtHldr     []PartyAndAuthorisation4          `xml:"MndtHldr,omitempty" json:",omitempty"`
-	BkOpr        []BankTransactionCodeStructure4   `xml:"BkOpr"`
+	BkOpr        []BankTransactionCodeStructure4   `xml:"BkOpr" json:",omitempty"`
 	StartDt      *common.ISODate                   `xml:"StartDt,omitempty" json:",omitempty"`
 	EndDt        *common.ISODate                   `xml:"EndDt,omitempty" json:",omitempty"`
 }
@@ -667,7 +667,7 @@ type References3 struct {
 	MsgId           MessageIdentification1 `xml:"MsgId"`
 	ReqToBeCmpltdId MessageIdentification1 `xml:"ReqToBeCmpltdId"`
 	PrcId           MessageIdentification1 `xml:"PrcId"`
-	ReqRsn          []common.Max35Text     `xml:"ReqRsn"`
+	ReqRsn          []common.Max35Text     `xml:"ReqRsn" json:",omitempty"`
 	AttchdDocNm     []common.Max70Text     `xml:"AttchdDocNm,omitempty" json:",omitempty"`
 }
 
@@ -720,7 +720,7 @@ func (r AccountRequestRejectionV03) Validate() error {
 
 type References6 struct {
 	RjctdReqTp  UseCases1Code          `xml:"RjctdReqTp"`
-	RjctnRsn    []common.Max350Text    `xml:"RjctnRsn"`
+	RjctnRsn    []common.Max350Text    `xml:"RjctnRsn" json:",omitempty"`
 	RjctdReqId  MessageIdentification1 `xml:"RjctdReqId"`
 	MsgId       MessageIdentification1 `xml:"MsgId"`
 	PrcId       MessageIdentification1 `xml:"PrcId"`
@@ -736,7 +736,7 @@ type AccountAdditionalInformationRequestV03 struct {
 	Fr          *OrganisationIdentification29                `xml:"Fr,omitempty" json:",omitempty"`
 	OrgId       OrganisationIdentification29                 `xml:"OrgId"`
 	AcctSvcrId  BranchAndFinancialInstitutionIdentification6 `xml:"AcctSvcrId"`
-	AcctId      []AccountForAction1                          `xml:"AcctId"`
+	AcctId      []AccountForAction1                          `xml:"AcctId" json:",omitempty"`
 	DgtlSgntr   []PartyAndSignature3                         `xml:"DgtlSgntr,omitempty" json:",omitempty"`
 	SplmtryData []SupplementaryData1                         `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
@@ -748,7 +748,7 @@ func (r AccountAdditionalInformationRequestV03) Validate() error {
 type AccountReportRequestV03 struct {
 	Refs        References4                                  `xml:"Refs"`
 	Fr          *OrganisationIdentification29                `xml:"Fr,omitempty" json:",omitempty"`
-	AcctId      []AccountForAction1                          `xml:"AcctId"`
+	AcctId      []AccountForAction1                          `xml:"AcctId" json:",omitempty"`
 	AcctSvcrId  BranchAndFinancialInstitutionIdentification6 `xml:"AcctSvcrId"`
 	OrgId       OrganisationIdentification29                 `xml:"OrgId"`
 	DgtlSgntr   []PartyAndSignature3                         `xml:"DgtlSgntr,omitempty" json:",omitempty"`
@@ -802,7 +802,7 @@ func (r AccountReportV03) Validate() error {
 }
 
 type CustomerAccount5 struct {
-	Id               []AccountIdentification4Choice `xml:"Id"`
+	Id               []AccountIdentification4Choice `xml:"Id" json:",omitempty"`
 	Nm               *common.Max70Text              `xml:"Nm,omitempty" json:",omitempty"`
 	Sts              *common.AccountStatus3Code     `xml:"Sts,omitempty" json:",omitempty"`
 	Tp               *CashAccountType2Choice        `xml:"Tp,omitempty" json:",omitempty"`
@@ -863,7 +863,7 @@ func (r AccountStatusModification1) Validate() error {
 }
 
 type AdditionalInformation5 struct {
-	Inf []common.Max256Text `xml:"Inf"`
+	Inf []common.Max256Text `xml:"Inf" json:",omitempty"`
 }
 
 func (r AdditionalInformation5) Validate() error {
@@ -1016,7 +1016,7 @@ func (r AccountExcludedMandateMaintenanceAmendmentRequestV03) Validate() error {
 }
 
 type CustomerAccountModification1 struct {
-	Id               []AccountIdentification4Choice           `xml:"Id"`
+	Id               []AccountIdentification4Choice           `xml:"Id" json:",omitempty"`
 	Nm               *NameModification1                       `xml:"Nm,omitempty" json:",omitempty"`
 	Sts              *AccountStatusModification1              `xml:"Sts,omitempty" json:",omitempty"`
 	Tp               *TypeModification1                       `xml:"Tp,omitempty" json:",omitempty"`
@@ -1042,10 +1042,10 @@ type AccountMandateMaintenanceRequestV03 struct {
 	Fr               *OrganisationIdentification29                `xml:"Fr,omitempty" json:",omitempty"`
 	CtrctDts         *AccountContract2                            `xml:"CtrctDts,omitempty" json:",omitempty"`
 	UndrlygMstrAgrmt *ContractDocument1                           `xml:"UndrlygMstrAgrmt,omitempty" json:",omitempty"`
-	AcctId           []AccountForAction1                          `xml:"AcctId"`
+	AcctId           []AccountForAction1                          `xml:"AcctId" json:",omitempty"`
 	AcctSvcrId       BranchAndFinancialInstitutionIdentification6 `xml:"AcctSvcrId"`
 	OrgId            Organisation34                               `xml:"OrgId"`
-	Mndt             []OperationMandate5                          `xml:"Mndt"`
+	Mndt             []OperationMandate5                          `xml:"Mndt" json:",omitempty"`
 	Grp              []Group3                                     `xml:"Grp,omitempty" json:",omitempty"`
 	AddtlMsgInf      *AdditionalInformation5                      `xml:"AddtlMsgInf,omitempty" json:",omitempty"`
 	DgtlSgntr        []PartyAndSignature3                         `xml:"DgtlSgntr,omitempty" json:",omitempty"`
@@ -1059,7 +1059,7 @@ func (r AccountMandateMaintenanceRequestV03) Validate() error {
 type Group3 struct {
 	ModCd *Modification1Code          `xml:"ModCd,omitempty" json:",omitempty"`
 	GrpId common.Max4AlphaNumericText `xml:"GrpId"`
-	Pty   []PartyAndCertificate5      `xml:"Pty"`
+	Pty   []PartyAndCertificate5      `xml:"Pty" json:",omitempty"`
 }
 
 func (r Group3) Validate() error {
@@ -1069,11 +1069,11 @@ func (r Group3) Validate() error {
 type OperationMandate5 struct {
 	ModCd        *Modification1Code                `xml:"ModCd,omitempty" json:",omitempty"`
 	Id           common.Max35Text                  `xml:"Id"`
-	AplblChanl   []Channel2Choice                  `xml:"AplblChanl"`
+	AplblChanl   []Channel2Choice                  `xml:"AplblChanl" json:",omitempty"`
 	ReqrdSgntrNb common.Max15PlusSignedNumericText `xml:"ReqrdSgntrNb"`
 	SgntrOrdrInd bool                              `xml:"SgntrOrdrInd"`
 	MndtHldr     []PartyAndAuthorisation5          `xml:"MndtHldr,omitempty" json:",omitempty"`
-	BkOpr        []BankTransactionCodeStructure4   `xml:"BkOpr"`
+	BkOpr        []BankTransactionCodeStructure4   `xml:"BkOpr" json:",omitempty"`
 	StartDt      *common.ISODate                   `xml:"StartDt,omitempty" json:",omitempty"`
 	EndDt        *common.ISODate                   `xml:"EndDt,omitempty" json:",omitempty"`
 }
@@ -1117,9 +1117,9 @@ type AccountMandateMaintenanceAmendmentRequestV03 struct {
 	Fr               *OrganisationIdentification29                `xml:"Fr,omitempty" json:",omitempty"`
 	CtrctDts         *AccountContract2                            `xml:"CtrctDts,omitempty" json:",omitempty"`
 	UndrlygMstrAgrmt *ContractDocument1                           `xml:"UndrlygMstrAgrmt,omitempty" json:",omitempty"`
-	AcctId           []AccountForAction1                          `xml:"AcctId"`
+	AcctId           []AccountForAction1                          `xml:"AcctId" json:",omitempty"`
 	AcctSvcrId       BranchAndFinancialInstitutionIdentification6 `xml:"AcctSvcrId"`
-	OrgId            OrganisationIdentification29                 `xml:"OrgId"`
+	OrgId            OrganisationIdentification29                 `xml:"OrgId" json:",omitempty"`
 	Mndt             []OperationMandate5                          `xml:"Mndt,omitempty" json:",omitempty"`
 	Grp              []Group3                                     `xml:"Grp,omitempty" json:",omitempty"`
 	DgtlSgntr        []PartyAndSignature3                         `xml:"DgtlSgntr,omitempty" json:",omitempty"`
@@ -1357,7 +1357,7 @@ func (r IndividualPersonNameLong2) Validate() error {
 
 type NewAccount2 struct {
 	Acct    CashAccount39        `xml:"Acct"`
-	AcctPty []IndividualPerson36 `xml:"AcctPty"`
+	AcctPty []IndividualPerson36 `xml:"AcctPty" json:",omitempty"`
 	Org     *Organisation35      `xml:"Org,omitempty" json:",omitempty"`
 }
 
@@ -1693,7 +1693,7 @@ func (r DocumentLineIdentification1) Validate() error {
 }
 
 type DocumentLineInformation1 struct {
-	Id   []DocumentLineIdentification1 `xml:"Id"`
+	Id   []DocumentLineIdentification1 `xml:"Id" json:",omitempty"`
 	Desc *common.Max2048Text           `xml:"Desc,omitempty" json:",omitempty"`
 	Amt  *RemittanceAmount3            `xml:"Amt,omitempty" json:",omitempty"`
 }
@@ -2073,7 +2073,7 @@ type PaymentInstruction36 struct {
 	ChrgBr          *ChargeBearerType1Code                        `xml:"ChrgBr,omitempty" json:",omitempty"`
 	ChrgsAcct       *CashAccount38                                `xml:"ChrgsAcct,omitempty" json:",omitempty"`
 	ChrgsAcctAgt    *BranchAndFinancialInstitutionIdentification6 `xml:"ChrgsAcctAgt,omitempty" json:",omitempty"`
-	CdtTrfTxInf     []CreditTransferTransaction41                 `xml:"CdtTrfTxInf"`
+	CdtTrfTxInf     []CreditTransferTransaction41                 `xml:"CdtTrfTxInf" json:",omitempty"`
 }
 
 func (r PaymentInstruction36) Validate() error {

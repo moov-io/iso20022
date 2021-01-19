@@ -7,11 +7,13 @@ package utils
 import (
 	"fmt"
 	"reflect"
+
+	"encoding/xml"
 )
 
 var (
 	DefaultValidateFunction = "Validate"
-	debug                   = true
+	debug                   = false
 )
 
 func validateCallbackByValue(data reflect.Value) error {
@@ -68,4 +70,11 @@ func Validate(r interface{}) error {
 	}
 
 	return nil
+}
+
+func XmlElement(start *xml.StartElement, namespace string) {
+	start.Name = xml.Name{Space: "", Local: "Document"}
+	start.Attr = append(start.Attr, xml.Attr{Name: xml.Name{Space: "", Local: "xmlns"}, Value: namespace})
+	start.Attr = append(start.Attr, xml.Attr{Name: xml.Name{Space: "", Local: "xmlns:xs"}, Value: "http://www.w3.org/2001/XMLSchema"})
+	start.Attr = append(start.Attr, xml.Attr{Name: xml.Name{Space: "", Local: "xmlns:xsi"}, Value: "http://www.w3.org/2001/XMLSchema-instance"})
 }
