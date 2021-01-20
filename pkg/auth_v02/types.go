@@ -338,6 +338,13 @@ func (r SupportDocumentType1Code) Validate() error {
 // Must be at least 1 items long
 type ExternalStatusReason1Code string
 
+func (r ExternalStatusReason1Code) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 4 {
+		return utils.NewErrTextLengthInvalid("ExternalStatusReason1Code", 1, 4)
+	}
+	return nil
+}
+
 // May be one of ACPT, ACTC, PART, PDNG, RCVD, RJCT, RMDR, INCF, CRPT
 type StatisticalReportingStatus1Code string
 
