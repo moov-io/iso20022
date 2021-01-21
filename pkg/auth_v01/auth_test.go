@@ -7,10 +7,10 @@ package auth_v01
 import (
 	"encoding/json"
 	"encoding/xml"
-	"github.com/moov-io/iso20022/pkg/common"
 	"testing"
 	"time"
 
+	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -66,7 +66,7 @@ func TestDocumentAuth001001V01(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"InfReqOpng":{"InvstgtnId":"InvstgtnId","LglMndtBsis":{"Prgrph":"Prgrph"},"CnfdtltySts":false,"InvstgtnPrd":{"Dt":{"FrDt":"2014-11-12","ToDt":"2014-11-12"},"DtTm":{"FrDtTm":"2014-11-12T11:45:26.371","ToDtTm":"2014-11-12T11:45:26.371"}},"SchCrit":{"Acct":{"Id":{"Id":{"IBAN":"AA000130","Othr":{"Id":"Id"}}},"InvstgtdPties":{"Cd":"OWNE","Prtry":"Prtry"},"AuthrtyReqTp":null},"CstmrId":{"Pty":{},"AuthrtyReq":null},"PmtInstrm":{"CardNb":"11111111111","AuthrtyReqTp":null},"OrgnlTxNb":null}}}`)
+	assert.Equal(t, string(buf), `{"InfReqOpng":{"InvstgtnId":"InvstgtnId","LglMndtBsis":{"Prgrph":"Prgrph"},"CnfdtltySts":false,"InvstgtnPrd":{"Dt":{"FrDt":"2014-11-12","ToDt":"2014-11-12"},"DtTm":{"FrDtTm":"2014-11-12T11:45:26.371","ToDtTm":"2014-11-12T11:45:26.371"}},"SchCrit":{"Acct":{"Id":{"Id":{"IBAN":"AA000130","Othr":{"Id":"Id"}}},"InvstgtdPties":{"Cd":"OWNE","Prtry":"Prtry"}},"CstmrId":{"Pty":{}},"PmtInstrm":{"CardNb":"11111111111"}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -110,7 +110,7 @@ func TestDocumentAuth002001V01(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"InfReqRspn":{"RspnId":"RspnId","InvstgtnId":"InvstgtnId","RspnSts":"PART","SchCrit":{"Acct":{"Id":{"Id":{"IBAN":"AA000130","Othr":{"Id":"Id"}}},"InvstgtdPties":{"Cd":"OWNE","Prtry":"Prtry"},"AuthrtyReqTp":null},"CstmrId":{"Pty":{},"AuthrtyReq":null},"PmtInstrm":{"CardNb":"11111111111","AuthrtyReqTp":null},"OrgnlTxNb":null},"RtrInd":null}}`)
+	assert.Equal(t, string(buf), `{"InfReqRspn":{"RspnId":"RspnId","InvstgtnId":"InvstgtnId","RspnSts":"PART","SchCrit":{"Acct":{"Id":{"Id":{"IBAN":"AA000130","Othr":{"Id":"Id"}}},"InvstgtdPties":{"Cd":"OWNE","Prtry":"Prtry"}},"CstmrId":{"Pty":{}},"PmtInstrm":{"CardNb":"11111111111"}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)

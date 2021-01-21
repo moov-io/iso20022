@@ -178,7 +178,7 @@ func (r GenericIdentification30) Validate() error {
 
 type GetStandingOrderV03 struct {
 	MsgHdr        MessageHeader4       `xml:"MsgHdr"`
-	StgOrdrQryDef StandingOrderQuery3  `xml:"StgOrdrQryDef,omitempty" json:",omitempty"`
+	StgOrdrQryDef *StandingOrderQuery3 `xml:"StgOrdrQryDef,omitempty" json:",omitempty"`
 	SplmtryData   []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -383,8 +383,8 @@ func (r StandingOrderIdentification5) Validate() error {
 }
 
 type StandingOrderOrAll2Choice struct {
-	StgOrdr     []StandingOrderIdentification4 `xml:"StgOrdr"`
-	AllStgOrdrs []StandingOrderIdentification5 `xml:"AllStgOrdrs"`
+	StgOrdr     []StandingOrderIdentification4 `xml:"StgOrdr" json:",omitempty"`
+	AllStgOrdrs []StandingOrderIdentification5 `xml:"AllStgOrdrs" json:",omitempty"`
 }
 
 func (r StandingOrderOrAll2Choice) Validate() error {
@@ -436,7 +436,7 @@ func (r BalanceAdjustment1) Validate() error {
 
 type BankServicesBillingStatementV03 struct {
 	RptHdr      ReportHeader6     `xml:"RptHdr"`
-	BllgStmtGrp []StatementGroup3 `xml:"BllgStmtGrp"`
+	BllgStmtGrp []StatementGroup3 `xml:"BllgStmtGrp" json:",omitempty"`
 }
 
 func (r BankServicesBillingStatementV03) Validate() error {
@@ -512,7 +512,7 @@ type BillingMethod1 struct {
 	SvcChrgHstAmt AmountAndDirection34   `xml:"SvcChrgHstAmt"`
 	SvcTax        BillingServicesAmount1 `xml:"SvcTax"`
 	TtlChrg       BillingServicesAmount2 `xml:"TtlChrg"`
-	TaxId         []BillingServicesTax1  `xml:"TaxId"`
+	TaxId         []BillingServicesTax1  `xml:"TaxId" json:",omitempty"`
 }
 
 func (r BillingMethod1) Validate() error {
@@ -532,7 +532,7 @@ func (r BillingMethod1Choice) Validate() error {
 type BillingMethod2 struct {
 	SvcChrgHstAmt AmountAndDirection34   `xml:"SvcChrgHstAmt"`
 	SvcTax        BillingServicesAmount1 `xml:"SvcTax"`
-	TaxId         []BillingServicesTax1  `xml:"TaxId"`
+	TaxId         []BillingServicesTax1  `xml:"TaxId" json:",omitempty"`
 }
 
 func (r BillingMethod2) Validate() error {
@@ -541,7 +541,7 @@ func (r BillingMethod2) Validate() error {
 
 type BillingMethod3 struct {
 	SvcTaxPricAmt AmountAndDirection34  `xml:"SvcTaxPricAmt"`
-	TaxId         []BillingServicesTax2 `xml:"TaxId"`
+	TaxId         []BillingServicesTax2 `xml:"TaxId" json:",omitempty"`
 }
 
 func (r BillingMethod3) Validate() error {
@@ -549,7 +549,7 @@ func (r BillingMethod3) Validate() error {
 }
 
 type BillingMethod4 struct {
-	SvcDtl   []BillingServiceParameters2 `xml:"SvcDtl"`
+	SvcDtl   []BillingServiceParameters2 `xml:"SvcDtl" json:",omitempty"`
 	TaxClctn TaxCalculation1             `xml:"TaxClctn"`
 }
 
@@ -1007,9 +1007,9 @@ func (r StatementGroup3) Validate() error {
 
 type TaxCalculation1 struct {
 	HstCcy                common.ActiveOrHistoricCurrencyCode `xml:"HstCcy"`
-	TaxblSvcChrgConvs     []BillingServicesAmount3            `xml:"TaxblSvcChrgConvs"`
+	TaxblSvcChrgConvs     []BillingServicesAmount3            `xml:"TaxblSvcChrgConvs" json:",omitempty"`
 	TtlTaxblSvcChrgHstAmt AmountAndDirection34                `xml:"TtlTaxblSvcChrgHstAmt"`
-	TaxId                 []BillingServicesTax3               `xml:"TaxId"`
+	TaxId                 []BillingServicesTax3               `xml:"TaxId" json:",omitempty"`
 	TtlTax                AmountAndDirection34                `xml:"TtlTax"`
 }
 

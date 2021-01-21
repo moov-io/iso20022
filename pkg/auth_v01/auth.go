@@ -28,7 +28,7 @@ type InformationRequestResponseV01 struct {
 	InvstgtnId  common.Max35Text      `xml:"InvstgtnId"`
 	RspnSts     StatusResponse1Code   `xml:"RspnSts"`
 	SchCrit     SearchCriteria1Choice `xml:"SchCrit"`
-	RtrInd      []ReturnIndicator1    `xml:"RtrInd"`
+	RtrInd      []ReturnIndicator1    `xml:"RtrInd" json:",omitempty"`
 	SplmtryData []SupplementaryData1  `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -49,7 +49,7 @@ func (r InformationRequestStatusChangeNotificationV01) Validate() error {
 type AccountAndParties1 struct {
 	Id            CashAccount25              `xml:"Id"`
 	InvstgtdPties InvestigatedParties1Choice `xml:"InvstgtdPties"`
-	AuthrtyReqTp  []AuthorityRequestType1    `xml:"AuthrtyReqTp"`
+	AuthrtyReqTp  []AuthorityRequestType1    `xml:"AuthrtyReqTp" json:",omitempty"`
 }
 
 func (r AccountAndParties1) Validate() error {
@@ -169,7 +169,7 @@ func (r ContactDetails2) Validate() error {
 
 type CustomerIdentification1 struct {
 	Pty        PartyIdentification43     `xml:"Pty"`
-	AuthrtyReq []AuthorityInvestigation2 `xml:"AuthrtyReq"`
+	AuthrtyReq []AuthorityInvestigation2 `xml:"AuthrtyReq" json:",omitempty"`
 }
 
 func (r CustomerIdentification1) Validate() error {
@@ -343,7 +343,7 @@ func (r PartyIdentification43) Validate() error {
 
 type PaymentInstrumentType1 struct {
 	CardNb       Min8Max28NumericText    `xml:"CardNb"`
-	AuthrtyReqTp []AuthorityRequestType1 `xml:"AuthrtyReqTp"`
+	AuthrtyReqTp []AuthorityRequestType1 `xml:"AuthrtyReqTp" json:",omitempty"`
 	AddtlInf     *common.Max500Text      `xml:"AddtlInf,omitempty" json:",omitempty"`
 }
 
@@ -388,7 +388,7 @@ func (r PostalAddress6) Validate() error {
 
 type RequestType1 struct {
 	Nb       common.Max35Text              `xml:"Nb"`
-	Tp       []TransactionRequestType1Code `xml:"Tp"`
+	Tp       []TransactionRequestType1Code `xml:"Tp" json:",omitempty"`
 	AddtlInf *common.Max500Text            `xml:"AddtlInf,omitempty" json:",omitempty"`
 }
 
@@ -400,7 +400,7 @@ type SearchCriteria1Choice struct {
 	Acct      AccountAndParties1      `xml:"Acct"`
 	CstmrId   CustomerIdentification1 `xml:"CstmrId"`
 	PmtInstrm PaymentInstrumentType1  `xml:"PmtInstrm"`
-	OrgnlTxNb []RequestType1          `xml:"OrgnlTxNb"`
+	OrgnlTxNb []RequestType1          `xml:"OrgnlTxNb" json:",omitempty"`
 }
 
 func (r SearchCriteria1Choice) Validate() error {

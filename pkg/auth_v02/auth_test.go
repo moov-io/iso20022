@@ -7,10 +7,10 @@ package auth_v02
 import (
 	"encoding/json"
 	"encoding/xml"
-	"github.com/moov-io/iso20022/pkg/common"
 	"testing"
 	"time"
 
+	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -38,7 +38,7 @@ func TestDocumentAuth018001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CtrctRegnReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{}},"CtrctRegn":null}}`)
+	assert.Equal(t, string(buf), `{"CtrctRegnReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -65,7 +65,7 @@ func TestDocumentAuth019001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CtrctRegnConf":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","RcvgPty":{},"RegnAgt":{"FinInstnId":{}}},"RegdCtrct":null}}`)
+	assert.Equal(t, string(buf), `{"CtrctRegnConf":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","RcvgPty":{},"RegnAgt":{"FinInstnId":{}}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -92,7 +92,7 @@ func TestDocumentAuth020001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CtrctRegnClsrReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{}},"RegdCtrctClsr":null}}`)
+	assert.Equal(t, string(buf), `{"CtrctRegnClsrReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -119,7 +119,7 @@ func TestDocumentAuth021001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CtrctRegnAmdmntReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{}},"CtrctRegnAmdmnt":null}}`)
+	assert.Equal(t, string(buf), `{"CtrctRegnAmdmntReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -146,7 +146,7 @@ func TestDocumentAuth022001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CtrctRegnStmt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","RcvgPty":{},"RegnAgt":{"FinInstnId":{}}},"Stmt":null}}`)
+	assert.Equal(t, string(buf), `{"CtrctRegnStmt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","RcvgPty":{},"RegnAgt":{"FinInstnId":{}}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -173,7 +173,7 @@ func TestDocumentAuth023001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CtrctRegnStmtReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{}},"StmtReq":null}}`)
+	assert.Equal(t, string(buf), `{"CtrctRegnStmtReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -200,7 +200,7 @@ func TestDocumentAuth024001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"PmtRgltryInfNtfctn":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{"Pty":{},"Agt":{"FinInstnId":{}}}},"TxNtfctn":null}}`)
+	assert.Equal(t, string(buf), `{"PmtRgltryInfNtfctn":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{"Pty":{},"Agt":{"FinInstnId":{}}}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -227,7 +227,7 @@ func TestDocumentAuth025001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CcyCtrlSpprtgDocDlvry":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{"Pty":{},"Agt":{"FinInstnId":{}}}},"SpprtgDoc":null}}`)
+	assert.Equal(t, string(buf), `{"CcyCtrlSpprtgDocDlvry":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{"Pty":{},"Agt":{"FinInstnId":{}}}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -254,7 +254,7 @@ func TestDocumentAuth026001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CcyCtrlReqOrLttr":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{"Pty":{},"Agt":{"FinInstnId":{}}}},"ReqOrLttr":null}}`)
+	assert.Equal(t, string(buf), `{"CcyCtrlReqOrLttr":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{"Pty":{},"Agt":{"FinInstnId":{}}}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -281,7 +281,7 @@ func TestDocumentAuth027001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CcyCtrlStsAdvc":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","RcvgPty":{},"RegnAgt":{"FinInstnId":{}}},"GrpSts":null}}`)
+	assert.Equal(t, string(buf), `{"CcyCtrlStsAdvc":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","RcvgPty":{},"RegnAgt":{"FinInstnId":{}}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
