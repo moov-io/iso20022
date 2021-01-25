@@ -348,7 +348,7 @@ func (r Receipt3) Validate() error {
 
 type ReceiptV05 struct {
 	MsgHdr      MessageHeader9       `xml:"MsgHdr"`
-	RctDtls     []Receipt3           `xml:"RctDtls"`
+	RctDtls     []Receipt3           `xml:"RctDtls" json:",omitempty"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -916,7 +916,7 @@ func (r LiquidityDebitTransferV05) Validate() error {
 
 type AccountReportingRequestV05 struct {
 	GrpHdr      GroupHeader77        `xml:"GrpHdr"`
-	RptgReq     []ReportingRequest5  `xml:"RptgReq"`
+	RptgReq     []ReportingRequest5  `xml:"RptgReq" json:",omitempty"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -1035,9 +1035,9 @@ func (r SequenceRange1) Validate() error {
 type SequenceRange1Choice struct {
 	FrSeq   common.Max35Text   `xml:"FrSeq"`
 	ToSeq   common.Max35Text   `xml:"ToSeq"`
-	FrToSeq []SequenceRange1   `xml:"FrToSeq"`
-	EQSeq   []common.Max35Text `xml:"EQSeq"`
-	NEQSeq  []common.Max35Text `xml:"NEQSeq"`
+	FrToSeq []SequenceRange1   `xml:"FrToSeq" json:",omitempty"`
+	EQSeq   []common.Max35Text `xml:"EQSeq" json:",omitempty"`
+	NEQSeq  []common.Max35Text `xml:"NEQSeq" json:",omitempty"`
 }
 
 func (r SequenceRange1Choice) Validate() error {

@@ -38,8 +38,8 @@ func (r GeneralBusinessInformation1) Validate() error {
 }
 
 type GeneralBusinessOrError7Choice struct {
-	OprlErr []ErrorHandling5         `xml:"OprlErr"`
-	BizRpt  []GeneralBusinessReport6 `xml:"BizRpt"`
+	OprlErr []ErrorHandling5         `xml:"OprlErr" json:",omitempty"`
+	BizRpt  []GeneralBusinessReport6 `xml:"BizRpt" json:",omitempty"`
 }
 
 func (r GeneralBusinessOrError7Choice) Validate() error {
@@ -47,8 +47,8 @@ func (r GeneralBusinessOrError7Choice) Validate() error {
 }
 
 type GeneralBusinessOrError8Choice struct {
-	BizErr []ErrorHandling5            `xml:"BizErr"`
-	GnlBiz GeneralBusinessInformation1 `xml:"GnlBiz"`
+	BizErr []ErrorHandling5            `xml:"BizErr" json:",omitempty"`
+	GnlBiz GeneralBusinessInformation1 `xml:"GnlBiz" json:",omitempty"`
 }
 
 func (r GeneralBusinessOrError8Choice) Validate() error {
@@ -685,7 +685,7 @@ func (r ReservationIdentification2) Validate() error {
 
 type ReservationOrError8Choice struct {
 	BizRpt  CurrentAndDefaultReservation4 `xml:"BizRpt"`
-	OprlErr []ErrorHandling5              `xml:"OprlErr"`
+	OprlErr []ErrorHandling5              `xml:"OprlErr" json:",omitempty"`
 }
 
 func (r ReservationOrError8Choice) Validate() error {
@@ -694,7 +694,7 @@ func (r ReservationOrError8Choice) Validate() error {
 
 type ReservationOrError9Choice struct {
 	Rsvatn Reservation3     `xml:"Rsvatn"`
-	BizErr []ErrorHandling5 `xml:"BizErr"`
+	BizErr []ErrorHandling5 `xml:"BizErr" json:",omitempty"`
 }
 
 func (r ReservationOrError9Choice) Validate() error {
@@ -758,7 +758,7 @@ type AccountNotification16 struct {
 	Dbtr       *Party40Choice                                `xml:"Dbtr,omitempty" json:",omitempty"`
 	DbtrAgt    *BranchAndFinancialInstitutionIdentification6 `xml:"DbtrAgt,omitempty" json:",omitempty"`
 	IntrmyAgt  *BranchAndFinancialInstitutionIdentification6 `xml:"IntrmyAgt,omitempty" json:",omitempty"`
-	Itm        []NotificationItem7                           `xml:"Itm"`
+	Itm        []NotificationItem7                           `xml:"Itm" json:",omitempty"`
 }
 
 func (r AccountNotification16) Validate() error {
@@ -1092,7 +1092,7 @@ func (r DocumentLineIdentification1) Validate() error {
 }
 
 type DocumentLineInformation1 struct {
-	Id   []DocumentLineIdentification1 `xml:"Id"`
+	Id   []DocumentLineIdentification1 `xml:"Id" json:",omitempty"`
 	Desc *common.Max2048Text           `xml:"Desc,omitempty" json:",omitempty"`
 	Amt  *RemittanceAmount3            `xml:"Amt,omitempty" json:",omitempty"`
 }
@@ -1233,7 +1233,7 @@ type OriginalNotificationReference10 struct {
 	Dbtr       *Party40Choice                                `xml:"Dbtr,omitempty" json:",omitempty"`
 	DbtrAgt    *BranchAndFinancialInstitutionIdentification6 `xml:"DbtrAgt,omitempty" json:",omitempty"`
 	IntrmyAgt  *BranchAndFinancialInstitutionIdentification6 `xml:"IntrmyAgt,omitempty" json:",omitempty"`
-	OrgnlItm   []OriginalItem6                               `xml:"OrgnlItm"`
+	OrgnlItm   []OriginalItem6                               `xml:"OrgnlItm" json:",omitempty"`
 }
 
 func (r OriginalNotificationReference10) Validate() error {
@@ -1298,7 +1298,7 @@ type OriginalNotificationReference9 struct {
 	Dbtr           *Party40Choice                                `xml:"Dbtr,omitempty" json:",omitempty"`
 	DbtrAgt        *BranchAndFinancialInstitutionIdentification6 `xml:"DbtrAgt,omitempty" json:",omitempty"`
 	IntrmyAgt      *BranchAndFinancialInstitutionIdentification6 `xml:"IntrmyAgt,omitempty" json:",omitempty"`
-	OrgnlItmAndSts []OriginalItemAndStatus6                      `xml:"OrgnlItmAndSts"`
+	OrgnlItmAndSts []OriginalItemAndStatus6                      `xml:"OrgnlItmAndSts" json:",omitempty"`
 }
 
 func (r OriginalNotificationReference9) Validate() error {

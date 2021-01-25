@@ -229,6 +229,13 @@ func TestTypes(t *testing.T) {
 	type24 = "SMRY"
 	assert.Nil(t, type24.Validate())
 
+	var type29 AccountLevel2Code
+	assert.NotNil(t, type29.Validate())
+	type29 = "test"
+	assert.NotNil(t, type29.Validate())
+	type29 = "DETL"
+	assert.Nil(t, type29.Validate())
+
 	var type27 PreferredContactMethod1Code
 	assert.NotNil(t, type27.Validate())
 	type27 = "test"

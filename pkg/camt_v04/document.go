@@ -6,6 +6,7 @@ package camt_v04
 
 import (
 	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/utils"
 )
 

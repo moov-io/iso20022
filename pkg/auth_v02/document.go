@@ -6,6 +6,7 @@ package auth_v02
 
 import (
 	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/utils"
 )
 

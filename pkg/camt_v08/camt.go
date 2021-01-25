@@ -20,7 +20,7 @@ func (r AccountIdentification4Choice) Validate() error {
 
 type AccountOrBusinessError4Choice struct {
 	Acct   CashAccount37    `xml:"Acct"`
-	BizErr []ErrorHandling5 `xml:"BizErr"`
+	BizErr []ErrorHandling5 `xml:"BizErr" json:",omitempty"`
 }
 
 func (r AccountOrBusinessError4Choice) Validate() error {
@@ -28,8 +28,8 @@ func (r AccountOrBusinessError4Choice) Validate() error {
 }
 
 type AccountOrOperationalError4Choice struct {
-	AcctRpt []AccountReport24 `xml:"AcctRpt"`
-	OprlErr []ErrorHandling5  `xml:"OprlErr"`
+	AcctRpt []AccountReport24 `xml:"AcctRpt" json:",omitempty"`
+	OprlErr []ErrorHandling5  `xml:"OprlErr" json:",omitempty"`
 }
 
 func (r AccountOrOperationalError4Choice) Validate() error {
@@ -1180,8 +1180,8 @@ func (r NumberAndSumOfTransactions2) Validate() error {
 }
 
 type Pagination1 struct {
-	PgNb      Max5NumericText `xml:"PgNb"`
-	LastPgInd bool            `xml:"LastPgInd"`
+	PgNb      common.Max5NumericText `xml:"PgNb"`
+	LastPgInd bool                   `xml:"LastPgInd"`
 }
 
 func (r Pagination1) Validate() error {
@@ -1317,7 +1317,7 @@ func (r Transaction66) Validate() error {
 
 type TransactionOrError4Choice struct {
 	Tx     Transaction66    `xml:"Tx"`
-	BizErr []ErrorHandling5 `xml:"BizErr"`
+	BizErr []ErrorHandling5 `xml:"BizErr" json:",omitempty"`
 }
 
 func (r TransactionOrError4Choice) Validate() error {
@@ -1335,7 +1335,7 @@ func (r TransactionReport5) Validate() error {
 
 type TransactionReportOrError4Choice struct {
 	BizRpt  Transactions8    `xml:"BizRpt"`
-	OprlErr []ErrorHandling5 `xml:"OprlErr"`
+	OprlErr []ErrorHandling5 `xml:"OprlErr" json:",omitempty"`
 }
 
 func (r TransactionReportOrError4Choice) Validate() error {
@@ -1345,7 +1345,7 @@ func (r TransactionReportOrError4Choice) Validate() error {
 type Transactions8 struct {
 	PmtCmonInf *PaymentCommon4              `xml:"PmtCmonInf,omitempty" json:",omitempty"`
 	TxsSummry  *NumberAndSumOfTransactions2 `xml:"TxsSummry,omitempty" json:",omitempty"`
-	TxRpt      []TransactionReport5         `xml:"TxRpt"`
+	TxRpt      []TransactionReport5         `xml:"TxRpt" json:",omitempty"`
 }
 
 func (r Transactions8) Validate() error {
@@ -1363,7 +1363,7 @@ func (r MessageHeader1) Validate() error {
 
 type ModifyTransactionV08 struct {
 	MsgHdr      MessageHeader1             `xml:"MsgHdr"`
-	Mod         []TransactionModification5 `xml:"Mod"`
+	Mod         []TransactionModification5 `xml:"Mod" json:",omitempty"`
 	SplmtryData []SupplementaryData1       `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -1451,7 +1451,7 @@ func (r LimitIdentification5) Validate() error {
 
 type LimitOrError4Choice struct {
 	Lmt    Limit7           `xml:"Lmt"`
-	BizErr []ErrorHandling5 `xml:"BizErr"`
+	BizErr []ErrorHandling5 `xml:"BizErr" json:",omitempty"`
 }
 
 func (r LimitOrError4Choice) Validate() error {
@@ -1469,7 +1469,7 @@ func (r LimitReport7) Validate() error {
 
 type LimitReportOrError4Choice struct {
 	BizRpt  Limits7          `xml:"BizRpt"`
-	OprlErr []ErrorHandling5 `xml:"OprlErr"`
+	OprlErr []ErrorHandling5 `xml:"OprlErr" json:",omitempty"`
 }
 
 func (r LimitReportOrError4Choice) Validate() error {
@@ -1654,7 +1654,7 @@ func (r DocumentLineIdentification1) Validate() error {
 }
 
 type DocumentLineInformation1 struct {
-	Id   []DocumentLineIdentification1 `xml:"Id"`
+	Id   []DocumentLineIdentification1 `xml:"Id" json:",omitempty"`
 	Desc *common.Max2048Text           `xml:"Desc,omitempty" json:",omitempty"`
 	Amt  *RemittanceAmount3            `xml:"Amt,omitempty" json:",omitempty"`
 }
@@ -2382,7 +2382,7 @@ func (r BalanceType13) Validate() error {
 
 type BankToCustomerAccountReportV08 struct {
 	GrpHdr      GroupHeader81        `xml:"GrpHdr"`
-	Rpt         []AccountReport25    `xml:"Rpt"`
+	Rpt         []AccountReport25    `xml:"Rpt" json:",omitempty"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -3135,9 +3135,9 @@ func (r SequenceRange1) Validate() error {
 type SequenceRange1Choice struct {
 	FrSeq   common.Max35Text   `xml:"FrSeq"`
 	ToSeq   common.Max35Text   `xml:"ToSeq"`
-	FrToSeq []SequenceRange1   `xml:"FrToSeq"`
-	EQSeq   []common.Max35Text `xml:"EQSeq"`
-	NEQSeq  []common.Max35Text `xml:"NEQSeq"`
+	FrToSeq []SequenceRange1   `xml:"FrToSeq" json:",omitempty"`
+	EQSeq   []common.Max35Text `xml:"EQSeq" json:",omitempty"`
+	NEQSeq  []common.Max35Text `xml:"NEQSeq" json:",omitempty"`
 }
 
 func (r SequenceRange1Choice) Validate() error {
@@ -3286,7 +3286,7 @@ func (r TransactionParties6) Validate() error {
 
 type TransactionPrice4Choice struct {
 	DealPric Price7              `xml:"DealPric"`
-	Prtry    []ProprietaryPrice2 `xml:"Prtry"`
+	Prtry    []ProprietaryPrice2 `xml:"Prtry" json:",omitempty"`
 }
 
 func (r TransactionPrice4Choice) Validate() error {
@@ -3347,7 +3347,7 @@ type AccountStatement9 struct {
 	Acct         *CashAccount39             `xml:"Acct"`
 	RltdAcct     *CashAccount38             `xml:"RltdAcct,omitempty" json:",omitempty"`
 	Intrst       []AccountInterest4         `xml:"Intrst,omitempty" json:",omitempty"`
-	Bal          []CashBalance8             `xml:"Bal"`
+	Bal          []CashBalance8             `xml:"Bal" json:",omitempty"`
 	TxsSummry    *TotalTransactions6        `xml:"TxsSummry,omitempty" json:",omitempty"`
 	Ntry         []ReportEntry10            `xml:"Ntry,omitempty" json:",omitempty"`
 	AddtlStmtInf *common.Max500Text         `xml:"AddtlStmtInf,omitempty" json:",omitempty"`
@@ -3359,7 +3359,7 @@ func (r AccountStatement9) Validate() error {
 
 type BankToCustomerStatementV08 struct {
 	GrpHdr      GroupHeader81        `xml:"GrpHdr"`
-	Stmt        []AccountStatement9  `xml:"Stmt"`
+	Stmt        []AccountStatement9  `xml:"Stmt" json:",omitempty"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -3391,7 +3391,7 @@ func (r AccountNotification17) Validate() error {
 
 type BankToCustomerDebitCreditNotificationV08 struct {
 	GrpHdr      GroupHeader81           `xml:"GrpHdr"`
-	Ntfctn      []AccountNotification17 `xml:"Ntfctn"`
+	Ntfctn      []AccountNotification17 `xml:"Ntfctn" json:",omitempty"`
 	SplmtryData []SupplementaryData1    `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 

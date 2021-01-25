@@ -805,7 +805,7 @@ func (r LimitStructure2Choice) Validate() error {
 }
 
 type BusinessDay8 struct {
-	SysId       []SystemIdentification2Choice    `xml:"SysId"`
+	SysId       []SystemIdentification2Choice    `xml:"SysId" json:",omitempty"`
 	BizDayOrErr BusinessDayReportOrError10Choice `xml:"BizDayOrErr"`
 }
 
@@ -825,7 +825,7 @@ func (r BusinessDay9) Validate() error {
 
 type BusinessDayReportOrError10Choice struct {
 	BizDayInf BusinessDay9     `xml:"BizDayInf"`
-	BizErr    []ErrorHandling5 `xml:"BizErr"`
+	BizErr    []ErrorHandling5 `xml:"BizErr" json:",omitempty"`
 }
 
 func (r BusinessDayReportOrError10Choice) Validate() error {
@@ -833,8 +833,8 @@ func (r BusinessDayReportOrError10Choice) Validate() error {
 }
 
 type BusinessDayReportOrError9Choice struct {
-	BizRpt  []BusinessDay8   `xml:"BizRpt"`
-	OprlErr []ErrorHandling5 `xml:"OprlErr"`
+	BizRpt  []BusinessDay8   `xml:"BizRpt" json:",omitempty"`
+	OprlErr []ErrorHandling5 `xml:"OprlErr" json:",omitempty"`
 }
 
 func (r BusinessDayReportOrError9Choice) Validate() error {
@@ -1201,7 +1201,7 @@ func (r DocumentLineIdentification1) Validate() error {
 }
 
 type DocumentLineInformation1 struct {
-	Id   []DocumentLineIdentification1 `xml:"Id"`
+	Id   []DocumentLineIdentification1 `xml:"Id" json:",omitempty"`
 	Desc *common.Max2048Text           `xml:"Desc,omitempty" json:",omitempty"`
 	Amt  *RemittanceAmount3            `xml:"Amt,omitempty" json:",omitempty"`
 }
