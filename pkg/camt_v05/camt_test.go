@@ -213,7 +213,7 @@ func TestDocumentCamt04900105(t *testing.T) {
 	sample = DocumentCamt04900105{
 		DelRsvatn: DeleteReservationV05{
 			MsgHdr: MessageHeader1{
-				MsgId:      "Id",
+				MsgId: "Id",
 			},
 		},
 	}
@@ -237,12 +237,12 @@ func TestDocumentCamt05000105(t *testing.T) {
 	sample = DocumentCamt05000105{
 		LqdtyCdtTrf: LiquidityCreditTransferV05{
 			MsgHdr: MessageHeader1{
-				MsgId:      "Id",
+				MsgId: "Id",
 			},
-			LqdtyCdtTrf:LiquidityCreditTransfer2{
-				TrfdAmt:    Amount2Choice{
-					AmtWthCcy:ActiveCurrencyAndAmount{
-						Ccy:   "ABC",
+			LqdtyCdtTrf: LiquidityCreditTransfer2{
+				TrfdAmt: Amount2Choice{
+					AmtWthCcy: ActiveCurrencyAndAmount{
+						Ccy: "ABC",
 					},
 				},
 			},
@@ -268,14 +268,14 @@ func TestDocumentCamt03900105(t *testing.T) {
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
 	sample = DocumentCamt03900105{
 		CaseStsRpt: CaseStatusReportV05{
-			Hdr:ReportHeader5{
+			Hdr: ReportHeader5{
 				Id:      "Id",
 				CreDtTm: common.ISODateTime(testTime),
 			},
-			Case:Case5{
-				Id:             "Id",
+			Case: Case5{
+				Id: "Id",
 			},
-			Sts:CaseStatus2{
+			Sts: CaseStatus2{
 				DtTm:    common.ISODateTime(testTime),
 				CaseSts: "ODUE",
 			},
@@ -300,8 +300,8 @@ func TestDocumentCamt04600105(t *testing.T) {
 
 	sample = DocumentCamt04600105{
 		GetRsvatn: GetReservationV05{
-			MsgHdr:MessageHeader9{
-				MsgId:      "Id",
+			MsgHdr: MessageHeader9{
+				MsgId: "Id",
 			},
 		},
 	}
@@ -324,8 +324,8 @@ func TestDocumentCamt05100105(t *testing.T) {
 
 	sample = DocumentCamt05100105{
 		LqdtyDbtTrf: LiquidityDebitTransferV05{
-			MsgHdr:MessageHeader1{
-				MsgId:      "Id",
+			MsgHdr: MessageHeader1{
+				MsgId: "Id",
 			},
 		},
 	}
@@ -349,8 +349,8 @@ func TestDocumentCamt01800108(t *testing.T) {
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
 	sample = DocumentCamt01800108{
 		AcctRptgReq: AccountReportingRequestV05{
-			GrpHdr:GroupHeader77{
-				MsgId:"Id",
+			GrpHdr: GroupHeader77{
+				MsgId:   "Id",
 				CreDtTm: common.ISODateTime(testTime),
 			},
 		},
