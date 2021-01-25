@@ -255,7 +255,7 @@ type CustomerPaymentCancellationRequestV09 struct {
 	Assgnmt     CaseAssignment5           `xml:"Assgnmt"`
 	Case        *Case5                    `xml:"Case,omitempty" json:",omitempty"`
 	CtrlData    *ControlData1             `xml:"CtrlData,omitempty" json:",omitempty"`
-	Undrlyg     []UnderlyingTransaction27 `xml:"Undrlyg"`
+	Undrlyg     []UnderlyingTransaction27 `xml:"Undrlyg" json:",omitempty"`
 	SplmtryData []SupplementaryData1      `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -321,7 +321,7 @@ func (r DocumentLineIdentification1) Validate() error {
 }
 
 type DocumentLineInformation1 struct {
-	Id   []DocumentLineIdentification1 `xml:"Id"`
+	Id   []DocumentLineIdentification1 `xml:"Id" json:",omitempty"`
 	Desc *common.Max2048Text           `xml:"Desc,omitempty" json:",omitempty"`
 	Amt  *RemittanceAmount3            `xml:"Amt,omitempty" json:",omitempty"`
 }
@@ -1049,7 +1049,7 @@ type FIToFIPaymentCancellationRequestV09 struct {
 	Assgnmt     CaseAssignment5           `xml:"Assgnmt"`
 	Case        *Case5                    `xml:"Case,omitempty" json:",omitempty"`
 	CtrlData    *ControlData1             `xml:"CtrlData,omitempty" json:",omitempty"`
-	Undrlyg     []UnderlyingTransaction26 `xml:"Undrlyg"`
+	Undrlyg     []UnderlyingTransaction26 `xml:"Undrlyg" json:",omitempty"`
 	SplmtryData []SupplementaryData1      `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 

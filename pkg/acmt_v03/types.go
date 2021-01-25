@@ -261,7 +261,7 @@ type ChequeType2Code string
 
 func (r ChequeType2Code) Validate() error {
 	for _, vv := range []string{
-		"CCHQ", "CCCH", "BCHQ", "DRFT", " ELDR",
+		"CCHQ", "CCCH", "BCHQ", "DRFT", "ELDR",
 	} {
 		if reflect.DeepEqual(string(r), vv) {
 			return nil

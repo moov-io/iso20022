@@ -94,7 +94,7 @@ func (r ClearingSystemMemberIdentification2) Validate() error {
 
 type CreateLimitV01 struct {
 	MsgHdr      MessageHeader1       `xml:"MsgHdr"`
-	LmtData     []LimitStructure4    `xml:"LmtData"`
+	LmtData     []LimitStructure4    `xml:"LmtData" json:",omitempty"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 

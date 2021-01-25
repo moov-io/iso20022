@@ -295,8 +295,8 @@ func (r MemberReport5) Validate() error {
 }
 
 type MemberReportOrError5Choice struct {
-	Rpt     []MemberReport5  `xml:"Rpt"`
-	OprlErr []ErrorHandling3 `xml:"OprlErr"`
+	Rpt     []MemberReport5  `xml:"Rpt" json:",omitempty"`
+	OprlErr []ErrorHandling3 `xml:"OprlErr" json:",omitempty"`
 }
 
 func (r MemberReportOrError5Choice) Validate() error {
@@ -461,7 +461,7 @@ func (r CurrencyCriteriaDefinition1Choice) Validate() error {
 
 type CurrencyExchangeCriteria2 struct {
 	NewQryNm *common.Max35Text                 `xml:"NewQryNm,omitempty" json:",omitempty"`
-	SchCrit  []CurrencyExchangeSearchCriteria1 `xml:"SchCrit"`
+	SchCrit  []CurrencyExchangeSearchCriteria1 `xml:"SchCrit" json:",omitempty"`
 }
 
 func (r CurrencyExchangeCriteria2) Validate() error {
@@ -525,8 +525,8 @@ func (r CurrencySourceTarget1) Validate() error {
 }
 
 type ExchangeRateReportOrError1Choice struct {
-	CcyXchgRpt []CurrencyExchangeReport3 `xml:"CcyXchgRpt"`
-	OprlErr    []ErrorHandling3          `xml:"OprlErr"`
+	CcyXchgRpt []CurrencyExchangeReport3 `xml:"CcyXchgRpt" json:",omitempty"`
+	OprlErr    []ErrorHandling3          `xml:"OprlErr" json:",omitempty"`
 }
 
 func (r ExchangeRateReportOrError1Choice) Validate() error {
@@ -534,7 +534,7 @@ func (r ExchangeRateReportOrError1Choice) Validate() error {
 }
 
 type ExchangeRateReportOrError2Choice struct {
-	BizErr  []ErrorHandling3  `xml:"BizErr"`
+	BizErr  []ErrorHandling3  `xml:"BizErr" json:",omitempty"`
 	CcyXchg CurrencyExchange7 `xml:"CcyXchg"`
 }
 
@@ -1015,8 +1015,8 @@ func (r StandingOrderIdentification4) Validate() error {
 }
 
 type StandingOrderOrError5Choice struct {
-	Rpt     []StandingOrderReport1 `xml:"Rpt"`
-	OprlErr []ErrorHandling5       `xml:"OprlErr"`
+	Rpt     []StandingOrderReport1 `xml:"Rpt" json:",omitempty"`
+	OprlErr []ErrorHandling5       `xml:"OprlErr" json:",omitempty"`
 }
 
 func (r StandingOrderOrError5Choice) Validate() error {
@@ -1025,7 +1025,7 @@ func (r StandingOrderOrError5Choice) Validate() error {
 
 type StandingOrderOrError6Choice struct {
 	StgOrdr StandingOrder6   `xml:"StgOrdr"`
-	BizErr  []ErrorHandling5 `xml:"BizErr"`
+	BizErr  []ErrorHandling5 `xml:"BizErr" json:",omitempty"`
 }
 
 func (r StandingOrderOrError6Choice) Validate() error {

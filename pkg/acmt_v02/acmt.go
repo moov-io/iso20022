@@ -187,7 +187,7 @@ func (r IdentificationModification2) Validate() error {
 type IdentificationModificationAdviceV02 struct {
 	Assgnmt     IdentificationAssignment2       `xml:"Assgnmt"`
 	OrgnlTxRef  *OriginalTransactionReference18 `xml:"OrgnlTxRef,omitempty" json:",omitempty"`
-	Mod         []IdentificationModification2   `xml:"Mod"`
+	Mod         []IdentificationModification2   `xml:"Mod" json:",omitempty"`
 	SplmtryData []SupplementaryData1            `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -329,7 +329,7 @@ func (r IdentificationVerification2) Validate() error {
 
 type IdentificationVerificationRequestV02 struct {
 	Assgnmt     IdentificationAssignment2     `xml:"Assgnmt"`
-	Vrfctn      []IdentificationVerification2 `xml:"Vrfctn"`
+	Vrfctn      []IdentificationVerification2 `xml:"Vrfctn" json:",omitempty"`
 	SplmtryData []SupplementaryData1          `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -340,7 +340,7 @@ func (r IdentificationVerificationRequestV02) Validate() error {
 type IdentificationVerificationReportV02 struct {
 	Assgnmt      IdentificationAssignment2 `xml:"Assgnmt"`
 	OrgnlAssgnmt *MessageIdentification5   `xml:"OrgnlAssgnmt,omitempty" json:",omitempty"`
-	Rpt          []VerificationReport2     `xml:"Rpt"`
+	Rpt          []VerificationReport2     `xml:"Rpt" json:",omitempty"`
 	SplmtryData  []SupplementaryData1      `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
