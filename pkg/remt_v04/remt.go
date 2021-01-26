@@ -246,7 +246,7 @@ func (r DocumentLineIdentification1) Validate() error {
 }
 
 type DocumentLineInformation1 struct {
-	Id   []DocumentLineIdentification1 `xml:"Id"`
+	Id   []DocumentLineIdentification1 `xml:"Id" json:",omitempty"`
 	Desc *common.Max2048Text           `xml:"Desc,omitempty" json:",omitempty"`
 	Amt  *RemittanceAmount3            `xml:"Amt,omitempty" json:",omitempty"`
 }
@@ -590,7 +590,7 @@ func (r ReferredDocumentType4) Validate() error {
 
 type RemittanceAdviceV04 struct {
 	GrpHdr      GroupHeader79             `xml:"GrpHdr"`
-	RmtInf      []RemittanceInformation19 `xml:"RmtInf"`
+	RmtInf      []RemittanceInformation19 `xml:"RmtInf" json:",omitempty"`
 	SplmtryData []SupplementaryData1      `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 

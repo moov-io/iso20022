@@ -316,7 +316,7 @@ func (r DocumentLineIdentification1) Validate() error {
 }
 
 type DocumentLineInformation1 struct {
-	Id   []DocumentLineIdentification1 `xml:"Id"`
+	Id   []DocumentLineIdentification1 `xml:"Id" json:",omitempty"`
 	Desc common.Max2048Text            `xml:"Desc,omitempty" json:",omitempty"`
 	Amt  RemittanceAmount3             `xml:"Amt,omitempty" json:",omitempty"`
 }
@@ -345,7 +345,7 @@ func (r DocumentLineType1Choice) Validate() error {
 
 type FIToFICustomerCreditTransferV09 struct {
 	GrpHdr      GroupHeader93                 `xml:"GrpHdr"`
-	CdtTrfTxInf []CreditTransferTransaction43 `xml:"CdtTrfTxInf"`
+	CdtTrfTxInf []CreditTransferTransaction43 `xml:"CdtTrfTxInf" json:",omitempty"`
 	SplmtryData []SupplementaryData1          `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -1112,7 +1112,7 @@ func (r CreditTransferTransaction45) Validate() error {
 
 type FinancialInstitutionCreditTransferV09 struct {
 	GrpHdr      GroupHeader93                 `xml:"GrpHdr"`
-	CdtTrfTxInf []CreditTransferTransaction44 `xml:"CdtTrfTxInf"`
+	CdtTrfTxInf []CreditTransferTransaction44 `xml:"CdtTrfTxInf" json:",omitempty"`
 	SplmtryData []SupplementaryData1          `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 

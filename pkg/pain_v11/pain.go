@@ -321,7 +321,7 @@ func (r DocumentLineIdentification1) Validate() error {
 }
 
 type DocumentLineInformation1 struct {
-	Id   []DocumentLineIdentification1 `xml:"Id"`
+	Id   []DocumentLineIdentification1 `xml:"Id" json:",omitempty"`
 	Desc *common.Max2048Text           `xml:"Desc,omitempty" json:",omitempty"`
 	Amt  *RemittanceAmount3            `xml:"Amt,omitempty" json:",omitempty"`
 }
@@ -1049,7 +1049,7 @@ func (r TaxRecordDetails2) Validate() error {
 type TrackerData1 struct {
 	ConfdDt   DateAndDateTime2Choice  `xml:"ConfdDt"`
 	ConfdAmt  ActiveCurrencyAndAmount `xml:"ConfdAmt"`
-	TrckrRcrd []TrackerRecord1        `xml:"TrckrRcrd"`
+	TrckrRcrd []TrackerRecord1        `xml:"TrckrRcrd" json:",omitempty"`
 }
 
 func (r TrackerData1) Validate() error {

@@ -328,7 +328,7 @@ func (r DocumentLineIdentification1) Validate() error {
 }
 
 type DocumentLineInformation1 struct {
-	Id   []DocumentLineIdentification1 `xml:"Id"`
+	Id   []DocumentLineIdentification1 `xml:"Id" json:",omitempty"`
 	Desc *common.Max2048Text           `xml:"Desc,omitempty" json:",omitempty"`
 	Amt  *RemittanceAmount3            `xml:"Amt,omitempty" json:",omitempty"`
 }
@@ -357,7 +357,7 @@ func (r DocumentLineType1Choice) Validate() error {
 
 type FIToFICustomerDirectDebitV08 struct {
 	GrpHdr       GroupHeader94                         `xml:"GrpHdr"`
-	DrctDbtTxInf []DirectDebitTransactionInformation24 `xml:"DrctDbtTxInf"`
+	DrctDbtTxInf []DirectDebitTransactionInformation24 `xml:"DrctDbtTxInf" json:",omitempty"`
 	SplmtryData  []SupplementaryData1                  `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 

@@ -272,7 +272,7 @@ func (r PostalAddress24) Validate() error {
 
 type RemittanceLocation5 struct {
 	RmtId       *common.Max35Text         `xml:"RmtId,omitempty" json:",omitempty"`
-	RmtLctnDtls []RemittanceLocationData1 `xml:"RmtLctnDtls"`
+	RmtLctnDtls []RemittanceLocationData1 `xml:"RmtLctnDtls" json:",omitempty"`
 	Refs        TransactionReferences5    `xml:"Refs"`
 }
 
@@ -282,7 +282,7 @@ func (r RemittanceLocation5) Validate() error {
 
 type RemittanceLocationAdviceV02 struct {
 	GrpHdr      GroupHeader79         `xml:"GrpHdr"`
-	RmtLctn     []RemittanceLocation5 `xml:"RmtLctn"`
+	RmtLctn     []RemittanceLocation5 `xml:"RmtLctn" json:",omitempty"`
 	SplmtryData []SupplementaryData1  `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
