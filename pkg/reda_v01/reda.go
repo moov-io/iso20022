@@ -309,7 +309,7 @@ func (r RTPPartyIdentification1) Validate() error {
 
 type RequestToPayCreditorEnrolmentRequestV01 struct {
 	Hdr         EnrolmentHeader2     `xml:"Hdr"`
-	CdtrEnrlmnt []CreditorEnrolment3 `xml:"CdtrEnrlmnt"`
+	CdtrEnrlmnt []CreditorEnrolment3 `xml:"CdtrEnrlmnt" json:",omitempty"`
 	ActvtnData  CreditorInvoice3     `xml:"ActvtnData"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
 }

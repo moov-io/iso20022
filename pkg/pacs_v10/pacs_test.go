@@ -25,6 +25,7 @@ func TestDocumentPacs00400110(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
 	sample = DocumentPacs00400110{
+		Xmlns: sample.NameSpace(),
 		PmtRtr: PaymentReturnV10{
 			GrpHdr: GroupHeader90{
 				MsgId:   "MsgId",
@@ -41,11 +42,11 @@ func TestDocumentPacs00400110(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"PmtRtr":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfTxs":"111","SttlmInf":{"SttlmMtd":"INDA"}}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:pacs.004.001.10","PmtRtr":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfTxs":"111","SttlmInf":{"SttlmMtd":"INDA"}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.004.001.10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><PmtRtr xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.004.001.10"><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfTxs>111</NbOfTxs><SttlmInf><SttlmMtd>INDA</SttlmMtd></SttlmInf></GrpHdr></PmtRtr></Document>`)
+	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.004.001.10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><PmtRtr><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfTxs>111</NbOfTxs><SttlmInf><SttlmMtd>INDA</SttlmMtd></SttlmInf></GrpHdr></PmtRtr></Document>`)
 }
 
 func TestNestedTypes(t *testing.T) {
@@ -165,6 +166,7 @@ func TestDocumentPacs00700110(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
 	sample = DocumentPacs00700110{
+		Xmlns: sample.NameSpace(),
 		FIToFIPmtRvsl: FIToFIPaymentReversalV10{
 			GrpHdr: GroupHeader89{
 				MsgId:   "MsgId",
@@ -172,6 +174,7 @@ func TestDocumentPacs00700110(t *testing.T) {
 				SttlmInf: SettlementInstruction7{
 					SttlmMtd: "INDA",
 				},
+				NbOfTxs: "111",
 			},
 		},
 	}
@@ -180,11 +183,11 @@ func TestDocumentPacs00700110(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"FIToFIPmtRvsl":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfTxs":null,"SttlmInf":{"SttlmMtd":"INDA"}}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:pacs.007.001.10","FIToFIPmtRvsl":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfTxs":"111","SttlmInf":{"SttlmMtd":"INDA"}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.007.001.10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><FIToFIPmtRvsl xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.007.001.10"><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><SttlmInf><SttlmMtd>INDA</SttlmMtd></SttlmInf></GrpHdr></FIToFIPmtRvsl></Document>`)
+	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.007.001.10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><FIToFIPmtRvsl><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfTxs>111</NbOfTxs><SttlmInf><SttlmMtd>INDA</SttlmMtd></SttlmInf></GrpHdr></FIToFIPmtRvsl></Document>`)
 }
 
 func TestTypes(t *testing.T) {

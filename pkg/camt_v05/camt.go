@@ -894,7 +894,7 @@ type LiquidityDebitTransfer2 struct {
 	LqdtyTrfId *PaymentIdentification8                       `xml:"LqdtyTrfId,omitempty" json:",omitempty"`
 	Cdtr       *BranchAndFinancialInstitutionIdentification6 `xml:"Cdtr,omitempty" json:",omitempty"`
 	CdtrAcct   *CashAccount38                                `xml:"CdtrAcct,omitempty" json:",omitempty"`
-	TrfdAmt    *Amount2Choice                                `xml:"TrfdAmt"`
+	TrfdAmt    Amount2Choice                                 `xml:"TrfdAmt"`
 	Dbtr       *BranchAndFinancialInstitutionIdentification6 `xml:"Dbtr,omitempty" json:",omitempty"`
 	DbtrAcct   *CashAccount38                                `xml:"DbtrAcct,omitempty" json:",omitempty"`
 	SttlmDt    *common.ISODate                               `xml:"SttlmDt,omitempty" json:",omitempty"`

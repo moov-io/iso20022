@@ -25,6 +25,7 @@ func TestDocumentPain00200111(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
 	sample = DocumentPain00200111{
+		Xmlns: sample.NameSpace(),
 		CstmrPmtStsRpt: CustomerPaymentStatusReportV11{
 			GrpHdr: GroupHeader86{
 				MsgId:   "MsgId",
@@ -41,11 +42,11 @@ func TestDocumentPain00200111(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CstmrPmtStsRpt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"},"OrgnlGrpInfAndSts":{"OrgnlMsgId":"OrgnlMsgId","OrgnlMsgNmId":"OrgnlMsgNmId"}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:pain.002.001.11","CstmrPmtStsRpt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"},"OrgnlGrpInfAndSts":{"OrgnlMsgId":"OrgnlMsgId","OrgnlMsgNmId":"OrgnlMsgNmId"}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.002.001.11" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CstmrPmtStsRpt xmlns="urn:iso:std:iso:20022:tech:xsd:pain.002.001.11"><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr><OrgnlGrpInfAndSts><OrgnlMsgId>OrgnlMsgId</OrgnlMsgId><OrgnlMsgNmId>OrgnlMsgNmId</OrgnlMsgNmId></OrgnlGrpInfAndSts></CstmrPmtStsRpt></Document>`)
+	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.002.001.11" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CstmrPmtStsRpt><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr><OrgnlGrpInfAndSts><OrgnlMsgId>OrgnlMsgId</OrgnlMsgId><OrgnlMsgNmId>OrgnlMsgNmId</OrgnlMsgNmId></OrgnlGrpInfAndSts></CstmrPmtStsRpt></Document>`)
 }
 
 func TestNestedTypes(t *testing.T) {

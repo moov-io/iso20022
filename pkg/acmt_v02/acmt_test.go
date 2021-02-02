@@ -25,6 +25,7 @@ func TestDocumentAcmt02200102(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
 	sample = DocumentAcmt02200102{
+		Xmlns: sample.NameSpace(),
 		IdModAdvc: IdentificationModificationAdviceV02{
 			Assgnmt: IdentificationAssignment2{
 				MsgId:   "MsgId",
@@ -37,11 +38,11 @@ func TestDocumentAcmt02200102(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"IdModAdvc":{"Assgnmt":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}}}}}`)
+	assert.Equal(t, `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:acmt.022.001.02","IdModAdvc":{"Assgnmt":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}}}}}`, string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.022.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><IdModAdvc xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.022.001.02"><Assgnmt><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne></Assgnmt></IdModAdvc></Document>`)
+	assert.Equal(t, `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.022.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><IdModAdvc><Assgnmt><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne></Assgnmt></IdModAdvc></Document>`, string(buf))
 }
 
 func TestDocumentAcmt02300102(t *testing.T) {
@@ -51,6 +52,7 @@ func TestDocumentAcmt02300102(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
 	sample = DocumentAcmt02300102{
+		Xmlns: sample.NameSpace(),
 		IdVrfctnReq: IdentificationVerificationRequestV02{
 			Assgnmt: IdentificationAssignment2{
 				MsgId:   "MsgId",
@@ -63,11 +65,11 @@ func TestDocumentAcmt02300102(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"IdVrfctnReq":{"Assgnmt":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}}}}}`)
+	assert.Equal(t, `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:acmt.023.001.02","IdVrfctnReq":{"Assgnmt":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}}}}}`, string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.023.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><IdVrfctnReq xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.023.001.02"><Assgnmt><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne></Assgnmt></IdVrfctnReq></Document>`)
+	assert.Equal(t, `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.023.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><IdVrfctnReq><Assgnmt><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne></Assgnmt></IdVrfctnReq></Document>`, string(buf))
 }
 
 func TestDocumentAcmt02400102(t *testing.T) {
@@ -77,6 +79,7 @@ func TestDocumentAcmt02400102(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
 	sample = DocumentAcmt02400102{
+		Xmlns: sample.NameSpace(),
 		IdVrfctnRpt: IdentificationVerificationReportV02{
 			Assgnmt: IdentificationAssignment2{
 				MsgId:   "MsgId",
@@ -89,11 +92,11 @@ func TestDocumentAcmt02400102(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"IdVrfctnRpt":{"Assgnmt":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}}}}}`)
+	assert.Equal(t, `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:acmt.024.001.02","IdVrfctnRpt":{"Assgnmt":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}}}}}`, string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.024.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><IdVrfctnRpt xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.024.001.02"><Assgnmt><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne></Assgnmt></IdVrfctnRpt></Document>`)
+	assert.Equal(t, `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.024.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><IdVrfctnRpt><Assgnmt><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne></Assgnmt></IdVrfctnRpt></Document>`, string(buf))
 }
 
 func TestDocumentAcmt03000102(t *testing.T) {
@@ -103,6 +106,7 @@ func TestDocumentAcmt03000102(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
 	sample = DocumentAcmt03000102{
+		Xmlns: sample.NameSpace(),
 		AcctSwtchReqRdrctn: AccountSwitchRequestRedirectionV02{
 			MsgId: MessageIdentification1{
 				Id:      "MsgId",
@@ -132,11 +136,11 @@ func TestDocumentAcmt03000102(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"AcctSwtchReqRdrctn":{"MsgId":{"Id":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"},"AcctSwtchDtls":{"UnqRefNb":"UnqRefNb","RtgUnqRefNb":"RtgUnqRefNb","SwtchTp":"PART"},"NewAcct":{"Id":{"IBAN":"AA000130","Othr":{"Id":"Id"}}},"OdAcct":{"Id":{"IBAN":"AA000130","Othr":{"Id":"Id"}}}}}`)
+	assert.Equal(t, `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:acmt.030.001.02","AcctSwtchReqRdrctn":{"MsgId":{"Id":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"},"AcctSwtchDtls":{"UnqRefNb":"UnqRefNb","RtgUnqRefNb":"RtgUnqRefNb","SwtchTp":"PART"},"NewAcct":{"Id":{"IBAN":"AA000130","Othr":{"Id":"Id"}}},"OdAcct":{"Id":{"IBAN":"AA000130","Othr":{"Id":"Id"}}}}}`, string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.030.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><AcctSwtchReqRdrctn xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.030.001.02"><MsgId><Id>MsgId</Id><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></MsgId><AcctSwtchDtls><UnqRefNb>UnqRefNb</UnqRefNb><RtgUnqRefNb>RtgUnqRefNb</RtgUnqRefNb><SwtchTp>PART</SwtchTp></AcctSwtchDtls><NewAcct><Id><IBAN>AA000130</IBAN><Othr><Id>Id</Id></Othr></Id></NewAcct><OdAcct><Id><IBAN>AA000130</IBAN><Othr><Id>Id</Id></Othr></Id></OdAcct></AcctSwtchReqRdrctn></Document>`)
+	assert.Equal(t, `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.030.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><AcctSwtchReqRdrctn><MsgId><Id>MsgId</Id><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></MsgId><AcctSwtchDtls><UnqRefNb>UnqRefNb</UnqRefNb><RtgUnqRefNb>RtgUnqRefNb</RtgUnqRefNb><SwtchTp>PART</SwtchTp></AcctSwtchDtls><NewAcct><Id><IBAN>AA000130</IBAN><Othr><Id>Id</Id></Othr></Id></NewAcct><OdAcct><Id><IBAN>AA000130</IBAN><Othr><Id>Id</Id></Othr></Id></OdAcct></AcctSwtchReqRdrctn></Document>`, string(buf))
 }
 
 func TestDocumentAcmt03300102(t *testing.T) {
@@ -146,6 +150,7 @@ func TestDocumentAcmt03300102(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
 	sample = DocumentAcmt03300102{
+		Xmlns: sample.NameSpace(),
 		AcctSwtchNtfyAcctSwtchCmplt: AccountSwitchNotifyAccountSwitchCompleteV02{
 			MsgId: MessageIdentification1{
 				Id:      "MsgId",
@@ -163,11 +168,11 @@ func TestDocumentAcmt03300102(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"AcctSwtchNtfyAcctSwtchCmplt":{"MsgId":{"Id":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"},"AcctSwtchDtls":{"UnqRefNb":"UnqRefNb","RtgUnqRefNb":"RtgUnqRefNb","SwtchTp":"PART"}}}`)
+	assert.Equal(t, `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:acmt.033.001.02","AcctSwtchNtfyAcctSwtchCmplt":{"MsgId":{"Id":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"},"AcctSwtchDtls":{"UnqRefNb":"UnqRefNb","RtgUnqRefNb":"RtgUnqRefNb","SwtchTp":"PART"}}}`, string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.033.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><AcctSwtchNtfyAcctSwtchCmplt xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.033.001.02"><MsgId><Id>MsgId</Id><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></MsgId><AcctSwtchDtls><UnqRefNb>UnqRefNb</UnqRefNb><RtgUnqRefNb>RtgUnqRefNb</RtgUnqRefNb><SwtchTp>PART</SwtchTp></AcctSwtchDtls></AcctSwtchNtfyAcctSwtchCmplt></Document>`)
+	assert.Equal(t, `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.033.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><AcctSwtchNtfyAcctSwtchCmplt><MsgId><Id>MsgId</Id><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></MsgId><AcctSwtchDtls><UnqRefNb>UnqRefNb</UnqRefNb><RtgUnqRefNb>RtgUnqRefNb</RtgUnqRefNb><SwtchTp>PART</SwtchTp></AcctSwtchDtls></AcctSwtchNtfyAcctSwtchCmplt></Document>`, string(buf))
 }
 
 func TestDocumentAcmt03500102(t *testing.T) {
@@ -177,6 +182,7 @@ func TestDocumentAcmt03500102(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
 	sample = DocumentAcmt03500102{
+		Xmlns: sample.NameSpace(),
 		AcctSwtchPmtRspn: AccountSwitchPaymentResponseV02{
 			MsgId: MessageIdentification1{
 				Id:      "MsgId",
@@ -194,11 +200,11 @@ func TestDocumentAcmt03500102(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"AcctSwtchPmtRspn":{"MsgId":{"Id":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"},"AcctSwtchDtls":{"UnqRefNb":"UnqRefNb","RtgUnqRefNb":"RtgUnqRefNb","SwtchTp":"PART"}}}`)
+	assert.Equal(t, `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:acmt.035.001.02","AcctSwtchPmtRspn":{"MsgId":{"Id":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"},"AcctSwtchDtls":{"UnqRefNb":"UnqRefNb","RtgUnqRefNb":"RtgUnqRefNb","SwtchTp":"PART"}}}`, string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.035.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><AcctSwtchPmtRspn xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.035.001.02"><MsgId><Id>MsgId</Id><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></MsgId><AcctSwtchDtls><UnqRefNb>UnqRefNb</UnqRefNb><RtgUnqRefNb>RtgUnqRefNb</RtgUnqRefNb><SwtchTp>PART</SwtchTp></AcctSwtchDtls></AcctSwtchPmtRspn></Document>`)
+	assert.Equal(t, `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.035.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><AcctSwtchPmtRspn><MsgId><Id>MsgId</Id><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></MsgId><AcctSwtchDtls><UnqRefNb>UnqRefNb</UnqRefNb><RtgUnqRefNb>RtgUnqRefNb</RtgUnqRefNb><SwtchTp>PART</SwtchTp></AcctSwtchDtls></AcctSwtchPmtRspn></Document>`, string(buf))
 }
 
 func TestDocumentAcmt03700102(t *testing.T) {
@@ -208,6 +214,7 @@ func TestDocumentAcmt03700102(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
 	sample = DocumentAcmt03700102{
+		Xmlns: sample.NameSpace(),
 		AcctSwtchTechRjctn: AccountSwitchTechnicalRejectionV02{
 			MsgId: MessageIdentification1{
 				Id:      "MsgId",
@@ -225,11 +232,11 @@ func TestDocumentAcmt03700102(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"AcctSwtchTechRjctn":{"MsgId":{"Id":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"},"AcctSwtchDtls":{"UnqRefNb":"UnqRefNb","RtgUnqRefNb":"RtgUnqRefNb","SwtchTp":"PART"}}}`)
+	assert.Equal(t, `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:acmt.037.001.02","AcctSwtchTechRjctn":{"MsgId":{"Id":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"},"AcctSwtchDtls":{"UnqRefNb":"UnqRefNb","RtgUnqRefNb":"RtgUnqRefNb","SwtchTp":"PART"}}}`, string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.037.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><AcctSwtchTechRjctn xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.037.001.02"><MsgId><Id>MsgId</Id><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></MsgId><AcctSwtchDtls><UnqRefNb>UnqRefNb</UnqRefNb><RtgUnqRefNb>RtgUnqRefNb</RtgUnqRefNb><SwtchTp>PART</SwtchTp></AcctSwtchDtls></AcctSwtchTechRjctn></Document>`)
+	assert.Equal(t, `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.037.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><AcctSwtchTechRjctn><MsgId><Id>MsgId</Id><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></MsgId><AcctSwtchDtls><UnqRefNb>UnqRefNb</UnqRefNb><RtgUnqRefNb>RtgUnqRefNb</RtgUnqRefNb><SwtchTp>PART</SwtchTp></AcctSwtchDtls></AcctSwtchTechRjctn></Document>`, string(buf))
 }
 
 func TestTypes(t *testing.T) {

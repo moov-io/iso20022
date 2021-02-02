@@ -11,19 +11,26 @@ import (
 )
 
 type DocumentAcmt03600101 struct {
-	XMLName               xml.Name                          `xml:"Document" json:"-"`
+	Xmlns                 string                            `xml:"xmlns,attr"`
 	AcctSwtchTermntnSwtch AccountSwitchTerminationSwitchV01 `xml:"AcctSwtchTermntnSwtch"`
 }
 
 func (doc DocumentAcmt03600101) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentAcmt03600101) NameSpace() string {
+	return utils.DocumentAcmt03600101NameSpace
 }
 
 func (doc DocumentAcmt03600101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		AcctSwtchTermntnSwtch AccountSwitchTerminationSwitchV01 `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01 AcctSwtchTermntnSwtch"`
+		AcctSwtchTermntnSwtch AccountSwitchTerminationSwitchV01 `xml:"AcctSwtchTermntnSwtch"`
 	}
 	output.AcctSwtchTermntnSwtch = doc.AcctSwtchTermntnSwtch
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }

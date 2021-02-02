@@ -7,10 +7,11 @@ package camt_v09
 import (
 	"encoding/json"
 	"encoding/xml"
-	"github.com/moov-io/iso20022/pkg/common"
-	"github.com/stretchr/testify/assert"
 	"testing"
 	"time"
+
+	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/stretchr/testify/assert"
 )
 
 const (
@@ -24,6 +25,7 @@ func TestDocumentCamt05300108(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
 	sample = DocumentCamt05500109{
+		Xmlns: sample.NameSpace(),
 		CstmrPmtCxlReq: CustomerPaymentCancellationRequestV09{
 			Assgnmt: CaseAssignment5{
 				Id:      "Id",
@@ -36,11 +38,11 @@ func TestDocumentCamt05300108(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CstmrPmtCxlReq":{"Assgnmt":{"Id":"Id","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}},"CreDtTm":"2014-11-12T11:45:26.371"}}}`)
+	assert.Equal(t, `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:camt.055.001.09","CstmrPmtCxlReq":{"Assgnmt":{"Id":"Id","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}},"CreDtTm":"2014-11-12T11:45:26.371"}}}`, string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.055.001.09" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CstmrPmtCxlReq xmlns="urn:iso:std:iso:20022:tech:xsd:camt.055.001.09"><Assgnmt><Id>Id</Id><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></Assgnmt></CstmrPmtCxlReq></Document>`)
+	assert.Equal(t, `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.055.001.09" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CstmrPmtCxlReq xmlns="urn:iso:std:iso:20022:tech:xsd:camt.055.001.09"><Assgnmt><Id>Id</Id><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></Assgnmt></CstmrPmtCxlReq></Document>`, string(buf))
 }
 
 func TestDocumentCamt05600109(t *testing.T) {
@@ -50,6 +52,7 @@ func TestDocumentCamt05600109(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
 	sample = DocumentCamt05600109{
+		Xmlns: sample.NameSpace(),
 		FIToFIPmtCxlReq: FIToFIPaymentCancellationRequestV09{
 			Assgnmt: CaseAssignment5{
 				Id:      "Id",
@@ -62,7 +65,7 @@ func TestDocumentCamt05600109(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"FIToFIPmtCxlReq":{"Assgnmt":{"Id":"Id","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}},"CreDtTm":"2014-11-12T11:45:26.371"}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:camt.056.001.09","FIToFIPmtCxlReq":{"Assgnmt":{"Id":"Id","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}},"CreDtTm":"2014-11-12T11:45:26.371"}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)

@@ -11,127 +11,176 @@ import (
 )
 
 type DocumentAcmt02200102 struct {
-	XMLName   xml.Name                            `xml:"Document" json:"-"`
+	Xmlns     string                              `xml:"xmlns,attr"`
 	IdModAdvc IdentificationModificationAdviceV02 `xml:"IdModAdvc"`
 }
 
 func (doc DocumentAcmt02200102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentAcmt02200102) NameSpace() string {
+	return utils.DocumentAcmt02200102NameSpace
 }
 
 func (doc DocumentAcmt02200102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		IdModAdvc IdentificationModificationAdviceV02 `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.022.001.02 IdModAdvc"`
+		IdModAdvc IdentificationModificationAdviceV02 `xml:"IdModAdvc"`
 	}
 	output.IdModAdvc = doc.IdModAdvc
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:acmt.022.001.02")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt02300102 struct {
-	XMLName     xml.Name                             `xml:"Document" json:"-"`
+	Xmlns       string                               `xml:"xmlns,attr"`
 	IdVrfctnReq IdentificationVerificationRequestV02 `xml:"IdVrfctnReq"`
 }
 
 func (doc DocumentAcmt02300102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentAcmt02300102) NameSpace() string {
+	return utils.DocumentAcmt02300102NameSpace
 }
 
 func (doc DocumentAcmt02300102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		IdVrfctnReq IdentificationVerificationRequestV02 `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.023.001.02 IdVrfctnReq"`
+		IdVrfctnReq IdentificationVerificationRequestV02 `xml:"IdVrfctnReq"`
 	}
 	output.IdVrfctnReq = doc.IdVrfctnReq
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:acmt.023.001.02")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt02400102 struct {
-	XMLName     xml.Name                            `xml:"Document" json:"-"`
+	Xmlns       string                              `xml:"xmlns,attr"`
 	IdVrfctnRpt IdentificationVerificationReportV02 `xml:"IdVrfctnRpt"`
 }
 
 func (doc DocumentAcmt02400102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentAcmt02400102) NameSpace() string {
+	return utils.DocumentAcmt02400102NameSpace
 }
 
 func (doc DocumentAcmt02400102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		IdVrfctnRpt IdentificationVerificationReportV02 `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.024.001.02 IdVrfctnRpt"`
+		IdVrfctnRpt IdentificationVerificationReportV02 `xml:"IdVrfctnRpt"`
 	}
 	output.IdVrfctnRpt = doc.IdVrfctnRpt
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:acmt.024.001.02")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt03000102 struct {
-	XMLName            xml.Name                           `xml:"Document" json:"-"`
+	Xmlns              string                             `xml:"xmlns,attr"`
 	AcctSwtchReqRdrctn AccountSwitchRequestRedirectionV02 `xml:"AcctSwtchReqRdrctn"`
 }
 
 func (doc DocumentAcmt03000102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentAcmt03000102) NameSpace() string {
+	return utils.DocumentAcmt03000102NameSpace
 }
 
 func (doc DocumentAcmt03000102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		AcctSwtchReqRdrctn AccountSwitchRequestRedirectionV02 `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.030.001.02 AcctSwtchReqRdrctn"`
+		AcctSwtchReqRdrctn AccountSwitchRequestRedirectionV02 `xml:"AcctSwtchReqRdrctn"`
 	}
 	output.AcctSwtchReqRdrctn = doc.AcctSwtchReqRdrctn
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:acmt.030.001.02")
+	utils.XmlElement(&start, doc.Xmlns)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt03300102 struct {
-	XMLName                     xml.Name                                    `xml:"Document" json:"-"`
+	Xmlns                       string                                      `xml:"xmlns,attr"`
 	AcctSwtchNtfyAcctSwtchCmplt AccountSwitchNotifyAccountSwitchCompleteV02 `xml:"AcctSwtchNtfyAcctSwtchCmplt"`
 }
 
 func (doc DocumentAcmt03300102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentAcmt03300102) NameSpace() string {
+	return utils.DocumentAcmt03300102NameSpace
 }
 
 func (doc DocumentAcmt03300102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		AcctSwtchNtfyAcctSwtchCmplt AccountSwitchNotifyAccountSwitchCompleteV02 `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.033.001.02 AcctSwtchNtfyAcctSwtchCmplt"`
+		AcctSwtchNtfyAcctSwtchCmplt AccountSwitchNotifyAccountSwitchCompleteV02 `xml:"AcctSwtchNtfyAcctSwtchCmplt"`
 	}
 	output.AcctSwtchNtfyAcctSwtchCmplt = doc.AcctSwtchNtfyAcctSwtchCmplt
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:acmt.033.001.02")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt03500102 struct {
-	XMLName          xml.Name                        `xml:"Document" json:"-"`
+	Xmlns            string                          `xml:"xmlns,attr"`
 	AcctSwtchPmtRspn AccountSwitchPaymentResponseV02 `xml:"AcctSwtchPmtRspn"`
 }
 
 func (doc DocumentAcmt03500102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentAcmt03500102) NameSpace() string {
+	return utils.DocumentAcmt03500102NameSpace
 }
 
 func (doc DocumentAcmt03500102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		AcctSwtchPmtRspn AccountSwitchPaymentResponseV02 `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.035.001.02 AcctSwtchPmtRspn"`
+		AcctSwtchPmtRspn AccountSwitchPaymentResponseV02 `xml:"AcctSwtchPmtRspn"`
 	}
 	output.AcctSwtchPmtRspn = doc.AcctSwtchPmtRspn
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:acmt.035.001.02")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt03700102 struct {
-	XMLName            xml.Name                           `xml:"Document" json:"-"`
+	Xmlns              string                             `xml:"xmlns,attr"`
 	AcctSwtchTechRjctn AccountSwitchTechnicalRejectionV02 `xml:"AcctSwtchTechRjctn"`
 }
 
 func (doc DocumentAcmt03700102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentAcmt03700102) NameSpace() string {
+	return utils.DocumentAcmt03700102NameSpace
 }
 
 func (doc DocumentAcmt03700102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		AcctSwtchTechRjctn AccountSwitchTechnicalRejectionV02 `xml:"urn:iso:std:iso:20022:tech:xsd:acmt.037.001.02 AcctSwtchTechRjctn"`
+		AcctSwtchTechRjctn AccountSwitchTechnicalRejectionV02 `xml:"AcctSwtchTechRjctn"`
 	}
 	output.AcctSwtchTechRjctn = doc.AcctSwtchTechRjctn
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:acmt.037.001.02")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }

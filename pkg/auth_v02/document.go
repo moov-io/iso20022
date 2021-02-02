@@ -10,182 +10,252 @@ import (
 	"github.com/moov-io/iso20022/pkg/utils"
 )
 
-type DocumentAuth018001V02 struct {
-	XMLName      xml.Name                       `xml:"Document" json:"-"`
+type DocumentAuth01800102 struct {
+	Xmlns        string                         `xml:"xmlns,attr"`
 	CtrctRegnReq ContractRegistrationRequestV02 `xml:"CtrctRegnReq"`
 }
 
-func (doc DocumentAuth018001V02) Validate() error {
+func (doc DocumentAuth01800102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
-func (doc DocumentAuth018001V02) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+func (doc DocumentAuth01800102) NameSpace() string {
+	return utils.DocumentAuth01800102NameSpace
+}
+
+func (doc DocumentAuth01800102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		CtrctRegnReq ContractRegistrationRequestV02 `xml:"urn:iso:std:iso:20022:tech:xsd:auth.018.001.02 CtrctRegnReq"`
+		CtrctRegnReq ContractRegistrationRequestV02 `xml:"CtrctRegnReq"`
 	}
 	output.CtrctRegnReq = doc.CtrctRegnReq
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:auth.018.001.02")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
-type DocumentAuth019001V02 struct {
-	XMLName       xml.Name                            `xml:"Document" json:"-"`
+type DocumentAuth01900102 struct {
+	Xmlns         string                              `xml:"xmlns,attr"`
 	CtrctRegnConf ContractRegistrationConfirmationV02 `xml:"CtrctRegnConf"`
 }
 
-func (doc DocumentAuth019001V02) Validate() error {
+func (doc DocumentAuth01900102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
-func (doc DocumentAuth019001V02) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+func (doc DocumentAuth01900102) NameSpace() string {
+	return utils.DocumentAuth01900102NameSpace
+}
+
+func (doc DocumentAuth01900102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		CtrctRegnConf ContractRegistrationConfirmationV02 `xml:"urn:iso:std:iso:20022:tech:xsd:auth.019.001.02 CtrctRegnConf"`
+		CtrctRegnConf ContractRegistrationConfirmationV02 `xml:"CtrctRegnConf"`
 	}
 	output.CtrctRegnConf = doc.CtrctRegnConf
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:auth.019.001.02")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
-type DocumentAuth020001V02 struct {
-	XMLName          xml.Name                              `xml:"Document" json:"-"`
+type DocumentAuth02000102 struct {
+	Xmlns            string                                `xml:"xmlns,attr"`
 	CtrctRegnClsrReq ContractRegistrationClosureRequestV02 `xml:"CtrctRegnClsrReq"`
 }
 
-func (doc DocumentAuth020001V02) Validate() error {
+func (doc DocumentAuth02000102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
-func (doc DocumentAuth020001V02) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+func (doc DocumentAuth02000102) NameSpace() string {
+	return utils.DocumentAuth02000102NameSpace
+}
+
+func (doc DocumentAuth02000102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		CtrctRegnClsrReq ContractRegistrationClosureRequestV02 `xml:"urn:iso:std:iso:20022:tech:xsd:auth.020.001.02 CtrctRegnClsrReq"`
+		CtrctRegnClsrReq ContractRegistrationClosureRequestV02 `xml:"CtrctRegnClsrReq"`
 	}
 	output.CtrctRegnClsrReq = doc.CtrctRegnClsrReq
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:auth.020.001.02")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
-type DocumentAuth021001V02 struct {
-	XMLName            xml.Name                                `xml:"Document" json:"-"`
+type DocumentAuth02100102 struct {
+	Xmlns              string                                  `xml:"xmlns,attr"`
 	CtrctRegnAmdmntReq ContractRegistrationAmendmentRequestV02 `xml:"CtrctRegnAmdmntReq"`
 }
 
-func (doc DocumentAuth021001V02) Validate() error {
+func (doc DocumentAuth02100102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
-func (doc DocumentAuth021001V02) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+func (doc DocumentAuth02100102) NameSpace() string {
+	return utils.DocumentAuth02100102NameSpace
+}
+
+func (doc DocumentAuth02100102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		CtrctRegnAmdmntReq ContractRegistrationAmendmentRequestV02 `xml:"urn:iso:std:iso:20022:tech:xsd:auth.021.001.02 CtrctRegnAmdmntReq"`
+		CtrctRegnAmdmntReq ContractRegistrationAmendmentRequestV02 `xml:"CtrctRegnAmdmntReq"`
 	}
 	output.CtrctRegnAmdmntReq = doc.CtrctRegnAmdmntReq
-	utils.XmlElement(&start, "urn:urn:iso:std:iso:20022:tech:xsd:auth.021.001.02")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
-type DocumentAuth022001V02 struct {
-	XMLName       xml.Name                         `xml:"Document" json:"-"`
+type DocumentAuth02200102 struct {
+	Xmlns         string                           `xml:"xmlns,attr"`
 	CtrctRegnStmt ContractRegistrationStatementV02 `xml:"urn:iso:std:iso:20022:tech:xsd:auth.022.001.02 CtrctRegnStmt"`
 }
 
-func (doc DocumentAuth022001V02) Validate() error {
+func (doc DocumentAuth02200102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
-func (doc DocumentAuth022001V02) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+func (doc DocumentAuth02200102) NameSpace() string {
+	return utils.DocumentAuth02200102NameSpace
+}
+
+func (doc DocumentAuth02200102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		CtrctRegnStmt ContractRegistrationStatementV02 `xml:"urn:iso:std:iso:20022:tech:xsd:auth.022.001.02 CtrctRegnStmt"`
+		CtrctRegnStmt ContractRegistrationStatementV02 `xml:"CtrctRegnStmt"`
 	}
 	output.CtrctRegnStmt = doc.CtrctRegnStmt
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:auth.022.001.02")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
-type DocumentAuth023001V02 struct {
-	XMLName          xml.Name                                `xml:"Document" json:"-"`
+type DocumentAuth02300102 struct {
+	Xmlns            string                                  `xml:"xmlns,attr"`
 	CtrctRegnStmtReq ContractRegistrationStatementRequestV02 `xml:"CtrctRegnStmtReq"`
 }
 
-func (doc DocumentAuth023001V02) Validate() error {
+func (doc DocumentAuth02300102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
-func (doc DocumentAuth023001V02) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+func (doc DocumentAuth02300102) NameSpace() string {
+	return utils.DocumentAuth02300102NameSpace
+}
+
+func (doc DocumentAuth02300102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		CtrctRegnStmtReq ContractRegistrationStatementRequestV02 `xml:"urn:iso:std:iso:20022:tech:xsd:auth.023.001.02 CtrctRegnStmtReq"`
+		CtrctRegnStmtReq ContractRegistrationStatementRequestV02 `xml:"CtrctRegnStmtReq"`
 	}
 	output.CtrctRegnStmtReq = doc.CtrctRegnStmtReq
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:auth.023.001.02")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
-type DocumentAuth024001V02 struct {
-	XMLName            xml.Name                                    `xml:"Document" json:"-"`
+type DocumentAuth02400102 struct {
+	Xmlns              string                                      `xml:"xmlns,attr"`
 	PmtRgltryInfNtfctn PaymentRegulatoryInformationNotificationV02 `xml:"PmtRgltryInfNtfctn"`
 }
 
-func (doc DocumentAuth024001V02) Validate() error {
+func (doc DocumentAuth02400102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
-func (doc DocumentAuth024001V02) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+func (doc DocumentAuth02400102) NameSpace() string {
+	return utils.DocumentAuth02400102NameSpace
+}
+
+func (doc DocumentAuth02400102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
 		PmtRgltryInfNtfctn PaymentRegulatoryInformationNotificationV02 `xml:"urn:iso:std:iso:20022:tech:xsd:auth.024.001.02 PmtRgltryInfNtfctn"`
 	}
 	output.PmtRgltryInfNtfctn = doc.PmtRgltryInfNtfctn
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:auth.024.001.02")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
-type DocumentAuth025001V02 struct {
-	XMLName               xml.Name                                     `xml:"Document" json:"-"`
+type DocumentAuth02500102 struct {
+	Xmlns                 string                                       `xml:"xmlns,attr"`
 	CcyCtrlSpprtgDocDlvry CurrencyControlSupportingDocumentDeliveryV02 `xml:"CcyCtrlSpprtgDocDlvry"`
 }
 
-func (doc DocumentAuth025001V02) Validate() error {
+func (doc DocumentAuth02500102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
-func (doc DocumentAuth025001V02) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+func (doc DocumentAuth02500102) NameSpace() string {
+	return utils.DocumentAuth02500102NameSpace
+}
+
+func (doc DocumentAuth02500102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		CcyCtrlSpprtgDocDlvry CurrencyControlSupportingDocumentDeliveryV02 `xml:"urn:iso:std:iso:20022:tech:xsd:auth.025.001.02 CcyCtrlSpprtgDocDlvry"`
+		CcyCtrlSpprtgDocDlvry CurrencyControlSupportingDocumentDeliveryV02 `xml:"CcyCtrlSpprtgDocDlvry"`
 	}
 	output.CcyCtrlSpprtgDocDlvry = doc.CcyCtrlSpprtgDocDlvry
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:auth.025.001.02")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
-type DocumentAuth026001V02 struct {
-	XMLName          xml.Name                          `xml:"Document" json:"-"`
+type DocumentAuth02600102 struct {
+	Xmlns            string                            `xml:"xmlns,attr"`
 	CcyCtrlReqOrLttr CurrencyControlRequestOrLetterV02 `xml:"CcyCtrlReqOrLttr"`
 }
 
-func (doc DocumentAuth026001V02) Validate() error {
+func (doc DocumentAuth02600102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
-func (doc DocumentAuth026001V02) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+func (doc DocumentAuth02600102) NameSpace() string {
+	return utils.DocumentAuth02600102NameSpace
+}
+
+func (doc DocumentAuth02600102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		CcyCtrlReqOrLttr CurrencyControlRequestOrLetterV02 `xml:"urn:iso:std:iso:20022:tech:xsd:auth.026.001.02 CcyCtrlReqOrLttr"`
+		CcyCtrlReqOrLttr CurrencyControlRequestOrLetterV02 `xml:"CcyCtrlReqOrLttr"`
 	}
 	output.CcyCtrlReqOrLttr = doc.CcyCtrlReqOrLttr
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:auth.026.001.02")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
-type DocumentAuth027001V02 struct {
-	XMLName        xml.Name                       `xml:"Document" json:"-"`
+type DocumentAuth02700102 struct {
+	Xmlns          string                         `xml:"xmlns,attr"`
 	CcyCtrlStsAdvc CurrencyControlStatusAdviceV02 `xml:"CcyCtrlStsAdvc"`
 }
 
-func (doc DocumentAuth027001V02) Validate() error {
+func (doc DocumentAuth02700102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
-func (doc DocumentAuth027001V02) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+func (doc DocumentAuth02700102) NameSpace() string {
+	return utils.DocumentAuth02700102NameSpace
+}
+
+func (doc DocumentAuth02700102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		CcyCtrlStsAdvc CurrencyControlStatusAdviceV02 `xml:"urn:iso:std:iso:20022:tech:xsd:auth.027.001.02 CcyCtrlStsAdvc"`
+		CcyCtrlStsAdvc CurrencyControlStatusAdviceV02 `xml:"CcyCtrlStsAdvc"`
 	}
 	output.CcyCtrlStsAdvc = doc.CcyCtrlStsAdvc
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:auth.027.001.02")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }

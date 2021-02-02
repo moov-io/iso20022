@@ -1170,7 +1170,7 @@ type GroupHeader89 struct {
 	CreDtTm               common.ISODateTime                            `xml:"CreDtTm"`
 	Authstn               []Authorisation1Choice                        `xml:"Authstn,omitempty" json:",omitempty"`
 	BtchBookg             bool                                          `xml:"BtchBookg,omitempty" json:",omitempty"`
-	NbOfTxs               *common.Max15NumericText                      `xml:"NbOfTxs"`
+	NbOfTxs               common.Max15NumericText                       `xml:"NbOfTxs"`
 	CtrlSum               float64                                       `xml:"CtrlSum,omitempty" json:",omitempty"`
 	GrpRvsl               bool                                          `xml:"GrpRvsl,omitempty" json:",omitempty"`
 	TtlRvsdIntrBkSttlmAmt *ActiveCurrencyAndAmount                      `xml:"TtlRvsdIntrBkSttlmAmt,omitempty" json:",omitempty"`

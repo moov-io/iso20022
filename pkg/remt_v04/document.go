@@ -11,18 +11,26 @@ import (
 )
 
 type DocumentRemt00100104 struct {
+	Xmlns   string              `xml:"xmlns,attr"`
 	RmtAdvc RemittanceAdviceV04 `xml:"RmtAdvc"`
 }
 
 func (doc DocumentRemt00100104) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentRemt00100104) NameSpace() string {
+	return utils.DocumentRemt00100104NameSpace
 }
 
 func (doc DocumentRemt00100104) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		RmtAdvc RemittanceAdviceV04 `xml:"urn:iso:std:iso:20022:tech:xsd:remt.001.001.04 RmtAdvc"`
+		RmtAdvc RemittanceAdviceV04 `xml:"RmtAdvc"`
 	}
 	output.RmtAdvc = doc.RmtAdvc
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:remt.001.001.04")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }

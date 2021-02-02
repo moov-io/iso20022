@@ -25,6 +25,7 @@ func TestDocumentPacs00200111(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
 	sample = DocumentPacs00200111{
+		Xmlns: sample.NameSpace(),
 		FIToFIPmtStsRpt: FIToFIPaymentStatusReportV11{
 			GrpHdr: GroupHeader91{
 				MsgId:   "MsgId",
@@ -37,11 +38,11 @@ func TestDocumentPacs00200111(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"FIToFIPmtStsRpt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:pacs.002.001.11","FIToFIPmtStsRpt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.11" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><FIToFIPmtStsRpt xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.11"><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></FIToFIPmtStsRpt></Document>`)
+	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.11" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><FIToFIPmtStsRpt><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></FIToFIPmtStsRpt></Document>`)
 }
 
 func TestNestedTypes(t *testing.T) {
