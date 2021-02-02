@@ -24,5 +24,5 @@ func NewErrValueInvalid(typeStr string) error {
 
 // NewErrInvalidNameSpace returns a error that namespace is invalid
 func NewErrInvalidNameSpace() error {
-	return errors.New("The namespace of document is invalid")
+	return errors.New("A namespace of document is invalid")
 }
