@@ -18,13 +18,14 @@ const (
 	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
-func TestDocumentAuth018001V02(t *testing.T) {
-	sample := DocumentAuth018001V02{}
+func TestDocumentAuth01800102(t *testing.T) {
+	sample := DocumentAuth01800102{}
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
-	sample = DocumentAuth018001V02{
+	sample = DocumentAuth01800102{
+		Xmlns: sample.NameSpace(),
 		CtrctRegnReq: ContractRegistrationRequestV02{
 			GrpHdr: CurrencyControlHeader4{
 				MsgId:    "MsgId",
@@ -38,20 +39,21 @@ func TestDocumentAuth018001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CtrctRegnReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{}}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:auth.018.001.02","CtrctRegnReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.018.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CtrctRegnReq xmlns="urn:iso:std:iso:20022:tech:xsd:auth.018.001.02"><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><InitgPty></InitgPty></GrpHdr></CtrctRegnReq></Document>`)
+	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.018.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CtrctRegnReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><InitgPty></InitgPty></GrpHdr></CtrctRegnReq></Document>`)
 }
 
-func TestDocumentAuth019001V02(t *testing.T) {
-	sample := DocumentAuth019001V02{}
+func TestDocumentAuth01900102(t *testing.T) {
+	sample := DocumentAuth01900102{}
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
-	sample = DocumentAuth019001V02{
+	sample = DocumentAuth01900102{
+		Xmlns: sample.NameSpace(),
 		CtrctRegnConf: ContractRegistrationConfirmationV02{
 			GrpHdr: CurrencyControlHeader6{
 				MsgId:    "MsgId",
@@ -65,20 +67,21 @@ func TestDocumentAuth019001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CtrctRegnConf":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","RcvgPty":{},"RegnAgt":{"FinInstnId":{}}}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:auth.019.001.02","CtrctRegnConf":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","RcvgPty":{},"RegnAgt":{"FinInstnId":{}}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.019.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CtrctRegnConf xmlns="urn:iso:std:iso:20022:tech:xsd:auth.019.001.02"><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><RcvgPty></RcvgPty><RegnAgt><FinInstnId></FinInstnId></RegnAgt></GrpHdr></CtrctRegnConf></Document>`)
+	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.019.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CtrctRegnConf><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><RcvgPty></RcvgPty><RegnAgt><FinInstnId></FinInstnId></RegnAgt></GrpHdr></CtrctRegnConf></Document>`)
 }
 
-func TestDocumentAuth020001V02(t *testing.T) {
-	sample := DocumentAuth020001V02{}
+func TestDocumentAuth02000102(t *testing.T) {
+	sample := DocumentAuth02000102{}
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
-	sample = DocumentAuth020001V02{
+	sample = DocumentAuth02000102{
+		Xmlns: sample.NameSpace(),
 		CtrctRegnClsrReq: ContractRegistrationClosureRequestV02{
 			GrpHdr: CurrencyControlHeader4{
 				MsgId:    "MsgId",
@@ -92,20 +95,21 @@ func TestDocumentAuth020001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CtrctRegnClsrReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{}}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:auth.020.001.02","CtrctRegnClsrReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.020.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CtrctRegnClsrReq xmlns="urn:iso:std:iso:20022:tech:xsd:auth.020.001.02"><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><InitgPty></InitgPty></GrpHdr></CtrctRegnClsrReq></Document>`)
+	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.020.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CtrctRegnClsrReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><InitgPty></InitgPty></GrpHdr></CtrctRegnClsrReq></Document>`)
 }
 
-func TestDocumentAuth021001V02(t *testing.T) {
-	sample := DocumentAuth021001V02{}
+func TestDocumentAuth02100102(t *testing.T) {
+	sample := DocumentAuth02100102{}
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
-	sample = DocumentAuth021001V02{
+	sample = DocumentAuth02100102{
+		Xmlns: sample.NameSpace(),
 		CtrctRegnAmdmntReq: ContractRegistrationAmendmentRequestV02{
 			GrpHdr: CurrencyControlHeader4{
 				MsgId:    "MsgId",
@@ -119,20 +123,21 @@ func TestDocumentAuth021001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CtrctRegnAmdmntReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{}}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:auth.021.001.02","CtrctRegnAmdmntReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:urn:iso:std:iso:20022:tech:xsd:auth.021.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CtrctRegnAmdmntReq xmlns="urn:iso:std:iso:20022:tech:xsd:auth.021.001.02"><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><InitgPty></InitgPty></GrpHdr></CtrctRegnAmdmntReq></Document>`)
+	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.021.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CtrctRegnAmdmntReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><InitgPty></InitgPty></GrpHdr></CtrctRegnAmdmntReq></Document>`)
 }
 
-func TestDocumentAuth022001V02(t *testing.T) {
-	sample := DocumentAuth022001V02{}
+func TestDocumentAuth02200102(t *testing.T) {
+	sample := DocumentAuth02200102{}
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
-	sample = DocumentAuth022001V02{
+	sample = DocumentAuth02200102{
+		Xmlns: sample.NameSpace(),
 		CtrctRegnStmt: ContractRegistrationStatementV02{
 			GrpHdr: CurrencyControlHeader6{
 				MsgId:    "MsgId",
@@ -146,20 +151,21 @@ func TestDocumentAuth022001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CtrctRegnStmt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","RcvgPty":{},"RegnAgt":{"FinInstnId":{}}}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:auth.022.001.02","CtrctRegnStmt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","RcvgPty":{},"RegnAgt":{"FinInstnId":{}}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.022.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CtrctRegnStmt xmlns="urn:iso:std:iso:20022:tech:xsd:auth.022.001.02"><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><RcvgPty></RcvgPty><RegnAgt><FinInstnId></FinInstnId></RegnAgt></GrpHdr></CtrctRegnStmt></Document>`)
+	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.022.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CtrctRegnStmt><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><RcvgPty></RcvgPty><RegnAgt><FinInstnId></FinInstnId></RegnAgt></GrpHdr></CtrctRegnStmt></Document>`)
 }
 
-func TestDocumentAuth023001V02(t *testing.T) {
-	sample := DocumentAuth023001V02{}
+func TestDocumentAuth02300102(t *testing.T) {
+	sample := DocumentAuth02300102{}
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
-	sample = DocumentAuth023001V02{
+	sample = DocumentAuth02300102{
+		Xmlns: sample.NameSpace(),
 		CtrctRegnStmtReq: ContractRegistrationStatementRequestV02{
 			GrpHdr: CurrencyControlHeader4{
 				MsgId:    "MsgId",
@@ -173,20 +179,21 @@ func TestDocumentAuth023001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CtrctRegnStmtReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{}}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:auth.023.001.02","CtrctRegnStmtReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.023.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CtrctRegnStmtReq xmlns="urn:iso:std:iso:20022:tech:xsd:auth.023.001.02"><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><InitgPty></InitgPty></GrpHdr></CtrctRegnStmtReq></Document>`)
+	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.023.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CtrctRegnStmtReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><InitgPty></InitgPty></GrpHdr></CtrctRegnStmtReq></Document>`)
 }
 
-func TestDocumentAuth024001V02(t *testing.T) {
-	sample := DocumentAuth024001V02{}
+func TestDocumentAuth02400102(t *testing.T) {
+	sample := DocumentAuth02400102{}
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
-	sample = DocumentAuth024001V02{
+	sample = DocumentAuth02400102{
+		Xmlns: sample.NameSpace(),
 		PmtRgltryInfNtfctn: PaymentRegulatoryInformationNotificationV02{
 			GrpHdr: CurrencyControlHeader5{
 				MsgId:    "MsgId",
@@ -200,20 +207,21 @@ func TestDocumentAuth024001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"PmtRgltryInfNtfctn":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{"Pty":{},"Agt":{"FinInstnId":{}}}}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:auth.024.001.02","PmtRgltryInfNtfctn":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{"Pty":{},"Agt":{"FinInstnId":{}}}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
 	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.024.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><PmtRgltryInfNtfctn xmlns="urn:iso:std:iso:20022:tech:xsd:auth.024.001.02"><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><InitgPty><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></InitgPty></GrpHdr></PmtRgltryInfNtfctn></Document>`)
 }
 
-func TestDocumentAuth025001V02(t *testing.T) {
-	sample := DocumentAuth025001V02{}
+func TestDocumentAuth02500102(t *testing.T) {
+	sample := DocumentAuth02500102{}
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
-	sample = DocumentAuth025001V02{
+	sample = DocumentAuth02500102{
+		Xmlns: sample.NameSpace(),
 		CcyCtrlSpprtgDocDlvry: CurrencyControlSupportingDocumentDeliveryV02{
 			GrpHdr: CurrencyControlHeader5{
 				MsgId:    "MsgId",
@@ -227,20 +235,21 @@ func TestDocumentAuth025001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CcyCtrlSpprtgDocDlvry":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{"Pty":{},"Agt":{"FinInstnId":{}}}}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:auth.025.001.02","CcyCtrlSpprtgDocDlvry":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{"Pty":{},"Agt":{"FinInstnId":{}}}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.025.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CcyCtrlSpprtgDocDlvry xmlns="urn:iso:std:iso:20022:tech:xsd:auth.025.001.02"><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><InitgPty><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></InitgPty></GrpHdr></CcyCtrlSpprtgDocDlvry></Document>`)
+	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.025.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CcyCtrlSpprtgDocDlvry><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><InitgPty><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></InitgPty></GrpHdr></CcyCtrlSpprtgDocDlvry></Document>`)
 }
 
-func TestDocumentAuth026001V02(t *testing.T) {
-	sample := DocumentAuth026001V02{}
+func TestDocumentAuth02600102(t *testing.T) {
+	sample := DocumentAuth02600102{}
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
-	sample = DocumentAuth026001V02{
+	sample = DocumentAuth02600102{
+		Xmlns: sample.NameSpace(),
 		CcyCtrlReqOrLttr: CurrencyControlRequestOrLetterV02{
 			GrpHdr: CurrencyControlHeader5{
 				MsgId:    "MsgId",
@@ -254,20 +263,21 @@ func TestDocumentAuth026001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CcyCtrlReqOrLttr":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{"Pty":{},"Agt":{"FinInstnId":{}}}}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:auth.026.001.02","CcyCtrlReqOrLttr":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","InitgPty":{"Pty":{},"Agt":{"FinInstnId":{}}}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.026.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CcyCtrlReqOrLttr xmlns="urn:iso:std:iso:20022:tech:xsd:auth.026.001.02"><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><InitgPty><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></InitgPty></GrpHdr></CcyCtrlReqOrLttr></Document>`)
+	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.026.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CcyCtrlReqOrLttr><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><InitgPty><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></InitgPty></GrpHdr></CcyCtrlReqOrLttr></Document>`)
 }
 
-func TestDocumentAuth027001V02(t *testing.T) {
-	sample := DocumentAuth027001V02{}
+func TestDocumentAuth02700102(t *testing.T) {
+	sample := DocumentAuth02700102{}
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
-	sample = DocumentAuth027001V02{
+	sample = DocumentAuth02700102{
+		Xmlns: sample.NameSpace(),
 		CcyCtrlStsAdvc: CurrencyControlStatusAdviceV02{
 			GrpHdr: CurrencyControlHeader6{
 				MsgId:    "MsgId",
@@ -281,11 +291,11 @@ func TestDocumentAuth027001V02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"CcyCtrlStsAdvc":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","RcvgPty":{},"RegnAgt":{"FinInstnId":{}}}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:auth.027.001.02","CcyCtrlStsAdvc":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfItms":"1111111111","RcvgPty":{},"RegnAgt":{"FinInstnId":{}}}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.027.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CcyCtrlStsAdvc xmlns="urn:iso:std:iso:20022:tech:xsd:auth.027.001.02"><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><RcvgPty></RcvgPty><RegnAgt><FinInstnId></FinInstnId></RegnAgt></GrpHdr></CcyCtrlStsAdvc></Document>`)
+	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.027.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CcyCtrlStsAdvc><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfItms>1111111111</NbOfItms><RcvgPty></RcvgPty><RegnAgt><FinInstnId></FinInstnId></RegnAgt></GrpHdr></CcyCtrlStsAdvc></Document>`)
 }
 
 func TestNestedTypes(t *testing.T) {

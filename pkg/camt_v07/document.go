@@ -11,120 +11,176 @@ import (
 )
 
 type DocumentCamt00300107 struct {
+	Xmlns   string        `xml:"xmlns,attr"`
 	GetAcct GetAccountV07 `xml:"GetAcct"`
 }
 
 func (doc DocumentCamt00300107) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt00300107) NameSpace() string {
+	return utils.DocumentCamt00300107NameSpace
 }
 
 func (doc DocumentCamt00300107) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		GetAcct GetAccountV07 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.003.001.07 GetAcct"`
+		GetAcct GetAccountV07 `xml:"GetAcct"`
 	}
 	output.GetAcct = doc.GetAcct
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:camt.003.001.07")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt00900107 struct {
+	Xmlns  string      `xml:"xmlns,attr"`
 	GetLmt GetLimitV07 `xml:"GetLmt"`
 }
 
 func (doc DocumentCamt00900107) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt00900107) NameSpace() string {
+	return utils.DocumentCamt00900107NameSpace
 }
 
 func (doc DocumentCamt00900107) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		GetLmt GetLimitV07 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.009.001.07 GetLmt"`
+		GetLmt GetLimitV07 `xml:"GetLmt"`
 	}
 	output.GetLmt = doc.GetLmt
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:camt.009.001.07")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt01100107 struct {
+	Xmlns    string         `xml:"xmlns,attr"`
 	ModfyLmt ModifyLimitV07 `xml:"ModfyLmt"`
 }
 
 func (doc DocumentCamt01100107) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt01100107) NameSpace() string {
+	return utils.DocumentCamt01100107NameSpace
 }
 
 func (doc DocumentCamt01100107) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		ModfyLmt ModifyLimitV07 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.011.001.07 ModfyLmt"`
+		ModfyLmt ModifyLimitV07 `xml:"ModfyLmt"`
 	}
 	output.ModfyLmt = doc.ModfyLmt
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:camt.011.001.07")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt01900107 struct {
+	Xmlns        string                          `xml:"xmlns,attr"`
 	RtrBizDayInf ReturnBusinessDayInformationV07 `xml:"RtrBizDayInf"`
 }
 
 func (doc DocumentCamt01900107) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt01900107) NameSpace() string {
+	return utils.DocumentCamt01900107NameSpace
 }
 
 func (doc DocumentCamt01900107) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		RtrBizDayInf ReturnBusinessDayInformationV07 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.019.001.07 RtrBizDayInf"`
+		RtrBizDayInf ReturnBusinessDayInformationV07 `xml:"RtrBizDayInf"`
 	}
 	output.RtrBizDayInf = doc.RtrBizDayInf
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:camt.019.001.07")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt02300107 struct {
+	Xmlns   string           `xml:"xmlns,attr"`
 	BckpPmt BackupPaymentV07 `xml:"BckpPmt"`
 }
 
 func (doc DocumentCamt02300107) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt02300107) NameSpace() string {
+	return utils.DocumentCamt02300107NameSpace
 }
 
 func (doc DocumentCamt02300107) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		BckpPmt BackupPaymentV07 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.023.001.07 BckpPmt"`
+		BckpPmt BackupPaymentV07 `xml:"BckpPmt"`
 	}
 	output.BckpPmt = doc.BckpPmt
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:camt.023.001.07")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt01200107 struct {
+	Xmlns  string         `xml:"xmlns,attr"`
 	DelLmt DeleteLimitV07 `xml:"DelLmt"`
 }
 
 func (doc DocumentCamt01200107) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt01200107) NameSpace() string {
+	return utils.DocumentCamt01200107NameSpace
 }
 
 func (doc DocumentCamt01200107) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		DelLmt DeleteLimitV07 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.012.001.07 DelLmt"`
+		DelLmt DeleteLimitV07 `xml:"DelLmt"`
 	}
 	output.DelLmt = doc.DelLmt
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:camt.012.001.07")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt08700107 struct {
+	Xmlns         string                    `xml:"xmlns,attr"`
 	ReqToModfyPmt RequestToModifyPaymentV07 `xml:"ReqToModfyPmt"`
 }
 
 func (doc DocumentCamt08700107) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt08700107) NameSpace() string {
+	return utils.DocumentCamt08700107NameSpace
 }
 
 func (doc DocumentCamt08700107) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		ReqToModfyPmt RequestToModifyPaymentV07 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.087.001.07 ReqToModfyPmt"`
+		ReqToModfyPmt RequestToModifyPaymentV07 `xml:"ReqToModfyPmt"`
 	}
 	output.ReqToModfyPmt = doc.ReqToModfyPmt
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:camt.087.001.07")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }

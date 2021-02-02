@@ -336,7 +336,7 @@ func (r MandateClassification1Choice) Validate() error {
 
 type MandateInitiationRequestV05 struct {
 	GrpHdr      GroupHeader47        `xml:"GrpHdr"`
-	Mndt        []Mandate10          `xml:"Mndt"`
+	Mndt        []Mandate10          `xml:"Mndt" json:",omitempty"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -596,7 +596,7 @@ func (r MandateAmendmentReason1) Validate() error {
 
 type MandateAmendmentRequestV05 struct {
 	GrpHdr            GroupHeader47        `xml:"GrpHdr"`
-	UndrlygAmdmntDtls []MandateAmendment5  `xml:"UndrlygAmdmntDtls"`
+	UndrlygAmdmntDtls []MandateAmendment5  `xml:"UndrlygAmdmntDtls" json:",omitempty"`
 	SplmtryData       []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -645,7 +645,7 @@ func (r MandateCancellation5) Validate() error {
 
 type MandateCancellationRequestV05 struct {
 	GrpHdr         GroupHeader47          `xml:"GrpHdr"`
-	UndrlygCxlDtls []MandateCancellation5 `xml:"UndrlygCxlDtls"`
+	UndrlygCxlDtls []MandateCancellation5 `xml:"UndrlygCxlDtls" json:",omitempty"`
 	SplmtryData    []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -715,7 +715,7 @@ func (r MandateAcceptance5) Validate() error {
 
 type MandateAcceptanceReportV05 struct {
 	GrpHdr             GroupHeader47        `xml:"GrpHdr"`
-	UndrlygAccptncDtls []MandateAcceptance5 `xml:"UndrlygAccptncDtls"`
+	UndrlygAccptncDtls []MandateAcceptance5 `xml:"UndrlygAccptncDtls" json:",omitempty"`
 	SplmtryData        []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 

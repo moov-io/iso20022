@@ -343,7 +343,7 @@ func (r DocumentLineIdentification1) Validate() error {
 }
 
 type DocumentLineInformation1 struct {
-	Id   []DocumentLineIdentification1 `xml:"Id"`
+	Id   []DocumentLineIdentification1 `xml:"Id" json:",omitempty"`
 	Desc *common.Max2048Text           `xml:"Desc,omitempty" json:",omitempty"`
 	Amt  *RemittanceAmount3            `xml:"Amt,omitempty" json:",omitempty"`
 }
@@ -1170,7 +1170,7 @@ type GroupHeader89 struct {
 	CreDtTm               common.ISODateTime                            `xml:"CreDtTm"`
 	Authstn               []Authorisation1Choice                        `xml:"Authstn,omitempty" json:",omitempty"`
 	BtchBookg             bool                                          `xml:"BtchBookg,omitempty" json:",omitempty"`
-	NbOfTxs               *common.Max15NumericText                      `xml:"NbOfTxs"`
+	NbOfTxs               common.Max15NumericText                       `xml:"NbOfTxs"`
 	CtrlSum               float64                                       `xml:"CtrlSum,omitempty" json:",omitempty"`
 	GrpRvsl               bool                                          `xml:"GrpRvsl,omitempty" json:",omitempty"`
 	TtlRvsdIntrBkSttlmAmt *ActiveCurrencyAndAmount                      `xml:"TtlRvsdIntrBkSttlmAmt,omitempty" json:",omitempty"`

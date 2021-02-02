@@ -256,7 +256,7 @@ func (r PaymentMethod2Code) Validate() error {
 // May be one of LETT, MAIL, PHON, FAXX, CELL
 type PreferredContactMethod1Code string
 
-func (r PaymentMethod2Code) Validate() error {
+func (r PreferredContactMethod1Code) Validate() error {
 	for _, vv := range []string{
 		"LETT", "MAIL", "PHON", "FAXX", "CELL",
 	} {

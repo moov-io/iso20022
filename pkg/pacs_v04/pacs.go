@@ -134,7 +134,7 @@ type CreditTransferTransaction47 struct {
 	CdtrAcct          *CashAccount38                                `xml:"CdtrAcct,omitempty" json:",omitempty"`
 	UltmtCdtr         *BranchAndFinancialInstitutionIdentification6 `xml:"UltmtCdtr,omitempty" json:",omitempty"`
 	InstrForCdtrAgt   []InstructionForCreditorAgent3                `xml:"InstrForCdtrAgt,omitempty" json:",omitempty"`
-	DrctDbtTxInf      []DirectDebitTransactionInformation26         `xml:"DrctDbtTxInf"`
+	DrctDbtTxInf      []DirectDebitTransactionInformation26         `xml:"DrctDbtTxInf" json:",omitempty"`
 	SplmtryData       []SupplementaryData1                          `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -175,7 +175,7 @@ func (r FinancialIdentificationSchemeName1Choice) Validate() error {
 
 type FinancialInstitutionDirectDebitV04 struct {
 	GrpHdr      GroupHeader92                 `xml:"GrpHdr"`
-	CdtInstr    []CreditTransferTransaction47 `xml:"CdtInstr"`
+	CdtInstr    []CreditTransferTransaction47 `xml:"CdtInstr" json:",omitempty"`
 	SplmtryData []SupplementaryData1          `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -562,7 +562,7 @@ func (r DocumentLineIdentification1) Validate() error {
 }
 
 type DocumentLineInformation1 struct {
-	Id   []DocumentLineIdentification1 `xml:"Id"`
+	Id   []DocumentLineIdentification1 `xml:"Id" json:",omitempty"`
 	Desc *common.Max2048Text           `xml:"Desc,omitempty" json:",omitempty"`
 	Amt  *RemittanceAmount3            `xml:"Amt,omitempty" json:",omitempty"`
 }

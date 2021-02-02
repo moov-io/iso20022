@@ -11,35 +11,51 @@ import (
 )
 
 type DocumentCamt02800110 struct {
+	Xmlns       string                          `xml:"xmlns,attr"`
 	AddtlPmtInf AdditionalPaymentInformationV10 `xml:"AddtlPmtInf"`
 }
 
 func (doc DocumentCamt02800110) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt02800110) NameSpace() string {
+	return utils.DocumentCamt02800110NameSpace
 }
 
 func (doc DocumentCamt02800110) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		AddtlPmtInf AdditionalPaymentInformationV10 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.028.001.10 AddtlPmtInf"`
+		AddtlPmtInf AdditionalPaymentInformationV10 `xml:"AddtlPmtInf"`
 	}
 	output.AddtlPmtInf = doc.AddtlPmtInf
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:camt.028.001.10")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt02900110 struct {
+	Xmlns           string                       `xml:"xmlns,attr"`
 	RsltnOfInvstgtn ResolutionOfInvestigationV10 `xml:"RsltnOfInvstgtn"`
 }
 
 func (doc DocumentCamt02900110) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt02900110) NameSpace() string {
+	return utils.DocumentCamt02900110NameSpace
 }
 
 func (doc DocumentCamt02900110) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		RsltnOfInvstgtn ResolutionOfInvestigationV10 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.029.001.10 RsltnOfInvstgtn"`
+		RsltnOfInvstgtn ResolutionOfInvestigationV10 `xml:"RsltnOfInvstgtn"`
 	}
 	output.RsltnOfInvstgtn = doc.RsltnOfInvstgtn
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:camt.029.001.10")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }

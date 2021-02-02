@@ -275,7 +275,7 @@ func (r CreditorReferenceType2) Validate() error {
 
 type CustomerCreditTransferInitiationV10 struct {
 	GrpHdr      GroupHeader95          `xml:"GrpHdr"`
-	PmtInf      []PaymentInstruction34 `xml:"PmtInf"`
+	PmtInf      []PaymentInstruction34 `xml:"PmtInf" json:",omitempty"`
 	SplmtryData []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -352,7 +352,7 @@ func (r DocumentLineIdentification1) Validate() error {
 }
 
 type DocumentLineInformation1 struct {
-	Id   []DocumentLineIdentification1 `xml:"Id"`
+	Id   []DocumentLineIdentification1 `xml:"Id" json:",omitempty"`
 	Desc *common.Max2048Text           `xml:"Desc,omitempty" json:",omitempty"`
 	Amt  *RemittanceAmount3            `xml:"Amt,omitempty" json:",omitempty"`
 }
@@ -700,7 +700,7 @@ type PaymentInstruction34 struct {
 	ChrgBr          *ChargeBearerType1Code                        `xml:"ChrgBr,omitempty" json:",omitempty"`
 	ChrgsAcct       *CashAccount38                                `xml:"ChrgsAcct,omitempty" json:",omitempty"`
 	ChrgsAcctAgt    *BranchAndFinancialInstitutionIdentification6 `xml:"ChrgsAcctAgt,omitempty" json:",omitempty"`
-	CdtTrfTxInf     []CreditTransferTransaction40                 `xml:"CdtTrfTxInf"`
+	CdtTrfTxInf     []CreditTransferTransaction40                 `xml:"CdtTrfTxInf" json:",omitempty"`
 }
 
 func (r PaymentInstruction34) Validate() error {

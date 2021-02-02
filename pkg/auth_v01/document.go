@@ -10,56 +10,77 @@ import (
 	"github.com/moov-io/iso20022/pkg/utils"
 )
 
-type DocumentAuth001001V01 struct {
-	XMLName    xml.Name                     `xml:"Document" json:"-"`
+type DocumentAuth00100101 struct {
+	Xmlns      string                       `xml:"xmlns,attr"`
 	InfReqOpng InformationRequestOpeningV01 `xml:"InfReqOpng"`
 }
 
-func (doc DocumentAuth001001V01) Validate() error {
+func (doc DocumentAuth00100101) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
-func (doc DocumentAuth001001V01) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+func (doc DocumentAuth00100101) NameSpace() string {
+	return utils.DocumentAuth00100101NameSpace
+}
+
+func (doc DocumentAuth00100101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		InfReqOpng InformationRequestOpeningV01 `xml:"urn:iso:std:iso:20022:tech:xsd:auth.001.001.01 InfReqOpng"`
+		InfReqOpng InformationRequestOpeningV01 `xml:"InfReqOpng"`
 	}
 	output.InfReqOpng = doc.InfReqOpng
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:auth.001.001.01")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
-type DocumentAuth002001V01 struct {
-	XMLName    xml.Name                      `xml:"Document" json:"-"`
+type DocumentAuth00200101 struct {
+	Xmlns      string                        `xml:"xmlns,attr"`
 	InfReqRspn InformationRequestResponseV01 `xml:"InfReqRspn"`
 }
 
-func (doc DocumentAuth002001V01) Validate() error {
+func (doc DocumentAuth00200101) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
-func (doc DocumentAuth002001V01) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+func (doc DocumentAuth00200101) NameSpace() string {
+	return utils.DocumentAuth00200101NameSpace
+}
+
+func (doc DocumentAuth00200101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		InfReqRspn InformationRequestResponseV01 `xml:"urn:iso:std:iso:20022:tech:xsd:auth.002.001.01 InfReqRspn"`
+		InfReqRspn InformationRequestResponseV01 `xml:"InfReqRspn"`
 	}
 	output.InfReqRspn = doc.InfReqRspn
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:auth.002.001.01")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
 
-type DocumentAuth003001V01 struct {
-	XMLName             xml.Name                                      `xml:"Document" json:"-"`
+type DocumentAuth00300101 struct {
+	Xmlns               string                                        `xml:"xmlns,attr"`
 	InfReqStsChngNtfctn InformationRequestStatusChangeNotificationV01 `xml:"InfReqStsChngNtfctn"`
 }
 
-func (doc DocumentAuth003001V01) Validate() error {
+func (doc DocumentAuth00300101) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
-func (doc DocumentAuth003001V01) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+func (doc DocumentAuth00300101) NameSpace() string {
+	return utils.DocumentAuth00300101NameSpace
+}
+
+func (doc DocumentAuth00300101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		InfReqStsChngNtfctn InformationRequestStatusChangeNotificationV01 `xml:"urn:iso:std:iso:20022:tech:xsd:auth.003.001.01 InfReqStsChngNtfctn"`
+		InfReqStsChngNtfctn InformationRequestStatusChangeNotificationV01 `xml:"InfReqStsChngNtfctn"`
 	}
 	output.InfReqStsChngNtfctn = doc.InfReqStsChngNtfctn
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:auth.003.001.01")
+	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }

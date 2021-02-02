@@ -2232,7 +2232,7 @@ func (r SettlementInstruction6) Validate() error {
 }
 
 type DebitAuthorisation2 struct {
-	CxlRsn         *CancellationReason33Choice        `xml:"CxlRsn"`
+	CxlRsn         CancellationReason33Choice         `xml:"CxlRsn"`
 	AmtToDbt       *ActiveOrHistoricCurrencyAndAmount `xml:"AmtToDbt,omitempty" json:",omitempty"`
 	ValDtToDbt     *common.ISODate                    `xml:"ValDtToDbt,omitempty" json:",omitempty"`
 	AddtlCxlRsnInf []common.Max105Text                `xml:"AddtlCxlRsnInf,omitempty" json:",omitempty"`

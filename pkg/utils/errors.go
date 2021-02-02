@@ -4,7 +4,9 @@
 
 package utils
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // NewErrTextLength returns a error that the length of value is invalid
 func NewErrTextLengthInvalid(typeStr string, min, max int) error {
@@ -16,5 +18,11 @@ func NewErrTextLengthInvalid(typeStr string, min, max int) error {
 // NewErrTextLength returns a error that the length of value is invalid
 func NewErrValueInvalid(typeStr string) error {
 	errStr := fmt.Sprintf("The value of %s is invalid", typeStr)
+	return fmt.Errorf(errStr)
+}
+
+// NewErrInvalidNameSpace returns a error that namespace is invalid
+func NewErrInvalidNameSpace() error {
+	errStr := fmt.Sprintf("The namespace of %s is invalid", "document")
 	return fmt.Errorf(errStr)
 }
