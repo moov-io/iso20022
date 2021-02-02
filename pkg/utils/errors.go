@@ -5,7 +5,6 @@
 package utils
 
 import (
-	"errors"
 	"fmt"
 )
 
@@ -24,5 +23,6 @@ func NewErrValueInvalid(typeStr string) error {
 
 // NewErrInvalidNameSpace returns a error that namespace is invalid
 func NewErrInvalidNameSpace() error {
-	return errors.New("A namespace of document is invalid")
+	errStr := fmt.Sprintf("The namespace of %s is invalid", "document")
+	return fmt.Errorf(errStr)
 }
