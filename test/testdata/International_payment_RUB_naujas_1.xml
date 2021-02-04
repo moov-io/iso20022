@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CstmrCdtTrfInitn>
+    <GrpHdr>
+      <MsgId>MSGID0003</MsgId>
+      <CreDtTm>2015-09-28T10:00:00</CreDtTm>
+      <NbOfTxs>1</NbOfTxs>
+      <CtrlSum>1000.00</CtrlSum>
+      <InitgPty>
+        <Nm>IMONE X</Nm>
+      </InitgPty>
+    </GrpHdr>
+    <PmtInf>
+      <PmtInfId>201509280003</PmtInfId>
+      <PmtMtd>TRF</PmtMtd>
+      <NbOfTxs>1</NbOfTxs>
+      <CtrlSum>1000.00</CtrlSum>
+      <ReqdExctnDt>2015-09-28</ReqdExctnDt>
+      <Dbtr>
+        <Nm>IMONE X</Nm>
+        <Id>
+          <OrgId>
+            <Othr>
+              <Id>123456789</Id>
+              <SchmeNm>
+                <Cd>COID</Cd>
+              </SchmeNm>
+            </Othr>
+          </OrgId>
+        </Id>
+      </Dbtr>
+      <DbtrAcct>
+        <Id>
+          <IBAN>LT007180000000000000</IBAN>
+        </Id>
+        <Ccy>RUB</Ccy>
+      </DbtrAcct>
+      <DbtrAgt>
+        <FinInstnId>
+          <BIC>CBSBLT26XXX</BIC>
+        </FinInstnId>
+      </DbtrAgt>
+      <ChrgBr>DEBT</ChrgBr>
+      <CdtTrfTxInf>
+        <PmtId>
+          <InstrId>Payment-1</InstrId>
+          <EndToEndId>EndToEndId0003</EndToEndId>
+        </PmtId>
+        <Amt>
+          <InstdAmt Ccy="RUB">1000.00</InstdAmt>
+        </Amt>
+        <CdtrAgt>
+          <FinInstnId>
+            <ClrSysMmbId>
+              <ClrSysId>
+                <Cd>RUCBC</Cd>
+              </ClrSysId>
+              <MmbId>044525593</MmbId>
+            </ClrSysMmbId>
+            <Nm>UNICREDIT BANK AO</Nm>
+            <PstlAdr>
+              <Ctry>RU</Ctry>
+              <AdrLine>Russia</AdrLine>
+            </PstlAdr>
+          </FinInstnId>
+        </CdtrAgt>
+        <CdtrAgtAcct>
+          <Id>
+            <Othr>
+              <Id>10000000000000000001</Id>
+            </Othr>
+          </Id>
+        </CdtrAgtAcct>
+        <Cdtr>
+          <Nm>COMPANY Z</Nm>
+        </Cdtr>
+        <CdtrAcct>
+          <Id>
+            <Othr>
+              <Id>1234567890</Id>
+            </Othr>
+          </Id>
+        </CdtrAcct>
+        <RmtInf>
+          <Ustrd>PREPAYMENT RUB 1000,00</Ustrd>
+        </RmtInf>
+      </CdtTrfTxInf>
+    </PmtInf>
+  </CstmrCdtTrfInitn>
+</Document>

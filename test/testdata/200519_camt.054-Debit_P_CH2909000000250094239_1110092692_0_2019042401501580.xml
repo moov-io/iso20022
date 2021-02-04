@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.054.001.04" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.054.001.04 file:///C:/Users/alihodzica/Desktop/camt.054/camt.054.001.04.xsd">
+	<BkToCstmrDbtCdtNtfctn>
+		<GrpHdr>
+			<MsgId>20190424375204222704046</MsgId>
+			<CreDtTm>2014-04-25T01:49:54</CreDtTm>
+			<MsgPgntn>
+				<PgNb>1</PgNb>
+				<LastPgInd>true</LastPgInd>
+			</MsgPgntn>
+			<AddtlInf>SPS/1.6/PROD</AddtlInf>
+		</GrpHdr>
+		<Ntfctn>
+			<Id>20190424375204222704047</Id>
+			<CreDtTm>2019-04-25T01:49:54</CreDtTm>
+			<FrToDt>
+				<FrDtTm>2019-04-25T01:49:54</FrDtTm>
+				<ToDtTm>2019-04-25T01:49:54</ToDtTm>
+			</FrToDt>
+			<RptgSrc>
+				<Prtry>DBTN</Prtry>
+			</RptgSrc>
+			<Acct>
+				<Id>
+					<IBAN>CH2909000000250094239</IBAN>
+				</Id>
+				<Ownr>
+					<Nm>Robert Schneider SA Grands magasins Biel/Bienne</Nm>
+				</Ownr>
+			</Acct>
+			<Ntry>
+				<Amt Ccy="CHF">913.00</Amt>
+				<CdtDbtInd>DBIT</CdtDbtInd>
+				<RvslInd>false</RvslInd>
+				<Sts>BOOK</Sts>
+				<BookgDt>
+					<Dt>2019-04-25</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2019-04-25</Dt>
+				</ValDt>
+				<AcctSvcrRef>074820002ZU1EQ0K</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>ICDT</Cd>
+							<SubFmlyCd>AUTT</SubFmlyCd>
+						</Fmly>
+					</Domn>
+				</BkTxCd>
+				<NtryDtls>
+					<TxDtls>
+						<Refs>
+							<MsgId>20190424-000369773</MsgId>
+							<AcctSvcrRef>25-1120172999-2</AcctSvcrRef>
+							<PmtInfId>30003101</PmtInfId>
+							<EndToEndId>20190424001255000100006</EndToEndId>
+						</Refs>
+						<Amt Ccy="CHF">913.00</Amt>
+						<CdtDbtInd>DBIT</CdtDbtInd>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>GIRO POST CH5109000000250092291 Bernasconi Maria Place de la Gare 12 2502 Biel/Bienne SENDER REFERENZ: 30003101</AddtlNtryInf>
+			</Ntry>
+		</Ntfctn>
+	</BkToCstmrDbtCdtNtfctn>
+</Document>

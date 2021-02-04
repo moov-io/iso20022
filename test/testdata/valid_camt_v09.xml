@@ -1,0 +1,20 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.055.001.09" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<CstmrPmtCxlReq xmlns="urn:iso:std:iso:20022:tech:xsd:camt.055.001.09">
+		<Assgnmt>
+			<Id>Id</Id>
+			<Assgnr>
+				<Pty></Pty>
+				<Agt>
+					<FinInstnId></FinInstnId>
+				</Agt>
+			</Assgnr>
+			<Assgne>
+				<Pty></Pty>
+				<Agt>
+					<FinInstnId></FinInstnId>
+				</Agt>
+			</Assgne>
+			<CreDtTm>2014-11-12T11:45:26.371</CreDtTm>
+		</Assgnmt>
+	</CstmrPmtCxlReq>
+</Document>

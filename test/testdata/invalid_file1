@@ -1,0 +1,9 @@
+{
+	"CstmrPmtStsRpt": {
+		"GrpHdr": {
+			"MsgId": "MsgId",
+			"CreDtTm": "2014-11-12T11:45:26.371"
+		},
+		"OrgnlGrpInfAndSts": {
+			"OrgnlMsgId": "OrgnlMsgId",
+			"OrgnlMsgNmId": "OrgnlMsgNmId"

@@ -1,0 +1,26 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<AcctOpngReq>
+		<Refs>
+			<MsgId>
+				<Id>Id</Id>
+				<CreDtTm>2014-11-12T11:45:26.371</CreDtTm>
+			</MsgId>
+			<PrcId>
+				<Id>Id</Id>
+				<CreDtTm>2014-11-12T11:45:26.371</CreDtTm>
+			</PrcId>
+		</Refs>
+		<Acct>
+			<Ccy>ABC</Ccy>
+		</Acct>
+		<AcctSvcrId>
+			<FinInstnId></FinInstnId>
+		</AcctSvcrId>
+		<Org>
+			<FullLglNm>FullLglNm</FullLglNm>
+			<CtryOfOpr>AA</CtryOfOpr>
+			<LglAdr></LglAdr>
+			<OrgId></OrgId>
+		</Org>
+	</AcctOpngReq>
+</Document>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://www.six-interbank-clearing.com/de/pain.002.001.03.ch.02.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.six-interbank-clearing.com/de/pain.002.001.03.ch.02.xsd pain.002.001.03.ch.02.xsd">
+	<CstmrPmtStsRpt>
+		<GrpHdr>
+			<MsgId>20180313375204216308259</MsgId>
+			<CreDtTm>2018-03-13T17:22:51</CreDtTm>
+			<InitgPty>
+				<Id>
+					<OrgId>
+						<BICOrBEI>POFICHBE</BICOrBEI>
+					</OrgId>
+				</Id>
+			</InitgPty>
+		</GrpHdr>
+		<OrgnlGrpInfAndSts>
+			<OrgnlMsgId>MsgId-CHDD-Musterfile</OrgnlMsgId>
+			<OrgnlMsgNmId>pain.008.001.02.ch.03</OrgnlMsgNmId>
+		</OrgnlGrpInfAndSts>
+		<OrgnlPmtInfAndSts>
+			<OrgnlPmtInfId>PmtInfId-CHDD-1</OrgnlPmtInfId>
+			<PmtInfSts>ACCP</PmtInfSts>
+		</OrgnlPmtInfAndSts>
+	</CstmrPmtStsRpt>
+</Document>

@@ -1,0 +1,27 @@
+{
+	"Xmlns": "urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03",
+	"AcctOpngReq": {
+		"Refs": {
+			"MsgId": {
+				"Id": "Id",
+				"CreDtTm": "2014-11-12T11:45:26.371"
+			},
+			"PrcId": {
+				"Id": "Id",
+				"CreDtTm": "2014-11-12T11:45:26.371"
+			}
+		},
+		"Acct": {
+			"Ccy": "ABC"
+		},
+		"AcctSvcrId": {
+			"FinInstnId": {}
+		},
+		"Org": {
+			"FullLglNm": "FullLglNm",
+			"CtryOfOpr": "AA",
+			"LglAdr": {},
+			"OrgId": {}
+		}
+	}
+}

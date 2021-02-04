@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://www.six-interbank-clearing.com/de/pain.002.001.03.ch.02.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.six-interbank-clearing.com/de/pain.002.001.03.ch.02.xsd pain.002.001.03.ch.02.xsd">
+	<CstmrPmtStsRpt>
+		<GrpHdr>
+			<MsgId>20180326375204011685776</MsgId>
+			<CreDtTm>2018-03-26T14:40:00</CreDtTm>
+			<InitgPty>
+				<Id>
+					<OrgId>
+						<BICOrBEI>POFICHBE</BICOrBEI>
+					</OrgId>
+				</Id>
+			</InitgPty>
+		</GrpHdr>
+		<OrgnlGrpInfAndSts>
+			<OrgnlMsgId>MsgId-005</OrgnlMsgId>
+			<OrgnlMsgNmId>pain.001.001.03.ch.02</OrgnlMsgNmId>
+			<GrpSts>RJCT</GrpSts>
+			<StsRsnInf>
+				<Rsn>
+					<Cd>AM10</Cd>
+				</Rsn>
+				<AddtlInf>904114;ControlSum fehlerhaft</AddtlInf>
+			</StsRsnInf>
+		</OrgnlGrpInfAndSts>
+	</CstmrPmtStsRpt>
+</Document>

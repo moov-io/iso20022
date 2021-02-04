@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?><Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02 camt.053.001.02.xsd"
+ xmlns="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02">
+<BkToCstmrStmt>
+<GrpHdr>
+<MsgId>201509302599406884</MsgId>
+<CreDtTm>2015-09-30T14:09:11</CreDtTm>
+</GrpHdr>
+<Stmt>
+  <Id>201509302599406883</Id>
+  <ElctrncSeqNb>44</ElctrncSeqNb>
+  <CreDtTm>2015-09-30T14:09:11</CreDtTm>
+  <FrToDt>
+    <FrDtTm>2015-05-01T00:00:00</FrDtTm>
+    <ToDtTm>2015-06-30T23:59:59</ToDtTm>
+  </FrToDt>
+  <Acct>
+    <Id>
+      <IBAN>LT007180000000000000</IBAN>
+    </Id>
+    <Ccy>EUR</Ccy>
+    <Ownr>
+      <Nm>UAB &quot;TESTAVIMAS&quot;</Nm>
+      <PstlAdr>
+        <StrtNm>Tilžės g. 149,</StrtNm>
+        <TwnNm>Šiauliai</TwnNm>
+      </PstlAdr>
+      <Id>
+        <OrgId>
+          <Othr>
+            <Id>111111111</Id>
+          </Othr>
+        </OrgId>
+      </Id>
+    </Ownr>
+    <Svcr>
+      <FinInstnId>
+        <BIC>CBSBLT26XXX</BIC>
+        <Nm>AB ŠIAULIŲ BANKAS Kauno filialas</Nm>
+        <PstlAdr>
+          <StrtNm>Vytauto pr. 56</StrtNm>
+          <TwnNm>Kaunas</TwnNm>
+        </PstlAdr>
+        <Othr>
+          <Id>211006490</Id>
+        </Othr>
+      </FinInstnId>
+      <BrnchId>
+        <Nm>AB ŠIAULIŲ BANKAS Kauno filialas</Nm>
+      </BrnchId>
+    </Svcr>
+  </Acct>
+  <Bal>
+    <Tp>
+      <CdOrPrtry>
+        <Cd>OPAV</Cd>
+      </CdOrPrtry>
+    </Tp>
+    <Amt Ccy="EUR">2768.08</Amt>
+    <CdtDbtInd>CRDT</CdtDbtInd>
+    <Dt>
+      <Dt>2015-05-01</Dt>
+    </Dt>
+  </Bal>
+  <Bal>
+    <Tp>
+      <CdOrPrtry>
+        <Cd>CLAV</Cd>
+      </CdOrPrtry>
+    </Tp>
+    <Amt Ccy="EUR">0.00</Amt>
+    <CdtDbtInd>CRDT</CdtDbtInd>
+    <Dt>
+      <Dt>2015-06-30</Dt>
+    </Dt>
+  </Bal>
+  <Ntry>
+    <Amt Ccy="EUR">1.64</Amt>
+    <CdtDbtInd>DBIT</CdtDbtInd>
+    <Sts>BOOK</Sts>
+    <BookgDt>
+      <Dt>2015-05-11</Dt>
+    </BookgDt>
+    <ValDt>
+      <Dt>2015-05-11</Dt>
+    </ValDt>
+	<BkTxCd>
+		<Domn>
+			<Cd>PMNT</Cd>
+			<Fmly>
+				<Cd>MDOP</Cd>
+				<SubFmlyCd>FEES</SubFmlyCd>
+			</Fmly>
+		</Domn>
+	</BkTxCd>
+    <NtryDtls>
+      <TxDtls>
+        <Refs>
+          <InstrId>215431</InstrId>
+          <EndToEndId>NOTPROVIDED</EndToEndId>
+          <TxId>514026627</TxId>
+        </Refs>
+        <AmtDtls>
+          <TxAmt>
+            <Amt Ccy="EUR">1.64</Amt>
+          </TxAmt>
+        </AmtDtls>
+        <RltdPties>
+          <Dbtr>
+            <Id>
+              <OrgId>
+                <Othr>
+                  <Id>111111111</Id>
+                </Othr>
+              </OrgId>
+            </Id>
+          </Dbtr>
+          <DbtrAcct>
+            <Id>
+              <IBAN>LT007180000000000000</IBAN>
+            </Id>
+          </DbtrAcct>
+          <Cdtr>
+            <Nm>UAB &quot;TESTAVIMAS&quot;</Nm>
+            <Id>
+              <OrgId>
+                <Othr>
+                  <Id>111111111</Id>
+                </Othr>
+              </OrgId>
+            </Id>
+          </Cdtr>
+          <CdtrAcct>
+            <Id>
+              <IBAN>LT007180000000000001</IBAN>
+            </Id>
+          </CdtrAcct>
+        </RltdPties>
+        <RltdAgts>
+          <CdtrAgt>
+            <FinInstnId>
+              <BIC>CBSBLT26XXX</BIC>
+              <Nm>AB ŠIAULIŲ BANKAS Kauno filialas</Nm>
+            </FinInstnId>
+          </CdtrAgt>
+        </RltdAgts>
+        <RmtInf>
+          <Ustrd>Mokestis už į kliento sąskaitą pervestų lėšų, gautų iš kitų bankų, įskaitymą 2015.04.01, 2015.04.30 dienoje</Ustrd>
+        </RmtInf>
+      </TxDtls>
+    </NtryDtls>
+  </Ntry>
+  <Ntry>
+    <Amt Ccy="EUR">2734.58</Amt>
+    <CdtDbtInd>DBIT</CdtDbtInd>
+    <Sts>BOOK</Sts>
+    <BookgDt>
+      <Dt>2015-05-20</Dt>
+    </BookgDt>
+    <ValDt>
+      <Dt>2015-05-20</Dt>
+    </ValDt>
+		<BkTxCd>
+		<Domn>
+			<Cd>PMNT</Cd>
+			<Fmly>
+				<Cd>RCDT</Cd>
+				<SubFmlyCd>BOOK</SubFmlyCd>
+			</Fmly>
+		</Domn>
+	</BkTxCd>
+    <NtryDtls>
+      <TxDtls>
+        <Refs>
+          <InstrId>200924</InstrId>
+          <EndToEndId>NOTPROVIDED</EndToEndId>
+          <TxId>515993893</TxId>
+        </Refs>
+        <AmtDtls>
+          <TxAmt>
+            <Amt Ccy="EUR">2734.58</Amt>
+          </TxAmt>
+        </AmtDtls>
+        <RltdPties>
+          <Dbtr>
+            <Id>
+              <OrgId>
+                <Othr>
+                  <Id>111111111</Id>
+                </Othr>
+              </OrgId>
+            </Id>
+          </Dbtr>
+          <DbtrAcct>
+            <Id>
+              <IBAN>LT007180000000000000</IBAN>
+            </Id>
+          </DbtrAcct>
+          <Cdtr>
+            <Nm>UAB &quot;TESTAVIMAS&quot;</Nm>
+            <Id>
+              <OrgId>
+                <Othr>
+                  <Id>111111111</Id>
+                </Othr>
+              </OrgId>
+            </Id>
+          </Cdtr>
+          <CdtrAcct>
+            <Id>
+              <IBAN>LT007180000000000002</IBAN>
+            </Id>
+          </CdtrAcct>
+        </RltdPties>
+        <RltdAgts>
+          <CdtrAgt>
+            <FinInstnId>
+              <BIC>CBSBLT26XXX</BIC>
+              <Nm>AB ŠIAULIŲ BANKAS Kauno filialas</Nm>
+            </FinInstnId>
+          </CdtrAgt>
+        </RltdAgts>
+        <RmtInf>
+          <Ustrd>Lėšų įsiskolinimui dengti surinkimas į paskolos aptarnavimo sąskaitą</Ustrd>
+        </RmtInf>
+      </TxDtls>
+    </NtryDtls>
+  </Ntry>
+  <Ntry>
+    <Amt Ccy="EUR">30.16</Amt>
+    <CdtDbtInd>DBIT</CdtDbtInd>
+    <Sts>BOOK</Sts>
+    <BookgDt>
+      <Dt>2015-05-20</Dt>
+    </BookgDt>
+    <ValDt>
+      <Dt>2015-05-20</Dt>
+    </ValDt>
+		<BkTxCd>
+		<Domn>
+			<Cd>PMNT</Cd>
+			<Fmly>
+				<Cd>ICDT</Cd>
+				<SubFmlyCd>DMCT</SubFmlyCd>
+			</Fmly>
+		</Domn>
+	</BkTxCd>
+    <NtryDtls>
+      <TxDtls>
+        <Refs>
+          <InstrId>224881</InstrId>
+          <EndToEndId>NOTPROVIDED</EndToEndId>
+          <TxId>516079331</TxId>
+        </Refs>
+        <AmtDtls>
+          <TxAmt>
+            <Amt Ccy="EUR">30.16</Amt>
+          </TxAmt>
+        </AmtDtls>
+        <RltdPties>
+          <Dbtr>
+            <Nm>UAB &quot;TESTAVIMAS&quot;</Nm>
+            <Id>
+              <OrgId>
+                <Othr>
+                  <Id>111111111</Id>
+                </Othr>
+              </OrgId>
+            </Id>
+          </Dbtr>
+          <DbtrAcct>
+            <Id>
+              <IBAN>LT007180000000000000</IBAN>
+            </Id>
+          </DbtrAcct>
+          <Cdtr>
+            <Nm>Antstolis Vardenis Pavardenis</Nm>
+          </Cdtr>
+          <CdtrAcct>
+            <Id>
+              <IBAN>LT007044000000000000</IBAN>
+            </Id>
+          </CdtrAcct>
+        </RltdPties>
+        <RltdAgts>
+          <CdtrAgt>
+            <FinInstnId>
+              <BIC>CBVILT2XXXX</BIC>
+              <Nm>SEB BANK</Nm>
+            </FinInstnId>
+          </CdtrAgt>
+        </RltdAgts>
+        <RmtInf>
+          <Ustrd>Dalinis nurašymas pagal inkasinį pavedimą</Ustrd>
+        </RmtInf>
+      </TxDtls>
+    </NtryDtls>
+  </Ntry>
+  <Ntry>
+    <Amt Ccy="EUR">1.7</Amt>
+    <CdtDbtInd>DBIT</CdtDbtInd>
+    <Sts>BOOK</Sts>
+    <BookgDt>
+      <Dt>2015-05-20</Dt>
+    </BookgDt>
+    <ValDt>
+      <Dt>2015-05-20</Dt>
+    </ValDt>
+		<BkTxCd>
+		<Domn>
+			<Cd>PMNT</Cd>
+			<Fmly>
+				<Cd>MDOP</Cd>
+				<SubFmlyCd>FEES</SubFmlyCd>
+			</Fmly>
+		</Domn>
+	</BkTxCd>
+    <NtryDtls>
+      <TxDtls>
+        <Refs>
+          <InstrId>224881</InstrId>
+          <EndToEndId>NOTPROVIDED</EndToEndId>
+          <TxId>516079334</TxId>
+        </Refs>
+        <AmtDtls>
+          <TxAmt>
+            <Amt Ccy="EUR">1.7</Amt>
+          </TxAmt>
+        </AmtDtls>
+        <RltdPties>
+          <Dbtr>
+            <Id>
+              <OrgId>
+                <Othr>
+                  <Id>111111111</Id>
+                </Othr>
+              </OrgId>
+            </Id>
+          </Dbtr>
+          <DbtrAcct>
+            <Id>
+              <IBAN>LT007180000000000000</IBAN>
+            </Id>
+          </DbtrAcct>
+          <Cdtr>
+            <Nm>Pajamos</Nm>
+          </Cdtr>
+          <CdtrAcct>
+            <Id>
+              <IBAN>LT007180000000000003</IBAN>
+            </Id>
+          </CdtrAcct>
+        </RltdPties>
+        <RltdAgts>
+          <CdtrAgt>
+            <FinInstnId>
+              <BIC>CBSBLT26XXX</BIC>
+              <Nm>AB ŠIAULIŲ BANKAS Kauno filialas</Nm>
+            </FinInstnId>
+          </CdtrAgt>
+        </RltdAgts>
+        <RmtInf>
+          <Ustrd>Už lėšų pervedimo atlikimą į kitus bankus iš kliento sąskaitos</Ustrd>
+        </RmtInf>
+      </TxDtls>
+    </NtryDtls>
+  </Ntry>
+</Stmt>
+</BkToCstmrStmt>
+</Document>
