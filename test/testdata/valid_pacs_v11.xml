@@ -1,0 +1,8 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.11" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<FIToFIPmtStsRpt>
+		<GrpHdr>
+			<MsgId>MsgId</MsgId>
+			<CreDtTm>2014-11-12T11:45:26.371</CreDtTm>
+		</GrpHdr>
+	</FIToFIPmtStsRpt>
+</Document>

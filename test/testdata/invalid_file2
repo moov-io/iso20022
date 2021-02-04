@@ -1,0 +1,12 @@
+<Document
+	<CstmrPmtStsRpt
+		<GrpHdr>
+			<MsgId>MsgId</MsgId>
+			<CreDtTm>2014-11-12T11:45:26.371</CreDtTm>
+		</GrpHdr>
+		<OrgnlGrpInfAndSts>
+			<OrgnlMsgId>OrgnlMsgId</OrgnlMsgId>
+			<OrgnlMsgNmId>OrgnlMsgNmId</OrgnlMsgNmId>
+		</OrgnlGrpInfAndSts>
+	</CstmrPmtStsRpt>
+</Document>

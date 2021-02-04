@@ -1,0 +1,21 @@
+{
+	"Xmlns": "urn:iso:std:iso:20022:tech:xsd:camt.055.001.09",
+	"CstmrPmtCxlReq": {
+		"Assgnmt": {
+			"Id": "Id",
+			"Assgnr": {
+				"Pty": {},
+				"Agt": {
+					"FinInstnId": {}
+				}
+			},
+			"Assgne": {
+				"Pty": {},
+				"Agt": {
+					"FinInstnId": {}
+				}
+			},
+			"CreDtTm": "2014-11-12T11:45:26.371"
+		}
+	}
+}

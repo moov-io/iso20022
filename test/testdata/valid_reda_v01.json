@@ -1,0 +1,14 @@
+{
+	"Xmlns": "urn:iso:std:iso:20022:tech:xsd:reda.066.001.01",
+	"ReqToPayCdtrEnrlmntReq": {
+		"Hdr": {
+			"MsgId": "MsgId",
+			"CreDtTm": "2014-11-12T11:45:26.371",
+			"InitgPty": {}
+		},
+		"ActvtnData": {
+			"LtdPresntmntInd": false,
+			"ActvtnReqDlvryPty": {}
+		}
+	}
+}

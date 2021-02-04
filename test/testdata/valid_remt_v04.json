@@ -1,0 +1,10 @@
+{
+	"Xmlns": "urn:iso:std:iso:20022:tech:xsd:remt.001.001.04",
+	"RmtAdvc": {
+		"GrpHdr": {
+			"MsgId": "MsgId",
+			"CreDtTm": "2014-11-12T11:45:26.371",
+			"InitgPty": {}
+		}
+	}
+}

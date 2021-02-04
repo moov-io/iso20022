@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.04" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.052.001.04 file:///C:/Users/alihodzica/Desktop/camt.052/camt.052.001.04.xsd">
+	<BkToCstmrAcctRpt>
+		<GrpHdr>
+			<MsgId>20190424375204223062173</MsgId>
+			<CreDtTm>2019-04-24T16:07:09</CreDtTm>
+			<MsgPgntn>
+				<PgNb>1</PgNb>
+				<LastPgInd>true</LastPgInd>
+			</MsgPgntn>
+			<AddtlInf>SPS/1.6/PROD</AddtlInf>
+		</GrpHdr>
+		<Rpt>
+			<Id>20190424375204223062174</Id>
+			<ElctrncSeqNb>78</ElctrncSeqNb>
+			<CreDtTm>2019-04-24T16:07:09</CreDtTm>
+			<FrToDt>
+				<FrDtTm>2019-04-24T00:00:00</FrDtTm>
+				<ToDtTm>2019-04-24T16:00:00</ToDtTm>
+			</FrToDt>
+			<Acct>
+				<Id>
+					<IBAN>CH2909000000250094239</IBAN>
+				</Id>
+				<Ownr>
+					<Nm>Robert Schneider SA Grands magasins Biel/Bienne</Nm>
+				</Ownr>
+			</Acct>
+			<Bal>
+				<Tp>
+					<CdOrPrtry>
+						<Cd>OPBD</Cd>
+					</CdOrPrtry>
+				</Tp>
+				<Amt Ccy="CHF">208509.19</Amt>
+				<CdtDbtInd>CRDT</CdtDbtInd>
+				<Dt>
+					<Dt>2019-04-24</Dt>
+				</Dt>
+			</Bal>
+			<Bal>
+				<Tp>
+					<CdOrPrtry>
+						<Cd>ITBD</Cd>
+					</CdOrPrtry>
+				</Tp>
+				<Amt Ccy="CHF">207596.19</Amt>
+				<CdtDbtInd>CRDT</CdtDbtInd>
+				<Dt>
+					<Dt>2019-04-24</Dt>
+				</Dt>
+			</Bal>
+			<Ntry>
+				<Amt Ccy="CHF">103.00</Amt>
+				<CdtDbtInd>DBIT</CdtDbtInd>
+				<RvslInd>false</RvslInd>
+				<Sts>BOOK</Sts>
+				<BookgDt>
+					<Dt>2019-04-24</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2019-04-24</Dt>
+				</ValDt>
+				<AcctSvcrRef>074820002ZU1EPZK</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>ICDT</Cd>
+							<SubFmlyCd>AUTT</SubFmlyCd>
+						</Fmly>
+					</Domn>
+				</BkTxCd>
+				<NtryDtls>
+					<TxDtls>
+						<Refs>
+							<MsgId>20190423-000369773</MsgId>
+							<AcctSvcrRef>25-1120172999-1</AcctSvcrRef>
+							<PmtInfId>30003101</PmtInfId>
+							<EndToEndId>20190423001255000100005</EndToEndId>
+						</Refs>
+						<Amt Ccy="CHF">103.00</Amt>
+						<CdtDbtInd>DBIT</CdtDbtInd>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>GIRO POST CH5109000000250092291 Bernasconi Maria Place de la Gare 12 2502 Biel/Bienne SENDER REFERENZ: 30003101</AddtlNtryInf>
+			</Ntry>
+			<Ntry>
+				<Amt Ccy="CHF">913.00</Amt>
+				<CdtDbtInd>DBIT</CdtDbtInd>
+				<RvslInd>false</RvslInd>
+				<Sts>BOOK</Sts>
+				<BookgDt>
+					<Dt>2019-04-24</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2019-04-24</Dt>
+				</ValDt>
+				<AcctSvcrRef>074820002ZU1EQ0K</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>ICDT</Cd>
+							<SubFmlyCd>AUTT</SubFmlyCd>
+						</Fmly>
+					</Domn>
+				</BkTxCd>
+				<NtryDtls>
+					<TxDtls>
+						<Refs>
+							<MsgId>20190423-000369773</MsgId>
+							<AcctSvcrRef>25-1120172999-2</AcctSvcrRef>
+							<PmtInfId>30003101</PmtInfId>
+							<EndToEndId>20190423001255000100006</EndToEndId>
+						</Refs>
+						<Amt Ccy="CHF">913.00</Amt>
+						<CdtDbtInd>DBIT</CdtDbtInd>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>GIRO POST CH5109000000250092291 Bernasconi Maria Place de la Gare 12 2502 Biel/Bienne SENDER REFERENZ: 30003101</AddtlNtryInf>
+			</Ntry>
+		</Rpt>
+	</BkToCstmrAcctRpt>
+</Document>

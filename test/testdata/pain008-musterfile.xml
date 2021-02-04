@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://www.six-interbank-clearing.com/de/pain.008.001.02.ch.03.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.six-interbank-clearing.com/de/pain.008.001.02.ch.03.xsd pain.008.001.02.ch.03.xsd">
+	<CstmrDrctDbtInitn>
+		<GrpHdr>
+			<MsgId>MsgId-CHDD-Musterfile</MsgId>
+			<CreDtTm>2018-03-13T10:09:01</CreDtTm>
+			<NbOfTxs>2</NbOfTxs>
+			<CtrlSum>4.5</CtrlSum>
+			<InitgPty>
+				<Nm>Robert Schneider SA</Nm>
+				<Id>
+					<OrgId>
+						<Othr>
+							<Id>41100000000872849</Id>
+						</Othr>
+					</OrgId>
+				</Id>
+			</InitgPty>
+		</GrpHdr>
+		<PmtInf>
+			<PmtInfId>PmtInfId-CHDD-1</PmtInfId>
+			<PmtMtd>DD</PmtMtd>
+			<PmtTpInf>
+				<SvcLvl>
+					<Prtry>CHDD</Prtry>
+				</SvcLvl>
+				<LclInstrm>
+					<Prtry>DDCOR1</Prtry>
+				</LclInstrm>
+			</PmtTpInf>
+			<ReqdColltnDt>2018-03-16</ReqdColltnDt>
+			<Cdtr>
+				<Nm>Robert Schneider SA</Nm>
+				<PstlAdr>
+					<StrtNm>Ruelle du Lac 177</StrtNm>
+					<PstCd>2503</PstCd>
+					<TwnNm>Biel</TwnNm>
+					<Ctry>CH</Ctry>
+				</PstlAdr>
+			</Cdtr>
+			<CdtrAcct>
+				<Id>
+					<IBAN>CH2909000000250094239</IBAN>
+				</Id>
+			</CdtrAcct>
+			<CdtrAgt>
+				<FinInstnId>
+					<ClrSysMmbId>
+						<MmbId>09000</MmbId>
+					</ClrSysMmbId>
+				</FinInstnId>
+			</CdtrAgt>
+			<CdtrSchmeId>
+				<Id>
+					<PrvtId>
+						<Othr>
+							<Id>41100000000872849</Id>
+							<SchmeNm>
+								<Prtry>CHDD</Prtry>
+							</SchmeNm>
+						</Othr>
+					</PrvtId>
+				</Id>
+			</CdtrSchmeId>
+			<DrctDbtTxInf>
+				<PmtId>
+					<InstrId>InstrId-CHDD-1</InstrId>
+					<EndToEndId>E2EId-CHDD-1</EndToEndId>
+				</PmtId>
+				<InstdAmt Ccy="CHF">1.5</InstdAmt>
+				<DbtrAgt>
+					<FinInstnId>
+						<ClrSysMmbId>
+							<MmbId>09000</MmbId>
+						</ClrSysMmbId>
+					</FinInstnId>
+				</DbtrAgt>
+				<Dbtr>
+					<Nm>Maria Bernasconi</Nm>
+					<PstlAdr>
+						<StrtNm>Place de la Gare 12</StrtNm>
+						<PstCd>2502</PstCd>
+						<TwnNm>Biel</TwnNm>
+						<Ctry>CH</Ctry>
+					</PstlAdr>
+				</Dbtr>
+				<DbtrAcct>
+					<Id>
+						<IBAN>CH5109000000250092291</IBAN>
+					</Id>
+				</DbtrAcct>
+				<RmtInf>
+					<Ustrd>Rechnung 1001</Ustrd>
+				</RmtInf>
+			</DrctDbtTxInf>
+			<DrctDbtTxInf>
+				<PmtId>
+					<InstrId>InstrId-CHDD-2</InstrId>
+					<EndToEndId>E2EId-CHDD-2</EndToEndId>
+				</PmtId>
+				<InstdAmt Ccy="CHF">3.0</InstdAmt>
+				<DbtrAgt>
+					<FinInstnId>
+						<ClrSysMmbId>
+							<MmbId>09000</MmbId>
+						</ClrSysMmbId>
+					</FinInstnId>
+				</DbtrAgt>
+				<Dbtr>
+					<Nm>Maria Bernasconi</Nm>
+					<PstlAdr>
+						<StrtNm>Place de la Gare 12</StrtNm>
+						<PstCd>2502</PstCd>
+						<TwnNm>Biel</TwnNm>
+						<Ctry>CH</Ctry>
+					</PstlAdr>
+				</Dbtr>
+				<DbtrAcct>
+					<Id>
+						<IBAN>CH5109000000250092291</IBAN>
+					</Id>
+				</DbtrAcct>
+				<RmtInf>
+					<Ustrd>Rechnung 1002</Ustrd>
+				</RmtInf>
+			</DrctDbtTxInf>
+		</PmtInf>
+	</CstmrDrctDbtInitn>
+</Document>

@@ -1,0 +1,13 @@
+{
+	"Xmlns": "urn:iso:std:iso:20022:tech:xsd:pain.002.001.11",
+	"CstmrPmtStsRpt": {
+		"GrpHdr": {
+			"MsgId": "MsgId",
+			"CreDtTm": "2014-11-12T11:45:26.371"
+		},
+		"OrgnlGrpInfAndSts": {
+			"OrgnlMsgId": "OrgnlMsgId",
+			"OrgnlMsgNmId": "OrgnlMsgNmId"
+		}
+	}
+}

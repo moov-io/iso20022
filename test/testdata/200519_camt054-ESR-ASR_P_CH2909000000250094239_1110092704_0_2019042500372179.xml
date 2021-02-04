@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.054.001.04" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.054.001.04 file:///C:/Users/alihodzica/Desktop/camt.054/camt.054.001.04.xsd">
+	<BkToCstmrDbtCdtNtfctn>
+		<GrpHdr>
+			<MsgId>20190424375204228750928</MsgId>
+			<CreDtTm>2019-04-25T00:20:05</CreDtTm>
+			<MsgPgntn>
+				<PgNb>1</PgNb>
+				<LastPgInd>true</LastPgInd>
+			</MsgPgntn>
+			<AddtlInf>SPS/1.6/PROD</AddtlInf>
+		</GrpHdr>
+		<Ntfctn>
+			<Id>20190424375204228750931</Id>
+			<CreDtTm>2019-04-25T00:20:05</CreDtTm>
+			<FrToDt>
+				<FrDtTm>2019-04-24T00:00:00</FrDtTm>
+				<ToDtTm>2019-04-24T23:59:59</ToDtTm>
+			</FrToDt>
+			<RptgSrc>
+				<Prtry>OTHR</Prtry>
+			</RptgSrc>
+			<Acct>
+				<Id>
+					<IBAN>CH2909000000250094239</IBAN>
+				</Id>
+				<Ownr>
+					<Nm>Robert Schneider SA</Nm>
+				</Ownr>
+			</Acct>
+			<Ntry>
+				<NtryRef>014295803</NtryRef>
+				<Amt Ccy="CHF">1537.00</Amt>
+				<CdtDbtInd>CRDT</CdtDbtInd>
+				<RvslInd>false</RvslInd>
+				<Sts>BOOK</Sts>
+				<BookgDt>
+					<Dt>2019-04-24</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2019-04-25</Dt>
+				</ValDt>
+				<AcctSvcrRef>07582000303KBMSU</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>RCDT</Cd>
+							<SubFmlyCd>VCOM</SubFmlyCd>
+						</Fmly>
+					</Domn>
+				</BkTxCd>
+				<NtryDtls>
+					<Btch>
+						<NbOfTxs>5</NbOfTxs>
+					</Btch>
+					<TxDtls>
+						<Refs>
+							<MsgId>MsgId-001</MsgId>
+							<AcctSvcrRef>180315CH02ZX5RI3</AcctSvcrRef>
+							<PmtInfId>PmtInfId-001-02</PmtInfId>
+							<InstrId>InstrId-001-02-02</InstrId>
+							<EndToEndId>EndToEndId-001-02-02</EndToEndId>
+							<Prtry>
+								<Tp>01</Tp>
+								<Ref>180315CH02ZX5RI3</Ref>
+							</Prtry>
+						</Refs>
+						<Amt Ccy="CHF">250.00</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>RCDT</Cd>
+									<SubFmlyCd>AUTT</SubFmlyCd>
+								</Fmly>
+							</Domn>
+						</BkTxCd>
+						<RltdPties>
+							<Dbtr>
+								<Nm>Bernasconi Maria</Nm>
+								<PstlAdr>
+									<StrtNm>Place de la Gare</StrtNm>
+									<BldgNb>12</BldgNb>
+									<PstCd>2502</PstCd>
+									<TwnNm>Biel/Bienne</TwnNm>
+									<Ctry>CH</Ctry>
+								</PstlAdr>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>CH5109000000250092291</IBAN>
+								</Id>
+							</DbtrAcct>
+						</RltdPties>
+						<RltdAgts>
+							<DbtrAgt>
+								<FinInstnId>
+									<BICFI>POFICHBEXXX</BICFI>
+									<Nm>POSTFINANCE AG</Nm>
+									<PstlAdr>
+										<AdrLine>MINGERSTRASSE 20</AdrLine>
+										<AdrLine>3030 BERNE</AdrLine>
+									</PstlAdr>
+								</FinInstnId>
+							</DbtrAgt>
+						</RltdAgts>
+						<RmtInf>
+							<Strd>
+								<CdtrRefInf>
+									<Tp>
+										<CdOrPrtry>
+											<Prtry>ISR Reference</Prtry>
+										</CdOrPrtry>
+									</Tp>
+									<Ref>120000000000234478943216899</Ref>
+								</CdtrRefInf>
+								<AddtlRmtInf>?REJECT?0</AddtlRmtInf>
+							</Strd>
+						</RmtInf>
+						<RltdDts>
+							<AccptncDtTm>2019-04-24T20:00:00</AccptncDtTm>
+						</RltdDts>
+					</TxDtls>
+					<TxDtls>
+						<Refs>
+							<MsgId>MsgId-001</MsgId>
+							<AcctSvcrRef>180315CH02ZX5RI4</AcctSvcrRef>
+							<PmtInfId>PmtInfId-001-02</PmtInfId>
+							<InstrId>InstrId-001-02-01</InstrId>
+							<EndToEndId>EndToEndId-001-02-01</EndToEndId>
+							<Prtry>
+								<Tp>01</Tp>
+								<Ref>180315CH02ZX5RI4</Ref>
+							</Prtry>
+						</Refs>
+						<Amt Ccy="CHF">200.00</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>RCDT</Cd>
+									<SubFmlyCd>AUTT</SubFmlyCd>
+								</Fmly>
+							</Domn>
+						</BkTxCd>
+						<RltdPties>
+							<Dbtr>
+								<Nm>Bernasconi Maria</Nm>
+								<PstlAdr>
+									<StrtNm>Place de la Gare</StrtNm>
+									<BldgNb>12</BldgNb>
+									<PstCd>2502</PstCd>
+									<TwnNm>Biel/Bienne</TwnNm>
+									<Ctry>CH</Ctry>
+								</PstlAdr>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>CH5109000000250092291</IBAN>
+								</Id>
+							</DbtrAcct>
+						</RltdPties>
+						<RltdAgts>
+							<DbtrAgt>
+								<FinInstnId>
+									<BICFI>POFICHBEXXX</BICFI>
+									<Nm>POSTFINANCE AG</Nm>
+									<PstlAdr>
+										<AdrLine>MINGERSTRASSE 20</AdrLine>
+										<AdrLine>3030 BERNE</AdrLine>
+									</PstlAdr>
+								</FinInstnId>
+							</DbtrAgt>
+						</RltdAgts>
+						<RmtInf>
+							<Strd>
+								<CdtrRefInf>
+									<Tp>
+										<CdOrPrtry>
+											<Prtry>ISR Reference</Prtry>
+										</CdOrPrtry>
+									</Tp>
+									<Ref>120000000000234478943216899</Ref>
+								</CdtrRefInf>
+								<AddtlRmtInf>?REJECT?0</AddtlRmtInf>
+							</Strd>
+						</RmtInf>
+						<RltdDts>
+							<AccptncDtTm>2019-04-24T20:00:00</AccptncDtTm>
+						</RltdDts>
+					</TxDtls>
+					<TxDtls>
+						<Refs>
+							<MsgId>MsgId-001</MsgId>
+							<AcctSvcrRef>180315CH02ZX5RI5</AcctSvcrRef>
+							<PmtInfId>PmtInfId-001-02</PmtInfId>
+							<InstrId>InstrId-001-02-03</InstrId>
+							<EndToEndId>EndToEndId-001-02-03</EndToEndId>
+							<Prtry>
+								<Tp>01</Tp>
+								<Ref>180315CH02ZX5RI5</Ref>
+							</Prtry>
+						</Refs>
+						<Amt Ccy="CHF">300.00</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>RCDT</Cd>
+									<SubFmlyCd>AUTT</SubFmlyCd>
+								</Fmly>
+							</Domn>
+						</BkTxCd>
+						<RltdPties>
+							<Dbtr>
+								<Nm>Bernasconi Maria</Nm>
+								<PstlAdr>
+									<StrtNm>Place de la Gare</StrtNm>
+									<BldgNb>12</BldgNb>
+									<PstCd>2502</PstCd>
+									<TwnNm>Biel/Bienne</TwnNm>
+									<Ctry>CH</Ctry>
+								</PstlAdr>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>CH5109000000250092291</IBAN>
+								</Id>
+							</DbtrAcct>
+						</RltdPties>
+						<RltdAgts>
+							<DbtrAgt>
+								<FinInstnId>
+									<BICFI>POFICHBEXXX</BICFI>
+									<Nm>POSTFINANCE AG</Nm>
+									<PstlAdr>
+										<AdrLine>MINGERSTRASSE 20</AdrLine>
+										<AdrLine>3030 BERNE</AdrLine>
+									</PstlAdr>
+								</FinInstnId>
+							</DbtrAgt>
+						</RltdAgts>
+						<RmtInf>
+							<Strd>
+								<CdtrRefInf>
+									<Tp>
+										<CdOrPrtry>
+											<Prtry>ISR Reference</Prtry>
+										</CdOrPrtry>
+									</Tp>
+									<Ref>120000000000234478943216899</Ref>
+								</CdtrRefInf>
+								<AddtlRmtInf>?REJECT?0</AddtlRmtInf>
+							</Strd>
+						</RmtInf>
+						<RltdDts>
+							<AccptncDtTm>2019-04-24T20:00:00</AccptncDtTm>
+						</RltdDts>
+					</TxDtls>
+					<TxDtls>
+						<Refs>
+							<MsgId>20190423-000369780</MsgId>
+							<AcctSvcrRef>180315CH02ZZ4OOX</AcctSvcrRef>
+							<InstrId>1120718978-1-3</InstrId>
+							<Prtry>
+								<Tp>01</Tp>
+								<Ref>20190423001255000100004</Ref>
+							</Prtry>
+						</Refs>
+						<Amt Ccy="CHF">324.00</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>RCDT</Cd>
+									<SubFmlyCd>DMCT</SubFmlyCd>
+								</Fmly>
+							</Domn>
+						</BkTxCd>
+						<RltdPties>
+							<Dbtr>
+								<Nm>Bernasconi Maria</Nm>
+								<PstlAdr>
+									<StrtNm>Place de la Gare</StrtNm>
+									<BldgNb>12</BldgNb>
+									<PstCd>2502</PstCd>
+									<TwnNm>Biel/Bienne</TwnNm>
+									<Ctry>CH</Ctry>
+								</PstlAdr>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>CH5109000000250092291</IBAN>
+								</Id>
+							</DbtrAcct>
+						</RltdPties>
+						<RltdAgts>
+							<DbtrAgt>
+								<FinInstnId>
+									<BICFI>POFICHBEXXX</BICFI>
+									<Nm>POSTFINANCE AG</Nm>
+									<PstlAdr>
+										<AdrLine>MINGERSTRASSE 20</AdrLine>
+										<AdrLine>3030 BERNE</AdrLine>
+									</PstlAdr>
+								</FinInstnId>
+							</DbtrAgt>
+						</RltdAgts>
+						<RmtInf>
+							<Strd>
+								<CdtrRefInf>
+									<Tp>
+										<CdOrPrtry>
+											<Prtry>ISR Reference</Prtry>
+										</CdOrPrtry>
+									</Tp>
+									<Ref>359335273113716998981168243</Ref>
+								</CdtrRefInf>
+								<AddtlRmtInf>?REJECT?0</AddtlRmtInf>
+							</Strd>
+						</RmtInf>
+						<RltdDts>
+							<AccptncDtTm>2019-04-24T20:00:00</AccptncDtTm>
+						</RltdDts>
+					</TxDtls>
+					<TxDtls>
+						<Refs>
+							<MsgId>20190423-000369780</MsgId>
+							<AcctSvcrRef>180315CH02ZZ4OOY</AcctSvcrRef>
+							<InstrId>1120718978-1-4</InstrId>
+							<Prtry>
+								<Tp>01</Tp>
+								<Ref>20190423001255000100005</Ref>
+							</Prtry>
+						</Refs>
+						<Amt Ccy="CHF">463.00</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>RCDT</Cd>
+									<SubFmlyCd>DMCT</SubFmlyCd>
+								</Fmly>
+							</Domn>
+						</BkTxCd>
+						<RltdPties>
+							<Dbtr>
+								<Nm>Bernasconi Maria</Nm>
+								<PstlAdr>
+									<StrtNm>Place de la Gare</StrtNm>
+									<BldgNb>12</BldgNb>
+									<PstCd>2502</PstCd>
+									<TwnNm>Biel/Bienne</TwnNm>
+									<Ctry>CH</Ctry>
+								</PstlAdr>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>CH5109000000250092291</IBAN>
+								</Id>
+							</DbtrAcct>
+						</RltdPties>
+						<RltdAgts>
+							<DbtrAgt>
+								<FinInstnId>
+									<BICFI>POFICHBEXXX</BICFI>
+									<Nm>POSTFINANCE AG</Nm>
+									<PstlAdr>
+										<AdrLine>MINGERSTRASSE 20</AdrLine>
+										<AdrLine>3030 BERNE</AdrLine>
+									</PstlAdr>
+								</FinInstnId>
+							</DbtrAgt>
+						</RltdAgts>
+						<RmtInf>
+							<Strd>
+								<CdtrRefInf>
+									<Tp>
+										<CdOrPrtry>
+											<Prtry>ISR Reference</Prtry>
+										</CdOrPrtry>
+									</Tp>
+									<Ref>684388397169969395754931859</Ref>
+								</CdtrRefInf>
+								<AddtlRmtInf>?REJECT?0</AddtlRmtInf>
+							</Strd>
+						</RmtInf>
+						<RltdDts>
+							<AccptncDtTm>2019-04-24T20:00:00</AccptncDtTm>
+						</RltdDts>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>SAMMELGUTSCHRIFT ESR VERARBEITUNG VOM 24.04.2019 KUNDENNUMMER 01-429580-3 PAKET ID: 180316CH00000UR0</AddtlNtryInf>
+			</Ntry>
+			<Ntry>
+				<NtryRef>020010001</NtryRef>
+				<Amt Ccy="CHF">147.00</Amt>
+				<CdtDbtInd>DBIT</CdtDbtInd>
+				<RvslInd>false</RvslInd>
+				<Sts>BOOK</Sts>
+				<BookgDt>
+					<Dt>2019-04-24</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2019-04-25</Dt>
+				</ValDt>
+				<AcctSvcrRef>100820002V496ZRA</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>CNTR</Cd>
+							<SubFmlyCd>CWDL</SubFmlyCd>
+						</Fmly>
+					</Domn>
+				</BkTxCd>
+				<Chrgs>
+					<TtlChrgsAndTaxAmt Ccy="CHF">4.40</TtlChrgsAndTaxAmt>
+					<Rcrd>
+						<Amt Ccy="CHF">4.40</Amt>
+						<CdtDbtInd>DBIT</CdtDbtInd>
+						<ChrgInclInd>false</ChrgInclInd>
+						<Tp>
+							<Prtry>
+								<Id>6</Id>
+							</Prtry>
+						</Tp>
+					</Rcrd>
+				</Chrgs>
+				<NtryDtls>
+					<Btch>
+						<NbOfTxs>1</NbOfTxs>
+					</Btch>
+					<TxDtls>
+						<Refs>
+							<AcctSvcrRef>180410CH02UZ2PC1</AcctSvcrRef>
+							<Prtry>
+								<Tp>06</Tp>
+								<Ref>20190423848301000100105</Ref>
+							</Prtry>
+						</Refs>
+						<Amt Ccy="CHF">147.00</Amt>
+						<CdtDbtInd>DBIT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>CNTR</Cd>
+									<SubFmlyCd>CWDL</SubFmlyCd>
+								</Fmly>
+							</Domn>
+						</BkTxCd>
+						<Chrgs>
+							<TtlChrgsAndTaxAmt Ccy="CHF">4.40</TtlChrgsAndTaxAmt>
+							<Rcrd>
+								<Amt Ccy="CHF">4.40</Amt>
+								<CdtDbtInd>DBIT</CdtDbtInd>
+								<ChrgInclInd>false</ChrgInclInd>
+								<Tp>
+									<Prtry>
+										<Id>6</Id>
+									</Prtry>
+								</Tp>
+							</Rcrd>
+						</Chrgs>
+						<RmtInf>
+							<Strd>
+								<CdtrRefInf>
+									<Ref>100041698214115449371805270</Ref>
+								</CdtrRefInf>
+								<AddtlRmtInf>?REJECT?0</AddtlRmtInf>
+							</Strd>
+						</RmtInf>
+						<RltdDts>
+							<AccptncDtTm>2019-04-23T20:00:00</AccptncDtTm>
+						</RltdDts>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>SAMMELLASTSCHRIFT ASR VERARBEITUNG VOM 24.04.2019 KUNDENNUMMER 02-1000-1 PAKET ID: 180410CH00000AL0</AddtlNtryInf>
+			</Ntry>
+		</Ntfctn>
+	</BkToCstmrDbtCdtNtfctn>
+</Document>

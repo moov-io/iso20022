@@ -1,0 +1,9 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:remt.001.001.04" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<RmtAdvc>
+		<GrpHdr>
+			<MsgId>MsgId</MsgId>
+			<CreDtTm>2014-11-12T11:45:26.371</CreDtTm>
+			<InitgPty></InitgPty>
+		</GrpHdr>
+	</RmtAdvc>
+</Document>

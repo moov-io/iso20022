@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.054.001.04" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.054.001.04 camt.054.001.04.xsd">
+	<BkToCstmrDbtCdtNtfctn>
+		<GrpHdr>
+			<MsgId>2019042475204228731867</MsgId>
+			<CreDtTm>2020-06-17T23:33:09</CreDtTm>
+			<MsgPgntn>
+				<PgNb>1</PgNb>
+				<LastPgInd>true</LastPgInd>
+			</MsgPgntn>
+			<AddtlInf>SPS/1.6/PROD</AddtlInf>
+		</GrpHdr>
+		<Ntfctn>
+			<Id>20180316375204228731887</Id>
+			<CreDtTm>2020-06-17T23:33:09</CreDtTm>
+			<FrToDt>
+				<FrDtTm>2020-06-17T00:00:00</FrDtTm>
+				<ToDtTm>2020-06-17T23:59:59</ToDtTm>
+			</FrToDt>
+			<Acct>
+				<Id>
+					<IBAN>CH2909000000250094239</IBAN>
+				</Id>
+				<Ownr>
+					<Nm>Robert Schneider SA Grands magasins Biel/Bienne</Nm>
+				</Ownr>
+			</Acct>
+			<Ntry>
+				<Amt Ccy="CHF">1500.00</Amt>
+				<CdtDbtInd>CRDT</CdtDbtInd>
+				<RvslInd>false</RvslInd>
+				<Sts>BOOK</Sts>
+				<BookgDt>
+					<Dt>2020-06-17</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2020-06-17</Dt>
+				</ValDt>
+				<AcctSvcrRef>0000000000000001</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>RCDT</Cd>
+							<SubFmlyCd>AUTT</SubFmlyCd>
+						</Fmly>
+					</Domn>
+				</BkTxCd>
+				<NtryDtls>
+					<Btch>
+						<NbOfTxs>6</NbOfTxs>
+					</Btch>
+					<TxDtls>
+						<Refs>
+							<MsgId>MsgId-001</MsgId>
+							<AcctSvcrRef>0000000000000001</AcctSvcrRef>
+							<PmtInfId>PmtInfId-001-03</PmtInfId>
+							<InstrId>InstrId-001-03-02</InstrId>
+							<EndToEndId>EndToEndId-001-03-01</EndToEndId>
+							<Prtry>
+								<Tp>00</Tp>
+								<Ref>00000000000000000000001</Ref>
+							</Prtry>
+						</Refs>
+						<Amt Ccy="CHF">400.00</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>RCDT</Cd>
+									<SubFmlyCd>AUTT</SubFmlyCd>
+								</Fmly>
+							</Domn>
+						</BkTxCd>
+						<RltdPties>
+							<Dbtr>
+								<Nm>Bernasconi Maria</Nm>
+								<PstlAdr>
+									<StrtNm>Place de la Gare</StrtNm>
+									<BldgNb>12</BldgNb>
+									<PstCd>2502</PstCd>
+									<TwnNm>Biel/Bienne</TwnNm>
+									<Ctry>CH</Ctry>
+								</PstlAdr>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>CH5109000000250092291</IBAN>
+								</Id>
+							</DbtrAcct>
+							<CdtrAcct>
+								<Id>
+									<IBAN>CH2909000000250094239</IBAN>
+								</Id>
+							</CdtrAcct>
+						</RltdPties>
+						<RltdAgts>
+							<DbtrAgt>
+								<FinInstnId>
+									<BICFI>POFICHBEXXX</BICFI>
+									<Nm>POSTFINANCE AG</Nm>
+									<PstlAdr>
+										<AdrLine>MINGERSTRASSE 20</AdrLine>
+										<AdrLine>3030 BERNE</AdrLine>
+									</PstlAdr>
+								</FinInstnId>
+							</DbtrAgt>
+						</RltdAgts>
+						<RmtInf>
+							<Ustrd>Kontouebertrag</Ustrd>
+							<Strd>
+								<AddtlRmtInf>?REJECT?0</AddtlRmtInf>
+								<AddtlRmtInf>?ERROR?000</AddtlRmtInf>
+							</Strd>
+						</RmtInf>
+						<RltdDts>
+							<AccptncDtTm>2020-06-17T20:00:00</AccptncDtTm>
+						</RltdDts>
+					</TxDtls>
+					<TxDtls>
+						<Refs>
+							<MsgId>MsgId-001</MsgId>
+							<AcctSvcrRef>0000000000000002</AcctSvcrRef>
+							<PmtInfId>PmtInfId-001-03</PmtInfId>
+							<InstrId>InstrId-001-03-01</InstrId>
+							<EndToEndId>EndToEndId-001-03-02</EndToEndId>
+							<Prtry>
+								<Tp>00</Tp>
+								<Ref>00000000000000000000002</Ref>
+							</Prtry>
+						</Refs>
+						<Amt Ccy="CHF">350.00</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>RCDT</Cd>
+									<SubFmlyCd>AUTT</SubFmlyCd>
+								</Fmly>
+							</Domn>
+						</BkTxCd>
+						<RltdPties>
+							<Dbtr>
+								<Nm>Bernasconi Maria</Nm>
+								<PstlAdr>
+									<StrtNm>Place de la Gare</StrtNm>
+									<BldgNb>12</BldgNb>
+									<PstCd>2502</PstCd>
+									<TwnNm>Biel/Bienne</TwnNm>
+									<Ctry>CH</Ctry>
+								</PstlAdr>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>CH5109000000250092291</IBAN>
+								</Id>
+							</DbtrAcct>
+							<CdtrAcct>
+								<Id>
+									<IBAN>CH2909000000250094239</IBAN>
+								</Id>
+							</CdtrAcct>
+						</RltdPties>
+						<RltdAgts>
+							<DbtrAgt>
+								<FinInstnId>
+									<BICFI>POFICHBEXXX</BICFI>
+									<Nm>POSTFINANCE AG</Nm>
+									<PstlAdr>
+										<AdrLine>MINGERSTRASSE 20</AdrLine>
+										<AdrLine>3030 BERNE</AdrLine>
+									</PstlAdr>
+								</FinInstnId>
+							</DbtrAgt>
+						</RltdAgts>
+						<RmtInf>
+							<Ustrd>Kontouebertrag</Ustrd>
+							<Strd>
+								<AddtlRmtInf>?REJECT?0</AddtlRmtInf>
+								<AddtlRmtInf>?ERROR?000</AddtlRmtInf>
+							</Strd>
+						</RmtInf>
+						<RltdDts>
+							<AccptncDtTm>2020-06-17T20:00:00</AccptncDtTm>
+						</RltdDts>
+					</TxDtls>
+					<TxDtls>
+						<Refs>
+							<MsgId>MsgId-001</MsgId>
+							<AcctSvcrRef>0000000000000003</AcctSvcrRef>
+							<PmtInfId>PmtInfId-001-03</PmtInfId>
+							<InstrId>InstrId-001-03-03</InstrId>
+							<EndToEndId>EndToEndId-001-03-03</EndToEndId>
+							<Prtry>
+								<Tp>00</Tp>
+								<Ref>00000000000000000000003</Ref>
+							</Prtry>
+						</Refs>
+						<Amt Ccy="CHF">450.00</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>RCDT</Cd>
+									<SubFmlyCd>AUTT</SubFmlyCd>
+								</Fmly>
+							</Domn>
+						</BkTxCd>
+						<RltdPties>
+							<Dbtr>
+								<Nm>Bernasconi Maria</Nm>
+								<PstlAdr>
+									<StrtNm>Place de la Gare</StrtNm>
+									<BldgNb>12</BldgNb>
+									<PstCd>2502</PstCd>
+									<TwnNm>Biel/Bienne</TwnNm>
+									<Ctry>CH</Ctry>
+								</PstlAdr>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>CH5109000000250092291</IBAN>
+								</Id>
+							</DbtrAcct>
+							<CdtrAcct>
+								<Id>
+									<IBAN>CH2909000000250094239</IBAN>
+								</Id>
+							</CdtrAcct>
+						</RltdPties>
+						<RltdAgts>
+							<DbtrAgt>
+								<FinInstnId>
+									<BICFI>POFICHBEXXX</BICFI>
+									<Nm>POSTFINANCE AG</Nm>
+									<PstlAdr>
+										<AdrLine>MINGERSTRASSE 20</AdrLine>
+										<AdrLine>3030 BERNE</AdrLine>
+									</PstlAdr>
+								</FinInstnId>
+							</DbtrAgt>
+						</RltdAgts>
+						<RmtInf>
+							<Ustrd>Kontouebertrag</Ustrd>
+							<Strd>
+								<AddtlRmtInf>?REJECT?0</AddtlRmtInf>
+								<AddtlRmtInf>?ERROR?000</AddtlRmtInf>
+							</Strd>
+						</RmtInf>
+						<RltdDts>
+							<AccptncDtTm>2020-06-17T20:00:00</AccptncDtTm>
+						</RltdDts>
+					</TxDtls>
+					<TxDtls>
+						<Refs>
+							<MsgId>MsgId-001</MsgId>
+							<AcctSvcrRef>0000000000000004</AcctSvcrRef>
+							<PmtInfId>PmtInfId-001-01</PmtInfId>
+							<InstrId>InstrId-001-01-03</InstrId>
+							<EndToEndId>EndToEndId-001-03-04</EndToEndId>
+							<Prtry>
+								<Tp>00</Tp>
+								<Ref>00000000000000000000004</Ref>
+							</Prtry>
+						</Refs>
+						<Amt Ccy="CHF">150.00</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>RCDT</Cd>
+									<SubFmlyCd>AUTT</SubFmlyCd>
+								</Fmly>
+							</Domn>
+						</BkTxCd>
+						<RltdPties>
+							<Dbtr>
+								<Nm>Bernasconi Maria</Nm>
+								<PstlAdr>
+									<StrtNm>Place de la Gare</StrtNm>
+									<BldgNb>12</BldgNb>
+									<PstCd>2502</PstCd>
+									<TwnNm>Biel/Bienne</TwnNm>
+									<Ctry>CH</Ctry>
+								</PstlAdr>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>CH5109000000250092291</IBAN>
+								</Id>
+							</DbtrAcct>
+							<CdtrAcct>
+								<Id>
+									<IBAN>CH2909000000250094239</IBAN>
+								</Id>
+							</CdtrAcct>
+						</RltdPties>
+						<RltdAgts>
+							<DbtrAgt>
+								<FinInstnId>
+									<BICFI>POFICHBEXXX</BICFI>
+									<Nm>POSTFINANCE AG</Nm>
+									<PstlAdr>
+										<AdrLine>MINGERSTRASSE 20</AdrLine>
+										<AdrLine>3030 BERNE</AdrLine>
+									</PstlAdr>
+								</FinInstnId>
+							</DbtrAgt>
+						</RltdAgts>
+						<RmtInf>
+							<Ustrd>Rg.-Nr. 001</Ustrd>
+							<Strd>
+								<AddtlRmtInf>?REJECT?0</AddtlRmtInf>
+								<AddtlRmtInf>?ERROR?000</AddtlRmtInf>
+							</Strd>
+						</RmtInf>
+						<RltdDts>
+							<AccptncDtTm>2020-06-17T20:00:00</AccptncDtTm>
+						</RltdDts>
+					</TxDtls>
+					<TxDtls>
+						<Refs>
+							<MsgId>MsgId-001</MsgId>
+							<AcctSvcrRef>0000000000000005</AcctSvcrRef>
+							<PmtInfId>PmtInfId-001-01</PmtInfId>
+							<InstrId>InstrId-001-01-01</InstrId>
+							<EndToEndId>EndToEndId-001-03-05</EndToEndId>
+							<Prtry>
+								<Tp>00</Tp>
+								<Ref>00000000000000000000005</Ref>
+							</Prtry>
+						</Refs>
+						<Amt Ccy="CHF">50.00</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>RCDT</Cd>
+									<SubFmlyCd>AUTT</SubFmlyCd>
+								</Fmly>
+							</Domn>
+						</BkTxCd>
+						<RltdPties>
+							<Dbtr>
+								<Nm>Bernasconi Maria</Nm>
+								<PstlAdr>
+									<StrtNm>Place de la Gare</StrtNm>
+									<BldgNb>12</BldgNb>
+									<PstCd>2502</PstCd>
+									<TwnNm>Biel/Bienne</TwnNm>
+									<Ctry>CH</Ctry>
+								</PstlAdr>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>CH5109000000250092291</IBAN>
+								</Id>
+							</DbtrAcct>
+							<CdtrAcct>
+								<Id>
+									<IBAN>CH2909000000250094239</IBAN>
+								</Id>
+							</CdtrAcct>
+						</RltdPties>
+						<RltdAgts>
+							<DbtrAgt>
+								<FinInstnId>
+									<BICFI>POFICHBEXXX</BICFI>
+									<Nm>POSTFINANCE AG</Nm>
+									<PstlAdr>
+										<AdrLine>MINGERSTRASSE 20</AdrLine>
+										<AdrLine>3030 BERNE</AdrLine>
+									</PstlAdr>
+								</FinInstnId>
+							</DbtrAgt>
+						</RltdAgts>
+						<RmtInf>
+							<Ustrd>Rg.-Nr. 1234567890</Ustrd>
+							<Strd>
+								<AddtlRmtInf>?REJECT?0</AddtlRmtInf>
+								<AddtlRmtInf>?ERROR?000</AddtlRmtInf>
+							</Strd>
+						</RmtInf>
+						<RltdDts>
+							<AccptncDtTm>2020-06-17T20:00:00</AccptncDtTm>
+						</RltdDts>
+					</TxDtls>
+					<TxDtls>
+						<Refs>
+							<MsgId>MsgId-001</MsgId>
+							<AcctSvcrRef>0000000000000006</AcctSvcrRef>
+							<PmtInfId>PmtInfId-001-01</PmtInfId>
+							<InstrId>InstrId-001-01-02</InstrId>
+							<EndToEndId>EndToEndId-001-03-06</EndToEndId>
+							<Prtry>
+								<Tp>00</Tp>
+								<Ref>00000000000000000000006</Ref>
+							</Prtry>
+						</Refs>
+						<Amt Ccy="CHF">100.00</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>RCDT</Cd>
+									<SubFmlyCd>AUTT</SubFmlyCd>
+								</Fmly>
+							</Domn>
+						</BkTxCd>
+						<RltdPties>
+							<Dbtr>
+								<Nm>Bernasconi Maria</Nm>
+								<PstlAdr>
+									<StrtNm>Place de la Gare</StrtNm>
+									<BldgNb>12</BldgNb>
+									<PstCd>2502</PstCd>
+									<TwnNm>Biel/Bienne</TwnNm>
+									<Ctry>CH</Ctry>
+								</PstlAdr>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>CH5109000000250092291</IBAN>
+								</Id>
+							</DbtrAcct>
+							<CdtrAcct>
+								<Id>
+									<IBAN>CH2909000000250094239</IBAN>
+								</Id>
+							</CdtrAcct>
+						</RltdPties>
+						<RltdAgts>
+							<DbtrAgt>
+								<FinInstnId>
+									<BICFI>POFICHBEXXX</BICFI>
+									<Nm>POSTFINANCE AG</Nm>
+									<PstlAdr>
+										<AdrLine>MINGERSTRASSE 20</AdrLine>
+										<AdrLine>3030 BERNE</AdrLine>
+									</PstlAdr>
+								</FinInstnId>
+							</DbtrAgt>
+						</RltdAgts>
+						<RmtInf>
+							<Ustrd>Rg.-Nr. 987654321</Ustrd>
+							<Strd>
+								<AddtlRmtInf>?REJECT?0</AddtlRmtInf>
+								<AddtlRmtInf>?ERROR?000</AddtlRmtInf>
+							</Strd>
+						</RmtInf>
+						<RltdDts>
+							<AccptncDtTm>2020-06-17T20:00:00</AccptncDtTm>
+						</RltdDts>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>SAMMELGUTSCHRIFT FÜR KONTO: CH2909000000250094239 VERARBEITUNG VOM 17.06.2020 PAKET ID: 9999999999999999</AddtlNtryInf>
+			</Ntry>
+		</Ntfctn>
+	</BkToCstmrDbtCdtNtfctn>
+</Document>

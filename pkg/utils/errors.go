@@ -26,3 +26,21 @@ func NewErrInvalidNameSpace() error {
 	errStr := fmt.Sprintf("The namespace of %s is invalid", "document")
 	return fmt.Errorf(errStr)
 }
+
+// NewErrUnsupportedNameSpace returns a error that namespace is unsupported
+func NewErrUnsupportedNameSpace() error {
+	errStr := fmt.Sprintf("The namespace of %s is unsupported", "document")
+	return fmt.Errorf(errStr)
+}
+
+// NewErrOmittedNameSpace returns a error that namespace is omitted
+func NewErrOmittedNameSpace() error {
+	errStr := fmt.Sprintf("The namespace of %s is omitted", "document")
+	return fmt.Errorf(errStr)
+}
+
+// NewErrInvalidFileType returns a error that type is invalid
+func NewErrInvalidFileType() error {
+	errStr := fmt.Sprintf("The type of %s is invalid", "file")
+	return fmt.Errorf(errStr)
+}

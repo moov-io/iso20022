@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.053.001.04" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.053.001.04">
+	<BkToCstmrStmt>
+		<GrpHdr>
+			<MsgId>20201124375204229003967</MsgId>
+			<CreDtTm>2020-11-25T02:02:16</CreDtTm>
+			<MsgPgntn>
+				<PgNb>1</PgNb>
+				<LastPgInd>true</LastPgInd>
+			</MsgPgntn>
+			<AddtlInf>SPS/1.7/PROD</AddtlInf>
+		</GrpHdr>
+		<Stmt>
+			<Id>20201124375204229003973</Id>
+			<ElctrncSeqNb>118</ElctrncSeqNb>
+			<CreDtTm>2020-11-25T02:02:16</CreDtTm>
+			<FrToDt>
+				<FrDtTm>2020-06-24T00:00:00</FrDtTm>
+				<ToDtTm>2020-06-24T23:59:59</ToDtTm>
+			</FrToDt>
+			<Acct>
+				<Id>
+					<IBAN>CH2909000000250094239</IBAN>
+				</Id>
+				<Ownr>
+					<Nm>Robert Schneider SA Grands magasins Biel/Bienne</Nm>
+				</Ownr>
+			</Acct>
+			<Bal>
+				<Tp>
+					<CdOrPrtry>
+						<Cd>OPBD</Cd>
+					</CdOrPrtry>
+				</Tp>
+				<Amt Ccy="CHF">211993.19</Amt>
+				<CdtDbtInd>CRDT</CdtDbtInd>
+				<Dt>
+					<Dt>2020-11-24</Dt>
+				</Dt>
+			</Bal>
+			<Bal>
+				<Tp>
+					<CdOrPrtry>
+						<Cd>CLBD</Cd>
+					</CdOrPrtry>
+				</Tp>
+				<Amt Ccy="CHF">215112.21</Amt>
+				<CdtDbtInd>CRDT</CdtDbtInd>
+				<Dt>
+					<Dt>2020-11-24</Dt>
+				</Dt>
+			</Bal>
+			<Bal>
+				<Tp>
+					<CdOrPrtry>
+						<Cd>CLAV</Cd>
+					</CdOrPrtry>
+				</Tp>
+				<Amt Ccy="CHF">215112.21</Amt>
+				<CdtDbtInd>CRDT</CdtDbtInd>
+				<Dt>
+					<Dt>2020-11-24</Dt>
+				</Dt>
+			</Bal>
+			<Bal>
+				<Tp>
+					<CdOrPrtry>
+						<Cd>FWAV</Cd>
+					</CdOrPrtry>
+				</Tp>
+				<Amt Ccy="CHF">216649.21</Amt>
+				<CdtDbtInd>CRDT</CdtDbtInd>
+				<Dt>
+					<Dt>2020-11-25</Dt>
+				</Dt>
+			</Bal>
+			<Ntry>
+				<NtryRef>41100000000872849</NtryRef>
+				<Amt Ccy="CHF">4.50</Amt>
+				<CdtDbtInd>CRDT</CdtDbtInd>
+				<RvslInd>false</RvslInd>
+				<Sts>BOOK</Sts>
+				<BookgDt>
+					<Dt>2020-11-24</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2020-11-24</Dt>
+				</ValDt>
+				<AcctSvcrRef>0758103031480900</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>IDDT</Cd>
+							<SubFmlyCd>PMDD</SubFmlyCd>
+						</Fmly>
+					</Domn>
+				</BkTxCd>
+				<NtryDtls>
+					<TxDtls>
+						<Refs>
+							<AcctSvcrRef>0758103031480900</AcctSvcrRef>
+						</Refs>
+						<Amt Ccy="CHF">4.50</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>GUTSCHRIFT CH-DD-BASISLASTSCHRIFT ID-NR. DES ZAHLUNGSEMPFÄNGERS: 41100000000872849 REFERENZ-NR: PmtInfId-CHDD-1</AddtlNtryInf>
+			</Ntry>
+			<Ntry>
+				<Amt Ccy="CHF">77.70</Amt>
+				<CdtDbtInd>DBIT</CdtDbtInd>
+				<RvslInd>false</RvslInd>
+				<Sts>BOOK</Sts>
+				<BookgDt>
+					<Dt>2020-11-24</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2020-11-24</Dt>
+				</ValDt>
+				<AcctSvcrRef>0758103031480977</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>ICDT</Cd>
+							<SubFmlyCd>AUTT</SubFmlyCd>
+						</Fmly>
+					</Domn>
+				</BkTxCd>
+				<NtryDtls>
+					<TxDtls>
+						<Refs>
+							<AcctSvcrRef>0758103031480977</AcctSvcrRef>
+						</Refs>
+						<Amt Ccy="CHF">77.70</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>GUTSCHRIFT CH-DD-BASISLASTSCHRIFT ID-NR. DES ZAHLUNGSEMPFÄNGERS: 41100000000872849 REFERENZ-NR: PmtInfId-CHDD-1</AddtlNtryInf>
+			</Ntry>
+			<Ntry>
+				<Amt Ccy="CHF">1500.00</Amt>
+				<CdtDbtInd>CRDT</CdtDbtInd>
+				<RvslInd>false</RvslInd>
+				<Sts>BOOK</Sts>
+				<BookgDt>
+					<Dt>2020-11-24</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2020-11-24</Dt>
+				</ValDt>
+				<AcctSvcrRef>07582000303F0C7U</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>RCDT</Cd>
+							<SubFmlyCd>AUTT</SubFmlyCd>
+						</Fmly>
+					</Domn>
+				</BkTxCd>
+				<NtryDtls>
+					<TxDtls>
+						<Refs>
+							<AcctSvcrRef>07582000303F0C7U</AcctSvcrRef>
+						</Refs>
+						<Amt Ccy="CHF">1500.00</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>SAMMELGUTSCHRIFT FÜR KONTO: CH2909000000250094239 VERARBEITUNG VOM 23.11.2020 PAKET ID: 9999999999999999</AddtlNtryInf>
+			</Ntry>
+			<Ntry>
+				<NtryRef>014295803</NtryRef>
+				<Amt Ccy="CHF">1537.00</Amt>
+				<CdtDbtInd>CRDT</CdtDbtInd>
+				<RvslInd>false</RvslInd>
+				<Sts>BOOK</Sts>
+				<BookgDt>
+					<Dt>2020-11-24</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2020-11-25</Dt>
+				</ValDt>
+				<AcctSvcrRef>07582000303KBMSU</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>RCDT</Cd>
+							<SubFmlyCd>VCOM</SubFmlyCd>
+						</Fmly>
+					</Domn>
+				</BkTxCd>
+				<NtryDtls>
+					<TxDtls>
+						<Refs>
+							<AcctSvcrRef>07582000303KBMSU</AcctSvcrRef>
+						</Refs>
+						<Amt Ccy="CHF">1537.00</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>SAMMELGUTSCHRIFT ESR VERARBEITUNG VOM 24.11.2020 KUNDENNUMMER 01-429580-3 PAKET ID: 201124CH00000UR0</AddtlNtryInf>
+			</Ntry>
+			<Ntry>
+				<NtryRef>CH7730000001250094239</NtryRef>
+				<Amt Ccy="CHF">1692.22</Amt>
+				<CdtDbtInd>CRDT</CdtDbtInd>
+				<RvslInd>false</RvslInd>
+				<Sts>BOOK</Sts>
+				<BookgDt>
+					<Dt>2020-11-24</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2020-11-24</Dt>
+				</ValDt>
+				<AcctSvcrRef>07582000303KBMSU</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>RCDT</Cd>
+							<SubFmlyCd>VCOM</SubFmlyCd>
+						</Fmly>
+					</Domn>
+				</BkTxCd>
+				<NtryDtls>
+					<TxDtls>
+						<Refs>
+							<AcctSvcrRef>07582000303KBMSU</AcctSvcrRef>
+						</Refs>
+						<Amt Ccy="CHF">1692.22</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>SAMMELGUTSCHRIFT FÜR KONTO: CH7730000001250094239 VERARBEITUNG VOM 24.11.2020 PAKET ID: 201124CH000009TB</AddtlNtryInf>
+			</Ntry>
+		</Stmt>
+	</BkToCstmrStmt>
+</Document>

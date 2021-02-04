@@ -1,0 +1,9 @@
+{
+	"Xmlns": "urn:iso:std:iso:20022:tech:xsd:pacs.002.001.11",
+	"FIToFIPmtStsRpt": {
+		"GrpHdr": {
+			"MsgId": "MsgId",
+			"CreDtTm": "2014-11-12T11:45:26.371"
+		}
+	}
+}
