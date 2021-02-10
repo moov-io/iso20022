@@ -71,7 +71,7 @@ var Validate = &cobra.Command{
 var Print = &cobra.Command{
 	Use:   "print",
 	Short: "Print iso20022 message",
-	Long:  "Print an incoming iso20022 message with special format (options: iso8583, json, xml)",
+	Long:  "Print an incoming iso20022 message with special format (options: json, xml)",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		format, err := cmd.Flags().GetString("format")
 		if err != nil {
