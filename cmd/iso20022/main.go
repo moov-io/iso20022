@@ -55,8 +55,8 @@ var WebCmd = &cobra.Command{
 
 var Validate = &cobra.Command{
 	Use:   "validator",
-	Short: "Validate iso8583 message",
-	Long:  "Validate an incoming iso8583 message",
+	Short: "Validate iso20022 message",
+	Long:  "Validate an incoming iso20022 message",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		var err error
 		doc, err := document.ParseIso20022Document(documentBuffer)
@@ -70,8 +70,8 @@ var Validate = &cobra.Command{
 
 var Print = &cobra.Command{
 	Use:   "print",
-	Short: "Print iso8583 message",
-	Long:  "Print an incoming iso8583 message with special format (options: iso8583, json, xml)",
+	Short: "Print iso20022 message",
+	Long:  "Print an incoming iso20022 message with special format (options: iso8583, json, xml)",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		format, err := cmd.Flags().GetString("format")
 		if err != nil {
