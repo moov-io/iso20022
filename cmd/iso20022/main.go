@@ -77,8 +77,11 @@ var Print = &cobra.Command{
 		if err != nil {
 			return err
 		}
-		if format != utils.DocumentTypeJson && format != utils.DocumentTypeXml {
+
+		if format != "" && (format != utils.DocumentTypeJson && format != utils.DocumentTypeXml) {
 			return errors.New("don't support the format")
+		} else {
+			format = utils.DocumentTypeXml
 		}
 
 		doc, err := document.ParseIso20022Document(documentBuffer)
@@ -117,8 +120,11 @@ var Convert = &cobra.Command{
 		if err != nil {
 			return err
 		}
-		if format != utils.DocumentTypeJson && format != utils.DocumentTypeXml {
+
+		if format != "" && (format != utils.DocumentTypeJson && format != utils.DocumentTypeXml) {
 			return errors.New("don't support the format")
+		} else {
+			format = utils.DocumentTypeXml
 		}
 
 		doc, err := document.ParseIso20022Document(documentBuffer)
@@ -194,8 +200,7 @@ var rootCmd = &cobra.Command{
 
 func initRootCmd() {
 	WebCmd.Flags().BoolP("test", "t", false, "test server")
-	Convert.Flags().String("format", "xml", "format of document file(required)")
-	Convert.MarkFlagRequired("format")
+	Convert.Flags().String("format", "xml", "format of document file")
 	Print.Flags().String("format", "xml", "print format")
 
 	rootCmd.SilenceUsage = true

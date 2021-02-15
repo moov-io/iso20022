@@ -17,7 +17,7 @@ servers:
 tags:
   - name: 'iso20022 message'
     description: |
-      There are 695 iso 20022 meessages. The meessages supported in this package are meessages of payments in business domain catalogue
+      There are 695 iso 20022 meessages. The messages supported in this package are meessages of payments in business domain catalogue
       
 paths:
   /health:
