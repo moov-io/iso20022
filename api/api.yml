@@ -1,0 +1,346 @@
+openapi: 3.0.2
+info:
+  title: "ISO20022 API"
+  version: 0.0.1
+  description: "ISO 20022 is an ISO standard for electronic data interchange between financial institutions. It describes a metadata repository containing descriptions of messages and business processes, and a maintenance process for the repository content. The metadata is stored in UML models with a special ISO 20022 UML Profile. The metadata is transformed into the syntax of messages used in financial networks. The first syntax supported for messages was XML Schema. Package ISO20022 implements a message reader and writer written in Go decorated with a HTTP API for creating, parsing, and validating meta data messages. Package ISO20022 supported xml and json format for message\n
+| Input      | Output     |\n
+|------------|------------|\n
+| JSON       | JSON       |\n
+| XML        | XML        |\n
+"
+servers:
+  - url: https://local.moov.io:8208/
+    description: Local Testing
+  - url: https://api.moov.io/
+    description: Production
+    
+tags:
+  - name: 'iso20022 message'
+    description: |
+      There are 695 iso 20022 meessages. The messages supported in this package are meessages of payments in business domain catalogue
+      
+paths:
+  /health:
+    get:
+      tags: ['iso20022 message']
+      summary: health iso8583 service
+      description: Check the iso8583 service to check if running
+      operationId: health
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+  /print:
+    post:
+      tags: ['iso20022 message']
+      summary: Print iso20022 message with specific format
+      description: Print iso20022 message with requested format.
+      operationId: print
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                format:
+                  type: string
+                  description: print iso20022 type
+                  default: xml
+                  example: json
+                  enum:
+                    - json
+                    - xml
+                input:
+                  type: string
+                  description: iso20022 message file
+                  format: binary
+                  example:
+                    {
+                      "Xmlns": "urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03",
+                      "AcctOpngReq": {
+                        "Refs": {
+                          "MsgId": {
+                            "Id": "Id",
+                            "CreDtTm": "2014-11-12T11:45:26.371"
+                          },
+                          "PrcId": {
+                            "Id": "Id",
+                            "CreDtTm": "2014-11-12T11:45:26.371"
+                          }
+                        },
+                        "Acct": {
+                          "Ccy": "ABC"
+                        },
+                        "Org": {
+                          "FullLglNm": "FullLglNm",
+                          "CtryOfOpr": "AA",
+                        }
+                      }
+                    }
+            encoding:
+              file:
+                contentType: text/plain
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                description: iso8583 message
+                format: xml
+                example:
+                  <Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <AcctOpngReq>
+                      <Refs>
+                        <MsgId>
+                          <Id>Id</Id>
+                          <CreDtTm>2014-11-12T11:45:26.371</CreDtTm>
+                        </MsgId>
+                        <PrcId>
+                          <Id>Id</Id>
+                          <CreDtTm>2014-11-12T11:45:26.371</CreDtTm>
+                        </PrcId>
+                      </Refs>
+                      <Acct>
+                        <Ccy>ABC</Ccy>
+                      </Acct>
+                      <AcctSvcrId>
+                        <FinInstnId></FinInstnId>
+                      </AcctSvcrId>
+                      <Org>
+                        <FullLglNm>FullLglNm</FullLglNm>
+                        <CtryOfOpr>AA</CtryOfOpr>
+                        <LglAdr></LglAdr>
+                        <OrgId></OrgId>
+                      </Org>
+                    </AcctOpngReq>
+                  </Document>
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Iso20022Document'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Iso20022Document'
+        '400':
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: failed operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /validator:
+    post:
+      tags: ['iso20022 message']
+      summary: Validate iso20022 message
+      description: Validation iso20022 message.
+      operationId: validator
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                input:
+                  type: string
+                  description: iso8583 message file
+                  format: binary
+                  example:
+                    {
+                      "Xmlns": "urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03",
+                      "AcctOpngReq": {
+                        "Refs": {
+                          "MsgId": {
+                            "Id": "Id",
+                            "CreDtTm": "2014-11-12T11:45:26.371"
+                          },
+                          "PrcId": {
+                            "Id": "Id",
+                            "CreDtTm": "2014-11-12T11:45:26.371"
+                          }
+                        },
+                        "Acct": {
+                          "Ccy": "ABC"
+                        },
+                        "Org": {
+                          "FullLglNm": "FullLglNm",
+                          "CtryOfOpr": "AA",
+                        }
+                      }
+                    }
+            encoding:
+              file:
+                contentType: text/plain
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+        '400':
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: failed operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /convert:
+    post:
+      tags: ['iso20022 message']
+      summary: Convert iso20022 message
+      description: Convert from original iso20022 message to new iso20022 message
+      operationId: convert
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                format:
+                  type: string
+                  description: converting message type
+                  default: xml
+                  example: xml
+                  enum:
+                    - json
+                    - xml
+                input:
+                  type: string
+                  description: iso20022 message file
+                  format: binary
+                  example:
+                    {
+                      "Xmlns": "urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03",
+                      "AcctOpngReq": {
+                        "Refs": {
+                          "MsgId": {
+                            "Id": "Id",
+                            "CreDtTm": "2014-11-12T11:45:26.371"
+                          },
+                          "PrcId": {
+                            "Id": "Id",
+                            "CreDtTm": "2014-11-12T11:45:26.371"
+                          }
+                        },
+                        "Acct": {
+                          "Ccy": "ABC"
+                        },
+                        "Org": {
+                          "FullLglNm": "FullLglNm",
+                          "CtryOfOpr": "AA",
+                        }
+                      }
+                    }
+            encoding:
+              file:
+                contentType: text/plain
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                description: iso20022 message
+                format: binary
+                example:
+                  <Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <AcctOpngReq>
+                      <Refs>
+                        <MsgId>
+                          <Id>Id</Id>
+                          <CreDtTm>2014-11-12T11:45:26.371</CreDtTm>
+                        </MsgId>
+                        <PrcId>
+                          <Id>Id</Id>
+                          <CreDtTm>2014-11-12T11:45:26.371</CreDtTm>
+                        </PrcId>
+                      </Refs>
+                      <Acct>
+                        <Ccy>ABC</Ccy>
+                      </Acct>
+                      <AcctSvcrId>
+                        <FinInstnId></FinInstnId>
+                      </AcctSvcrId>
+                      <Org>
+                        <FullLglNm>FullLglNm</FullLglNm>
+                        <CtryOfOpr>AA</CtryOfOpr>
+                        <LglAdr></LglAdr>
+                        <OrgId></OrgId>
+                      </Org>
+                    </AcctOpngReq>
+                  </Document>
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Iso20022Document'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Iso20022Document'
+        '400':
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: failed operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  responses:
+    Empty:
+      description: Empty response for unauthorized or any other returned http status code
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: ""
+            maxLength: 0
+            pattern: "//i"
+
+  securitySchemes:
+    GatewayAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT that comes from the gateway that validates against the gateways public RSA key
+
+  schemas:
+    UUID:
+      description: UUID v4
+      type: string
+      format: uuid
+      maxLength: 36
+      pattern: ^[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$
+    Iso20022Document:
+      properties:
+        Xmlns:
+          type: string
+        RequestObject:
+          type: object
+      description: "https://www.iso20022.org/iso-20022-message-definitions?business-domain=1"
+      required:
+        - Xmlns
+        - RequestObject
+    Error:
+      properties:
+        error:
+          type: string
+    Success:
+      properties:
+        status:
+          type: string
