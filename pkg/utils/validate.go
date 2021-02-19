@@ -5,16 +5,26 @@
 package utils
 
 import (
-	"fmt"
+	"errors"
 	"reflect"
+	"strings"
 
 	"encoding/xml"
 )
 
 var (
 	DefaultValidateFunction = "Validate"
-	debug                   = false
 )
+
+func getTypeName(value string) string {
+	values := strings.Split(value, ".")
+	if len(values) > 1 {
+		values := strings.Split(values[1], " ")
+		return values[0]
+	} else {
+		return values[0]
+	}
+}
 
 func validateCallbackByValue(data reflect.Value) error {
 	method := data.MethodByName(DefaultValidateFunction)
@@ -23,8 +33,15 @@ func validateCallbackByValue(data reflect.Value) error {
 		if len(response) > 0 {
 			err := response[0]
 			if !err.IsNil() {
-				if debug {
-					fmt.Println(data.String() + ": " + method.String())
+				typeName := getTypeName(data.String())
+				if len(typeName) > 0 {
+					errStr := err.Interface().(error).Error()
+					if !strings.Contains(errStr, ")") {
+						errStr = errStr + " (" + typeName + ")"
+					} else {
+						errStr = errStr[:len(errStr)-1] + ", " + typeName + ")"
+					}
+					return errors.New(errStr)
 				}
 				return err.Interface().(error)
 			}

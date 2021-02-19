@@ -64,7 +64,13 @@ var Validate = &cobra.Command{
 			return err
 		}
 
-		return doc.Validate()
+		err = doc.Validate()
+		if err != nil {
+			return err
+		}
+
+		fmt.Println("the iso20022 (" + doc.NameSpace() + ") message is valid")
+		return nil
 	},
 }
 
