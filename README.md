@@ -1,32 +1,78 @@
-# moov-io/iso20022
+[![Moov Banner Logo](https://user-images.githubusercontent.com/20115216/104214617-885b3c80-53ec-11eb-8ce0-9fc745fb5bfc.png)](https://github.com/moov-io)
+
+<p align="center">
+  <a href="https://github.com/moov-io/iso20022/tree/master/docs">Project Documentation</a>
+  ·
+  <a href="https://moov-io.github.io/iso20022/api/">API Endpoints</a>
+  ·
+  <a href="https://slack.moov.io/">Community</a>
+  ·
+  <a href="https://moov.io/blog/">Blog</a>
+  <br>
+  <br>
+</p>
 
 [![GoDoc](https://godoc.org/github.com/moov-io/iso20022?status.svg)](https://godoc.org/github.com/moov-io/iso20022)
 [![Build Status](https://github.com/moov-io/iso20022/workflows/Go/badge.svg)](https://github.com/moov-io/iso20022/actions)
 [![Coverage Status](https://codecov.io/gh/moov-io/iso20022/branch/master/graph/badge.svg)](https://codecov.io/gh/moov-io/iso20022)
 [![Go Report Card](https://goreportcard.com/badge/github.com/moov-io/iso20022)](https://goreportcard.com/report/github.com/moov-io/iso20022)
-[![Apache 2 licensed](https://img.shields.io/badge/license-Apache2-blue.svg)](https://raw.githubusercontent.com/moov-io/iso20022/master/LICENSE)
+[![Repo Size](https://img.shields.io/github/languages/code-size/moov-io/iso20022?label=project%20size)](https://github.com/moov-io/iso20022)
+[![Apache 2 License](https://img.shields.io/badge/license-Apache2-blue.svg)](https://raw.githubusercontent.com/moov-io/iso20022/master/LICENSE)
+[![Slack Channel](https://slack.moov.io/badge.svg?bg=e01563&fgColor=fffff)](https://slack.moov.io/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/moov/iso20022)](https://hub.docker.com/r/moov/iso20022)
+[![GitHub Stars](https://img.shields.io/github/stars/moov-io/iso20022)](https://github.com/moov-io/iso20022)
+[![Twitter](https://img.shields.io/twitter/follow/moov_io?style=social)](https://twitter.com/moov_io?lang=en)
 
-ISO 20022 is an ISO standard for electronic data interchange between financial institutions. 
-It describes a metadata repository containing descriptions of messages and business processes, and a maintenance process for the repository content. The standard covers financial information transferred between financial institutions that includes payment transactions, securities trading and settlement information, credit and debit card transactions and other financial information.
+# moov-io/iso20022
 
-The repository contains a huge amount of financial services metadata that has been shared and standardized across the industry.
-The metadata is stored in UML models with a special ISO 20022 UML Profile. 
-Underlying all of this is the ISO 20022 metamodel - a model of the models. 
-The UML profile is the metamodel transformed into UML. 
-The metadata is transformed into the syntax of messages used in financial networks.
- 
-The first syntax supported for messages was XML Schema. 
+Moov's mission is to give developers an easy way to create and integrate bank processing into their own software products. Our open source projects are each focused on solving a single responsibility in financial services and designed around performance, scalability, and ease of use.
 
-Package `github.com/moov-io/iso20022` implements a message reader and writer written in Go decorated with a HTTP API for creating, parsing, and validating messages used in financial networks.
-Package ISO20022 supported xml and json format for message
-The meessages supported in this package are messages of payments in business domain catalogue.
+ISO 20022 is a standard for electronic data interchange between financial institutions. It describes a metadata repository containing descriptions of messages and business processes, and a maintenance process for the repository content. The standard covers financial information transferred between financial institutions that includes payment transactions, securities trading and settlement information, credit and debit card transactions, and other financial information.
 
-Docs: [API Endpoints](https://moov-io.github.io/iso20022/api/)
+ISO20022 implements a message reader and writer written in Go, decorated with an HTTP API for creating, parsing, and validating ISO 20022 messages used in financial networks. ISO20022 supports XML and JSON format for messages. The types of messages supported in this package are for business domain catalogue payments.
 
+## Project Status
 
-## Getting Started
+Moov ISO20022 currently offers a Go package with plans for an API and command line tool in the near future. Please star the project if you are interested in its progress. The project supports generating and parsing ISO 20022 messages. Feedback on this early version of ISO20022 is appreciated and vital to its success. Please let us know if you encounter any bugs/unclear documentation or have feature suggestions by opening up an issue. Thanks!
 
-### Docker
+## Usage
+
+### Go Library
+
+This project offers a Go library which can read and write ISO 20022 messages. We write unit tests and fuzz the code to help ensure it is production ready for everyone. ISO20022 uses [Go Modules](https://github.com/golang/go/wiki/Modules) to manage dependencies and suggests Go 1.14 or greater.
+
+To clone our code and verify our tests on your system, run:
+
+```
+$ git clone git@github.com:moov-io/iso20022.git
+$ cd iso20022
+
+$ go test ./...
+ok      github.com/moov-io/iso20022      0.015s
+ok      github.com/moov-io/iso20022/cmd/iso20022  21.908s
+...
+```
+
+### Formats and Configuration
+
+ISO20022 supports two message types: JSON and XML. The general ISO 20022 specification defines a message structure, but doesn't define JSON and XML format. Our ISO20022 package also includes a specification file (configuration file) that is used to define message structure.
+
+JSON format example:
+```
+{
+	"Xmlns": "urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03",
+    "AcctOpngReq": {}, // real document body
+}
+```
+
+XML format example:
+```
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<AcctOpngReq></AcctOpngReq> // real document body
+</Document>
+```
+
+### Docker (under construction)
 
 We publish a [public Docker image `moov/iso20022`](https://hub.docker.com/r/moov/iso20022/tags) on Docker Hub with tagged release of the package. No configuration is required to serve on `:8080`.
 
@@ -109,46 +155,9 @@ curl -XPOST --form "file=@./test/testdata/valid_acmt_v03.json" http://localhost:
 </Document>
 ```
 
-### Go Library
+### Command Line (under construction)
 
-There is a Go library which can read and write iso20022 message. We write unit tests and fuzz the code to help ensure our code is production ready for everyone. Iso20022 uses [Go Modules](https://github.com/golang/go/wiki/Modules) to manage dependencies and suggests Go 1.14 or greater.
-
-To clone our code and verify our tests on your system run:
-
-```
-$ git clone git@github.com:moov-io/iso20022.git
-$ cd iso20022
-
-$ go test ./...
-ok      github.com/moov-io/iso20022      0.015s
-ok      github.com/moov-io/iso20022/cmd/iso20022  21.908s
-...
-```
-
-## Formats and configuration file
-### message formats
-Iso20022 have supported 2 message types: json, xml.
-Iso20022 specification defines a message format, but don't define json and xml format.
-Iso20022 package have defined json and xml format of message, specification file (configuration file) that use to define message structure.
-
-Json format:
-```
-{
-	"Xmlns": "urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03",
-    "AcctOpngReq": {}, // real document body
-}
-```
-
-XML format:
-```
-<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<AcctOpngReq></AcctOpngReq> // real document body
-</Document>
-```
-
-## Commands
-
-iso20022 has command line interface to manage iso20022 messages and to lunch web service.
+ISO20022 has a command line interface to manage messages and launch a web service.
 
 ```
 iso20022 --help
@@ -174,8 +183,8 @@ Each interaction that the library supports is exposed in a command-line option:
 
  Command | Info
  ------- | -------
-`convert` | The convert command allows users to convert from a message to another message format. Result will create a message.
-`print` | The print command allows users to print a message with special file format (json, xml).
+`convert` | The convert command allows users to convert between message formats. The output will create a new message.
+`print` | The print command allows users to print a message in a specified file format (JSON, XML).
 `validator` | The validator command allows users to validate a message.
 `web` | The web command will launch a web server with endpoints to manage messages.
 
@@ -193,12 +202,12 @@ Global Flags:
       --input string   iso20022 document (valid types are xml, json. default is $PWD/iso20022_document.xml)
 ```
 
-The output parameter is the full path name to convert new iso20022 message.
-The format parameter is supported 3 types that are "json", "xml" and  "iso20022".
-The input parameter is source iso20022 message, supported "json", "xml" and  "iso20022".
-The spec parameter is specification file.
+- The `output` parameter represents the full path name for the new iso20022 file.
+- The `format` parameter determines the output file format and supports “json”, “xml”, and "iso20022".
+- The `input` parameter is the source iso20022 file to be converted, and can be “json”, “xml”, or "iso20022".
+- The `spec` parameter is the specification file.
 
-example:
+Example:
 ```
 iso20022 converted --input test/testdata/valid_acmt_v03.json
 ```
@@ -219,7 +228,7 @@ Global Flags:
       --input string   iso20022 document (valid types are xml, json. default is $PWD/iso20022_document.xml)
 ```
 
-example:
+Example:
 ```
 iso20022 print --input test/testdata/valid_acmt_v03.json
 <Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -268,7 +277,7 @@ Global Flags:
 
 The input parameter is source iso20022 message, supported "json", "xml" and  "iso20022".
 
-example:
+Example:
 ```
 iso20022 validator --input testdata/valid_acmt_v03.json
 ```
@@ -291,7 +300,7 @@ Global Flags:
 
 The port parameter is port number of web service.
 
-example:
+Example:
 ```
 iso20022 web
 ```
@@ -326,21 +335,13 @@ web page example to use iso20022 web server:
 </html>
 ```
 
-## Docker
-
-You can run the [moov/iso20022 Docker image](https://hub.docker.com/r/moov/iso20022) which defaults to starting the HTTP server.
-
-```
-docker run -p 8080:8080 moov/iso20022:latest
-```
-
 ## Getting Help
 
  channel | info
  ------- | -------
-  Google Group [moov-users](https://groups.google.com/forum/#!forum/moov-users)| The Moov users Google group is for contributors other people contributing to the Moov project. You can join them without a google account by sending an email to [moov-users+subscribe@googlegroups.com](mailto:moov-users+subscribe@googlegroups.com). After receiving the join-request message, you can simply reply to that to confirm the subscription.
-Twitter [@moov_io](https://twitter.com/moov_io)	| You can follow Moov.IO's Twitter feed to get updates on our project(s). You can also tweet us questions or just share blogs or stories.
-[GitHub Issue](https://github.com/moov-io/iso20022/issues) | If you are able to reproduce a problem please open a GitHub Issue under the specific project that caused the error.
+[Project Documentation](https://github.com/moov-io/iso20022/tree/master/docs) | Our project documentation available online.
+Twitter [@moov_io](https://twitter.com/moov_io) | You can follow Moov.IO's Twitter feed to get updates on our project(s). You can also tweet us questions or just share blogs or stories.
+[GitHub Issue](https://github.com/moov-io/iso20022/issues/new) | If you are able to reproduce a problem please open a GitHub Issue under the specific project that caused the error.
 [moov-io slack](https://slack.moov.io/) | Join our slack channel (`#iso20022`) to have an interactive discussion about the development of the project.
 
 ## Supported and Tested Platforms
@@ -349,11 +350,25 @@ Twitter [@moov_io](https://twitter.com/moov_io)	| You can follow Moov.IO's Twitt
 
 ## Contributing
 
-Yes please! Please review our [Contributing guide](CONTRIBUTING.md) and [Code of Conduct](https://github.com/moov-io/ach/blob/master/CODE_OF_CONDUCT.md) to get started! [Checkout our issues](https://github.com/moov-io/iso20022/issues) for something to help out with.
+Yes please! Please review our [Contributing guide](CONTRIBUTING.md) and [Code of Conduct](https://github.com/moov-io/ach/blob/master/CODE_OF_CONDUCT.md) to get started! [Check out our issues](https://github.com/moov-io/iso20022/issues) for something to help out with.
 
 This project uses [Go Modules](https://github.com/golang/go/wiki/Modules) and uses Go 1.14 or higher. See [Golang's install instructions](https://golang.org/doc/install) for help setting up Go. You can download the source code and we offer [tagged and released versions](https://github.com/moov-io/iso20022/releases/latest) as well. We highly recommend you use a tagged release for production.
 
+## Related Projects
+As part of Moov's initiative to offer open source fintech infrastructure, we have a large collection of active projects you may find useful:
+
+- [Moov ACH](https://github.com/moov-io/ach) provides ACH file generation and parsing, supporting all Standard Entry Codes for the primary method of money movement throughout the United States.
+
+- [Moov Watchman](https://github.com/moov-io/watchman) offers search functions over numerous trade sanction lists from the United States and European Union.
+
+- [Moov Fed](https://github.com/moov-io/fed) implements utility services for searching the United States Federal Reserve System such as ABA routing numbers, financial institution name lookup, and FedACH and Fedwire routing information.
+
+- [Moov Wire](https://github.com/moov-io/wire) implements an interface to write files for the Fedwire Funds Service, a real-time gross settlement funds transfer system operated by the United States Federal Reserve Banks.
+
+- [Moov Image Cash Letter](https://github.com/moov-io/imagecashletter) implements Image Cash Letter (ICL) files used for Check21, X.9 or check truncation files for exchange and remote deposit in the U.S.
+
+- [Moov Metro 2](https://github.com/moov-io/metro2) provides a way to easily read, create, and validate Metro 2 format, which is used for consumer credit history reporting by the United States credit bureaus.
+
 ## License
 
-Apache License 2.0 See [LICENSE](LICENSE) for details.
-
+Apache License 2.0 - See [LICENSE](LICENSE) for details.
