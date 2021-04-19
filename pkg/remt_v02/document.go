@@ -34,3 +34,28 @@ func (doc DocumentRemt00200102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
+
+type DocumentRemt00100102 struct {
+	Xmlns   string              `xml:"xmlns,attr"`
+	RmtAdvc RemittanceAdviceV02 `xml:"RmtAdvc"`
+}
+
+func (doc DocumentRemt00100102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
+	return utils.Validate(&doc)
+}
+
+func (doc DocumentRemt00100102) NameSpace() string {
+	return utils.DocumentRemt00100102NameSpace
+}
+
+func (doc DocumentRemt00100102) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	var output struct {
+		RmtAdvc RemittanceAdviceV02 `xml:"RmtAdvc"`
+	}
+	output.RmtAdvc = doc.RmtAdvc
+	utils.XmlElement(&start, doc.NameSpace())
+	return e.EncodeElement(&output, start)
+}

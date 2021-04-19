@@ -7,6 +7,7 @@ package document
 import (
 	"encoding/json"
 	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/acmt_v01"
 	"github.com/moov-io/iso20022/pkg/acmt_v02"
 	"github.com/moov-io/iso20022/pkg/acmt_v03"

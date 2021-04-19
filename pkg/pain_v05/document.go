@@ -109,3 +109,53 @@ func (doc DocumentPain01100105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
+
+type DocumentPain01300105 struct {
+	Xmlns            string                              `xml:"xmlns,attr"`
+	CdtrPmtActvtnReq CreditorPaymentActivationRequestV05 `xml:"CdtrPmtActvtnReq"`
+}
+
+func (doc DocumentPain01300105) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
+	return utils.Validate(&doc)
+}
+
+func (doc DocumentPain01300105) NameSpace() string {
+	return utils.DocumentPain01300105NameSpace
+}
+
+func (doc DocumentPain01300105) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	var output struct {
+		CdtrPmtActvtnReq CreditorPaymentActivationRequestV05 `xml:"CdtrPmtActvtnReq"`
+	}
+	output.CdtrPmtActvtnReq = doc.CdtrPmtActvtnReq
+	utils.XmlElement(&start, doc.NameSpace())
+	return e.EncodeElement(&output, start)
+}
+
+type DocumentPain01400105 struct {
+	Xmlns                  string                                          `xml:"xmlns,attr"`
+	CdtrPmtActvtnReqStsRpt CreditorPaymentActivationRequestStatusReportV05 `xml:"CdtrPmtActvtnReqStsRpt"`
+}
+
+func (doc DocumentPain01400105) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
+	return utils.Validate(&doc)
+}
+
+func (doc DocumentPain01400105) NameSpace() string {
+	return utils.DocumentPain01400105NameSpace
+}
+
+func (doc DocumentPain01400105) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	var output struct {
+		CdtrPmtActvtnReqStsRpt CreditorPaymentActivationRequestStatusReportV05 `xml:"CdtrPmtActvtnReqStsRpt"`
+	}
+	output.CdtrPmtActvtnReqStsRpt = doc.CdtrPmtActvtnReqStsRpt
+	utils.XmlElement(&start, doc.NameSpace())
+	return e.EncodeElement(&output, start)
+}
