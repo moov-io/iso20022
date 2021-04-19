@@ -109,6 +109,7 @@ const (
 	DocumentCamt02900110NameSpace = "urn:iso:std:iso:20022:tech:xsd:camt.029.001.10"
 	DocumentPacs01000104NameSpace = "urn:iso:std:iso:20022:tech:xsd:pacs.010.001.04"
 	DocumentPacs02800104NameSpace = "urn:iso:std:iso:20022:tech:xsd:pacs.028.001.04"
+	DocumentPacs00200107NameSpace = "urn:iso:std:iso:20022:tech:xsd:pacs.002.001.07"
 	DocumentPacs00300108NameSpace = "urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08"
 	DocumentPacs00800109NameSpace = "urn:iso:std:iso:20022:tech:xsd:pacs.008.001.09"
 	DocumentPacs00900109NameSpace = "urn:iso:std:iso:20022:tech:xsd:pacs.009.001.09"
