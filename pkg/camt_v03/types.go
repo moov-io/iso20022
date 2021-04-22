@@ -60,6 +60,16 @@ func (r ExternalProxyAccountType1Code) Validate() error {
 	return nil
 }
 
+// Must be at least 1 items long
+type ExternalPersonIdentification1Code string
+
+func (r ExternalPersonIdentification1Code) Validate() error {
+	if len(string(r)) < 1 {
+		return utils.NewErrTextLengthInvalid("ExternalPersonIdentification1Code", 1, 0)
+	}
+	return nil
+}
+
 // May be one of ALLL, CHNG, MODF, DELD
 type QueryType2Code string
 

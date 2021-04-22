@@ -210,13 +210,13 @@ func TestDocumentReda06800101(t *testing.T) {
 	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:reda.068.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ReqToPayCdtrEnrlmntCxlReq><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr></ReqToPayCdtrEnrlmntCxlReq></Document>`)
 }
 
-func TestDocumentReda06000101(t *testing.T) {
-	sample := DocumentReda06000101{}
+func TestDocumentReda06900101(t *testing.T) {
+	sample := DocumentReda06900101{}
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
 	testTime, _ := time.Parse(time.RFC3339, testTimeString)
-	sample = DocumentReda06000101{
+	sample = DocumentReda06900101{
 		Xmlns: sample.NameSpace(),
 		ReqToPayCdtrEnrlmntStsRpt: RequestToPayCreditorEnrolmentStatusReportV01{
 			Hdr: EnrolmentHeader2{

@@ -1,10 +1,12 @@
+// Copyright 2020 The Moov Authors
+// Use of this source code is governed by an Apache License
+// license that can be found in the LICENSE file.
+
 package pacs_v07
 
 import (
-	"reflect"
-	"regexp"
-
 	"github.com/moov-io/iso20022/pkg/utils"
+	"reflect"
 )
 
 // May be one of ADDR, PBOX, HOME, BIZZ, MLTO, DLVY
@@ -19,17 +21,6 @@ func (r AddressType2Code) Validate() error {
 		}
 	}
 	return utils.NewErrValueInvalid("AddressType2Code")
-}
-
-// Must match the pattern [A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}
-type AnyBICIdentifier string
-
-func (r AnyBICIdentifier) Validate() error {
-	reg := regexp.MustCompile(`[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}`)
-	if !reg.MatchString(string(r)) {
-		return utils.NewErrValueInvalid("AnyBICIdentifier")
-	}
-	return nil
 }
 
 // May be one of RTGS, RTNS, MPNS, BOOK

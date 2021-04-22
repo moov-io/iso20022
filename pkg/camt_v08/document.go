@@ -60,31 +60,6 @@ func (doc DocumentCamt00500108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&output, start)
 }
 
-type DocumentCamt00800108 struct {
-	Xmlns string               `xml:"xmlns,attr"`
-	CclTx CancelTransactionV08 `xml:"CclTx"`
-}
-
-func (doc DocumentCamt00800108) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
-	}
-	return utils.Validate(&doc)
-}
-
-func (doc DocumentCamt00800108) NameSpace() string {
-	return utils.DocumentCamt00800108NameSpace
-}
-
-func (doc DocumentCamt00800108) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		CclTx CancelTransactionV08 `xml:"CclTx"`
-	}
-	output.CclTx = doc.CclTx
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
-}
-
 type DocumentCamt00600108 struct {
 	Xmlns string               `xml:"xmlns,attr"`
 	RtrTx ReturnTransactionV08 `xml:"RtrTx"`
@@ -110,27 +85,52 @@ func (doc DocumentCamt00600108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&output, start)
 }
 
-type DocumentCamt02700108 struct {
-	Xmlns     string             `xml:"xmlns,attr"`
-	ClmNonRct ClaimNonReceiptV08 `xml:"ClmNonRct"`
+type DocumentCamt00700108 struct {
+	Xmlns   string               `xml:"xmlns,attr"`
+	ModfyTx ModifyTransactionV08 `xml:"ModfyTx"`
 }
 
-func (doc DocumentCamt02700108) Validate() error {
+func (doc DocumentCamt00700108) Validate() error {
 	if doc.NameSpace() != doc.Xmlns {
 		return utils.NewErrInvalidNameSpace()
 	}
 	return utils.Validate(&doc)
 }
 
-func (doc DocumentCamt02700108) NameSpace() string {
-	return utils.DocumentCamt02700108NameSpace
+func (doc DocumentCamt00700108) NameSpace() string {
+	return utils.DocumentCamt00700108NameSpace
 }
 
-func (doc DocumentCamt02700108) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+func (doc DocumentCamt00700108) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		ClmNonRct ClaimNonReceiptV08 `xml:"ClmNonRct"`
+		ModfyTx ModifyTransactionV08 `xml:"ModfyTx"`
 	}
-	output.ClmNonRct = doc.ClmNonRct
+	output.ModfyTx = doc.ModfyTx
+	utils.XmlElement(&start, doc.NameSpace())
+	return e.EncodeElement(&output, start)
+}
+
+type DocumentCamt00800108 struct {
+	Xmlns string               `xml:"xmlns,attr"`
+	CclTx CancelTransactionV08 `xml:"CclTx"`
+}
+
+func (doc DocumentCamt00800108) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
+	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt00800108) NameSpace() string {
+	return utils.DocumentCamt00800108NameSpace
+}
+
+func (doc DocumentCamt00800108) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	var output struct {
+		CclTx CancelTransactionV08 `xml:"CclTx"`
+	}
+	output.CclTx = doc.CclTx
 	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
@@ -185,77 +185,27 @@ func (doc DocumentCamt02600108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&output, start)
 }
 
-type DocumentCamt05400108 struct {
-	Xmlns                 string                                   `xml:"xmlns,attr"`
-	BkToCstmrDbtCdtNtfctn BankToCustomerDebitCreditNotificationV08 `xml:"BkToCstmrDbtCdtNtfctn"`
+type DocumentCamt02700108 struct {
+	Xmlns     string             `xml:"xmlns,attr"`
+	ClmNonRct ClaimNonReceiptV08 `xml:"ClmNonRct"`
 }
 
-func (doc DocumentCamt05400108) Validate() error {
+func (doc DocumentCamt02700108) Validate() error {
 	if doc.NameSpace() != doc.Xmlns {
 		return utils.NewErrInvalidNameSpace()
 	}
 	return utils.Validate(&doc)
 }
 
-func (doc DocumentCamt05400108) NameSpace() string {
-	return utils.DocumentCamt05400108NameSpace
+func (doc DocumentCamt02700108) NameSpace() string {
+	return utils.DocumentCamt02700108NameSpace
 }
 
-func (doc DocumentCamt05400108) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+func (doc DocumentCamt02700108) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	var output struct {
-		BkToCstmrDbtCdtNtfctn BankToCustomerDebitCreditNotificationV08 `xml:"BkToCstmrDbtCdtNtfctn"`
+		ClmNonRct ClaimNonReceiptV08 `xml:"ClmNonRct"`
 	}
-	output.BkToCstmrDbtCdtNtfctn = doc.BkToCstmrDbtCdtNtfctn
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
-}
-
-type DocumentCamt05200108 struct {
-	Xmlns            string                         `xml:"xmlns,attr"`
-	BkToCstmrAcctRpt BankToCustomerAccountReportV08 `xml:"BkToCstmrAcctRpt"`
-}
-
-func (doc DocumentCamt05200108) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
-	}
-	return utils.Validate(&doc)
-}
-
-func (doc DocumentCamt05200108) NameSpace() string {
-	return utils.DocumentCamt05200108NameSpace
-}
-
-func (doc DocumentCamt05200108) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		BkToCstmrAcctRpt BankToCustomerAccountReportV08 `xml:"BkToCstmrAcctRpt"`
-	}
-	output.BkToCstmrAcctRpt = doc.BkToCstmrAcctRpt
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
-}
-
-type DocumentCamt00700108 struct {
-	Xmlns   string               `xml:"xmlns,attr"`
-	ModfyTx ModifyTransactionV08 `xml:"ModfyTx"`
-}
-
-func (doc DocumentCamt00700108) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
-	}
-	return utils.Validate(&doc)
-}
-
-func (doc DocumentCamt00700108) NameSpace() string {
-	return utils.DocumentCamt00700108NameSpace
-}
-
-func (doc DocumentCamt00700108) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		ModfyTx ModifyTransactionV08 `xml:"ModfyTx"`
-	}
-	output.ModfyTx = doc.ModfyTx
+	output.ClmNonRct = doc.ClmNonRct
 	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }
@@ -285,6 +235,31 @@ func (doc DocumentCamt03700108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&output, start)
 }
 
+type DocumentCamt05200108 struct {
+	Xmlns            string                         `xml:"xmlns,attr"`
+	BkToCstmrAcctRpt BankToCustomerAccountReportV08 `xml:"BkToCstmrAcctRpt"`
+}
+
+func (doc DocumentCamt05200108) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
+	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt05200108) NameSpace() string {
+	return utils.DocumentCamt05200108NameSpace
+}
+
+func (doc DocumentCamt05200108) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	var output struct {
+		BkToCstmrAcctRpt BankToCustomerAccountReportV08 `xml:"BkToCstmrAcctRpt"`
+	}
+	output.BkToCstmrAcctRpt = doc.BkToCstmrAcctRpt
+	utils.XmlElement(&start, doc.NameSpace())
+	return e.EncodeElement(&output, start)
+}
+
 type DocumentCamt05300108 struct {
 	Xmlns         string                     `xml:"xmlns,attr"`
 	BkToCstmrStmt BankToCustomerStatementV08 `xml:"BkToCstmrStmt"`
@@ -306,6 +281,31 @@ func (doc DocumentCamt05300108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		BkToCstmrStmt BankToCustomerStatementV08 `xml:"BkToCstmrStmt"`
 	}
 	output.BkToCstmrStmt = doc.BkToCstmrStmt
+	utils.XmlElement(&start, doc.NameSpace())
+	return e.EncodeElement(&output, start)
+}
+
+type DocumentCamt05400108 struct {
+	Xmlns                 string                                   `xml:"xmlns,attr"`
+	BkToCstmrDbtCdtNtfctn BankToCustomerDebitCreditNotificationV08 `xml:"BkToCstmrDbtCdtNtfctn"`
+}
+
+func (doc DocumentCamt05400108) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
+	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt05400108) NameSpace() string {
+	return utils.DocumentCamt05400108NameSpace
+}
+
+func (doc DocumentCamt05400108) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	var output struct {
+		BkToCstmrDbtCdtNtfctn BankToCustomerDebitCreditNotificationV08 `xml:"BkToCstmrDbtCdtNtfctn"`
+	}
+	output.BkToCstmrDbtCdtNtfctn = doc.BkToCstmrDbtCdtNtfctn
 	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }

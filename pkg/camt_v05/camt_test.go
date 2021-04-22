@@ -359,33 +359,6 @@ func TestDocumentCamt05100105(t *testing.T) {
 	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.051.001.05" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><LqdtyDbtTrf><MsgHdr><MsgId>Id</MsgId></MsgHdr><LqdtyDbtTrf><TrfdAmt><AmtWthtCcy>0</AmtWthtCcy><AmtWthCcy Ccy="ABC">0</AmtWthCcy></TrfdAmt></LqdtyDbtTrf></LqdtyDbtTrf></Document>`)
 }
 
-func TestDocumentCamt01800108(t *testing.T) {
-	sample := DocumentCamt01800108{}
-	err := sample.Validate()
-	assert.NotNil(t, err)
-
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
-	sample = DocumentCamt01800108{
-		Xmlns: sample.NameSpace(),
-		AcctRptgReq: AccountReportingRequestV05{
-			GrpHdr: GroupHeader77{
-				MsgId:   "Id",
-				CreDtTm: common.ISODateTime(testTime),
-			},
-		},
-	}
-	err = sample.Validate()
-	assert.Nil(t, err)
-
-	buf, err := json.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:camt.060.001.05","AcctRptgReq":{"GrpHdr":{"MsgId":"Id","CreDtTm":"2014-11-12T11:45:26.371"}}}`)
-
-	buf, err = xml.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.060.001.05" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><AcctRptgReq><GrpHdr><MsgId>Id</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></AcctRptgReq></Document>`)
-}
-
 func TestNestedTypes(t *testing.T) {
 	assert.Nil(t, BusinessDayCriteria2{}.Validate())
 	assert.NotNil(t, BusinessDayCriteria3Choice{}.Validate())

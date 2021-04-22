@@ -653,7 +653,7 @@ type GroupHeader62 struct {
 	MsgId    *common.Max35Text                             `xml:"MsgId"`
 	CreDtTm  *common.ISODateTime                           `xml:"CreDtTm"`
 	Authstn  []Authorisation1Choice                        `xml:"Authstn,omitempty" json:",omitempty"`
-	CpyInd   *CopyDuplicate1Code                           `xml:"CpyInd,omitempty" json:",omitempty"`
+	CpyInd   *common.CopyDuplicate1Code                    `xml:"CpyInd,omitempty" json:",omitempty"`
 	InitgPty PartyIdentification43                         `xml:"InitgPty"`
 	MsgRcpt  *PartyIdentification43                        `xml:"MsgRcpt,omitempty" json:",omitempty"`
 	FwdgAgt  *BranchAndFinancialInstitutionIdentification5 `xml:"FwdgAgt,omitempty" json:",omitempty"`
@@ -664,7 +664,7 @@ func (r GroupHeader62) Validate() error {
 }
 
 type OrganisationIdentification8 struct {
-	AnyBIC *AnyBICIdentifier                    `xml:"AnyBIC,omitempty" json:",omitempty"`
+	AnyBIC *common.AnyBICIdentifier             `xml:"AnyBIC,omitempty" json:",omitempty"`
 	Othr   []GenericOrganisationIdentification1 `xml:"Othr,omitempty" json:",omitempty"`
 }
 

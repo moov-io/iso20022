@@ -5,10 +5,8 @@
 package pain_v05
 
 import (
-	"reflect"
-	"regexp"
-
 	"github.com/moov-io/iso20022/pkg/utils"
+	"reflect"
 )
 
 // Must be at least 1 items long
@@ -227,17 +225,6 @@ func (r AddressType2Code) Validate() error {
 		}
 	}
 	return utils.NewErrValueInvalid("AddressType2Code")
-}
-
-// Must match the pattern [A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}
-type AnyBICIdentifier string
-
-func (r AnyBICIdentifier) Validate() error {
-	reg := regexp.MustCompile(`[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}`)
-	if !reg.MatchString(string(r)) {
-		return utils.NewErrValueInvalid("AnyBICIdentifier")
-	}
-	return nil
 }
 
 // May be one of DEBT, CRED, SHAR, SLEV

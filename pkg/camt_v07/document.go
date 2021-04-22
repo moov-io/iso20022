@@ -85,6 +85,31 @@ func (doc DocumentCamt01100107) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&output, start)
 }
 
+type DocumentCamt01200107 struct {
+	Xmlns  string         `xml:"xmlns,attr"`
+	DelLmt DeleteLimitV07 `xml:"DelLmt"`
+}
+
+func (doc DocumentCamt01200107) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
+	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt01200107) NameSpace() string {
+	return utils.DocumentCamt01200107NameSpace
+}
+
+func (doc DocumentCamt01200107) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	var output struct {
+		DelLmt DeleteLimitV07 `xml:"DelLmt"`
+	}
+	output.DelLmt = doc.DelLmt
+	utils.XmlElement(&start, doc.NameSpace())
+	return e.EncodeElement(&output, start)
+}
+
 type DocumentCamt01900107 struct {
 	Xmlns        string                          `xml:"xmlns,attr"`
 	RtrBizDayInf ReturnBusinessDayInformationV07 `xml:"RtrBizDayInf"`
@@ -131,31 +156,6 @@ func (doc DocumentCamt02300107) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		BckpPmt BackupPaymentV07 `xml:"BckpPmt"`
 	}
 	output.BckpPmt = doc.BckpPmt
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
-}
-
-type DocumentCamt01200107 struct {
-	Xmlns  string         `xml:"xmlns,attr"`
-	DelLmt DeleteLimitV07 `xml:"DelLmt"`
-}
-
-func (doc DocumentCamt01200107) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
-	}
-	return utils.Validate(&doc)
-}
-
-func (doc DocumentCamt01200107) NameSpace() string {
-	return utils.DocumentCamt01200107NameSpace
-}
-
-func (doc DocumentCamt01200107) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		DelLmt DeleteLimitV07 `xml:"DelLmt"`
-	}
-	output.DelLmt = doc.DelLmt
 	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }

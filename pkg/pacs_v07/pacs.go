@@ -1,3 +1,7 @@
+// Copyright 2020 The Moov Authors
+// Use of this source code is governed by an Apache License
+// license that can be found in the LICENSE file.
+
 package pacs_v07
 
 import (
@@ -459,7 +463,7 @@ func (r NumberOfTransactionsPerStatus3) Validate() error {
 }
 
 type OrganisationIdentification8 struct {
-	AnyBIC *AnyBICIdentifier                    `xml:"AnyBIC,omitempty" json:",omitempty"`
+	AnyBIC *common.AnyBICIdentifier             `xml:"AnyBIC,omitempty" json:",omitempty"`
 	Othr   []GenericOrganisationIdentification1 `xml:"Othr,omitempty" json:",omitempty"`
 }
 

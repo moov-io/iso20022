@@ -110,31 +110,6 @@ func (doc DocumentCamt01600104) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&output, start)
 }
 
-type DocumentCamt02000104 struct {
-	Xmlns        string                           `xml:"xmlns,attr"`
-	GetGnlBizInf GetGeneralBusinessInformationV04 `xml:"GetGnlBizInf"`
-}
-
-func (doc DocumentCamt02000104) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
-	}
-	return utils.Validate(&doc)
-}
-
-func (doc DocumentCamt02000104) NameSpace() string {
-	return utils.DocumentCamt02000104NameSpace
-}
-
-func (doc DocumentCamt02000104) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		GetGnlBizInf GetGeneralBusinessInformationV04 `xml:"GetGnlBizInf"`
-	}
-	output.GetGnlBizInf = doc.GetGnlBizInf
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
-}
-
 type DocumentCamt01700104 struct {
 	Xmlns          string                        `xml:"xmlns,attr"`
 	RtrCcyXchgRate ReturnCurrencyExchangeRateV04 `xml:"RtrCcyXchgRate"`
@@ -156,6 +131,31 @@ func (doc DocumentCamt01700104) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RtrCcyXchgRate ReturnCurrencyExchangeRateV04 `xml:"RtrCcyXchgRate"`
 	}
 	output.RtrCcyXchgRate = doc.RtrCcyXchgRate
+	utils.XmlElement(&start, doc.NameSpace())
+	return e.EncodeElement(&output, start)
+}
+
+type DocumentCamt02000104 struct {
+	Xmlns        string                           `xml:"xmlns,attr"`
+	GetGnlBizInf GetGeneralBusinessInformationV04 `xml:"GetGnlBizInf"`
+}
+
+func (doc DocumentCamt02000104) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
+	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt02000104) NameSpace() string {
+	return utils.DocumentCamt02000104NameSpace
+}
+
+func (doc DocumentCamt02000104) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	var output struct {
+		GetGnlBizInf GetGeneralBusinessInformationV04 `xml:"GetGnlBizInf"`
+	}
+	output.GetGnlBizInf = doc.GetGnlBizInf
 	utils.XmlElement(&start, doc.NameSpace())
 	return e.EncodeElement(&output, start)
 }

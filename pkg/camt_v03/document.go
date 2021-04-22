@@ -10,6 +10,31 @@ import (
 	"github.com/moov-io/iso20022/pkg/utils"
 )
 
+type DocumentCamt03500103 struct {
+	Xmlns             string                            `xml:"xmlns,attr"`
+	PrtryFrmtInvstgtn ProprietaryFormatInvestigationV03 `xml:"PrtryFrmtInvstgtn"`
+}
+
+func (doc DocumentCamt03500103) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
+	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt03500103) NameSpace() string {
+	return utils.DocumentCamt03500103NameSpace
+}
+
+func (doc DocumentCamt03500103) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	var output struct {
+		PrtryFrmtInvstgtn ProprietaryFormatInvestigationV03 `xml:"PrtryFrmtInvstgtn"`
+	}
+	output.PrtryFrmtInvstgtn = doc.PrtryFrmtInvstgtn
+	utils.XmlElement(&start, doc.NameSpace())
+	return e.EncodeElement(&output, start)
+}
+
 type DocumentCamt06900103 struct {
 	Xmlns      string              `xml:"xmlns,attr"`
 	GetStgOrdr GetStandingOrderV03 `xml:"GetStgOrdr"`
