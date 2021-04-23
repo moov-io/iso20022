@@ -12,11 +12,15 @@ import (
 
 type DocumentAdmi00400102 struct {
 	XMLName                 *xml.Name                  `json:",omitempty"`
+	Xmlns                   string                     `xml:"xmlns,attr,omitempty" json:",omitempty"`
 	DisableDefaultNamespace bool                       `xml:",omitempty" json:",omitempty"`
 	SysEvtNtfctn            SystemEventNotificationV02 `xml:"SysEvtNtfctn"`
 }
 
 func (doc DocumentAdmi00400102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
@@ -36,11 +40,15 @@ func (doc DocumentAdmi00400102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 
 type DocumentAdmi00900102 struct {
 	XMLName                 *xml.Name            `json:",omitempty"`
+	Xmlns                   string               `xml:"xmlns,attr,omitempty" json:",omitempty"`
 	DisableDefaultNamespace bool                 `xml:",omitempty" json:",omitempty"`
 	StatcDataReq            StaticDataRequestV02 `xml:"StatcDataReq"`
 }
 
 func (doc DocumentAdmi00900102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
@@ -60,11 +68,15 @@ func (doc DocumentAdmi00900102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 
 type DocumentAdmi01000102 struct {
 	XMLName                 *xml.Name           `json:",omitempty"`
+	Xmlns                   string              `xml:"xmlns,attr,omitempty" json:",omitempty"`
 	DisableDefaultNamespace bool                `xml:",omitempty" json:",omitempty"`
 	StatcDataRpt            StaticDataReportV02 `xml:"StatcDataRpt"`
 }
 
 func (doc DocumentAdmi01000102) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 

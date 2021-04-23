@@ -18,6 +18,7 @@ func TestDocumentAdmi00200101(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi00200101{
+		Xmlns: sample.NameSpace(),
 		Admi00200101: Admi00200101{
 			RltdRef: MessageReference{
 				Ref: "Ref",
@@ -32,7 +33,7 @@ func TestDocumentAdmi00200101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Admi00200101":{"RltdRef":{"Ref":"Ref"},"Rsn":{"RjctgPtyRsn":"RjctgPtyRsn"}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.002.001.01","Admi00200101":{"RltdRef":{"Ref":"Ref"},"Rsn":{"RjctgPtyRsn":"RjctgPtyRsn"}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -45,6 +46,7 @@ func TestDocumentAdmi00400101(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi00400101{
+		Xmlns: sample.NameSpace(),
 		Admi00400101: Admi00400101{
 			EvtInf: Event1{
 				EvtCd: "EvtCd",
@@ -56,7 +58,7 @@ func TestDocumentAdmi00400101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Admi00400101":{"EvtInf":{"EvtCd":"EvtCd"}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.004.001.01","Admi00400101":{"EvtInf":{"EvtCd":"EvtCd"}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -69,6 +71,7 @@ func TestDocumentAdmi00500101(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi00500101{
+		Xmlns: sample.NameSpace(),
 		RptQryReq: ReportQueryRequestV01{
 			MsgHdr: MessageHeader7{
 				MsgId: "MsgId",
@@ -80,7 +83,7 @@ func TestDocumentAdmi00500101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"RptQryReq":{"MsgHdr":{"MsgId":"MsgId"}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.005.001.01","RptQryReq":{"MsgHdr":{"MsgId":"MsgId"}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -93,6 +96,7 @@ func TestDocumentAdmi00600101(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi00600101{
+		Xmlns: sample.NameSpace(),
 		RsndReq: ResendRequestV01{
 			MsgHdr: MessageHeader7{
 				MsgId: "MsgId",
@@ -104,7 +108,7 @@ func TestDocumentAdmi00600101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"RsndReq":{"MsgHdr":{"MsgId":"MsgId"}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.006.001.01","RsndReq":{"MsgHdr":{"MsgId":"MsgId"}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -117,6 +121,7 @@ func TestDocumentAdmi00700101(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi00700101{
+		Xmlns: sample.NameSpace(),
 		RctAck: ReceiptAcknowledgementV01{
 			MsgId: MessageHeader10{
 				MsgId: "MsgId",
@@ -128,7 +133,7 @@ func TestDocumentAdmi00700101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"RctAck":{"MsgId":{"MsgId":"MsgId"}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.007.001.01","RctAck":{"MsgId":{"MsgId":"MsgId"}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -141,6 +146,7 @@ func TestDocumentAdmi01100101(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi01100101{
+		Xmlns: sample.NameSpace(),
 		SysEvtAck: SystemEventAcknowledgementV01{
 			MsgId: "MsgId",
 		},
@@ -150,7 +156,7 @@ func TestDocumentAdmi01100101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"SysEvtAck":{"MsgId":"MsgId"}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.011.001.01","SysEvtAck":{"MsgId":"MsgId"}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -163,6 +169,7 @@ func TestDocumentAdmi01700101(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi01700101{
+		Xmlns: sample.NameSpace(),
 		PrcgReq: ProcessingRequestV01{
 			MsgId: "MsgId",
 			Req: RequestDetails19{
@@ -175,7 +182,7 @@ func TestDocumentAdmi01700101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"PrcgReq":{"MsgId":"MsgId","Req":{"Tp":"Tp"}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.017.001.01","PrcgReq":{"MsgId":"MsgId","Req":{"Tp":"Tp"}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)

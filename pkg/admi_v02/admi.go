@@ -74,7 +74,7 @@ func (r RequestDetails4) Validate() error {
 type RequestDetails5 struct {
 	Tp     common.Max35Text  `xml:"Tp"`
 	ReqRef common.Max35Text  `xml:"ReqRef"`
-	RptKey []RequestDetails4 `xml:"RptKey"`
+	RptKey []RequestDetails4 `xml:"RptKey,omitempty" json:",omitempty"`
 }
 
 func (r RequestDetails5) Validate() error {
@@ -85,9 +85,9 @@ type StaticDataReportV02 struct {
 	XMLName     *xml.Name                      `json:",omitempty"`
 	Attr        *utils.Attr                    `xml:",attr,omitempty" json:",omitempty"`
 	MsgId       common.Max35Text               `xml:"MsgId"`
-	SttlmSsnIdr *common.Exact4AlphaNumericText `xml:"SttlmSsnIdr,omitempty"`
+	SttlmSsnIdr *common.Exact4AlphaNumericText `xml:"SttlmSsnIdr,omitempty" json:",omitempty"`
 	RptDtls     RequestDetails5                `xml:"RptDtls"`
-	SplmtryData []SupplementaryData1           `xml:"SplmtryData,omitempty"`
+	SplmtryData []SupplementaryData1           `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
 func (r StaticDataReportV02) Validate() error {
@@ -95,7 +95,7 @@ func (r StaticDataReportV02) Validate() error {
 }
 
 type SupplementaryData1 struct {
-	PlcAndNm *common.Max350Text         `xml:"PlcAndNm,omitempty"`
+	PlcAndNm *common.Max350Text         `xml:"PlcAndNm,omitempty" json:",omitempty"`
 	Envlp    SupplementaryDataEnvelope1 `xml:"Envlp"`
 }
 

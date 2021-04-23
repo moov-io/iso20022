@@ -11,8 +11,10 @@ import (
 )
 
 type DocumentAcmt00700103 struct {
-	Xmlns       string                   `xml:"xmlns,attr"`
-	AcctOpngReq AccountOpeningRequestV03 `xml:"AcctOpngReq"`
+	XMLName                 *xml.Name                `json:",omitempty"`
+	Xmlns                   string                   `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                     `xml:",omitempty" json:",omitempty"`
+	AcctOpngReq             AccountOpeningRequestV03 `xml:"AcctOpngReq"`
 }
 
 func (doc DocumentAcmt00700103) Validate() error {
@@ -31,13 +33,15 @@ func (doc DocumentAcmt00700103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctOpngReq AccountOpeningRequestV03 `xml:"AcctOpngReq"`
 	}
 	output.AcctOpngReq = doc.AcctOpngReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt00800103 struct {
-	Xmlns             string                            `xml:"xmlns,attr"`
-	AcctOpngAmdmntReq AccountOpeningAmendmentRequestV03 `xml:"AcctOpngAmdmntReq"`
+	XMLName                 *xml.Name                         `json:",omitempty"`
+	Xmlns                   string                            `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                              `xml:",omitempty" json:",omitempty"`
+	AcctOpngAmdmntReq       AccountOpeningAmendmentRequestV03 `xml:"AcctOpngAmdmntReq"`
 }
 
 func (doc DocumentAcmt00800103) Validate() error {
@@ -56,13 +60,15 @@ func (doc DocumentAcmt00800103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctOpngAmdmntReq AccountOpeningAmendmentRequestV03 `xml:"AcctOpngAmdmntReq"`
 	}
 	output.AcctOpngAmdmntReq = doc.AcctOpngAmdmntReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt00900103 struct {
-	Xmlns               string                                        `xml:"xmlns,attr"`
-	AcctOpngAddtlInfReq AccountOpeningAdditionalInformationRequestV03 `xml:"AcctOpngAddtlInfReq"`
+	XMLName                 *xml.Name                                     `json:",omitempty"`
+	Xmlns                   string                                        `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                          `xml:",omitempty" json:",omitempty"`
+	AcctOpngAddtlInfReq     AccountOpeningAdditionalInformationRequestV03 `xml:"AcctOpngAddtlInfReq"`
 }
 
 func (doc DocumentAcmt00900103) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
@@ -70,7 +76,7 @@ func (doc DocumentAcmt00900103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctOpngAddtlInfReq AccountOpeningAdditionalInformationRequestV03 `xml:"AcctOpngAddtlInfReq"`
 	}
 	output.AcctOpngAddtlInfReq = doc.AcctOpngAddtlInfReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
@@ -86,8 +92,10 @@ func (doc DocumentAcmt00900103) NameSpace() string {
 }
 
 type DocumentAcmt01000103 struct {
-	Xmlns      string                           `xml:"xmlns,attr"`
-	AcctReqAck AccountRequestAcknowledgementV03 `xml:"AcctReqAck"`
+	XMLName                 *xml.Name                        `json:",omitempty"`
+	Xmlns                   string                           `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                             `xml:",omitempty" json:",omitempty"`
+	AcctReqAck              AccountRequestAcknowledgementV03 `xml:"AcctReqAck"`
 }
 
 func (doc DocumentAcmt01000103) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
@@ -95,7 +103,7 @@ func (doc DocumentAcmt01000103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctReqAck AccountRequestAcknowledgementV03 `xml:"AcctReqAck"`
 	}
 	output.AcctReqAck = doc.AcctReqAck
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
@@ -111,8 +119,10 @@ func (doc DocumentAcmt01000103) NameSpace() string {
 }
 
 type DocumentAcmt01100103 struct {
-	Xmlns        string                     `xml:"xmlns,attr"`
-	AcctReqRjctn AccountRequestRejectionV03 `xml:"AcctReqRjctn"`
+	XMLName                 *xml.Name                  `json:",omitempty"`
+	Xmlns                   string                     `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                       `xml:",omitempty" json:",omitempty"`
+	AcctReqRjctn            AccountRequestRejectionV03 `xml:"AcctReqRjctn"`
 }
 
 func (doc DocumentAcmt01100103) Validate() error {
@@ -131,13 +141,15 @@ func (doc DocumentAcmt01100103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctReqRjctn AccountRequestRejectionV03 `xml:"AcctReqRjctn"`
 	}
 	output.AcctReqRjctn = doc.AcctReqRjctn
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt01200103 struct {
-	Xmlns           string                                 `xml:"xmlns,attr"`
-	AcctAddtlInfReq AccountAdditionalInformationRequestV03 `xml:"AcctAddtlInfReq"`
+	XMLName                 *xml.Name                              `json:",omitempty"`
+	Xmlns                   string                                 `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                   `xml:",omitempty" json:",omitempty"`
+	AcctAddtlInfReq         AccountAdditionalInformationRequestV03 `xml:"AcctAddtlInfReq"`
 }
 
 func (doc DocumentAcmt01200103) Validate() error {
@@ -156,13 +168,15 @@ func (doc DocumentAcmt01200103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctAddtlInfReq AccountAdditionalInformationRequestV03 `xml:"AcctAddtlInfReq"`
 	}
 	output.AcctAddtlInfReq = doc.AcctAddtlInfReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt01300103 struct {
-	Xmlns      string                  `xml:"xmlns,attr"`
-	AcctRptReq AccountReportRequestV03 `xml:"AcctRptReq"`
+	XMLName                 *xml.Name               `json:",omitempty"`
+	Xmlns                   string                  `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                    `xml:",omitempty" json:",omitempty"`
+	AcctRptReq              AccountReportRequestV03 `xml:"AcctRptReq"`
 }
 
 func (doc DocumentAcmt01300103) Validate() error {
@@ -181,13 +195,15 @@ func (doc DocumentAcmt01300103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctRptReq AccountReportRequestV03 `xml:"AcctRptReq"`
 	}
 	output.AcctRptReq = doc.AcctRptReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt01400103 struct {
-	Xmlns   string           `xml:"xmlns,attr"`
-	AcctRpt AccountReportV03 `xml:"AcctRpt"`
+	XMLName                 *xml.Name        `json:",omitempty"`
+	Xmlns                   string           `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool             `xml:",omitempty" json:",omitempty"`
+	AcctRpt                 AccountReportV03 `xml:"AcctRpt"`
 }
 
 func (doc DocumentAcmt01400103) Validate() error {
@@ -206,13 +222,15 @@ func (doc DocumentAcmt01400103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctRpt AccountReportV03 `xml:"AcctRpt"`
 	}
 	output.AcctRpt = doc.AcctRpt
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt01500103 struct {
-	Xmlns                 string                                      `xml:"xmlns,attr"`
-	AcctExcldMndtMntncReq AccountExcludedMandateMaintenanceRequestV03 `xml:"AcctExcldMndtMntncReq"`
+	XMLName                 *xml.Name                                   `json:",omitempty"`
+	Xmlns                   string                                      `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                        `xml:",omitempty" json:",omitempty"`
+	AcctExcldMndtMntncReq   AccountExcludedMandateMaintenanceRequestV03 `xml:"AcctExcldMndtMntncReq"`
 }
 
 func (doc DocumentAcmt01500103) Validate() error {
@@ -231,12 +249,14 @@ func (doc DocumentAcmt01500103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctExcldMndtMntncReq AccountExcludedMandateMaintenanceRequestV03 `xml:"AcctExcldMndtMntncReq"`
 	}
 	output.AcctExcldMndtMntncReq = doc.AcctExcldMndtMntncReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt01600103 struct {
-	Xmlns                       string                                               `xml:"xmlns,attr"`
+	XMLName                     *xml.Name                                            `json:",omitempty"`
+	Xmlns                       string                                               `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace     bool                                                 `xml:",omitempty" json:",omitempty"`
 	AcctExcldMndtMntncAmdmntReq AccountExcludedMandateMaintenanceAmendmentRequestV03 `xml:"AcctExcldMndtMntncAmdmntReq"`
 }
 
@@ -256,13 +276,15 @@ func (doc DocumentAcmt01600103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctExcldMndtMntncAmdmntReq AccountExcludedMandateMaintenanceAmendmentRequestV03 `xml:"AcctExcldMndtMntncAmdmntReq"`
 	}
 	output.AcctExcldMndtMntncAmdmntReq = doc.AcctExcldMndtMntncAmdmntReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt01700103 struct {
-	Xmlns            string                              `xml:"xmlns,attr"`
-	AcctMndtMntncReq AccountMandateMaintenanceRequestV03 `xml:"AcctMndtMntncReq"`
+	XMLName                 *xml.Name                           `json:",omitempty"`
+	Xmlns                   string                              `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                `xml:",omitempty" json:",omitempty"`
+	AcctMndtMntncReq        AccountMandateMaintenanceRequestV03 `xml:"AcctMndtMntncReq"`
 }
 
 func (doc DocumentAcmt01700103) Validate() error {
@@ -281,13 +303,15 @@ func (doc DocumentAcmt01700103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctMndtMntncReq AccountMandateMaintenanceRequestV03 `xml:"AcctMndtMntncReq"`
 	}
 	output.AcctMndtMntncReq = doc.AcctMndtMntncReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt01800103 struct {
-	Xmlns                  string                                       `xml:"xmlns,attr"`
-	AcctMndtMntncAmdmntReq AccountMandateMaintenanceAmendmentRequestV03 `xml:"AcctMndtMntncAmdmntReq"`
+	XMLName                 *xml.Name                                    `json:",omitempty"`
+	Xmlns                   string                                       `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                         `xml:",omitempty" json:",omitempty"`
+	AcctMndtMntncAmdmntReq  AccountMandateMaintenanceAmendmentRequestV03 `xml:"AcctMndtMntncAmdmntReq"`
 }
 
 func (doc DocumentAcmt01800103) Validate() error {
@@ -306,13 +330,15 @@ func (doc DocumentAcmt01800103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctMndtMntncAmdmntReq AccountMandateMaintenanceAmendmentRequestV03 `xml:"AcctMndtMntncAmdmntReq"`
 	}
 	output.AcctMndtMntncAmdmntReq = doc.AcctMndtMntncAmdmntReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt01900103 struct {
-	Xmlns       string                   `xml:"xmlns,attr"`
-	AcctClsgReq AccountClosingRequestV03 `xml:"AcctClsgReq"`
+	XMLName                 *xml.Name                `json:",omitempty"`
+	Xmlns                   string                   `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                     `xml:",omitempty" json:",omitempty"`
+	AcctClsgReq             AccountClosingRequestV03 `xml:"AcctClsgReq"`
 }
 
 func (doc DocumentAcmt01900103) Validate() error {
@@ -331,13 +357,15 @@ func (doc DocumentAcmt01900103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctClsgReq AccountClosingRequestV03 `xml:"AcctClsgReq"`
 	}
 	output.AcctClsgReq = doc.AcctClsgReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt02000103 struct {
-	Xmlns             string                            `xml:"xmlns,attr"`
-	AcctClsgAmdmntReq AccountClosingAmendmentRequestV03 `xml:"AcctClsgAmdmntReq"`
+	XMLName                 *xml.Name                         `json:",omitempty"`
+	Xmlns                   string                            `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                              `xml:",omitempty" json:",omitempty"`
+	AcctClsgAmdmntReq       AccountClosingAmendmentRequestV03 `xml:"AcctClsgAmdmntReq"`
 }
 
 func (doc DocumentAcmt02000103) Validate() error {
@@ -356,13 +384,15 @@ func (doc DocumentAcmt02000103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctClsgAmdmntReq AccountClosingAmendmentRequestV03 `xml:"AcctClsgAmdmntReq"`
 	}
 	output.AcctClsgAmdmntReq = doc.AcctClsgAmdmntReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt02100103 struct {
-	Xmlns               string                                        `xml:"xmlns,attr"`
-	AcctClsgAddtlInfReq AccountClosingAdditionalInformationRequestV03 `xml:"AcctClsgAddtlInfReq"`
+	XMLName                 *xml.Name                                     `json:",omitempty"`
+	Xmlns                   string                                        `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                          `xml:",omitempty" json:",omitempty"`
+	AcctClsgAddtlInfReq     AccountClosingAdditionalInformationRequestV03 `xml:"AcctClsgAddtlInfReq"`
 }
 
 func (doc DocumentAcmt02100103) Validate() error {
@@ -381,13 +411,15 @@ func (doc DocumentAcmt02100103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctClsgAddtlInfReq AccountClosingAdditionalInformationRequestV03 `xml:"AcctClsgAddtlInfReq"`
 	}
 	output.AcctClsgAddtlInfReq = doc.AcctClsgAddtlInfReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt02700103 struct {
-	Xmlns           string                             `xml:"xmlns,attr"`
-	AcctSwtchInfReq AccountSwitchInformationRequestV03 `xml:"AcctSwtchInfReq"`
+	XMLName                 *xml.Name                          `json:",omitempty"`
+	Xmlns                   string                             `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                               `xml:",omitempty" json:",omitempty"`
+	AcctSwtchInfReq         AccountSwitchInformationRequestV03 `xml:"AcctSwtchInfReq"`
 }
 
 func (doc DocumentAcmt02700103) Validate() error {
@@ -406,13 +438,15 @@ func (doc DocumentAcmt02700103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctSwtchInfReq AccountSwitchInformationRequestV03 `xml:"AcctSwtchInfReq"`
 	}
 	output.AcctSwtchInfReq = doc.AcctSwtchInfReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt02800103 struct {
-	Xmlns            string                              `xml:"xmlns,attr"`
-	AcctSwtchInfRspn AccountSwitchInformationResponseV03 `xml:"AcctSwtchInfRspn"`
+	XMLName                 *xml.Name                           `json:",omitempty"`
+	Xmlns                   string                              `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                `xml:",omitempty" json:",omitempty"`
+	AcctSwtchInfRspn        AccountSwitchInformationResponseV03 `xml:"AcctSwtchInfRspn"`
 }
 
 func (doc DocumentAcmt02800103) Validate() error {
@@ -431,13 +465,15 @@ func (doc DocumentAcmt02800103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctSwtchInfRspn AccountSwitchInformationResponseV03 `xml:"AcctSwtchInfRspn"`
 	}
 	output.AcctSwtchInfRspn = doc.AcctSwtchInfRspn
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt02900103 struct {
-	Xmlns                string                                `xml:"xmlns,attr"`
-	AcctSwtchCclExstgPmt AccountSwitchCancelExistingPaymentV03 `xml:"AcctSwtchCclExstgPmt"`
+	XMLName                 *xml.Name                             `json:",omitempty"`
+	Xmlns                   string                                `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                  `xml:",omitempty" json:",omitempty"`
+	AcctSwtchCclExstgPmt    AccountSwitchCancelExistingPaymentV03 `xml:"AcctSwtchCclExstgPmt"`
 }
 
 func (doc DocumentAcmt02900103) Validate() error {
@@ -456,13 +492,15 @@ func (doc DocumentAcmt02900103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctSwtchCclExstgPmt AccountSwitchCancelExistingPaymentV03 `xml:"AcctSwtchCclExstgPmt"`
 	}
 	output.AcctSwtchCclExstgPmt = doc.AcctSwtchCclExstgPmt
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt03100103 struct {
-	Xmlns              string                                 `xml:"xmlns,attr"`
-	AcctSwtchReqBalTrf AccountSwitchRequestBalanceTransferV03 `xml:"AcctSwtchReqBalTrf"`
+	XMLName                 *xml.Name                              `json:",omitempty"`
+	Xmlns                   string                                 `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                   `xml:",omitempty" json:",omitempty"`
+	AcctSwtchReqBalTrf      AccountSwitchRequestBalanceTransferV03 `xml:"AcctSwtchReqBalTrf"`
 }
 
 func (doc DocumentAcmt03100103) Validate() error {
@@ -481,13 +519,15 @@ func (doc DocumentAcmt03100103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctSwtchReqBalTrf AccountSwitchRequestBalanceTransferV03 `xml:"AcctSwtchReqBalTrf"`
 	}
 	output.AcctSwtchReqBalTrf = doc.AcctSwtchReqBalTrf
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt03200103 struct {
-	Xmlns              string                                         `xml:"xmlns,attr"`
-	AcctSwtchBalTrfAck AccountSwitchBalanceTransferAcknowledgementV03 `xml:"AcctSwtchBalTrfAck"`
+	XMLName                 *xml.Name                                      `json:",omitempty"`
+	Xmlns                   string                                         `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                           `xml:",omitempty" json:",omitempty"`
+	AcctSwtchBalTrfAck      AccountSwitchBalanceTransferAcknowledgementV03 `xml:"AcctSwtchBalTrfAck"`
 }
 
 func (doc DocumentAcmt03200103) Validate() error {
@@ -506,13 +546,15 @@ func (doc DocumentAcmt03200103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctSwtchBalTrfAck AccountSwitchBalanceTransferAcknowledgementV03 `xml:"AcctSwtchBalTrfAck"`
 	}
 	output.AcctSwtchBalTrfAck = doc.AcctSwtchBalTrfAck
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAcmt03400103 struct {
-	Xmlns           string                         `xml:"xmlns,attr"`
-	AcctSwtchReqPmt AccountSwitchRequestPaymentV03 `xml:"AcctSwtchReqPmt"`
+	XMLName                 *xml.Name                      `json:",omitempty"`
+	Xmlns                   string                         `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                           `xml:",omitempty" json:",omitempty"`
+	AcctSwtchReqPmt         AccountSwitchRequestPaymentV03 `xml:"AcctSwtchReqPmt"`
 }
 
 func (doc DocumentAcmt03400103) Validate() error {
@@ -531,6 +573,6 @@ func (doc DocumentAcmt03400103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctSwtchReqPmt AccountSwitchRequestPaymentV03 `xml:"AcctSwtchReqPmt"`
 	}
 	output.AcctSwtchReqPmt = doc.AcctSwtchReqPmt
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }

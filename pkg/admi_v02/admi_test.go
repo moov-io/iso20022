@@ -18,6 +18,7 @@ func TestDocumentAdmi00400102(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi00400102{
+		Xmlns: sample.NameSpace(),
 		SysEvtNtfctn: SystemEventNotificationV02{
 			EvtInf: Event2{
 				EvtCd: "ABCD",
@@ -29,7 +30,7 @@ func TestDocumentAdmi00400102(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"SysEvtNtfctn":{"EvtInf":{"EvtCd":"ABCD"}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.004.001.02","SysEvtNtfctn":{"EvtInf":{"EvtCd":"ABCD"}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -42,6 +43,7 @@ func TestDocumentAdmi00900102(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi00900102{
+		Xmlns: sample.NameSpace(),
 		StatcDataReq: StaticDataRequestV02{
 			MsgId: "MsgId",
 			DataReqDtls: RequestDetails3{
@@ -54,7 +56,7 @@ func TestDocumentAdmi00900102(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"StatcDataReq":{"MsgId":"MsgId","DataReqDtls":{"Tp":"Tp"}}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.009.001.02","StatcDataReq":{"MsgId":"MsgId","DataReqDtls":{"Tp":"Tp"}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
@@ -67,6 +69,7 @@ func TestDocumentAdmi01000102(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi01000102{
+		Xmlns: sample.NameSpace(),
 		StatcDataRpt: StaticDataReportV02{
 			MsgId: "MsgId",
 			RptDtls: RequestDetails5{
@@ -80,7 +83,7 @@ func TestDocumentAdmi01000102(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"StatcDataRpt":{"MsgId":"MsgId","SttlmSsnIdr":null,"RptDtls":{"Tp":"Tp","ReqRef":"ReqRef","RptKey":null},"SplmtryData":null}}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.010.001.02","StatcDataRpt":{"MsgId":"MsgId","RptDtls":{"Tp":"Tp","ReqRef":"ReqRef"}}}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)

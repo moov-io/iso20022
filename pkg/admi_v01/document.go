@@ -11,12 +11,16 @@ import (
 )
 
 type DocumentAdmi00200101 struct {
-	XMLName                *xml.Name    `json:",omitempty"`
-	EnableDefaultNamespace bool         `xml:",omitempty" json:",omitempty"`
-	Admi00200101           Admi00200101 `xml:"admi.002.001.01"`
+	XMLName                 *xml.Name    `json:",omitempty"`
+	Xmlns                   string       `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool         `xml:",omitempty" json:",omitempty"`
+	Admi00200101            Admi00200101 `xml:"admi.002.001.01"`
 }
 
 func (doc DocumentAdmi00200101) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
@@ -30,17 +34,21 @@ func (doc DocumentAdmi00200101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	}
 
 	output.Admi00200101 = doc.Admi00200101
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.EnableDefaultNamespace)
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAdmi00400101 struct {
-	XMLName                *xml.Name    `json:",omitempty"`
-	EnableDefaultNamespace bool         `xml:",omitempty" json:",omitempty"`
-	Admi00400101           Admi00400101 `xml:"admi.004.001.01"`
+	XMLName                 *xml.Name    `json:",omitempty"`
+	Xmlns                   string       `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool         `xml:",omitempty" json:",omitempty"`
+	Admi00400101            Admi00400101 `xml:"admi.004.001.01"`
 }
 
 func (doc DocumentAdmi00400101) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
@@ -54,17 +62,21 @@ func (doc DocumentAdmi00400101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	}
 
 	output.Admi00400101 = doc.Admi00400101
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.EnableDefaultNamespace)
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAdmi00500101 struct {
-	XMLName                *xml.Name             `json:",omitempty"`
-	EnableDefaultNamespace bool                  `xml:",omitempty" json:",omitempty"`
-	RptQryReq              ReportQueryRequestV01 `xml:"RptQryReq"`
+	XMLName                 *xml.Name             `json:",omitempty"`
+	Xmlns                   string                `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                  `xml:",omitempty" json:",omitempty"`
+	RptQryReq               ReportQueryRequestV01 `xml:"RptQryReq"`
 }
 
 func (doc DocumentAdmi00500101) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
@@ -78,17 +90,21 @@ func (doc DocumentAdmi00500101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	}
 
 	output.RptQryReq = doc.RptQryReq
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.EnableDefaultNamespace)
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAdmi00600101 struct {
-	XMLName                *xml.Name        `json:",omitempty"`
-	EnableDefaultNamespace bool             `xml:",omitempty" json:",omitempty"`
-	RsndReq                ResendRequestV01 `xml:"RsndReq"`
+	XMLName                 *xml.Name        `json:",omitempty"`
+	Xmlns                   string           `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool             `xml:",omitempty" json:",omitempty"`
+	RsndReq                 ResendRequestV01 `xml:"RsndReq"`
 }
 
 func (doc DocumentAdmi00600101) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
@@ -102,17 +118,21 @@ func (doc DocumentAdmi00600101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	}
 
 	output.RsndReq = doc.RsndReq
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.EnableDefaultNamespace)
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAdmi00700101 struct {
-	XMLName                *xml.Name                 `json:",omitempty"`
-	EnableDefaultNamespace bool                      `xml:",omitempty" json:",omitempty"`
-	RctAck                 ReceiptAcknowledgementV01 `xml:"RctAck"`
+	XMLName                 *xml.Name                 `json:",omitempty"`
+	Xmlns                   string                    `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                      `xml:",omitempty" json:",omitempty"`
+	RctAck                  ReceiptAcknowledgementV01 `xml:"RctAck"`
 }
 
 func (doc DocumentAdmi00700101) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
@@ -126,17 +146,21 @@ func (doc DocumentAdmi00700101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	}
 
 	output.RctAck = doc.RctAck
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.EnableDefaultNamespace)
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAdmi01100101 struct {
-	XMLName                *xml.Name                     `json:",omitempty"`
-	EnableDefaultNamespace bool                          `xml:",omitempty" json:",omitempty"`
-	SysEvtAck              SystemEventAcknowledgementV01 `xml:"SysEvtAck"`
+	XMLName                 *xml.Name                     `json:",omitempty"`
+	Xmlns                   string                        `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                          `xml:",omitempty" json:",omitempty"`
+	SysEvtAck               SystemEventAcknowledgementV01 `xml:"SysEvtAck"`
 }
 
 func (doc DocumentAdmi01100101) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
@@ -150,17 +174,21 @@ func (doc DocumentAdmi01100101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	}
 
 	output.SysEvtAck = doc.SysEvtAck
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.EnableDefaultNamespace)
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAdmi01700101 struct {
-	XMLName                *xml.Name            `json:",omitempty"`
-	EnableDefaultNamespace bool                 `xml:",omitempty" json:",omitempty"`
-	PrcgReq                ProcessingRequestV01 `xml:"PrcgReq"`
+	XMLName                 *xml.Name            `json:",omitempty"`
+	Xmlns                   string               `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                 `xml:",omitempty" json:",omitempty"`
+	PrcgReq                 ProcessingRequestV01 `xml:"PrcgReq"`
 }
 
 func (doc DocumentAdmi01700101) Validate() error {
+	if doc.NameSpace() != doc.Xmlns {
+		return utils.NewErrInvalidNameSpace()
+	}
 	return utils.Validate(&doc)
 }
 
@@ -174,6 +202,6 @@ func (doc DocumentAdmi01700101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	}
 
 	output.PrcgReq = doc.PrcgReq
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.EnableDefaultNamespace)
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }

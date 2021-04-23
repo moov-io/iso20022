@@ -11,8 +11,10 @@ import (
 )
 
 type DocumentAcmt03600101 struct {
-	Xmlns                 string                            `xml:"xmlns,attr"`
-	AcctSwtchTermntnSwtch AccountSwitchTerminationSwitchV01 `xml:"AcctSwtchTermntnSwtch"`
+	XMLName                 *xml.Name                         `json:",omitempty"`
+	Xmlns                   string                            `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                              `xml:",omitempty" json:",omitempty"`
+	AcctSwtchTermntnSwtch   AccountSwitchTerminationSwitchV01 `xml:"AcctSwtchTermntnSwtch"`
 }
 
 func (doc DocumentAcmt03600101) Validate() error {
@@ -30,7 +32,8 @@ func (doc DocumentAcmt03600101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	var output struct {
 		AcctSwtchTermntnSwtch AccountSwitchTerminationSwitchV01 `xml:"AcctSwtchTermntnSwtch"`
 	}
+
 	output.AcctSwtchTermntnSwtch = doc.AcctSwtchTermntnSwtch
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
