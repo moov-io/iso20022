@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentPain00700101(t *testing.T) {
@@ -23,7 +20,7 @@ func TestDocumentPain00700101(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPain00700101{
 		Xmlns: sample.NameSpace(),
 		MndtCpyReq: MandateCopyRequestV01{
@@ -50,7 +47,7 @@ func TestDocumentPain01800101(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPain01800101{
 		Xmlns: sample.NameSpace(),
 		MndtSspnsnReq: MandateSuspensionRequestV01{

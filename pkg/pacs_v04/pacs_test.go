@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentPacs01000104(t *testing.T) {
@@ -23,7 +20,7 @@ func TestDocumentPacs01000104(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPacs01000104{
 		Xmlns: sample.NameSpace(),
 		FIDrctDbt: FinancialInstitutionDirectDebitV04{
@@ -51,7 +48,7 @@ func TestDocumentPacs02800104(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPacs02800104{
 		Xmlns: sample.NameSpace(),
 		FIToFIPmtStsReq: FIToFIPaymentStatusRequestV04{

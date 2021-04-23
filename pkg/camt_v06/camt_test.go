@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentCamt02100106(t *testing.T) {
@@ -83,7 +80,7 @@ func TestDocumentCamt03100106(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt03100106{
 		Xmlns: sample.NameSpace(),
 		RjctInvstgtn: RejectInvestigationV06{
@@ -138,7 +135,7 @@ func TestDocumentCamt05700106(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt05700106{
 		Xmlns: sample.NameSpace(),
 		NtfctnToRcv: NotificationToReceiveV06{
@@ -168,7 +165,7 @@ func TestDocumentCamt03300106(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt03300106{
 		Xmlns: sample.NameSpace(),
 		ReqForDplct: RequestForDuplicateV06{
@@ -195,7 +192,7 @@ func TestDocumentCamt05800106(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt05800106{
 		Xmlns: sample.NameSpace(),
 		NtfctnToRcvCxlAdvc: NotificationToReceiveCancellationAdviceV06{
@@ -226,7 +223,7 @@ func TestDocumentCamt05900106(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt05900106{
 		Xmlns: sample.NameSpace(),
 		NtfctnToRcvStsRpt: NotificationToReceiveStatusReportV06{
@@ -257,7 +254,7 @@ func TestDocumentCamt03400106(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt03400106{
 		Xmlns: sample.NameSpace(),
 		Dplct: DuplicateV06{

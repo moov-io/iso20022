@@ -5,6 +5,8 @@
 package pain_v05
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -335,6 +337,8 @@ func (r MandateClassification1Choice) Validate() error {
 }
 
 type MandateInitiationRequestV05 struct {
+	XMLName     *xml.Name            `json:",omitempty"`
+	Attr        *utils.Attr          `xml:",attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader47        `xml:"GrpHdr"`
 	Mndt        []Mandate10          `xml:"Mndt" json:",omitempty"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -595,6 +599,8 @@ func (r MandateAmendmentReason1) Validate() error {
 }
 
 type MandateAmendmentRequestV05 struct {
+	XMLName           *xml.Name            `json:",omitempty"`
+	Attr              *utils.Attr          `xml:",attr,omitempty" json:",omitempty"`
 	GrpHdr            GroupHeader47        `xml:"GrpHdr"`
 	UndrlygAmdmntDtls []MandateAmendment5  `xml:"UndrlygAmdmntDtls" json:",omitempty"`
 	SplmtryData       []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -644,6 +650,8 @@ func (r MandateCancellation5) Validate() error {
 }
 
 type MandateCancellationRequestV05 struct {
+	XMLName        *xml.Name              `json:",omitempty"`
+	Attr           *utils.Attr            `xml:",attr,omitempty" json:",omitempty"`
 	GrpHdr         GroupHeader47          `xml:"GrpHdr"`
 	UndrlygCxlDtls []MandateCancellation5 `xml:"UndrlygCxlDtls" json:",omitempty"`
 	SplmtryData    []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -714,6 +722,8 @@ func (r MandateAcceptance5) Validate() error {
 }
 
 type MandateAcceptanceReportV05 struct {
+	XMLName            *xml.Name            `json:",omitempty"`
+	Attr               *utils.Attr          `xml:",attr,omitempty" json:",omitempty"`
 	GrpHdr             GroupHeader47        `xml:"GrpHdr"`
 	UndrlygAccptncDtls []MandateAcceptance5 `xml:"UndrlygAccptncDtls" json:",omitempty"`
 	SplmtryData        []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -788,6 +798,8 @@ func (r CreditTransferTransaction22) Validate() error {
 }
 
 type CreditorPaymentActivationRequestV05 struct {
+	XMLName     *xml.Name              `json:",omitempty"`
+	Attr        *utils.Attr            `xml:",attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader45          `xml:"GrpHdr"`
 	PmtInf      []PaymentInstruction19 `xml:"PmtInf"`
 	SplmtryData []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -1274,6 +1286,8 @@ type Charges2 struct {
 }
 
 type CreditorPaymentActivationRequestStatusReportV05 struct {
+	XMLName           *xml.Name                      `json:",omitempty"`
+	Attr              *utils.Attr                    `xml:",attr,omitempty" json:",omitempty"`
 	GrpHdr            GroupHeader46                  `xml:"GrpHdr"`
 	OrgnlGrpInfAndSts OriginalGroupInformation25     `xml:"OrgnlGrpInfAndSts"`
 	OrgnlPmtInfAndSts []OriginalPaymentInstruction19 `xml:"OrgnlPmtInfAndSts,omitempty" json:",omitempty"`

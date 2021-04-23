@@ -5,6 +5,8 @@
 package remt_v04
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -589,6 +591,8 @@ func (r ReferredDocumentType4) Validate() error {
 }
 
 type RemittanceAdviceV04 struct {
+	XMLName     *xml.Name                 `json:",omitempty"`
+	Attr        *utils.Attr               `xml:",attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader79             `xml:"GrpHdr"`
 	RmtInf      []RemittanceInformation19 `xml:"RmtInf" json:",omitempty"`
 	SplmtryData []SupplementaryData1      `xml:"SplmtryData,omitempty" json:",omitempty"`

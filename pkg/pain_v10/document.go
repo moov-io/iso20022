@@ -11,8 +11,10 @@ import (
 )
 
 type DocumentPain00100110 struct {
-	Xmlns            string                              `xml:"xmlns,attr"`
-	CstmrCdtTrfInitn CustomerCreditTransferInitiationV10 `xml:"CstmrCdtTrfInitn"`
+	XMLName                 *xml.Name                           `json:",omitempty"`
+	Xmlns                   string                              `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                `xml:",omitempty" json:",omitempty"`
+	CstmrCdtTrfInitn        CustomerCreditTransferInitiationV10 `xml:"CstmrCdtTrfInitn"`
 }
 
 func (doc DocumentPain00100110) Validate() error {
@@ -31,13 +33,15 @@ func (doc DocumentPain00100110) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CstmrCdtTrfInitn CustomerCreditTransferInitiationV10 `xml:"CstmrCdtTrfInitn"`
 	}
 	output.CstmrCdtTrfInitn = doc.CstmrCdtTrfInitn
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentPain00700110 struct {
-	Xmlns        string                     `xml:"xmlns,attr"`
-	CstmrPmtRvsl CustomerPaymentReversalV10 `xml:"CstmrPmtRvsl"`
+	XMLName                 *xml.Name                  `json:",omitempty"`
+	Xmlns                   string                     `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                       `xml:",omitempty" json:",omitempty"`
+	CstmrPmtRvsl            CustomerPaymentReversalV10 `xml:"CstmrPmtRvsl"`
 }
 
 func (doc DocumentPain00700110) Validate() error {
@@ -56,6 +60,6 @@ func (doc DocumentPain00700110) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CstmrPmtRvsl CustomerPaymentReversalV10 `xml:"CstmrPmtRvsl"`
 	}
 	output.CstmrPmtRvsl = doc.CstmrPmtRvsl
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }

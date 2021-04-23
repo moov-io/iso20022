@@ -11,8 +11,10 @@ import (
 )
 
 type DocumentPain01400108 struct {
-	Xmlns                  string                                          `xml:"xmlns,attr"`
-	CdtrPmtActvtnReqStsRpt CreditorPaymentActivationRequestStatusReportV08 `xml:"CdtrPmtActvtnReqStsRpt"`
+	XMLName                 *xml.Name                                       `json:",omitempty"`
+	Xmlns                   string                                          `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                            `xml:",omitempty" json:",omitempty"`
+	CdtrPmtActvtnReqStsRpt  CreditorPaymentActivationRequestStatusReportV08 `xml:"CdtrPmtActvtnReqStsRpt"`
 }
 
 func (doc DocumentPain01400108) Validate() error {
@@ -31,13 +33,15 @@ func (doc DocumentPain01400108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CdtrPmtActvtnReqStsRpt CreditorPaymentActivationRequestStatusReportV08 `xml:"CdtrPmtActvtnReqStsRpt"`
 	}
 	output.CdtrPmtActvtnReqStsRpt = doc.CdtrPmtActvtnReqStsRpt
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentPain01300108 struct {
-	Xmlns            string                              `xml:"xmlns,attr"`
-	CdtrPmtActvtnReq CreditorPaymentActivationRequestV08 `xml:"CdtrPmtActvtnReq"`
+	XMLName                 *xml.Name                           `json:",omitempty"`
+	Xmlns                   string                              `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                `xml:",omitempty" json:",omitempty"`
+	CdtrPmtActvtnReq        CreditorPaymentActivationRequestV08 `xml:"CdtrPmtActvtnReq"`
 }
 
 func (doc DocumentPain01300108) Validate() error {
@@ -56,6 +60,6 @@ func (doc DocumentPain01300108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CdtrPmtActvtnReq CreditorPaymentActivationRequestV08 `xml:"CdtrPmtActvtnReq"`
 	}
 	output.CdtrPmtActvtnReq = doc.CdtrPmtActvtnReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }

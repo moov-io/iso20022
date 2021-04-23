@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentCamt01800105(t *testing.T) {
@@ -73,7 +70,7 @@ func TestDocumentCamt03000105(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt03000105{
 		Xmlns: sample.NameSpace(),
 		NtfctnOfCaseAssgnmt: NotificationOfCaseAssignmentV05{
@@ -110,7 +107,7 @@ func TestDocumentCamt03500105(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt03500105{
 		Xmlns: sample.NameSpace(),
 		PrtryFrmtInvstgtn: ProprietaryFormatInvestigationV05{
@@ -186,7 +183,7 @@ func TestDocumentCamt03600105(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt03600105{
 		Xmlns: sample.NameSpace(),
 		DbtAuthstnRspn: DebitAuthorisationResponseV05{
@@ -273,7 +270,7 @@ func TestDocumentCamt03900105(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt03900105{
 		Xmlns: sample.NameSpace(),
 		CaseStsRpt: CaseStatusReportV05{

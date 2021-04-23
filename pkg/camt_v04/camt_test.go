@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -169,16 +170,12 @@ func TestDocumentCamt01700104(t *testing.T) {
 	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.017.001.04" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><RtrCcyXchgRate><MsgHdr><MsgId>MsgId</MsgId></MsgHdr><RptOrErr></RptOrErr></RtrCcyXchgRate></Document>`)
 }
 
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
-)
-
 func TestDocumentCamt03200104(t *testing.T) {
 	sample := DocumentCamt03200104{}
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt03200104{
 		Xmlns: sample.NameSpace(),
 		CclCaseAssgnmt: CancelCaseAssignmentV04{
@@ -208,7 +205,7 @@ func TestDocumentCamt03800104(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt03800104{
 		Xmlns: sample.NameSpace(),
 		CaseStsRptReq: CaseStatusReportRequestV04{

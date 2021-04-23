@@ -11,8 +11,10 @@ import (
 )
 
 type DocumentRemt00200102 struct {
-	Xmlns       string                      `xml:"xmlns,attr"`
-	RmtLctnAdvc RemittanceLocationAdviceV02 `xml:"RmtLctnAdvc"`
+	XMLName                 *xml.Name                   `json:",omitempty"`
+	Xmlns                   string                      `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                        `xml:",omitempty" json:",omitempty"`
+	RmtLctnAdvc             RemittanceLocationAdviceV02 `xml:"RmtLctnAdvc"`
 }
 
 func (doc DocumentRemt00200102) Validate() error {
@@ -31,13 +33,15 @@ func (doc DocumentRemt00200102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RmtLctnAdvc RemittanceLocationAdviceV02 `xml:"RmtLctnAdvc"`
 	}
 	output.RmtLctnAdvc = doc.RmtLctnAdvc
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentRemt00100102 struct {
-	Xmlns   string              `xml:"xmlns,attr"`
-	RmtAdvc RemittanceAdviceV02 `xml:"RmtAdvc"`
+	XMLName                 *xml.Name           `json:",omitempty"`
+	Xmlns                   string              `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                `xml:",omitempty" json:",omitempty"`
+	RmtAdvc                 RemittanceAdviceV02 `xml:"RmtAdvc"`
 }
 
 func (doc DocumentRemt00100102) Validate() error {
@@ -56,6 +60,6 @@ func (doc DocumentRemt00100102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RmtAdvc RemittanceAdviceV02 `xml:"RmtAdvc"`
 	}
 	output.RmtAdvc = doc.RmtAdvc
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }

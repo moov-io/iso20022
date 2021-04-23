@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentAcmt02200102(t *testing.T) {
@@ -23,7 +20,7 @@ func TestDocumentAcmt02200102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt02200102{
 		Xmlns: sample.NameSpace(),
 		IdModAdvc: IdentificationModificationAdviceV02{
@@ -50,7 +47,7 @@ func TestDocumentAcmt02300102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt02300102{
 		Xmlns: sample.NameSpace(),
 		IdVrfctnReq: IdentificationVerificationRequestV02{
@@ -77,7 +74,7 @@ func TestDocumentAcmt02400102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt02400102{
 		Xmlns: sample.NameSpace(),
 		IdVrfctnRpt: IdentificationVerificationReportV02{
@@ -104,7 +101,7 @@ func TestDocumentAcmt03000102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt03000102{
 		Xmlns: sample.NameSpace(),
 		AcctSwtchReqRdrctn: AccountSwitchRequestRedirectionV02{
@@ -148,7 +145,7 @@ func TestDocumentAcmt03300102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt03300102{
 		Xmlns: sample.NameSpace(),
 		AcctSwtchNtfyAcctSwtchCmplt: AccountSwitchNotifyAccountSwitchCompleteV02{
@@ -180,7 +177,7 @@ func TestDocumentAcmt03500102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt03500102{
 		Xmlns: sample.NameSpace(),
 		AcctSwtchPmtRspn: AccountSwitchPaymentResponseV02{
@@ -212,7 +209,7 @@ func TestDocumentAcmt03700102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt03700102{
 		Xmlns: sample.NameSpace(),
 		AcctSwtchTechRjctn: AccountSwitchTechnicalRejectionV02{

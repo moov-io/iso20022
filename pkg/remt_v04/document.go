@@ -11,8 +11,10 @@ import (
 )
 
 type DocumentRemt00100104 struct {
-	Xmlns   string              `xml:"xmlns,attr"`
-	RmtAdvc RemittanceAdviceV04 `xml:"RmtAdvc"`
+	XMLName                 *xml.Name           `json:",omitempty"`
+	Xmlns                   string              `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                `xml:",omitempty" json:",omitempty"`
+	RmtAdvc                 RemittanceAdviceV04 `xml:"RmtAdvc"`
 }
 
 func (doc DocumentRemt00100104) Validate() error {
@@ -31,6 +33,6 @@ func (doc DocumentRemt00100104) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RmtAdvc RemittanceAdviceV04 `xml:"RmtAdvc"`
 	}
 	output.RmtAdvc = doc.RmtAdvc
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }

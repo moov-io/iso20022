@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentAuth01800102(t *testing.T) {
@@ -23,7 +20,7 @@ func TestDocumentAuth01800102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAuth01800102{
 		Xmlns: sample.NameSpace(),
 		CtrctRegnReq: ContractRegistrationRequestV02{
@@ -51,7 +48,7 @@ func TestDocumentAuth01900102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAuth01900102{
 		Xmlns: sample.NameSpace(),
 		CtrctRegnConf: ContractRegistrationConfirmationV02{
@@ -79,7 +76,7 @@ func TestDocumentAuth02000102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAuth02000102{
 		Xmlns: sample.NameSpace(),
 		CtrctRegnClsrReq: ContractRegistrationClosureRequestV02{
@@ -107,7 +104,7 @@ func TestDocumentAuth02100102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAuth02100102{
 		Xmlns: sample.NameSpace(),
 		CtrctRegnAmdmntReq: ContractRegistrationAmendmentRequestV02{
@@ -135,7 +132,7 @@ func TestDocumentAuth02200102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAuth02200102{
 		Xmlns: sample.NameSpace(),
 		CtrctRegnStmt: ContractRegistrationStatementV02{
@@ -163,7 +160,7 @@ func TestDocumentAuth02300102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAuth02300102{
 		Xmlns: sample.NameSpace(),
 		CtrctRegnStmtReq: ContractRegistrationStatementRequestV02{
@@ -191,7 +188,7 @@ func TestDocumentAuth02400102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAuth02400102{
 		Xmlns: sample.NameSpace(),
 		PmtRgltryInfNtfctn: PaymentRegulatoryInformationNotificationV02{
@@ -219,7 +216,7 @@ func TestDocumentAuth02500102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAuth02500102{
 		Xmlns: sample.NameSpace(),
 		CcyCtrlSpprtgDocDlvry: CurrencyControlSupportingDocumentDeliveryV02{
@@ -247,7 +244,7 @@ func TestDocumentAuth02600102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAuth02600102{
 		Xmlns: sample.NameSpace(),
 		CcyCtrlReqOrLttr: CurrencyControlRequestOrLetterV02{
@@ -275,7 +272,7 @@ func TestDocumentAuth02700102(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAuth02700102{
 		Xmlns: sample.NameSpace(),
 		CcyCtrlStsAdvc: CurrencyControlStatusAdviceV02{

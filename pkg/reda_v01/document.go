@@ -11,8 +11,10 @@ import (
 )
 
 type DocumentReda06600101 struct {
-	Xmlns                  string                                  `xml:"xmlns,attr"`
-	ReqToPayCdtrEnrlmntReq RequestToPayCreditorEnrolmentRequestV01 `xml:"ReqToPayCdtrEnrlmntReq"`
+	XMLName                 *xml.Name                               `json:",omitempty"`
+	Xmlns                   string                                  `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                    `xml:",omitempty" json:",omitempty"`
+	ReqToPayCdtrEnrlmntReq  RequestToPayCreditorEnrolmentRequestV01 `xml:"ReqToPayCdtrEnrlmntReq"`
 }
 
 func (doc DocumentReda06600101) Validate() error {
@@ -31,12 +33,14 @@ func (doc DocumentReda06600101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		ReqToPayCdtrEnrlmntReq RequestToPayCreditorEnrolmentRequestV01 `xml:"ReqToPayCdtrEnrlmntReq"`
 	}
 	output.ReqToPayCdtrEnrlmntReq = doc.ReqToPayCdtrEnrlmntReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentReda06700101 struct {
-	Xmlns                        string                                           `xml:"xmlns,attr"`
+	XMLName                      *xml.Name                                        `json:",omitempty"`
+	Xmlns                        string                                           `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace      bool                                             `xml:",omitempty" json:",omitempty"`
 	ReqToPayCdtrEnrlmntAmdmntReq RequestToPayCreditorEnrolmentAmendmentRequestV01 `xml:"ReqToPayCdtrEnrlmntAmdmntReq"`
 }
 
@@ -56,12 +60,14 @@ func (doc DocumentReda06700101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		ReqToPayCdtrEnrlmntAmdmntReq RequestToPayCreditorEnrolmentAmendmentRequestV01 `xml:"ReqToPayCdtrEnrlmntAmdmntReq"`
 	}
 	output.ReqToPayCdtrEnrlmntAmdmntReq = doc.ReqToPayCdtrEnrlmntAmdmntReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentReda06800101 struct {
-	Xmlns                     string                                              `xml:"xmlns,attr"`
+	XMLName                   *xml.Name                                           `json:",omitempty"`
+	Xmlns                     string                                              `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace   bool                                                `xml:",omitempty" json:",omitempty"`
 	ReqToPayCdtrEnrlmntCxlReq RequestToPayCreditorEnrolmentCancellationRequestV01 `xml:"ReqToPayCdtrEnrlmntCxlReq"`
 }
 
@@ -81,12 +87,14 @@ func (doc DocumentReda06800101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		ReqToPayCdtrEnrlmntCxlReq RequestToPayCreditorEnrolmentCancellationRequestV01 `xml:"ReqToPayCdtrEnrlmntCxlReq"`
 	}
 	output.ReqToPayCdtrEnrlmntCxlReq = doc.ReqToPayCdtrEnrlmntCxlReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentReda06900101 struct {
-	Xmlns                     string                                       `xml:"xmlns,attr"`
+	XMLName                   *xml.Name                                    `json:",omitempty"`
+	Xmlns                     string                                       `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace   bool                                         `xml:",omitempty" json:",omitempty"`
 	ReqToPayCdtrEnrlmntStsRpt RequestToPayCreditorEnrolmentStatusReportV01 `xml:"ReqToPayCdtrEnrlmntStsRpt"`
 }
 
@@ -106,13 +114,15 @@ func (doc DocumentReda06900101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		ReqToPayCdtrEnrlmntStsRpt RequestToPayCreditorEnrolmentStatusReportV01 `xml:"ReqToPayCdtrEnrlmntStsRpt"`
 	}
 	output.ReqToPayCdtrEnrlmntStsRpt = doc.ReqToPayCdtrEnrlmntStsRpt
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentReda07000101 struct {
-	Xmlns                 string                                 `xml:"xmlns,attr"`
-	ReqToPayDbtrActvtnReq RequestToPayDebtorActivationRequestV01 `xml:"ReqToPayDbtrActvtnReq"`
+	XMLName                 *xml.Name                              `json:",omitempty"`
+	Xmlns                   string                                 `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                   `xml:",omitempty" json:",omitempty"`
+	ReqToPayDbtrActvtnReq   RequestToPayDebtorActivationRequestV01 `xml:"ReqToPayDbtrActvtnReq"`
 }
 
 func (doc DocumentReda07000101) Validate() error {
@@ -131,12 +141,14 @@ func (doc DocumentReda07000101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		ReqToPayDbtrActvtnReq RequestToPayDebtorActivationRequestV01 `xml:"ReqToPayDbtrActvtnReq"`
 	}
 	output.ReqToPayDbtrActvtnReq = doc.ReqToPayDbtrActvtnReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentReda07100101 struct {
-	Xmlns                       string                                          `xml:"xmlns,attr"`
+	XMLName                     *xml.Name                                       `json:",omitempty"`
+	Xmlns                       string                                          `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace     bool                                            `xml:",omitempty" json:",omitempty"`
 	ReqToPayDbtrActvtnAmdmntReq RequestToPayDebtorActivationAmendmentRequestV01 `xml:"ReqToPayDbtrActvtnAmdmntReq"`
 }
 
@@ -156,12 +168,14 @@ func (doc DocumentReda07100101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		ReqToPayDbtrActvtnAmdmntReq RequestToPayDebtorActivationAmendmentRequestV01 `xml:"ReqToPayDbtrActvtnAmdmntReq"`
 	}
 	output.ReqToPayDbtrActvtnAmdmntReq = doc.ReqToPayDbtrActvtnAmdmntReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentReda07200101 struct {
-	Xmlns                    string                                             `xml:"xmlns,attr"`
+	XMLName                  *xml.Name                                          `json:",omitempty"`
+	Xmlns                    string                                             `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace  bool                                               `xml:",omitempty" json:",omitempty"`
 	ReqToPayDbtrActvtnCxlReq RequestToPayDebtorActivationCancellationRequestV01 `xml:"ReqToPayDbtrActvtnCxlReq"`
 }
 
@@ -181,12 +195,14 @@ func (doc DocumentReda07200101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		ReqToPayDbtrActvtnCxlReq RequestToPayDebtorActivationCancellationRequestV01 `xml:"ReqToPayDbtrActvtnCxlReq"`
 	}
 	output.ReqToPayDbtrActvtnCxlReq = doc.ReqToPayDbtrActvtnCxlReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentReda07300101 struct {
-	Xmlns                    string                                      `xml:"xmlns,attr"`
+	XMLName                  *xml.Name                                   `json:",omitempty"`
+	Xmlns                    string                                      `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace  bool                                        `xml:",omitempty" json:",omitempty"`
 	ReqToPayDbtrActvtnStsRpt RequestToPayDebtorActivationStatusReportV01 `xml:"ReqToPayDbtrActvtnStsRpt"`
 }
 
@@ -206,6 +222,6 @@ func (doc DocumentReda07300101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		ReqToPayDbtrActvtnStsRpt RequestToPayDebtorActivationStatusReportV01 `xml:"ReqToPayDbtrActvtnStsRpt"`
 	}
 	output.ReqToPayDbtrActvtnStsRpt = doc.ReqToPayDbtrActvtnStsRpt
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }

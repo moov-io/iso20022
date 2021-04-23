@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentAcmt00700103(t *testing.T) {
@@ -23,7 +20,7 @@ func TestDocumentAcmt00700103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt00700103{
 		Xmlns: sample.NameSpace(),
 		AcctOpngReq: AccountOpeningRequestV03{
@@ -61,7 +58,7 @@ func TestDocumentAcmt00800103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt00800103{
 		Xmlns: sample.NameSpace(),
 		AcctOpngAmdmntReq: AccountOpeningAmendmentRequestV03{
@@ -99,7 +96,7 @@ func TestDocumentAcmt009001033(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt00900103{
 		Xmlns: sample.NameSpace(),
 		AcctOpngAddtlInfReq: AccountOpeningAdditionalInformationRequestV03{
@@ -137,7 +134,7 @@ func TestDocumentAcmt01000103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt01000103{
 		Xmlns: sample.NameSpace(),
 		AcctReqAck: AccountRequestAcknowledgementV03{
@@ -171,7 +168,7 @@ func TestDocumentAcmt01100103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt01100103{
 		Xmlns: sample.NameSpace(),
 		AcctReqRjctn: AccountRequestRejectionV03{
@@ -209,7 +206,7 @@ func TestDocumentAcmt01200103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt01200103{
 		Xmlns: sample.NameSpace(),
 		AcctAddtlInfReq: AccountAdditionalInformationRequestV03{
@@ -246,7 +243,7 @@ func TestDocumentAcmt01300103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt01300103{
 		Xmlns: sample.NameSpace(),
 		AcctRptReq: AccountReportRequestV03{
@@ -279,7 +276,7 @@ func TestDocumentAcmt01400103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt01400103{
 		Xmlns: sample.NameSpace(),
 		AcctRpt: AccountReportV03{
@@ -317,7 +314,7 @@ func TestDocumentAcmt01500103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt01500103{
 		Xmlns: sample.NameSpace(),
 		AcctExcldMndtMntncReq: AccountExcludedMandateMaintenanceRequestV03{
@@ -355,7 +352,7 @@ func TestDocumentAcmt01600103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt01600103{
 		Xmlns: sample.NameSpace(),
 		AcctExcldMndtMntncAmdmntReq: AccountExcludedMandateMaintenanceAmendmentRequestV03{
@@ -393,7 +390,7 @@ func TestDocumentAcmt01700103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt01700103{
 		Xmlns: sample.NameSpace(),
 		AcctMndtMntncReq: AccountMandateMaintenanceRequestV03{
@@ -426,7 +423,7 @@ func TestDocumentAcmt01800103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt01800103{
 		Xmlns: sample.NameSpace(),
 		AcctMndtMntncAmdmntReq: AccountMandateMaintenanceAmendmentRequestV03{
@@ -459,7 +456,7 @@ func TestDocumentAcmt01900103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt01900103{
 		Xmlns: sample.NameSpace(),
 		AcctClsgReq: AccountClosingRequestV03{
@@ -501,7 +498,7 @@ func TestDocumentAcmt02000103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt02000103{
 		Xmlns: sample.NameSpace(),
 		AcctClsgAmdmntReq: AccountClosingAmendmentRequestV03{
@@ -542,7 +539,7 @@ func TestDocumentAcmt02100103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt02100103{
 		Xmlns: sample.NameSpace(),
 		AcctClsgAddtlInfReq: AccountClosingAdditionalInformationRequestV03{
@@ -587,7 +584,7 @@ func TestDocumentAcmt02700103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt02700103{
 		Xmlns: sample.NameSpace(),
 		AcctSwtchInfReq: AccountSwitchInformationRequestV03{
@@ -637,7 +634,7 @@ func TestDocumentAcmt02800103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt02800103{
 		Xmlns: sample.NameSpace(),
 		AcctSwtchInfRspn: AccountSwitchInformationResponseV03{
@@ -685,7 +682,7 @@ func TestDocumentAcmt02900103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt02900103{
 		Xmlns: sample.NameSpace(),
 		AcctSwtchCclExstgPmt: AccountSwitchCancelExistingPaymentV03{
@@ -725,7 +722,7 @@ func TestDocumentAcmt03100103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt03100103{
 		Xmlns: sample.NameSpace(),
 		AcctSwtchReqBalTrf: AccountSwitchRequestBalanceTransferV03{
@@ -765,7 +762,7 @@ func TestDocumentAcmt03200103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt03200103{
 		Xmlns: sample.NameSpace(),
 		AcctSwtchBalTrfAck: AccountSwitchBalanceTransferAcknowledgementV03{
@@ -811,7 +808,7 @@ func TestDocumentAcmt03400103(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt03400103{
 		Xmlns: sample.NameSpace(),
 		AcctSwtchReqPmt: AccountSwitchRequestPaymentV03{

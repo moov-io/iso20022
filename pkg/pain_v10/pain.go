@@ -5,6 +5,8 @@
 package pain_v10
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -274,6 +276,8 @@ func (r CreditorReferenceType2) Validate() error {
 }
 
 type CustomerCreditTransferInitiationV10 struct {
+	XMLName     *xml.Name              `json:",omitempty"`
+	Attr        *utils.Attr            `xml:",attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader95          `xml:"GrpHdr"`
 	PmtInf      []PaymentInstruction34 `xml:"PmtInf" json:",omitempty"`
 	SplmtryData []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -1100,6 +1104,8 @@ func (r ClearingSystemIdentification3Choice) Validate() error {
 }
 
 type CustomerPaymentReversalV10 struct {
+	XMLName            *xml.Name                      `json:",omitempty"`
+	Attr               *utils.Attr                    `xml:",attr,omitempty" json:",omitempty"`
 	GrpHdr             GroupHeader88                  `xml:"GrpHdr"`
 	OrgnlGrpInf        OriginalGroupHeader16          `xml:"OrgnlGrpInf"`
 	OrgnlPmtInfAndRvsl []OriginalPaymentInstruction37 `xml:"OrgnlPmtInfAndRvsl,omitempty" json:",omitempty"`

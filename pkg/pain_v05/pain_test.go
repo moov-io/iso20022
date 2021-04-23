@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentPain00900105(t *testing.T) {
@@ -23,7 +20,7 @@ func TestDocumentPain00900105(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPain00900105{
 		Xmlns: sample.NameSpace(),
 		MndtInitnReq: MandateInitiationRequestV05{
@@ -50,7 +47,7 @@ func TestDocumentPain01000105(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPain01000105{
 		Xmlns: sample.NameSpace(),
 		MndtAmdmntReq: MandateAmendmentRequestV05{
@@ -77,7 +74,7 @@ func TestDocumentPain01200105(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPain01200105{
 		Xmlns: sample.NameSpace(),
 		MndtAccptncRpt: MandateAcceptanceReportV05{
@@ -104,7 +101,7 @@ func TestDocumentPain01100105(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPain01100105{
 		Xmlns: sample.NameSpace(),
 		MndtCxlReq: MandateCancellationRequestV05{

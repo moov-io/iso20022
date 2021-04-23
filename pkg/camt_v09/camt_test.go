@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentCamt05300108(t *testing.T) {
@@ -23,7 +20,7 @@ func TestDocumentCamt05300108(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt05500109{
 		Xmlns: sample.NameSpace(),
 		CstmrPmtCxlReq: CustomerPaymentCancellationRequestV09{
@@ -50,7 +47,7 @@ func TestDocumentCamt05600109(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt05600109{
 		Xmlns: sample.NameSpace(),
 		FIToFIPmtCxlReq: FIToFIPaymentCancellationRequestV09{

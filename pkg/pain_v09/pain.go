@@ -5,6 +5,8 @@
 package pain_v09
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -206,6 +208,8 @@ func (r CreditorReferenceType2) Validate() error {
 }
 
 type CustomerDirectDebitInitiationV09 struct {
+	XMLName     *xml.Name              `json:",omitempty"`
+	Attr        *utils.Attr            `xml:",attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader83          `xml:"GrpHdr"`
 	PmtInf      []PaymentInstruction37 `xml:"PmtInf" json:",omitempty"`
 	SplmtryData []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`

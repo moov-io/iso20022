@@ -11,8 +11,10 @@ import (
 )
 
 type DocumentPain00700101 struct {
-	Xmlns      string                `xml:"xmlns,attr"`
-	MndtCpyReq MandateCopyRequestV01 `xml:"MndtCpyReq"`
+	XMLName                 *xml.Name             `json:",omitempty"`
+	Xmlns                   string                `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                  `xml:",omitempty" json:",omitempty"`
+	MndtCpyReq              MandateCopyRequestV01 `xml:"MndtCpyReq"`
 }
 
 func (doc DocumentPain00700101) Validate() error {
@@ -31,13 +33,15 @@ func (doc DocumentPain00700101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		MndtCpyReq MandateCopyRequestV01 `xml:"MndtCpyReq"`
 	}
 	output.MndtCpyReq = doc.MndtCpyReq
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:pain.017.001.01")
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentPain01800101 struct {
-	Xmlns         string                      `xml:"xmlns,attr"`
-	MndtSspnsnReq MandateSuspensionRequestV01 `xml:"MndtSspnsnReq"`
+	XMLName                 *xml.Name                   `json:",omitempty"`
+	Xmlns                   string                      `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                        `xml:",omitempty" json:",omitempty"`
+	MndtSspnsnReq           MandateSuspensionRequestV01 `xml:"MndtSspnsnReq"`
 }
 
 func (doc DocumentPain01800101) Validate() error {
@@ -56,6 +60,6 @@ func (doc DocumentPain01800101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		MndtSspnsnReq MandateSuspensionRequestV01 `xml:"MndtSspnsnReq"`
 	}
 	output.MndtSspnsnReq = doc.MndtSspnsnReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }

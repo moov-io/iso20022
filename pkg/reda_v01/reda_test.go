@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentReda06600101(t *testing.T) {
@@ -23,7 +20,7 @@ func TestDocumentReda06600101(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentReda06600101{
 		Xmlns: sample.NameSpace(),
 		ReqToPayCdtrEnrlmntReq: RequestToPayCreditorEnrolmentRequestV01{
@@ -50,7 +47,7 @@ func TestDocumentReda07200101(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentReda07200101{
 		Xmlns: sample.NameSpace(),
 		ReqToPayDbtrActvtnCxlReq: RequestToPayDebtorActivationCancellationRequestV01{
@@ -77,7 +74,7 @@ func TestDocumentReda06700101(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentReda06700101{
 		Xmlns: sample.NameSpace(),
 		ReqToPayCdtrEnrlmntAmdmntReq: RequestToPayCreditorEnrolmentAmendmentRequestV01{
@@ -104,7 +101,7 @@ func TestDocumentReda07300101(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentReda07300101{
 		Xmlns: sample.NameSpace(),
 		ReqToPayDbtrActvtnStsRpt: RequestToPayDebtorActivationStatusReportV01{
@@ -131,7 +128,7 @@ func TestDocumentReda07100101(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentReda07100101{
 		Xmlns: sample.NameSpace(),
 		ReqToPayDbtrActvtnAmdmntReq: RequestToPayDebtorActivationAmendmentRequestV01{
@@ -158,7 +155,7 @@ func TestDocumentReda07000101(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentReda07000101{
 		Xmlns: sample.NameSpace(),
 		ReqToPayDbtrActvtnReq: RequestToPayDebtorActivationRequestV01{
@@ -188,7 +185,7 @@ func TestDocumentReda06800101(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentReda06800101{
 		Xmlns: sample.NameSpace(),
 		ReqToPayCdtrEnrlmntCxlReq: RequestToPayCreditorEnrolmentCancellationRequestV01{
@@ -215,7 +212,7 @@ func TestDocumentReda06900101(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentReda06900101{
 		Xmlns: sample.NameSpace(),
 		ReqToPayCdtrEnrlmntStsRpt: RequestToPayCreditorEnrolmentStatusReportV01{

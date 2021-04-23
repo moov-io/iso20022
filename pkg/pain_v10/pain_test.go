@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentPain00700110(t *testing.T) {
@@ -23,7 +20,7 @@ func TestDocumentPain00700110(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPain00700110{
 		Xmlns: sample.NameSpace(),
 		CstmrPmtRvsl: CustomerPaymentReversalV10{
@@ -55,7 +52,7 @@ func TestDocumentPain00100110(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPain00100110{
 		Xmlns: sample.NameSpace(),
 		CstmrCdtTrfInitn: CustomerCreditTransferInitiationV10{

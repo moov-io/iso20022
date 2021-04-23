@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentCamt00300107(t *testing.T) {
@@ -73,7 +70,7 @@ func TestDocumentCamt00800108(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt00800108{
 		Xmlns: sample.NameSpace(),
 		CclTx: CancelTransactionV08{
@@ -238,7 +235,7 @@ func TestDocumentCamt05400108(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt05400108{
 		Xmlns: sample.NameSpace(),
 		BkToCstmrDbtCdtNtfctn: BankToCustomerDebitCreditNotificationV08{
@@ -265,7 +262,7 @@ func TestDocumentCamt05200108(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt05200108{
 		Xmlns: sample.NameSpace(),
 		BkToCstmrAcctRpt: BankToCustomerAccountReportV08{
@@ -360,7 +357,7 @@ func TestDocumentCamt05300108(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt05300108{
 		Xmlns: sample.NameSpace(),
 		BkToCstmrStmt: BankToCustomerStatementV08{

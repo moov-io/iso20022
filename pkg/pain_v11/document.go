@@ -11,8 +11,10 @@ import (
 )
 
 type DocumentPain00200111 struct {
-	Xmlns          string                         `xml:"xmlns,attr"`
-	CstmrPmtStsRpt CustomerPaymentStatusReportV11 `xml:"CstmrPmtStsRpt"`
+	XMLName                 *xml.Name                      `json:",omitempty"`
+	Xmlns                   string                         `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                           `xml:",omitempty" json:",omitempty"`
+	CstmrPmtStsRpt          CustomerPaymentStatusReportV11 `xml:"CstmrPmtStsRpt"`
 }
 
 func (doc DocumentPain00200111) Validate() error {
@@ -31,6 +33,6 @@ func (doc DocumentPain00200111) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CstmrPmtStsRpt CustomerPaymentStatusReportV11 `xml:"CstmrPmtStsRpt"`
 	}
 	output.CstmrPmtStsRpt = doc.CstmrPmtStsRpt
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
