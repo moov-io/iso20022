@@ -11,8 +11,10 @@ import (
 )
 
 type DocumentAuth00100101 struct {
-	Xmlns      string                       `xml:"xmlns,attr"`
-	InfReqOpng InformationRequestOpeningV01 `xml:"InfReqOpng"`
+	XMLName                 *xml.Name                    `json:",omitempty"`
+	Xmlns                   string                       `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                         `xml:",omitempty" json:",omitempty"`
+	InfReqOpng              InformationRequestOpeningV01 `xml:"InfReqOpng"`
 }
 
 func (doc DocumentAuth00100101) Validate() error {
@@ -31,13 +33,15 @@ func (doc DocumentAuth00100101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		InfReqOpng InformationRequestOpeningV01 `xml:"InfReqOpng"`
 	}
 	output.InfReqOpng = doc.InfReqOpng
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAuth00200101 struct {
-	Xmlns      string                        `xml:"xmlns,attr"`
-	InfReqRspn InformationRequestResponseV01 `xml:"InfReqRspn"`
+	XMLName                 *xml.Name                     `json:",omitempty"`
+	Xmlns                   string                        `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                          `xml:",omitempty" json:",omitempty"`
+	InfReqRspn              InformationRequestResponseV01 `xml:"InfReqRspn"`
 }
 
 func (doc DocumentAuth00200101) Validate() error {
@@ -56,13 +60,15 @@ func (doc DocumentAuth00200101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		InfReqRspn InformationRequestResponseV01 `xml:"InfReqRspn"`
 	}
 	output.InfReqRspn = doc.InfReqRspn
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentAuth00300101 struct {
-	Xmlns               string                                        `xml:"xmlns,attr"`
-	InfReqStsChngNtfctn InformationRequestStatusChangeNotificationV01 `xml:"InfReqStsChngNtfctn"`
+	XMLName                 *xml.Name                                     `json:",omitempty"`
+	Xmlns                   string                                        `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                          `xml:",omitempty" json:",omitempty"`
+	InfReqStsChngNtfctn     InformationRequestStatusChangeNotificationV01 `xml:"InfReqStsChngNtfctn"`
 }
 
 func (doc DocumentAuth00300101) Validate() error {
@@ -81,6 +87,6 @@ func (doc DocumentAuth00300101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		InfReqStsChngNtfctn InformationRequestStatusChangeNotificationV01 `xml:"InfReqStsChngNtfctn"`
 	}
 	output.InfReqStsChngNtfctn = doc.InfReqStsChngNtfctn
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
