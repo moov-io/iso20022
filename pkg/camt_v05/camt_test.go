@@ -460,6 +460,95 @@ func TestNestedTypes(t *testing.T) {
 	assert.NotNil(t, SequenceRange1Choice{}.Validate())
 	assert.Nil(t, TimePeriodDetails1{}.Validate())
 	assert.NotNil(t, TransactionType2{}.Validate())
+	assert.Nil(t, AmendmentInformationDetails10{}.Validate())
+	assert.NotNil(t, AmountType4Choice{}.Validate())
+	assert.Nil(t, BranchAndFinancialInstitutionIdentification5{}.Validate())
+	assert.Nil(t, BranchData2{}.Validate())
+	assert.NotNil(t, CancellationReason14Choice{}.Validate())
+	assert.NotNil(t, Case3{}.Validate())
+	assert.NotNil(t, CaseAssignment3{}.Validate())
+	assert.NotNil(t, CashAccount24{}.Validate())
+	assert.NotNil(t, CategoryPurpose1Choice{}.Validate())
+	assert.NotNil(t, ClearingSystemIdentification3Choice{}.Validate())
+	assert.Nil(t, ContactDetails2{}.Validate())
+	assert.NotNil(t, ControlData1{}.Validate())
+	assert.Nil(t, CreditorReferenceInformation2{}.Validate())
+	assert.NotNil(t, CreditorReferenceType1Choice{}.Validate())
+	assert.NotNil(t, CreditorReferenceType2{}.Validate())
+	assert.NotNil(t, DateAndPlaceOfBirth{}.Validate())
+	assert.Nil(t, DatePeriodDetails{}.Validate())
+	assert.NotNil(t, DiscountAmountAndType1{}.Validate())
+	assert.NotNil(t, DiscountAmountType1Choice{}.Validate())
+	assert.NotNil(t, DocumentAdjustment1{}.Validate())
+	assert.Nil(t, DocumentLineIdentification1{}.Validate())
+	assert.Nil(t, DocumentLineInformation1{}.Validate())
+	assert.NotNil(t, DocumentLineType1{}.Validate())
+	assert.NotNil(t, DocumentLineType1Choice{}.Validate())
+	assert.NotNil(t, EquivalentAmount2{}.Validate())
+	assert.NotNil(t, FIToFIPaymentCancellationRequestV05{}.Validate())
+	assert.Nil(t, FinancialInstitutionIdentification8{}.Validate())
+	assert.NotNil(t, Frequency21Choice{}.Validate())
+	assert.NotNil(t, FrequencyPeriod1{}.Validate())
+	assert.NotNil(t, Garnishment1{}.Validate())
+	assert.NotNil(t, GarnishmentType1{}.Validate())
+	assert.NotNil(t, GarnishmentType1Choice{}.Validate())
+	assert.NotNil(t, LocalInstrument2Choice{}.Validate())
+	assert.Nil(t, MandateRelatedInformation10{}.Validate())
+	assert.NotNil(t, MandateSetupReason1Choice{}.Validate())
+	assert.Nil(t, OrganisationIdentification8{}.Validate())
+	assert.NotNil(t, OriginalGroupHeader4{}.Validate())
+	assert.NotNil(t, OriginalGroupInformation3{}.Validate())
+	assert.Nil(t, OriginalTransactionReference22{}.Validate())
+	assert.Nil(t, Party11Choice{}.Validate())
+	assert.Nil(t, Party12Choice{}.Validate())
+	assert.Nil(t, PartyIdentification43{}.Validate())
+	assert.Nil(t, PaymentCancellationReason2{}.Validate())
+	assert.Nil(t, PaymentTransaction62{}.Validate())
+	assert.Nil(t, PaymentTypeInformation25{}.Validate())
+	assert.Nil(t, PersonIdentification5{}.Validate())
+	assert.Nil(t, PostalAddress6{}.Validate())
+	assert.Nil(t, ReferredDocumentInformation7{}.Validate())
+	assert.NotNil(t, ReferredDocumentType3Choice{}.Validate())
+	assert.NotNil(t, ReferredDocumentType4{}.Validate())
+	assert.Nil(t, RemittanceAmount2{}.Validate())
+	assert.Nil(t, RemittanceAmount3{}.Validate())
+	assert.Nil(t, RemittanceInformation11{}.Validate())
+	assert.NotNil(t, ServiceLevel8Choice{}.Validate())
+	assert.NotNil(t, SettlementInstruction4{}.Validate())
+	assert.Nil(t, StructuredRemittanceInformation13{}.Validate())
+	assert.Nil(t, TaxAmount1{}.Validate())
+	assert.NotNil(t, TaxAmountAndType1{}.Validate())
+	assert.NotNil(t, TaxAmountType1Choice{}.Validate())
+	assert.Nil(t, TaxAuthorisation1{}.Validate())
+	assert.Nil(t, TaxInformation4{}.Validate())
+	assert.Nil(t, TaxParty1{}.Validate())
+	assert.Nil(t, TaxParty2{}.Validate())
+	assert.Nil(t, TaxPeriod1{}.Validate())
+	assert.Nil(t, TaxRecord1{}.Validate())
+	assert.NotNil(t, TaxRecordDetails1{}.Validate())
+	assert.Nil(t, UnderlyingTransaction13{}.Validate())
+	assert.Nil(t, DateAndDateTimeChoice{}.Validate())
+	assert.Nil(t, MissingOrIncorrectInformation3{}.Validate())
+	assert.NotNil(t, UnableToApplyIncorrect1{}.Validate())
+	assert.Nil(t, UnableToApplyJustification3Choice{}.Validate())
+	assert.NotNil(t, UnableToApplyMissing1{}.Validate())
+	assert.NotNil(t, UnableToApplyV05{}.Validate())
+	assert.NotNil(t, UnderlyingGroupInformation1{}.Validate())
+	assert.NotNil(t, UnderlyingPaymentInstruction3{}.Validate())
+	assert.NotNil(t, UnderlyingPaymentTransaction2{}.Validate())
+	assert.Nil(t, UnderlyingStatementEntry1{}.Validate())
+	assert.NotNil(t, UnderlyingTransaction3Choice{}.Validate())
+	assert.NotNil(t, AdditionalPaymentInformationV05{}.Validate())
+	assert.Nil(t, InstructionForCreditorAgent1{}.Validate())
+	assert.Nil(t, InstructionForNextAgent1{}.Validate())
+	assert.Nil(t, PaymentComplementaryInformation4{}.Validate())
+	assert.NotNil(t, Purpose2Choice{}.Validate())
+	assert.Nil(t, ReferredDocumentInformation6{}.Validate())
+	assert.Nil(t, RemittanceInformation10{}.Validate())
+	assert.NotNil(t, SettlementInstruction1{}.Validate())
+	assert.Nil(t, StructuredRemittanceInformation12{}.Validate())
+	assert.NotNil(t, UnderlyingPaymentInstruction2{}.Validate())
+	assert.NotNil(t, UnderlyingTransaction2Choice{}.Validate())
 }
 
 func TestTypes(t *testing.T) {
@@ -609,4 +698,180 @@ func TestTypes(t *testing.T) {
 	assert.NotNil(t, type26.Validate())
 	type26 = "MODF"
 	assert.Nil(t, type26.Validate())
+
+	var type27 CancellationReason5Code
+	assert.NotNil(t, type27.Validate())
+	type27 = "test"
+	assert.NotNil(t, type27.Validate())
+	type27 = "DUPL"
+	assert.Nil(t, type27.Validate())
+
+	var type28 DocumentType3Code
+	assert.NotNil(t, type28.Validate())
+	type28 = "test"
+	assert.NotNil(t, type28.Validate())
+	type28 = "RADM"
+	assert.Nil(t, type28.Validate())
+
+	var type29 AddressType2Code
+	assert.NotNil(t, type29.Validate())
+	type29 = "test"
+	assert.NotNil(t, type29.Validate())
+	type29 = "ADDR"
+	assert.Nil(t, type29.Validate())
+
+	var type30 DocumentType6Code
+	assert.NotNil(t, type30.Validate())
+	type30 = "test"
+	assert.NotNil(t, type30.Validate())
+	type30 = "MSIN"
+	assert.Nil(t, type30.Validate())
+
+	var type31 ExternalServiceLevel1Code
+	assert.NotNil(t, type31.Validate())
+	type31 = "test"
+	assert.Nil(t, type31.Validate())
+
+	var type32 SettlementMethod1Code
+	assert.NotNil(t, type32.Validate())
+	type32 = "test"
+	assert.NotNil(t, type32.Validate())
+	type32 = "COVE"
+	assert.Nil(t, type32.Validate())
+
+	var type33 ExternalTaxAmountType1Code
+	assert.NotNil(t, type33.Validate())
+	type33 = "test"
+	assert.Nil(t, type33.Validate())
+
+	var type34 TaxRecordPeriod1Code
+	assert.NotNil(t, type34.Validate())
+	type34 = "test"
+	assert.NotNil(t, type34.Validate())
+	type34 = "MM01"
+	assert.Nil(t, type34.Validate())
+
+	var type35 UnableToApplyIncorrectInformation4Code
+	assert.NotNil(t, type35.Validate())
+	type35 = "test"
+	assert.NotNil(t, type35.Validate())
+	type35 = "IN01"
+	assert.Nil(t, type35.Validate())
+
+	var type36 UnableToApplyMissingInformation3Code
+	assert.NotNil(t, type36.Validate())
+	type36 = "test"
+	assert.NotNil(t, type36.Validate())
+	type36 = "MS01"
+	assert.Nil(t, type36.Validate())
+
+	var type37 ChargeBearerType1Code
+	assert.NotNil(t, type37.Validate())
+	type37 = "test"
+	assert.NotNil(t, type37.Validate())
+	type37 = "DEBT"
+	assert.Nil(t, type37.Validate())
+
+	var type38 ExternalPurpose1Code
+	assert.NotNil(t, type38.Validate())
+	type38 = "test"
+	assert.Nil(t, type38.Validate())
+
+	var type39 Instruction3Code
+	assert.NotNil(t, type39.Validate())
+	type39 = "test"
+	assert.NotNil(t, type39.Validate())
+	type39 = "CHQB"
+	assert.Nil(t, type39.Validate())
+
+	var type40 Instruction4Code
+	assert.NotNil(t, type40.Validate())
+	type40 = "test"
+	assert.NotNil(t, type40.Validate())
+	type40 = "PHOA"
+	assert.Nil(t, type40.Validate())
+
+	var type41 PaymentMethod4Code
+	assert.NotNil(t, type41.Validate())
+	type41 = "test"
+	assert.NotNil(t, type41.Validate())
+	type41 = "CHK"
+	assert.Nil(t, type41.Validate())
+
+	var type42 Priority2Code
+	assert.NotNil(t, type42.Validate())
+	type42 = "test"
+	assert.NotNil(t, type42.Validate())
+	type42 = "HIGH"
+	assert.Nil(t, type42.Validate())
+
+	var type43 ClearingChannel2Code
+	assert.NotNil(t, type43.Validate())
+	type43 = "test"
+	assert.NotNil(t, type43.Validate())
+	type43 = "RTGS"
+	assert.Nil(t, type43.Validate())
+
+	var type44 SequenceType3Code
+	assert.NotNil(t, type44.Validate())
+	type44 = "test"
+	assert.NotNil(t, type44.Validate())
+	type44 = "FRST"
+	assert.Nil(t, type44.Validate())
+
+	var type45 CreditDebitCode
+	assert.NotNil(t, type45.Validate())
+	type45 = "test"
+	assert.NotNil(t, type45.Validate())
+	type45 = "CRDT"
+	assert.Nil(t, type45.Validate())
+
+	var type46 ExternalCategoryPurpose1Code
+	assert.NotNil(t, type46.Validate())
+	type46 = "test"
+	assert.Nil(t, type46.Validate())
+
+	var type47 ExternalCashClearingSystem1Code
+	assert.NotNil(t, type47.Validate())
+	type47 = "test"
+	assert.Nil(t, type47.Validate())
+
+	var type48 ExternalDiscountAmountType1Code
+	assert.NotNil(t, type48.Validate())
+	type48 = "test"
+	assert.Nil(t, type48.Validate())
+
+	var type49 ExternalDocumentLineType1Code
+	assert.NotNil(t, type49.Validate())
+	type49 = "test"
+	assert.Nil(t, type49.Validate())
+
+	var type50 CreditDebitCode
+	assert.NotNil(t, type50.Validate())
+	type50 = "test"
+	assert.NotNil(t, type50.Validate())
+	type50 = "CRDT"
+	assert.Nil(t, type50.Validate())
+
+	var type51 Frequency6Code
+	assert.NotNil(t, type51.Validate())
+	type51 = "test"
+	assert.NotNil(t, type51.Validate())
+	type51 = "YEAR"
+	assert.Nil(t, type51.Validate())
+
+	var type52 ExternalGarnishmentType1Code
+	assert.NotNil(t, type52.Validate())
+	type52 = "test"
+	assert.Nil(t, type52.Validate())
+
+	var type53 ExternalLocalInstrument1Code
+	assert.NotNil(t, type53.Validate())
+	type53 = "test"
+	assert.Nil(t, type53.Validate())
+
+	var type54 ExternalMandateSetupReason1Code
+	assert.NotNil(t, type54.Validate())
+	type54 = "test"
+	assert.Nil(t, type54.Validate())
 }
