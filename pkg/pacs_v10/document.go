@@ -11,8 +11,10 @@ import (
 )
 
 type DocumentPacs00400110 struct {
-	Xmlns  string           `xml:"xmlns,attr"`
-	PmtRtr PaymentReturnV10 `xml:"PmtRtr"`
+	XMLName                 *xml.Name        `json:",omitempty"`
+	Xmlns                   string           `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool             `xml:",omitempty" json:",omitempty"`
+	PmtRtr                  PaymentReturnV10 `xml:"PmtRtr"`
 }
 
 func (doc DocumentPacs00400110) Validate() error {
@@ -31,13 +33,15 @@ func (doc DocumentPacs00400110) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		PmtRtr PaymentReturnV10 `xml:"PmtRtr"`
 	}
 	output.PmtRtr = doc.PmtRtr
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentPacs00700110 struct {
-	Xmlns         string                   `xml:"xmlns,attr"`
-	FIToFIPmtRvsl FIToFIPaymentReversalV10 `xml:"FIToFIPmtRvsl"`
+	XMLName                 *xml.Name                `json:",omitempty"`
+	Xmlns                   string                   `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                     `xml:",omitempty" json:",omitempty"`
+	FIToFIPmtRvsl           FIToFIPaymentReversalV10 `xml:"FIToFIPmtRvsl"`
 }
 
 func (doc DocumentPacs00700110) Validate() error {
@@ -56,6 +60,6 @@ func (doc DocumentPacs00700110) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		FIToFIPmtRvsl FIToFIPaymentReversalV10 `xml:"FIToFIPmtRvsl"`
 	}
 	output.FIToFIPmtRvsl = doc.FIToFIPmtRvsl
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }

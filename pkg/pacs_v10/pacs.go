@@ -5,6 +5,8 @@
 package pacs_v10
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -733,6 +735,8 @@ func (r PaymentReturnReason6) Validate() error {
 }
 
 type PaymentReturnV10 struct {
+	XMLName     *xml.Name               `json:",omitempty"`
+	Attr        *utils.Attr             `xml:",attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader90           `xml:"GrpHdr"`
 	OrgnlGrpInf *OriginalGroupHeader18  `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
 	TxInf       []PaymentTransaction118 `xml:"TxInf,omitempty" json:",omitempty"`
@@ -1155,6 +1159,8 @@ func (r TransactionParties8) Validate() error {
 }
 
 type FIToFIPaymentReversalV10 struct {
+	XMLName     *xml.Name               `json:",omitempty"`
+	Attr        *utils.Attr             `xml:",attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader89           `xml:"GrpHdr"`
 	OrgnlGrpInf *OriginalGroupHeader16  `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
 	TxInf       []PaymentTransaction119 `xml:"TxInf,omitempty" json:",omitempty"`

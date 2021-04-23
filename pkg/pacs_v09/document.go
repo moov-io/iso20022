@@ -11,8 +11,10 @@ import (
 )
 
 type DocumentPacs00800109 struct {
-	Xmlns             string                          `xml:"xmlns,attr"`
-	FIToFICstmrCdtTrf FIToFICustomerCreditTransferV09 `xml:"FIToFICstmrCdtTrf"`
+	XMLName                 *xml.Name                       `json:",omitempty"`
+	Xmlns                   string                          `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                            `xml:",omitempty" json:",omitempty"`
+	FIToFICstmrCdtTrf       FIToFICustomerCreditTransferV09 `xml:"FIToFICstmrCdtTrf"`
 }
 
 func (doc DocumentPacs00800109) Validate() error {
@@ -31,13 +33,15 @@ func (doc DocumentPacs00800109) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		FIToFICstmrCdtTrf FIToFICustomerCreditTransferV09 `xml:"FIToFICstmrCdtTrf"`
 	}
 	output.FIToFICstmrCdtTrf = doc.FIToFICstmrCdtTrf
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentPacs00900109 struct {
-	Xmlns    string                                `xml:"xmlns,attr"`
-	FICdtTrf FinancialInstitutionCreditTransferV09 `xml:"FICdtTrf"`
+	XMLName                 *xml.Name                             `json:",omitempty"`
+	Xmlns                   string                                `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                  `xml:",omitempty" json:",omitempty"`
+	FICdtTrf                FinancialInstitutionCreditTransferV09 `xml:"FICdtTrf"`
 }
 
 func (doc DocumentPacs00900109) Validate() error {
@@ -56,6 +60,6 @@ func (doc DocumentPacs00900109) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		FICdtTrf FinancialInstitutionCreditTransferV09 `xml:"FICdtTrf"`
 	}
 	output.FICdtTrf = doc.FICdtTrf
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }

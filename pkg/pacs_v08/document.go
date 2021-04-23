@@ -11,8 +11,10 @@ import (
 )
 
 type DocumentPacs00300108 struct {
-	Xmlns              string                       `xml:"xmlns,attr"`
-	FIToFICstmrDrctDbt FIToFICustomerDirectDebitV08 `xml:"FIToFICstmrDrctDbt"`
+	XMLName                 *xml.Name                    `json:",omitempty"`
+	Xmlns                   string                       `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                         `xml:",omitempty" json:",omitempty"`
+	FIToFICstmrDrctDbt      FIToFICustomerDirectDebitV08 `xml:"FIToFICstmrDrctDbt"`
 }
 
 func (doc DocumentPacs00300108) Validate() error {
@@ -31,6 +33,6 @@ func (doc DocumentPacs00300108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		FIToFICstmrDrctDbt FIToFICustomerDirectDebitV08 `xml:"FIToFICstmrDrctDbt"`
 	}
 	output.FIToFICstmrDrctDbt = doc.FIToFICstmrDrctDbt
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
