@@ -5,6 +5,8 @@
 package camt_v01
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -93,6 +95,8 @@ func (r ClearingSystemMemberIdentification2) Validate() error {
 }
 
 type CreateLimitV01 struct {
+	XMLName     *xml.Name            `json:",omitempty"`
+	Attr        *utils.Attr          `xml:",attr,omitempty" json:",omitempty"`
 	MsgHdr      MessageHeader1       `xml:"MsgHdr"`
 	LmtData     []LimitStructure4    `xml:"LmtData" json:",omitempty"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -284,6 +288,8 @@ func (r CashAccountType2Choice) Validate() error {
 }
 
 type CreateStandingOrderV01 struct {
+	XMLName     *xml.Name                    `json:",omitempty"`
+	Attr        *utils.Attr                  `xml:",attr,omitempty" json:",omitempty"`
 	MsgHdr      MessageHeader1               `xml:"MsgHdr"`
 	StgOrdrId   StandingOrderIdentification4 `xml:"StgOrdrId"`
 	ValSet      StandingOrder7               `xml:"ValSet"`
@@ -376,6 +382,8 @@ func (r StandingOrderIdentification4) Validate() error {
 }
 
 type CreateReservationV01 struct {
+	XMLName     *xml.Name                  `json:",omitempty"`
+	Attr        *utils.Attr                `xml:",attr,omitempty" json:",omitempty"`
 	MsgHdr      MessageHeader1             `xml:"MsgHdr"`
 	RsvatnId    ReservationIdentification2 `xml:"RsvatnId"`
 	ValSet      Reservation4               `xml:"ValSet"`
@@ -438,6 +446,8 @@ func (r ContactIdentificationAndAddress1) Validate() error {
 }
 
 type CreateMemberV01 struct {
+	XMLName     *xml.Name                   `json:",omitempty"`
+	Attr        *utils.Attr                 `xml:",attr,omitempty" json:",omitempty"`
 	MsgHdr      MessageHeader1              `xml:"MsgHdr"`
 	MmbId       MemberIdentification3Choice `xml:"MmbId"`
 	ValSet      Member6                     `xml:"ValSet"`

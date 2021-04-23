@@ -11,8 +11,10 @@ import (
 )
 
 type DocumentCamt05500109 struct {
-	Xmlns          string                                `xml:"xmlns,attr"`
-	CstmrPmtCxlReq CustomerPaymentCancellationRequestV09 `xml:"CstmrPmtCxlReq"`
+	XMLName                 *xml.Name                             `json:",omitempty"`
+	Xmlns                   string                                `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                  `xml:",omitempty" json:",omitempty"`
+	CstmrPmtCxlReq          CustomerPaymentCancellationRequestV09 `xml:"CstmrPmtCxlReq"`
 }
 
 func (doc DocumentCamt05500109) Validate() error {
@@ -31,13 +33,15 @@ func (doc DocumentCamt05500109) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CstmrPmtCxlReq CustomerPaymentCancellationRequestV09 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.055.001.09 CstmrPmtCxlReq"`
 	}
 	output.CstmrPmtCxlReq = doc.CstmrPmtCxlReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt05600109 struct {
-	Xmlns           string                              `xml:"xmlns,attr"`
-	FIToFIPmtCxlReq FIToFIPaymentCancellationRequestV09 `xml:"FIToFIPmtCxlReq"`
+	XMLName                 *xml.Name                           `json:",omitempty"`
+	Xmlns                   string                              `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                                `xml:",omitempty" json:",omitempty"`
+	FIToFIPmtCxlReq         FIToFIPaymentCancellationRequestV09 `xml:"FIToFIPmtCxlReq"`
 }
 
 func (doc DocumentCamt05600109) Validate() error {
@@ -56,6 +60,6 @@ func (doc DocumentCamt05600109) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		FIToFIPmtCxlReq FIToFIPaymentCancellationRequestV09 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.056.001.09 FIToFIPmtCxlReq"`
 	}
 	output.FIToFIPmtCxlReq = doc.FIToFIPmtCxlReq
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }

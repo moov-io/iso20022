@@ -11,8 +11,10 @@ import (
 )
 
 type DocumentCamt03500103 struct {
-	Xmlns             string                            `xml:"xmlns,attr"`
-	PrtryFrmtInvstgtn ProprietaryFormatInvestigationV03 `xml:"PrtryFrmtInvstgtn"`
+	XMLName                 *xml.Name                         `json:",omitempty"`
+	Xmlns                   string                            `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                              `xml:",omitempty" json:",omitempty"`
+	PrtryFrmtInvstgtn       ProprietaryFormatInvestigationV03 `xml:"PrtryFrmtInvstgtn"`
 }
 
 func (doc DocumentCamt03500103) Validate() error {
@@ -31,13 +33,15 @@ func (doc DocumentCamt03500103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		PrtryFrmtInvstgtn ProprietaryFormatInvestigationV03 `xml:"PrtryFrmtInvstgtn"`
 	}
 	output.PrtryFrmtInvstgtn = doc.PrtryFrmtInvstgtn
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt06900103 struct {
-	Xmlns      string              `xml:"xmlns,attr"`
-	GetStgOrdr GetStandingOrderV03 `xml:"GetStgOrdr"`
+	XMLName                 *xml.Name           `json:",omitempty"`
+	Xmlns                   string              `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                `xml:",omitempty" json:",omitempty"`
+	GetStgOrdr              GetStandingOrderV03 `xml:"GetStgOrdr"`
 }
 
 func (doc DocumentCamt06900103) Validate() error {
@@ -56,13 +60,15 @@ func (doc DocumentCamt06900103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		GetStgOrdr GetStandingOrderV03 `xml:"GetStgOrdr"`
 	}
 	output.GetStgOrdr = doc.GetStgOrdr
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt07100103 struct {
-	Xmlns      string                 `xml:"xmlns,attr"`
-	DelStgOrdr DeleteStandingOrderV03 `xml:"DelStgOrdr"`
+	XMLName                 *xml.Name              `json:",omitempty"`
+	Xmlns                   string                 `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                   `xml:",omitempty" json:",omitempty"`
+	DelStgOrdr              DeleteStandingOrderV03 `xml:"DelStgOrdr"`
 }
 
 func (doc DocumentCamt07100103) Validate() error {
@@ -81,13 +87,15 @@ func (doc DocumentCamt07100103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		DelStgOrdr DeleteStandingOrderV03 `xml:"DelStgOrdr"`
 	}
 	output.DelStgOrdr = doc.DelStgOrdr
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt08600103 struct {
-	Xmlns          string                          `xml:"xmlns,attr"`
-	BkSvcsBllgStmt BankServicesBillingStatementV03 `xml:"BkSvcsBllgStmt"`
+	XMLName                 *xml.Name                       `json:",omitempty"`
+	Xmlns                   string                          `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                            `xml:",omitempty" json:",omitempty"`
+	BkSvcsBllgStmt          BankServicesBillingStatementV03 `xml:"BkSvcsBllgStmt"`
 }
 
 func (doc DocumentCamt08600103) Validate() error {
@@ -106,6 +114,6 @@ func (doc DocumentCamt08600103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		BkSvcsBllgStmt BankServicesBillingStatementV03 `xml:"BkSvcsBllgStmt"`
 	}
 	output.BkSvcsBllgStmt = doc.BkSvcsBllgStmt
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }

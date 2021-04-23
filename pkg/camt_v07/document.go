@@ -11,8 +11,10 @@ import (
 )
 
 type DocumentCamt00300107 struct {
-	Xmlns   string        `xml:"xmlns,attr"`
-	GetAcct GetAccountV07 `xml:"GetAcct"`
+	XMLName                 *xml.Name     `json:",omitempty"`
+	Xmlns                   string        `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool          `xml:",omitempty" json:",omitempty"`
+	GetAcct                 GetAccountV07 `xml:"GetAcct"`
 }
 
 func (doc DocumentCamt00300107) Validate() error {
@@ -31,13 +33,15 @@ func (doc DocumentCamt00300107) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		GetAcct GetAccountV07 `xml:"GetAcct"`
 	}
 	output.GetAcct = doc.GetAcct
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt00900107 struct {
-	Xmlns  string      `xml:"xmlns,attr"`
-	GetLmt GetLimitV07 `xml:"GetLmt"`
+	XMLName                 *xml.Name   `json:",omitempty"`
+	Xmlns                   string      `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool        `xml:",omitempty" json:",omitempty"`
+	GetLmt                  GetLimitV07 `xml:"GetLmt"`
 }
 
 func (doc DocumentCamt00900107) Validate() error {
@@ -56,13 +60,15 @@ func (doc DocumentCamt00900107) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		GetLmt GetLimitV07 `xml:"GetLmt"`
 	}
 	output.GetLmt = doc.GetLmt
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt01100107 struct {
-	Xmlns    string         `xml:"xmlns,attr"`
-	ModfyLmt ModifyLimitV07 `xml:"ModfyLmt"`
+	XMLName                 *xml.Name      `json:",omitempty"`
+	Xmlns                   string         `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool           `xml:",omitempty" json:",omitempty"`
+	ModfyLmt                ModifyLimitV07 `xml:"ModfyLmt"`
 }
 
 func (doc DocumentCamt01100107) Validate() error {
@@ -81,13 +87,15 @@ func (doc DocumentCamt01100107) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		ModfyLmt ModifyLimitV07 `xml:"ModfyLmt"`
 	}
 	output.ModfyLmt = doc.ModfyLmt
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt01200107 struct {
-	Xmlns  string         `xml:"xmlns,attr"`
-	DelLmt DeleteLimitV07 `xml:"DelLmt"`
+	XMLName                 *xml.Name      `json:",omitempty"`
+	Xmlns                   string         `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool           `xml:",omitempty" json:",omitempty"`
+	DelLmt                  DeleteLimitV07 `xml:"DelLmt"`
 }
 
 func (doc DocumentCamt01200107) Validate() error {
@@ -106,13 +114,15 @@ func (doc DocumentCamt01200107) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		DelLmt DeleteLimitV07 `xml:"DelLmt"`
 	}
 	output.DelLmt = doc.DelLmt
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt01900107 struct {
-	Xmlns        string                          `xml:"xmlns,attr"`
-	RtrBizDayInf ReturnBusinessDayInformationV07 `xml:"RtrBizDayInf"`
+	XMLName                 *xml.Name                       `json:",omitempty"`
+	Xmlns                   string                          `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                            `xml:",omitempty" json:",omitempty"`
+	RtrBizDayInf            ReturnBusinessDayInformationV07 `xml:"RtrBizDayInf"`
 }
 
 func (doc DocumentCamt01900107) Validate() error {
@@ -131,13 +141,15 @@ func (doc DocumentCamt01900107) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RtrBizDayInf ReturnBusinessDayInformationV07 `xml:"RtrBizDayInf"`
 	}
 	output.RtrBizDayInf = doc.RtrBizDayInf
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt02300107 struct {
-	Xmlns   string           `xml:"xmlns,attr"`
-	BckpPmt BackupPaymentV07 `xml:"BckpPmt"`
+	XMLName                 *xml.Name        `json:",omitempty"`
+	Xmlns                   string           `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool             `xml:",omitempty" json:",omitempty"`
+	BckpPmt                 BackupPaymentV07 `xml:"BckpPmt"`
 }
 
 func (doc DocumentCamt02300107) Validate() error {
@@ -156,13 +168,15 @@ func (doc DocumentCamt02300107) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		BckpPmt BackupPaymentV07 `xml:"BckpPmt"`
 	}
 	output.BckpPmt = doc.BckpPmt
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
 
 type DocumentCamt08700107 struct {
-	Xmlns         string                    `xml:"xmlns,attr"`
-	ReqToModfyPmt RequestToModifyPaymentV07 `xml:"ReqToModfyPmt"`
+	XMLName                 *xml.Name                 `json:",omitempty"`
+	Xmlns                   string                    `xml:"xmlns,attr,omitempty" json:",omitempty"`
+	DisableDefaultNamespace bool                      `xml:",omitempty" json:",omitempty"`
+	ReqToModfyPmt           RequestToModifyPaymentV07 `xml:"ReqToModfyPmt"`
 }
 
 func (doc DocumentCamt08700107) Validate() error {
@@ -181,6 +195,6 @@ func (doc DocumentCamt08700107) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		ReqToModfyPmt RequestToModifyPaymentV07 `xml:"ReqToModfyPmt"`
 	}
 	output.ReqToModfyPmt = doc.ReqToModfyPmt
-	utils.XmlElement(&start, doc.NameSpace())
+	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
 	return e.EncodeElement(&output, start)
 }
