@@ -4,28 +4,18 @@
 
 package head_v02
 
-import "github.com/moov-io/iso20022/pkg/common"
-
-type BusinessApplicationHeaderV02 struct {
-	CharSet    string                        `xml:"CharSet,omitempty" json:",omitempty"`
-	Fr         Party44Choice                 `xml:"Fr"`
-	To         Party44Choice                 `xml:"To"`
-	BizMsgIdr  common.Max35Text              `xml:"BizMsgIdr"`
-	MsgDefIdr  common.Max35Text              `xml:"MsgDefIdr"`
-	BizSvc     *common.Max35Text             `xml:"BizSvc,omitempty" json:",omitempty"`
-	MktPrctc   *ImplementationSpecification1 `xml:"MktPrctc,omitempty" json:",omitempty"`
-	CreDt      common.ISODateTime            `xml:"CreDt"`
-	BizPrcgDt  *common.ISODateTime           `xml:"BizPrcgDt,omitempty" json:",omitempty"`
-	CpyDplct   *common.CopyDuplicate1Code    `xml:"CpyDplct,omitempty" json:",omitempty"`
-	PssblDplct bool                          `xml:"PssblDplct,omitempty" json:",omitempty"`
-	Prty       string                        `xml:"Prty,omitempty" json:",omitempty"`
-	Sgntr      *SignatureEnvelope            `xml:"Sgntr,omitempty" json:",omitempty"`
-	Rltd       []BusinessApplicationHeader5  `xml:"Rltd,omitempty" json:",omitempty"`
-}
+import (
+	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
+)
 
 type AddressType3Choice struct {
 	Cd    common.AddressType2Code `xml:"Cd"`
 	Prtry GenericIdentification30 `xml:"Prtry"`
+}
+
+func (r AddressType3Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type BranchAndFinancialInstitutionIdentification6 struct {
@@ -33,11 +23,19 @@ type BranchAndFinancialInstitutionIdentification6 struct {
 	BrnchId    *BranchData3                         `xml:"BrnchId,omitempty" json:",omitempty"`
 }
 
+func (r BranchAndFinancialInstitutionIdentification6) Validate() error {
+	return utils.Validate(&r)
+}
+
 type BranchData3 struct {
 	Id      *common.Max35Text     `xml:"Id,omitempty" json:",omitempty"`
 	LEI     *common.LEIIdentifier `xml:"LEI,omitempty" json:",omitempty"`
 	Nm      *common.Max140Text    `xml:"Nm,omitempty" json:",omitempty"`
 	PstlAdr *PostalAddress24      `xml:"PstlAdr,omitempty" json:",omitempty"`
+}
+
+func (r BranchData3) Validate() error {
+	return utils.Validate(&r)
 }
 
 type BusinessApplicationHeader5 struct {
@@ -54,14 +52,26 @@ type BusinessApplicationHeader5 struct {
 	Sgntr      *SignatureEnvelope         `xml:"Sgntr,omitempty" json:",omitempty"`
 }
 
+func (r BusinessApplicationHeader5) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ClearingSystemIdentification2Choice struct {
 	Cd    ExternalClearingSystemIdentification1Code `xml:"Cd"`
 	Prtry common.Max35Text                          `xml:"Prtry"`
 }
 
+func (r ClearingSystemIdentification2Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ClearingSystemMemberIdentification2 struct {
 	ClrSysId *ClearingSystemIdentification2Choice `xml:"ClrSysId,omitempty" json:",omitempty"`
 	MmbId    common.Max35Text                     `xml:"MmbId"`
+}
+
+func (r ClearingSystemMemberIdentification2) Validate() error {
+	return utils.Validate(&r)
 }
 
 type Contact4 struct {
@@ -79,9 +89,17 @@ type Contact4 struct {
 	PrefrdMtd *PreferredContactMethod1Code `xml:"PrefrdMtd,omitempty" json:",omitempty"`
 }
 
+func (r Contact4) Validate() error {
+	return utils.Validate(&r)
+}
+
 type FinancialIdentificationSchemeName1Choice struct {
 	Cd    ExternalFinancialInstitutionIdentification1Code `xml:"Cd"`
 	Prtry common.Max35Text                                `xml:"Prtry"`
+}
+
+func (r FinancialIdentificationSchemeName1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type FinancialInstitutionIdentification18 struct {
@@ -93,10 +111,18 @@ type FinancialInstitutionIdentification18 struct {
 	Othr        *GenericFinancialIdentification1     `xml:"Othr,omitempty" json:",omitempty"`
 }
 
+func (r FinancialInstitutionIdentification18) Validate() error {
+	return utils.Validate(&r)
+}
+
 type GenericFinancialIdentification1 struct {
 	Id      common.Max35Text                          `xml:"Id"`
 	SchmeNm *FinancialIdentificationSchemeName1Choice `xml:"SchmeNm,omitempty" json:",omitempty"`
 	Issr    *common.Max35Text                         `xml:"Issr,omitempty" json:",omitempty"`
+}
+
+func (r GenericFinancialIdentification1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type GenericIdentification30 struct {
@@ -105,10 +131,18 @@ type GenericIdentification30 struct {
 	SchmeNm *common.Max35Text             `xml:"SchmeNm,omitempty" json:",omitempty"`
 }
 
+func (r GenericIdentification30) Validate() error {
+	return utils.Validate(&r)
+}
+
 type GenericOrganisationIdentification1 struct {
 	Id      common.Max35Text                             `xml:"Id"`
 	SchmeNm *OrganisationIdentificationSchemeName1Choice `xml:"SchmeNm,omitempty" json:",omitempty"`
 	Issr    *common.Max35Text                            `xml:"Issr,omitempty" json:",omitempty"`
+}
+
+func (r GenericOrganisationIdentification1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type GenericPersonIdentification1 struct {
@@ -117,10 +151,18 @@ type GenericPersonIdentification1 struct {
 	Issr    *common.Max35Text                      `xml:"Issr,omitempty" json:",omitempty"`
 }
 
+func (r GenericPersonIdentification1) Validate() error {
+	return utils.Validate(&r)
+}
+
 type OrganisationIdentification29 struct {
 	AnyBIC *common.AnyBICDec2014Identifier      `xml:"AnyBIC,omitempty" json:",omitempty"`
 	LEI    *common.LEIIdentifier                `xml:"LEI,omitempty" json:",omitempty"`
 	Othr   []GenericOrganisationIdentification1 `xml:"Othr,omitempty" json:",omitempty"`
+}
+
+func (r OrganisationIdentification29) Validate() error {
+	return utils.Validate(&r)
 }
 
 type OrganisationIdentificationSchemeName1Choice struct {
@@ -128,9 +170,17 @@ type OrganisationIdentificationSchemeName1Choice struct {
 	Prtry common.Max35Text                        `xml:"Prtry"`
 }
 
+func (r OrganisationIdentificationSchemeName1Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type OtherContact1 struct {
 	ChanlTp common.Max4Text    `xml:"ChanlTp"`
 	Id      *common.Max128Text `xml:"Id,omitempty" json:",omitempty"`
+}
+
+func (r OtherContact1) Validate() error {
+	return utils.Validate(&r)
 }
 
 type Party38Choice struct {
@@ -138,9 +188,17 @@ type Party38Choice struct {
 	PrvtId PersonIdentification13       `xml:"PrvtId"`
 }
 
+func (r Party38Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type Party44Choice struct {
 	OrgId PartyIdentification135                       `xml:"OrgId"`
 	FIId  BranchAndFinancialInstitutionIdentification6 `xml:"FIId"`
+}
+
+func (r Party44Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type PartyIdentification135 struct {
@@ -151,14 +209,26 @@ type PartyIdentification135 struct {
 	CtctDtls  *Contact4           `xml:"CtctDtls,omitempty" json:",omitempty"`
 }
 
+func (r PartyIdentification135) Validate() error {
+	return utils.Validate(&r)
+}
+
 type PersonIdentification13 struct {
 	DtAndPlcOfBirth *DateAndPlaceOfBirth1          `xml:"DtAndPlcOfBirth,omitempty" json:",omitempty"`
 	Othr            []GenericPersonIdentification1 `xml:"Othr,omitempty" json:",omitempty"`
 }
 
+func (r PersonIdentification13) Validate() error {
+	return utils.Validate(&r)
+}
+
 type PersonIdentificationSchemeName1Choice struct {
 	Cd    ExternalPersonIdentification1Code `xml:"Cd"`
 	Prtry common.Max35Text                  `xml:"Prtry"`
+}
+
+func (r PersonIdentificationSchemeName1Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type PostalAddress24 struct {
@@ -180,6 +250,10 @@ type PostalAddress24 struct {
 	AdrLine     []common.Max70Text  `xml:"AdrLine,omitempty" json:",omitempty"`
 }
 
+func (r PostalAddress24) Validate() error {
+	return utils.Validate(&r)
+}
+
 type DateAndPlaceOfBirth1 struct {
 	BirthDt     common.ISODate     `xml:"BirthDt"`
 	PrvcOfBirth *common.Max35Text  `xml:"PrvcOfBirth,omitempty" json:",omitempty"`
@@ -187,11 +261,23 @@ type DateAndPlaceOfBirth1 struct {
 	CtryOfBirth common.CountryCode `xml:"CtryOfBirth"`
 }
 
+func (r DateAndPlaceOfBirth1) Validate() error {
+	return utils.Validate(&r)
+}
+
 type ImplementationSpecification1 struct {
 	Regy common.Max350Text  `xml:"Regy"`
 	Id   common.Max2048Text `xml:"Id"`
 }
 
+func (r ImplementationSpecification1) Validate() error {
+	return utils.Validate(&r)
+}
+
 type SignatureEnvelope struct {
 	Item string `xml:",any"`
+}
+
+func (r SignatureEnvelope) Validate() error {
+	return utils.Validate(&r)
 }
