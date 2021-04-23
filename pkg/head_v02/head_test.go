@@ -28,7 +28,7 @@ func TestBusinessApplicationHeaderV02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"XMLName":"","Xmlns":"urn:iso:std:iso:20022:tech:xsd:head.001.001.02","Fr":{"OrgId":{},"FIId":{"FinInstnId":{}}},"To":{"OrgId":{},"FIId":{"FinInstnId":{}}},"BizMsgIdr":"BizMsgIdr","MsgDefIdr":"MsgDefIdr","CreDt":"2014-11-12T11:45:26.371"}`)
+	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:head.001.001.02","Fr":{"OrgId":{},"FIId":{"FinInstnId":{}}},"To":{"OrgId":{},"FIId":{"FinInstnId":{}}},"BizMsgIdr":"BizMsgIdr","MsgDefIdr":"MsgDefIdr","CreDt":"2014-11-12T11:45:26.371"}`)
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)

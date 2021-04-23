@@ -10,7 +10,7 @@ import (
 )
 
 type BusinessApplicationHeaderV01 struct {
-	XMLName    string                       `xml:"AppHdr", json:"AppHdr"`
+	XMLName    string                       `xml:"AppHdr" json:"-"`
 	Attr       *utils.Attr                  `xml:",attr,omitempty" json:",omitempty"`
 	Xmlns      string                       `xml:"xmlns,attr,omitempty" json:",omitempty"`
 	CharSet    string                       `xml:"CharSet,omitempty" json:",omitempty"`
