@@ -235,7 +235,6 @@ func (r Max11Text) Validate() error {
 	return nil
 }
 
-
 // Must be at least 1 items long
 type Max3Text string
 
