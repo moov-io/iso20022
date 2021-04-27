@@ -226,6 +226,27 @@ func (r Max4Text) Validate() error {
 }
 
 // Must be at least 1 items long
+type Max11Text string
+
+func (r Max11Text) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 11 {
+		return utils.NewErrTextLengthInvalid("Max11Text", 1, 11)
+	}
+	return nil
+}
+
+
+// Must be at least 1 items long
+type Max3Text string
+
+func (r Max3Text) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 3 {
+		return utils.NewErrTextLengthInvalid("Max3Text", 1, 3)
+	}
+	return nil
+}
+
+// Must be at least 1 items long
 type Max128Text string
 
 func (r Max128Text) Validate() error {
