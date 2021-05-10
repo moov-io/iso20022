@@ -344,6 +344,7 @@ func (r DocumentLineType1Choice) Validate() error {
 }
 
 type FIToFICustomerCreditTransferV09 struct {
+	Attr        []utils.Attr                  `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader93                 `xml:"GrpHdr"`
 	CdtTrfTxInf []CreditTransferTransaction43 `xml:"CdtTrfTxInf" json:",omitempty"`
 	SplmtryData []SupplementaryData1          `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -1111,6 +1112,7 @@ func (r CreditTransferTransaction45) Validate() error {
 }
 
 type FinancialInstitutionCreditTransferV09 struct {
+	Attr        []utils.Attr                  `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader93                 `xml:"GrpHdr"`
 	CdtTrfTxInf []CreditTransferTransaction44 `xml:"CdtTrfTxInf" json:",omitempty"`
 	SplmtryData []SupplementaryData1          `xml:"SplmtryData,omitempty" json:",omitempty"`

@@ -11,13 +11,16 @@ import (
 )
 
 type DocumentCamt02100106 struct {
-	Xmlns        string                              `xml:"xmlns,attr"`
+	XMLName      xml.Name
+	Attrs        []utils.Attr                        `xml:",any,attr,omitempty" json:",omitempty"`
 	RtrGnlBizInf ReturnGeneralBusinessInformationV06 `xml:"RtrGnlBizInf"`
 }
 
 func (doc DocumentCamt02100106) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -27,22 +30,33 @@ func (doc DocumentCamt02100106) NameSpace() string {
 }
 
 func (doc DocumentCamt02100106) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		RtrGnlBizInf ReturnGeneralBusinessInformationV06 `xml:"RtrGnlBizInf"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.RtrGnlBizInf = doc.RtrGnlBizInf
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName      xml.Name
+		Attrs        []utils.Attr                        `xml:",any,attr,omitempty" json:",omitempty"`
+		RtrGnlBizInf ReturnGeneralBusinessInformationV06 `xml:"RtrGnlBizInf"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }
 
 type DocumentCamt02400106 struct {
-	Xmlns        string                 `xml:"xmlns,attr"`
+	XMLName      xml.Name
+	Attrs        []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	ModfyStgOrdr ModifyStandingOrderV06 `xml:"ModfyStgOrdr"`
 }
 
 func (doc DocumentCamt02400106) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -52,22 +66,69 @@ func (doc DocumentCamt02400106) NameSpace() string {
 }
 
 func (doc DocumentCamt02400106) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		ModfyStgOrdr ModifyStandingOrderV06 `xml:"ModfyStgOrdr"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.ModfyStgOrdr = doc.ModfyStgOrdr
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName      xml.Name
+		Attrs        []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
+		ModfyStgOrdr ModifyStandingOrderV06 `xml:"ModfyStgOrdr"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
+}
+
+type DocumentCamt02900106 struct {
+	XMLName         xml.Name
+	Attrs           []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
+	RsltnOfInvstgtn ResolutionOfInvestigationV06 `xml:"RsltnOfInvstgtn"`
+}
+
+func (doc DocumentCamt02900106) Validate() error {
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
+	}
+	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt02900106) NameSpace() string {
+	return utils.DocumentCamt02900106NameSpace
+}
+
+func (doc DocumentCamt02900106) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
+	}
+	α := struct {
+		XMLName         xml.Name
+		Attrs           []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
+		RsltnOfInvstgtn ResolutionOfInvestigationV06 `xml:"RsltnOfInvstgtn"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }
 
 type DocumentCamt03100106 struct {
-	Xmlns        string                 `xml:"xmlns,attr"`
+	XMLName      xml.Name
+	Attrs        []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	RjctInvstgtn RejectInvestigationV06 `xml:"RjctInvstgtn"`
 }
 
 func (doc DocumentCamt03100106) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -77,72 +138,33 @@ func (doc DocumentCamt03100106) NameSpace() string {
 }
 
 func (doc DocumentCamt03100106) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
+	}
+	α := struct {
+		XMLName      xml.Name
+		Attrs        []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 		RjctInvstgtn RejectInvestigationV06 `xml:"RjctInvstgtn"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
 	}
-	output.RjctInvstgtn = doc.RjctInvstgtn
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
-}
-
-type DocumentCamt04700106 struct {
-	Xmlns     string               `xml:"xmlns,attr"`
-	RtrRsvatn ReturnReservationV06 `xml:"RtrRsvatn"`
-}
-
-func (doc DocumentCamt04700106) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
-	}
-	return utils.Validate(&doc)
-}
-
-func (doc DocumentCamt04700106) NameSpace() string {
-	return utils.DocumentCamt04700106NameSpace
-}
-
-func (doc DocumentCamt04700106) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		RtrRsvatn ReturnReservationV06 `xml:"RtrRsvatn"`
-	}
-	output.RtrRsvatn = doc.RtrRsvatn
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
-}
-
-type DocumentCamt05700106 struct {
-	Xmlns       string                   `xml:"xmlns,attr"`
-	NtfctnToRcv NotificationToReceiveV06 `xml:"NtfctnToRcv"`
-}
-
-func (doc DocumentCamt05700106) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
-	}
-	return utils.Validate(&doc)
-}
-
-func (doc DocumentCamt05700106) NameSpace() string {
-	return utils.DocumentCamt05700106NameSpace
-}
-
-func (doc DocumentCamt05700106) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		NtfctnToRcv NotificationToReceiveV06 `xml:"NtfctnToRcv"`
-	}
-	output.NtfctnToRcv = doc.NtfctnToRcv
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
+	return e.EncodeElement(&α, start)
 }
 
 type DocumentCamt03300106 struct {
-	Xmlns       string                 `xml:"xmlns,attr"`
+	XMLName     xml.Name
+	Attrs       []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	ReqForDplct RequestForDuplicateV06 `xml:"ReqForDplct"`
 }
 
 func (doc DocumentCamt03300106) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -152,72 +174,33 @@ func (doc DocumentCamt03300106) NameSpace() string {
 }
 
 func (doc DocumentCamt03300106) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
+	}
+	α := struct {
+		XMLName     xml.Name
+		Attrs       []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 		ReqForDplct RequestForDuplicateV06 `xml:"ReqForDplct"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
 	}
-	output.ReqForDplct = doc.ReqForDplct
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
-}
-
-type DocumentCamt05800106 struct {
-	Xmlns              string                                     `xml:"xmlns,attr"`
-	NtfctnToRcvCxlAdvc NotificationToReceiveCancellationAdviceV06 `xml:"NtfctnToRcvCxlAdvc"`
-}
-
-func (doc DocumentCamt05800106) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
-	}
-	return utils.Validate(&doc)
-}
-
-func (doc DocumentCamt05800106) NameSpace() string {
-	return utils.DocumentCamt05800106NameSpace
-}
-
-func (doc DocumentCamt05800106) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		NtfctnToRcvCxlAdvc NotificationToReceiveCancellationAdviceV06 `xml:"NtfctnToRcvCxlAdvc"`
-	}
-	output.NtfctnToRcvCxlAdvc = doc.NtfctnToRcvCxlAdvc
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
-}
-
-type DocumentCamt05900106 struct {
-	Xmlns             string                               `xml:"xmlns,attr"`
-	NtfctnToRcvStsRpt NotificationToReceiveStatusReportV06 `xml:"NtfctnToRcvStsRpt"`
-}
-
-func (doc DocumentCamt05900106) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
-	}
-	return utils.Validate(&doc)
-}
-
-func (doc DocumentCamt05900106) NameSpace() string {
-	return utils.DocumentCamt05900106NameSpace
-}
-
-func (doc DocumentCamt05900106) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		NtfctnToRcvStsRpt NotificationToReceiveStatusReportV06 `xml:"NtfctnToRcvStsRpt"`
-	}
-	output.NtfctnToRcvStsRpt = doc.NtfctnToRcvStsRpt
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
+	return e.EncodeElement(&α, start)
 }
 
 type DocumentCamt03400106 struct {
-	Xmlns string       `xml:"xmlns,attr"`
-	Dplct DuplicateV06 `xml:"Dplct"`
+	XMLName xml.Name
+	Attrs   []utils.Attr `xml:",any,attr,omitempty" json:",omitempty"`
+	Dplct   DuplicateV06 `xml:"Dplct"`
 }
 
 func (doc DocumentCamt03400106) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -227,10 +210,162 @@ func (doc DocumentCamt03400106) NameSpace() string {
 }
 
 func (doc DocumentCamt03400106) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		Dplct DuplicateV06 `xml:"Dplct"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.Dplct = doc.Dplct
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName xml.Name
+		Attrs   []utils.Attr `xml:",any,attr,omitempty" json:",omitempty"`
+		Dplct   DuplicateV06 `xml:"Dplct"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
+}
+
+type DocumentCamt04700106 struct {
+	XMLName   xml.Name
+	Attrs     []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+	RtrRsvatn ReturnReservationV06 `xml:"RtrRsvatn"`
+}
+
+func (doc DocumentCamt04700106) Validate() error {
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
+	}
+	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt04700106) NameSpace() string {
+	return utils.DocumentCamt04700106NameSpace
+}
+
+func (doc DocumentCamt04700106) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
+	}
+	α := struct {
+		XMLName   xml.Name
+		Attrs     []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+		RtrRsvatn ReturnReservationV06 `xml:"RtrRsvatn"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
+}
+
+type DocumentCamt05700106 struct {
+	XMLName     xml.Name
+	Attrs       []utils.Attr             `xml:",any,attr,omitempty" json:",omitempty"`
+	NtfctnToRcv NotificationToReceiveV06 `xml:"NtfctnToRcv"`
+}
+
+func (doc DocumentCamt05700106) Validate() error {
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
+	}
+	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt05700106) NameSpace() string {
+	return utils.DocumentCamt05700106NameSpace
+}
+
+func (doc DocumentCamt05700106) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
+	}
+	α := struct {
+		XMLName     xml.Name
+		Attrs       []utils.Attr             `xml:",any,attr,omitempty" json:",omitempty"`
+		NtfctnToRcv NotificationToReceiveV06 `xml:"NtfctnToRcv"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
+}
+
+type DocumentCamt05800106 struct {
+	XMLName            xml.Name
+	Attrs              []utils.Attr                               `xml:",any,attr,omitempty" json:",omitempty"`
+	NtfctnToRcvCxlAdvc NotificationToReceiveCancellationAdviceV06 `xml:"NtfctnToRcvCxlAdvc"`
+}
+
+func (doc DocumentCamt05800106) Validate() error {
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
+	}
+	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt05800106) NameSpace() string {
+	return utils.DocumentCamt05800106NameSpace
+}
+
+func (doc DocumentCamt05800106) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
+	}
+	α := struct {
+		XMLName            xml.Name
+		Attrs              []utils.Attr                               `xml:",any,attr,omitempty" json:",omitempty"`
+		NtfctnToRcvCxlAdvc NotificationToReceiveCancellationAdviceV06 `xml:"NtfctnToRcvCxlAdvc"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
+}
+
+type DocumentCamt05900106 struct {
+	XMLName           xml.Name
+	Attrs             []utils.Attr                         `xml:",any,attr,omitempty" json:",omitempty"`
+	NtfctnToRcvStsRpt NotificationToReceiveStatusReportV06 `xml:"NtfctnToRcvStsRpt"`
+}
+
+func (doc DocumentCamt05900106) Validate() error {
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
+	}
+	return utils.Validate(&doc)
+}
+
+func (doc DocumentCamt05900106) NameSpace() string {
+	return utils.DocumentCamt05900106NameSpace
+}
+
+func (doc DocumentCamt05900106) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
+	}
+	α := struct {
+		XMLName           xml.Name
+		Attrs             []utils.Attr                         `xml:",any,attr,omitempty" json:",omitempty"`
+		NtfctnToRcvStsRpt NotificationToReceiveStatusReportV06 `xml:"NtfctnToRcvStsRpt"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }

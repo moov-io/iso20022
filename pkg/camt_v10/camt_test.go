@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentCamt02800110(t *testing.T) {
@@ -23,9 +20,8 @@ func TestDocumentCamt02800110(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt02800110{
-		Xmlns: sample.NameSpace(),
 		AddtlPmtInf: AdditionalPaymentInformationV10{
 			Assgnmt: CaseAssignment5{
 				Id:      "Id",
@@ -51,11 +47,15 @@ func TestDocumentCamt02800110(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:camt.028.001.10","AddtlPmtInf":{"Assgnmt":{"Id":"Id","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}},"CreDtTm":"2014-11-12T11:45:26.371"},"Undrlyg":{"Initn":{"OrgnlInstdAmt":{"Value":0,"Ccy":"ABC"}},"IntrBk":{"OrgnlIntrBkSttlmAmt":{"Value":0,"Ccy":"ABC"},"OrgnlIntrBkSttlmDt":"2014-11-12"},"StmtNtry":{}},"Inf":{}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"AddtlPmtInf":{"Assgnmt":{"Id":"Id","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}},"CreDtTm":"2014-11-12T11:45:26.371"},"Undrlyg":{"Initn":{"OrgnlInstdAmt":{"Value":0,"Ccy":"ABC"}},"IntrBk":{"OrgnlIntrBkSttlmAmt":{"Value":0,"Ccy":"ABC"},"OrgnlIntrBkSttlmDt":"2014-11-12"},"StmtNtry":{}},"Inf":{}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.028.001.10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><AddtlPmtInf><Assgnmt><Id>Id</Id><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></Assgnmt><Undrlyg><Initn><OrgnlInstdAmt Ccy="ABC">0</OrgnlInstdAmt></Initn><IntrBk><OrgnlIntrBkSttlmAmt Ccy="ABC">0</OrgnlIntrBkSttlmAmt><OrgnlIntrBkSttlmDt>2014-11-12</OrgnlIntrBkSttlmDt></IntrBk><StmtNtry></StmtNtry></Undrlyg><Inf></Inf></AddtlPmtInf></Document>`)
+	assert.Equal(t,
+		`<DocumentCamt02800110><AddtlPmtInf><Assgnmt><Id>Id</Id><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></Assgnmt><Undrlyg><Initn><OrgnlInstdAmt Ccy="ABC">0</OrgnlInstdAmt></Initn><IntrBk><OrgnlIntrBkSttlmAmt Ccy="ABC">0</OrgnlIntrBkSttlmAmt><OrgnlIntrBkSttlmDt>2014-11-12</OrgnlIntrBkSttlmDt></IntrBk><StmtNtry></StmtNtry></Undrlyg><Inf></Inf></AddtlPmtInf></DocumentCamt02800110>`,
+		string(buf))
 }
 
 func TestDocumentCamt02900110(t *testing.T) {
@@ -63,9 +63,8 @@ func TestDocumentCamt02900110(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt02900110{
-		Xmlns: sample.NameSpace(),
 		RsltnOfInvstgtn: ResolutionOfInvestigationV10{
 			Assgnmt: CaseAssignment5{
 				Id:      "Id",
@@ -84,11 +83,15 @@ func TestDocumentCamt02900110(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:camt.029.001.10","RsltnOfInvstgtn":{"Assgnmt":{"Id":"Id","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}},"CreDtTm":"2014-11-12T11:45:26.371"},"Sts":{"Conf":"Conf","DplctOf":{"Id":"Id","Cretr":{"Pty":{},"Agt":{"FinInstnId":{}}}},"AssgnmtCxlConf":false}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"RsltnOfInvstgtn":{"Assgnmt":{"Id":"Id","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}},"CreDtTm":"2014-11-12T11:45:26.371"},"Sts":{"Conf":"Conf","DplctOf":{"Id":"Id","Cretr":{"Pty":{},"Agt":{"FinInstnId":{}}}},"AssgnmtCxlConf":false}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.029.001.10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><RsltnOfInvstgtn><Assgnmt><Id>Id</Id><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></Assgnmt><Sts><Conf>Conf</Conf><DplctOf><Id>Id</Id><Cretr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Cretr></DplctOf><AssgnmtCxlConf>false</AssgnmtCxlConf></Sts></RsltnOfInvstgtn></Document>`)
+	assert.Equal(t,
+		`<DocumentCamt02900110><RsltnOfInvstgtn><Assgnmt><Id>Id</Id><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></Assgnmt><Sts><Conf>Conf</Conf><DplctOf><Id>Id</Id><Cretr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Cretr></DplctOf><AssgnmtCxlConf>false</AssgnmtCxlConf></Sts></RsltnOfInvstgtn></DocumentCamt02900110>`,
+		string(buf))
 }
 
 func TestNestedTypes(t *testing.T) {

@@ -198,6 +198,7 @@ func (r ContractRegistration4) Validate() error {
 }
 
 type ContractRegistrationRequestV02 struct {
+	Attr        []utils.Attr            `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      CurrencyControlHeader4  `xml:"GrpHdr"`
 	CtrctRegn   []ContractRegistration3 `xml:"CtrctRegn" json:",omitempty"`
 	SplmtryData []SupplementaryData1    `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -716,6 +717,7 @@ func (r ContractClosureReason1Choice) Validate() error {
 }
 
 type ContractRegistrationConfirmationV02 struct {
+	Attr        []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      CurrencyControlHeader6 `xml:"GrpHdr"`
 	RegdCtrct   []RegisteredContract7  `xml:"RegdCtrct" json:",omitempty"`
 	SplmtryData []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -813,6 +815,7 @@ func (r RegisteredContractJournal2) Validate() error {
 }
 
 type ContractRegistrationClosureRequestV02 struct {
+	Attr          []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr        CurrencyControlHeader4 `xml:"GrpHdr"`
 	RegdCtrctClsr []RegisteredContract6  `xml:"RegdCtrctClsr" json:",omitempty"`
 	SplmtryData   []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -837,6 +840,7 @@ func (r RegisteredContract6) Validate() error {
 }
 
 type ContractRegistrationAmendmentRequestV02 struct {
+	Attr            []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr          CurrencyControlHeader4 `xml:"GrpHdr"`
 	CtrctRegnAmdmnt []RegisteredContract9  `xml:"CtrctRegnAmdmnt" json:",omitempty"`
 	SplmtryData     []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -945,6 +949,7 @@ func (r ContractRegistrationStatement2) Validate() error {
 }
 
 type ContractRegistrationStatementV02 struct {
+	Attr        []utils.Attr                     `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      CurrencyControlHeader6           `xml:"GrpHdr"`
 	Stmt        []ContractRegistrationStatement2 `xml:"Stmt" json:",omitempty"`
 	SplmtryData []SupplementaryData1             `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -1178,6 +1183,7 @@ func (r ContractRegistrationStatementRequest2) Validate() error {
 }
 
 type ContractRegistrationStatementRequestV02 struct {
+	Attr        []utils.Attr                            `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      CurrencyControlHeader4                  `xml:"GrpHdr"`
 	StmtReq     []ContractRegistrationStatementRequest2 `xml:"StmtReq" json:",omitempty"`
 	SplmtryData []SupplementaryData1                    `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -1209,6 +1215,7 @@ func (r Party40Choice) Validate() error {
 }
 
 type PaymentRegulatoryInformationNotificationV02 struct {
+	Attr        []utils.Attr                       `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      CurrencyControlHeader5             `xml:"GrpHdr"`
 	TxNtfctn    []RegulatoryReportingNotification2 `xml:"TxNtfctn" json:",omitempty"`
 	SplmtryData []SupplementaryData1               `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -1230,6 +1237,7 @@ func (r RegulatoryReportingNotification2) Validate() error {
 }
 
 type CurrencyControlSupportingDocumentDeliveryV02 struct {
+	Attr        []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      CurrencyControlHeader5 `xml:"GrpHdr"`
 	SpprtgDoc   []SupportingDocument2  `xml:"SpprtgDoc" json:",omitempty"`
 	SplmtryData []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -1240,6 +1248,7 @@ func (r CurrencyControlSupportingDocumentDeliveryV02) Validate() error {
 }
 
 type CurrencyControlRequestOrLetterV02 struct {
+	Attr        []utils.Attr                         `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      CurrencyControlHeader5               `xml:"GrpHdr"`
 	ReqOrLttr   []SupportingDocumentRequestOrLetter2 `xml:"ReqOrLttr" json:",omitempty"`
 	SplmtryData []SupplementaryData1                 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -1320,6 +1329,7 @@ func (r CurrencyControlRecordStatus2) Validate() error {
 }
 
 type CurrencyControlStatusAdviceV02 struct {
+	Attr        []utils.Attr                    `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      CurrencyControlHeader6          `xml:"GrpHdr"`
 	GrpSts      []CurrencyControlGroupStatus2   `xml:"GrpSts" json:",omitempty"`
 	PackgSts    []CurrencyControlPackageStatus2 `xml:"PackgSts,omitempty" json:",omitempty"`

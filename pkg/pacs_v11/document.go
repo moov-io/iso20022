@@ -11,13 +11,16 @@ import (
 )
 
 type DocumentPacs00200111 struct {
-	Xmlns           string                       `xml:"xmlns,attr"`
+	XMLName         xml.Name
+	Attrs           []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
 	FIToFIPmtStsRpt FIToFIPaymentStatusReportV11 `xml:"FIToFIPmtStsRpt"`
 }
 
 func (doc DocumentPacs00200111) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -27,10 +30,18 @@ func (doc DocumentPacs00200111) NameSpace() string {
 }
 
 func (doc DocumentPacs00200111) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		FIToFIPmtStsRpt FIToFIPaymentStatusReportV11 `xml:"FIToFIPmtStsRpt"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.FIToFIPmtStsRpt = doc.FIToFIPmtStsRpt
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName         xml.Name
+		Attrs           []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
+		FIToFIPmtStsRpt FIToFIPaymentStatusReportV11 `xml:"FIToFIPmtStsRpt"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }

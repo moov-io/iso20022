@@ -185,6 +185,7 @@ func (r IdentificationModification2) Validate() error {
 }
 
 type IdentificationModificationAdviceV02 struct {
+	Attr        []utils.Attr                    `xml:",any,attr,omitempty" json:",omitempty"`
 	Assgnmt     IdentificationAssignment2       `xml:"Assgnmt"`
 	OrgnlTxRef  *OriginalTransactionReference18 `xml:"OrgnlTxRef,omitempty" json:",omitempty"`
 	Mod         []IdentificationModification2   `xml:"Mod" json:",omitempty"`
@@ -328,6 +329,7 @@ func (r IdentificationVerification2) Validate() error {
 }
 
 type IdentificationVerificationRequestV02 struct {
+	Attr        []utils.Attr                  `xml:",any,attr,omitempty" json:",omitempty"`
 	Assgnmt     IdentificationAssignment2     `xml:"Assgnmt"`
 	Vrfctn      []IdentificationVerification2 `xml:"Vrfctn" json:",omitempty"`
 	SplmtryData []SupplementaryData1          `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -338,6 +340,7 @@ func (r IdentificationVerificationRequestV02) Validate() error {
 }
 
 type IdentificationVerificationReportV02 struct {
+	Attr         []utils.Attr              `xml:",any,attr,omitempty" json:",omitempty"`
 	Assgnmt      IdentificationAssignment2 `xml:"Assgnmt"`
 	OrgnlAssgnmt *MessageIdentification5   `xml:"OrgnlAssgnmt,omitempty" json:",omitempty"`
 	Rpt          []VerificationReport2     `xml:"Rpt" json:",omitempty"`
@@ -395,6 +398,7 @@ func (r AccountSwitchDetails1) Validate() error {
 }
 
 type AccountSwitchRequestRedirectionV02 struct {
+	Attr          []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgId         MessageIdentification1 `xml:"MsgId"`
 	AcctSwtchDtls AccountSwitchDetails1  `xml:"AcctSwtchDtls"`
 	NewAcct       CashAccount39          `xml:"NewAcct"`
@@ -611,6 +615,7 @@ func (r ProxyAccountType1Choice) Validate() error {
 }
 
 type AccountSwitchNotifyAccountSwitchCompleteV02 struct {
+	Attr          []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgId         MessageIdentification1 `xml:"MsgId"`
 	AcctSwtchDtls AccountSwitchDetails1  `xml:"AcctSwtchDtls"`
 	SplmtryData   []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -621,6 +626,7 @@ func (r AccountSwitchNotifyAccountSwitchCompleteV02) Validate() error {
 }
 
 type AccountSwitchPaymentResponseV02 struct {
+	Attr          []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgId         MessageIdentification1 `xml:"MsgId"`
 	AcctSwtchDtls AccountSwitchDetails1  `xml:"AcctSwtchDtls"`
 	SplmtryData   []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -631,6 +637,7 @@ func (r AccountSwitchPaymentResponseV02) Validate() error {
 }
 
 type AccountSwitchTechnicalRejectionV02 struct {
+	Attr          []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgId         MessageIdentification1 `xml:"MsgId"`
 	AcctSwtchDtls AccountSwitchDetails1  `xml:"AcctSwtchDtls"`
 	SplmtryData   []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`

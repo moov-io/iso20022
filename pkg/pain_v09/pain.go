@@ -206,6 +206,7 @@ func (r CreditorReferenceType2) Validate() error {
 }
 
 type CustomerDirectDebitInitiationV09 struct {
+	Attr        []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader83          `xml:"GrpHdr"`
 	PmtInf      []PaymentInstruction37 `xml:"PmtInf" json:",omitempty"`
 	SplmtryData []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`

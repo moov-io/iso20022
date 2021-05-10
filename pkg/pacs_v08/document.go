@@ -11,13 +11,16 @@ import (
 )
 
 type DocumentPacs00300108 struct {
-	Xmlns              string                       `xml:"xmlns,attr"`
+	XMLName            xml.Name
+	Attrs              []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
 	FIToFICstmrDrctDbt FIToFICustomerDirectDebitV08 `xml:"FIToFICstmrDrctDbt"`
 }
 
 func (doc DocumentPacs00300108) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -27,10 +30,18 @@ func (doc DocumentPacs00300108) NameSpace() string {
 }
 
 func (doc DocumentPacs00300108) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		FIToFICstmrDrctDbt FIToFICustomerDirectDebitV08 `xml:"FIToFICstmrDrctDbt"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.FIToFICstmrDrctDbt = doc.FIToFICstmrDrctDbt
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName            xml.Name
+		Attrs              []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
+		FIToFICstmrDrctDbt FIToFICustomerDirectDebitV08 `xml:"FIToFICstmrDrctDbt"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }

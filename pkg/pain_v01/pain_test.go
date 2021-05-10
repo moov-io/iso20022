@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentPain00700101(t *testing.T) {
@@ -23,9 +20,8 @@ func TestDocumentPain00700101(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPain00700101{
-		Xmlns: sample.NameSpace(),
 		MndtCpyReq: MandateCopyRequestV01{
 			GrpHdr: GroupHeader47{
 				MsgId:   "MsgId",
@@ -38,11 +34,15 @@ func TestDocumentPain00700101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:pain.017.001.01","MndtCpyReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"MndtCpyReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.017.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><MndtCpyReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></MndtCpyReq></Document>`)
+	assert.Equal(t,
+		`<DocumentPain00700101><MndtCpyReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></MndtCpyReq></DocumentPain00700101>`,
+		string(buf))
 }
 
 func TestDocumentPain01800101(t *testing.T) {
@@ -50,9 +50,8 @@ func TestDocumentPain01800101(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPain01800101{
-		Xmlns: sample.NameSpace(),
 		MndtSspnsnReq: MandateSuspensionRequestV01{
 			GrpHdr: GroupHeader47{
 				MsgId:   "MsgId",
@@ -65,11 +64,15 @@ func TestDocumentPain01800101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:pain.018.001.01","MndtSspnsnReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"MndtSspnsnReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.018.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><MndtSspnsnReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></MndtSspnsnReq></Document>`)
+	assert.Equal(t,
+		`<DocumentPain01800101><MndtSspnsnReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></MndtSspnsnReq></DocumentPain01800101>`,
+		string(buf))
 }
 
 func TestNestedTypes(t *testing.T) {

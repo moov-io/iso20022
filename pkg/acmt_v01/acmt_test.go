@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentAcmt03600101(t *testing.T) {
@@ -23,9 +20,8 @@ func TestDocumentAcmt03600101(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAcmt03600101{
-		Xmlns: sample.NameSpace(),
 		AcctSwtchTermntnSwtch: AccountSwitchTerminationSwitchV01{
 			MsgId: MessageIdentification1{
 				Id:      "ID",
@@ -44,11 +40,15 @@ func TestDocumentAcmt03600101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01","AcctSwtchTermntnSwtch":{"MsgId":{"Id":"ID","CreDtTm":"2014-11-12T11:45:26.371"},"AcctSwtchDtls":{"UnqRefNb":"UnqRefNb","RtgUnqRefNb":"RtgUnqRefNb","SwtchDt":"2014-11-12","SwtchTp":"PART"}}}`, string(buf))
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"AcctSwtchTermntnSwtch":{"MsgId":{"Id":"ID","CreDtTm":"2014-11-12T11:45:26.371"},"AcctSwtchDtls":{"UnqRefNb":"UnqRefNb","RtgUnqRefNb":"RtgUnqRefNb","SwtchDt":"2014-11-12","SwtchTp":"PART"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.036.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><AcctSwtchTermntnSwtch><MsgId><Id>ID</Id><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></MsgId><AcctSwtchDtls><UnqRefNb>UnqRefNb</UnqRefNb><RtgUnqRefNb>RtgUnqRefNb</RtgUnqRefNb><SwtchDt>2014-11-12</SwtchDt><SwtchTp>PART</SwtchTp></AcctSwtchDtls></AcctSwtchTermntnSwtch></Document>`, string(buf))
+	assert.Equal(t,
+		`<DocumentAcmt03600101><AcctSwtchTermntnSwtch><MsgId><Id>ID</Id><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></MsgId><AcctSwtchDtls><UnqRefNb>UnqRefNb</UnqRefNb><RtgUnqRefNb>RtgUnqRefNb</RtgUnqRefNb><SwtchDt>2014-11-12</SwtchDt><SwtchTp>PART</SwtchTp></AcctSwtchDtls></AcctSwtchTermntnSwtch></DocumentAcmt03600101>`,
+		string(buf))
 }
 
 func TestTypes(t *testing.T) {

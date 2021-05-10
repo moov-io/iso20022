@@ -354,6 +354,7 @@ func (r MandateCopy1) Validate() error {
 }
 
 type MandateCopyRequestV01 struct {
+	Attr              []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr            GroupHeader47        `xml:"GrpHdr"`
 	UndrlygCpyReqDtls []MandateCopy1       `xml:"UndrlygCpyReqDtls" json:",omitempty"`
 	SplmtryData       []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -584,6 +585,7 @@ func (r MandateSuspensionReason1Choice) Validate() error {
 }
 
 type MandateSuspensionRequestV01 struct {
+	Attr              []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr            GroupHeader47        `xml:"GrpHdr"`
 	UndrlygSspnsnDtls []MandateSuspension1 `xml:"UndrlygSspnsnDtls" json:",omitempty"`
 	SplmtryData       []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`

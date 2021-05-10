@@ -333,3 +333,248 @@ func (r NotificationStatus3Code) Validate() error {
 	}
 	return utils.NewErrValueInvalid("NotificationStatus3Code")
 }
+
+// May be one of INDA, INGA, COVE, CLRG
+type SettlementMethod1Code string
+
+func (r SettlementMethod1Code) Validate() error {
+	for _, vv := range []string{
+		"INDA", "INGA", "COVE", "CLRG",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("SettlementMethod1Code")
+}
+
+// Must be at least 1 items long
+type ExternalServiceLevel1Code string
+
+func (r ExternalServiceLevel1Code) Validate() error {
+	if len(string(r)) < 1 {
+		return utils.NewErrTextLengthInvalid("ExternalServiceLevel1Code", 1, 0)
+	}
+	return nil
+}
+
+// May be one of RTGS, RTNS, MPNS, BOOK
+type ClearingChannel2Code string
+
+func (r ClearingChannel2Code) Validate() error {
+	for _, vv := range []string{
+		"RTGS", "RTNS", "MPNS", "BOOK",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("ClearingChannel2Code")
+}
+
+// May be one of FRST, RCUR, FNAL, OOFF, RPRE
+type SequenceType3Code string
+
+func (r SequenceType3Code) Validate() error {
+	for _, vv := range []string{
+		"FRST", "RCUR", "FNAL", "OOFF", "RPRE",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("SequenceType3Code")
+}
+
+// May be one of HIGH, NORM
+type Priority2Code string
+
+func (r Priority2Code) Validate() error {
+	for _, vv := range []string{
+		"HIGH", "NORM",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("Priority2Code")
+}
+
+// May be one of RJCR, ACCR, PDCR
+type CancellationIndividualStatus1Code string
+
+func (r CancellationIndividualStatus1Code) Validate() error {
+	for _, vv := range []string{
+		"RJCR", "ACCR", "PDCR",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("CancellationIndividualStatus1Code")
+}
+
+// May be one of CHK, TRF, DD, TRA
+type PaymentMethod4Code string
+
+func (r PaymentMethod4Code) Validate() error {
+	for _, vv := range []string{
+		"CHK", "TRF", "DD", "TRA",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("PaymentMethod4Code")
+}
+
+// May be one of PACR, RJCR, ACCR, PDCR
+type GroupCancellationStatus1Code string
+
+func (r GroupCancellationStatus1Code) Validate() error {
+	for _, vv := range []string{
+		"PACR", "RJCR", "ACCR", "PDCR",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("GroupCancellationStatus1Code")
+}
+
+// May be one of ACTC, RJCT, PDNG, ACCP, ACSP, ACSC, ACCR, ACWC
+type TransactionIndividualStatus1Code string
+
+func (r TransactionIndividualStatus1Code) Validate() error {
+	for _, vv := range []string{
+		"ACTC", "RJCT", "PDNG", "ACCP", "ACSP", "ACSC", "ACCR", "ACWC",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("TransactionIndividualStatus1Code")
+}
+
+// Must be at least 1 items long
+type ExternalMandateSetupReason1Code string
+
+func (r ExternalMandateSetupReason1Code) Validate() error {
+	if len(string(r)) < 1 {
+		return utils.NewErrTextLengthInvalid("ExternalMandateSetupReason1Code", 1, 0)
+	}
+	return nil
+}
+
+// Must be at least 1 items long
+type ExternalLocalInstrument1Code string
+
+func (r ExternalLocalInstrument1Code) Validate() error {
+	if len(string(r)) < 1 {
+		return utils.NewErrTextLengthInvalid("ExternalLocalInstrument1Code", 1, 0)
+	}
+	return nil
+}
+
+// May be one of LEGL, AGNT, CUST, ARDT, NOAS, NOOR, AC04, AM04
+type PaymentCancellationRejection2Code string
+
+func (r PaymentCancellationRejection2Code) Validate() error {
+	for _, vv := range []string{
+		"LEGL", "AGNT", "CUST", "ARDT", "NOAS", "NOOR", "AC04", "AM04",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("PaymentCancellationRejection2Code")
+}
+
+// Must be at least 1 items long
+type ExternalCategoryPurpose1Code string
+
+func (r ExternalCategoryPurpose1Code) Validate() error {
+	if len(string(r)) < 1 {
+		return utils.NewErrTextLengthInvalid("ExternalCategoryPurpose1Code", 1, 0)
+	}
+	return nil
+}
+
+// Must be at least 1 items long
+type ExternalChargeType1Code string
+
+func (r ExternalChargeType1Code) Validate() error {
+	if len(string(r)) < 1 {
+		return utils.NewErrTextLengthInvalid("ExternalChargeType1Code", 1, 0)
+	}
+	return nil
+}
+
+// May be one of DEBT, CRED, SHAR, SLEV
+type ChargeBearerType1Code string
+
+func (r ChargeBearerType1Code) Validate() error {
+	for _, vv := range []string{
+		"DEBT", "CRED", "SHAR", "SLEV",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("ChargeBearerType1Code")
+}
+
+// Must be at least 1 items long
+type ExternalCashClearingSystem1Code string
+
+func (r ExternalCashClearingSystem1Code) Validate() error {
+	if len(string(r)) < 1 {
+		return utils.NewErrTextLengthInvalid("ExternalCashClearingSystem1Code", 1, 0)
+	}
+	return nil
+}
+
+// May be one of YEAR, MNTH, QURT, MIAN, WEEK, DAIL, ADHO, INDA, FRTN
+type Frequency6Code string
+
+func (r Frequency6Code) Validate() error {
+	for _, vv := range []string{
+		"YEAR", "MNTH", "QURT", "MIAN", "WEEK", "DAIL", "ADHO", "INDA", "FRTN",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("Frequency6Code")
+}
+
+// May be one of CNCL, MODI, IPAY, ICOV, MCOV, INFO, CONF, CWFW, MWFW, UWFW, PECR, PDCR, RJCR, SMTC, SMTI, CHRG, PURP, IDUP
+type InvestigationExecutionConfirmation3Code string
+
+func (r InvestigationExecutionConfirmation3Code) Validate() error {
+	for _, vv := range []string{
+		"CNCL", "MODI", "IPAY", "ICOV", "MCOV", "INFO", "CONF", "CWFW", "MWFW",
+		"UWFW", "PECR", "PDCR", "RJCR", "SMTC", "SMTI", "CHRG", "PURP", "IDUP",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("InvestigationExecutionConfirmation3Code")
+}
+
+// May be one of UM01, UM02, UM03, UM04, UM05, UM06, UM07, UM08, UM09, UM10, UM11, UM12, UM13, UM14, UM15, UM16, UM17, UM18, UM19, UM20, UM21, UM22, UM23, UM24, UM25, UM26, UM27
+type ModificationRejection2Code string
+
+func (r ModificationRejection2Code) Validate() error {
+	for _, vv := range []string{
+		"UM01", "UM02", "UM03", "UM04", "UM05", "UM06", "UM07", "UM08", "UM09", "UM10",
+		"UM11", "UM12", "UM13", "UM14", "UM15", "UM16", "UM17", "UM18", "UM19", "UM20",
+		"UM21", "UM22", "UM23", "UM24", "UM25", "UM26", "UM27",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("ModificationRejection2Code")
+}

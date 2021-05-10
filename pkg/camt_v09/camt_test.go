@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentCamt05300108(t *testing.T) {
@@ -23,9 +20,8 @@ func TestDocumentCamt05300108(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt05500109{
-		Xmlns: sample.NameSpace(),
 		CstmrPmtCxlReq: CustomerPaymentCancellationRequestV09{
 			Assgnmt: CaseAssignment5{
 				Id:      "Id",
@@ -38,11 +34,15 @@ func TestDocumentCamt05300108(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:camt.055.001.09","CstmrPmtCxlReq":{"Assgnmt":{"Id":"Id","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}},"CreDtTm":"2014-11-12T11:45:26.371"}}}`, string(buf))
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"CstmrPmtCxlReq":{"Assgnmt":{"Id":"Id","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}},"CreDtTm":"2014-11-12T11:45:26.371"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.055.001.09" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CstmrPmtCxlReq xmlns="urn:iso:std:iso:20022:tech:xsd:camt.055.001.09"><Assgnmt><Id>Id</Id><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></Assgnmt></CstmrPmtCxlReq></Document>`, string(buf))
+	assert.Equal(t,
+		`<DocumentCamt05500109><CstmrPmtCxlReq><Assgnmt><Id>Id</Id><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></Assgnmt></CstmrPmtCxlReq></DocumentCamt05500109>`,
+		string(buf))
 }
 
 func TestDocumentCamt05600109(t *testing.T) {
@@ -50,9 +50,8 @@ func TestDocumentCamt05600109(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt05600109{
-		Xmlns: sample.NameSpace(),
 		FIToFIPmtCxlReq: FIToFIPaymentCancellationRequestV09{
 			Assgnmt: CaseAssignment5{
 				Id:      "Id",
@@ -65,11 +64,15 @@ func TestDocumentCamt05600109(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:camt.056.001.09","FIToFIPmtCxlReq":{"Assgnmt":{"Id":"Id","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}},"CreDtTm":"2014-11-12T11:45:26.371"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"FIToFIPmtCxlReq":{"Assgnmt":{"Id":"Id","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}},"CreDtTm":"2014-11-12T11:45:26.371"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.056.001.09" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><FIToFIPmtCxlReq xmlns="urn:iso:std:iso:20022:tech:xsd:camt.056.001.09"><Assgnmt><Id>Id</Id><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></Assgnmt></FIToFIPmtCxlReq></Document>`)
+	assert.Equal(t,
+		`<DocumentCamt05600109><FIToFIPmtCxlReq><Assgnmt><Id>Id</Id><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></Assgnmt></FIToFIPmtCxlReq></DocumentCamt05600109>`,
+		string(buf))
 }
 
 func TestNestedTypes(t *testing.T) {

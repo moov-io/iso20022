@@ -37,6 +37,7 @@ func (r ActiveOrHistoricCurrencyAndAmount) Validate() error {
 }
 
 type AdditionalPaymentInformationV10 struct {
+	Attr        []utils.Attr                     `xml:",any,attr,omitempty" json:",omitempty"`
 	Assgnmt     CaseAssignment5                  `xml:"Assgnmt"`
 	Case        *Case5                           `xml:"Case,omitempty" json:",omitempty"`
 	Undrlyg     UnderlyingTransaction6Choice     `xml:"Undrlyg"`
@@ -1425,6 +1426,7 @@ func (r ResolutionData2) Validate() error {
 }
 
 type ResolutionOfInvestigationV10 struct {
+	Attr          []utils.Attr                  `xml:",any,attr,omitempty" json:",omitempty"`
 	Assgnmt       CaseAssignment5               `xml:"Assgnmt"`
 	RslvdCase     *Case5                        `xml:"RslvdCase,omitempty" json:",omitempty"`
 	Sts           InvestigationStatus5Choice    `xml:"Sts"`

@@ -11,13 +11,16 @@ import (
 )
 
 type DocumentPain00700101 struct {
-	Xmlns      string                `xml:"xmlns,attr"`
+	XMLName    xml.Name
+	Attrs      []utils.Attr          `xml:",any,attr,omitempty" json:",omitempty"`
 	MndtCpyReq MandateCopyRequestV01 `xml:"MndtCpyReq"`
 }
 
 func (doc DocumentPain00700101) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -27,22 +30,33 @@ func (doc DocumentPain00700101) NameSpace() string {
 }
 
 func (doc DocumentPain00700101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		MndtCpyReq MandateCopyRequestV01 `xml:"MndtCpyReq"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.MndtCpyReq = doc.MndtCpyReq
-	utils.XmlElement(&start, "urn:iso:std:iso:20022:tech:xsd:pain.017.001.01")
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName    xml.Name
+		Attrs      []utils.Attr          `xml:",any,attr,omitempty" json:",omitempty"`
+		MndtCpyReq MandateCopyRequestV01 `xml:"MndtCpyReq"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }
 
 type DocumentPain01800101 struct {
-	Xmlns         string                      `xml:"xmlns,attr"`
+	XMLName       xml.Name
+	Attrs         []utils.Attr                `xml:",any,attr,omitempty" json:",omitempty"`
 	MndtSspnsnReq MandateSuspensionRequestV01 `xml:"MndtSspnsnReq"`
 }
 
 func (doc DocumentPain01800101) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -52,10 +66,18 @@ func (doc DocumentPain01800101) NameSpace() string {
 }
 
 func (doc DocumentPain01800101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		MndtSspnsnReq MandateSuspensionRequestV01 `xml:"MndtSspnsnReq"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.MndtSspnsnReq = doc.MndtSspnsnReq
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName       xml.Name
+		Attrs         []utils.Attr                `xml:",any,attr,omitempty" json:",omitempty"`
+		MndtSspnsnReq MandateSuspensionRequestV01 `xml:"MndtSspnsnReq"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }

@@ -356,6 +356,7 @@ func (r DocumentLineType1Choice) Validate() error {
 }
 
 type FIToFICustomerDirectDebitV08 struct {
+	Attr         []utils.Attr                          `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr       GroupHeader94                         `xml:"GrpHdr"`
 	DrctDbtTxInf []DirectDebitTransactionInformation24 `xml:"DrctDbtTxInf" json:",omitempty"`
 	SplmtryData  []SupplementaryData1                  `xml:"SplmtryData,omitempty" json:",omitempty"`

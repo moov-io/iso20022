@@ -11,11 +11,8 @@ import (
 	"time"
 
 	"github.com/moov-io/iso20022/pkg/common"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
-)
-
-const (
-	testTimeString = "2014-11-12T11:45:26.371Z"
 )
 
 func TestDocumentPacs00300108(t *testing.T) {
@@ -23,9 +20,8 @@ func TestDocumentPacs00300108(t *testing.T) {
 	err := sample.Validate()
 	assert.NotNil(t, err)
 
-	testTime, _ := time.Parse(time.RFC3339, testTimeString)
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPacs00300108{
-		Xmlns: sample.NameSpace(),
 		FIToFICstmrDrctDbt: FIToFICustomerDirectDebitV08{
 			GrpHdr: GroupHeader94{
 				MsgId:   "MsgId",
@@ -42,11 +38,15 @@ func TestDocumentPacs00300108(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08","FIToFICstmrDrctDbt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfTxs":"111","SttlmInf":{"SttlmMtd":"INDA"}}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"FIToFICstmrDrctDbt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfTxs":"111","SttlmInf":{"SttlmMtd":"INDA"}}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><FIToFICstmrDrctDbt><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfTxs>111</NbOfTxs><SttlmInf><SttlmMtd>INDA</SttlmMtd></SttlmInf></GrpHdr></FIToFICstmrDrctDbt></Document>`)
+	assert.Equal(t,
+		`<DocumentPacs00300108><FIToFICstmrDrctDbt><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfTxs>111</NbOfTxs><SttlmInf><SttlmMtd>INDA</SttlmMtd></SttlmInf></GrpHdr></FIToFICstmrDrctDbt></DocumentPacs00300108>`,
+		string(buf))
 }
 
 func TestNestedTypes(t *testing.T) {

@@ -242,6 +242,7 @@ func (r CurrencyExchange13) Validate() error {
 }
 
 type CustomerPaymentStatusReportV11 struct {
+	Attr              []utils.Attr                   `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr            GroupHeader86                  `xml:"GrpHdr"`
 	OrgnlGrpInfAndSts OriginalGroupHeader17          `xml:"OrgnlGrpInfAndSts"`
 	OrgnlPmtInfAndSts []OriginalPaymentInstruction38 `xml:"OrgnlPmtInfAndSts,omitempty" json:",omitempty"`

@@ -12,6 +12,9 @@ import (
 func NewErrTextLengthInvalid(typeStr string, min, max int) error {
 	errStr := fmt.Sprintf("The value of %s has invalid length (minLength:%d, maxLength:%d)",
 		typeStr, min, max)
+	if max == 0 {
+		errStr = fmt.Sprintf("The value of %s has invalid length (minLength:%d)", typeStr, min)
+	}
 	return fmt.Errorf(errStr)
 }
 

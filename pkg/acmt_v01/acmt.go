@@ -25,6 +25,7 @@ func (r AccountSwitchDetails1) Validate() error {
 }
 
 type AccountSwitchTerminationSwitchV01 struct {
+	Attr          []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgId         MessageIdentification1 `xml:"MsgId"`
 	AcctSwtchDtls AccountSwitchDetails1  `xml:"AcctSwtchDtls"`
 	SplmtryData   []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`

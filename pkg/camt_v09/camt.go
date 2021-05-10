@@ -252,6 +252,7 @@ func (r CreditorReferenceType2) Validate() error {
 }
 
 type CustomerPaymentCancellationRequestV09 struct {
+	Attr        []utils.Attr              `xml:",any,attr,omitempty" json:",omitempty"`
 	Assgnmt     CaseAssignment5           `xml:"Assgnmt"`
 	Case        *Case5                    `xml:"Case,omitempty" json:",omitempty"`
 	CtrlData    *ControlData1             `xml:"CtrlData,omitempty" json:",omitempty"`
@@ -1046,6 +1047,7 @@ func (r DocumentAdjustment1) Validate() error {
 }
 
 type FIToFIPaymentCancellationRequestV09 struct {
+	Attr        []utils.Attr              `xml:",any,attr,omitempty" json:",omitempty"`
 	Assgnmt     CaseAssignment5           `xml:"Assgnmt"`
 	Case        *Case5                    `xml:"Case,omitempty" json:",omitempty"`
 	CtrlData    *ControlData1             `xml:"CtrlData,omitempty" json:",omitempty"`

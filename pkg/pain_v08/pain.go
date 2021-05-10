@@ -252,6 +252,7 @@ func (r CreditTransferTransaction42) Validate() error {
 }
 
 type CreditorPaymentActivationRequestV08 struct {
+	Attr        []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader78          `xml:"GrpHdr"`
 	PmtInf      []PaymentInstruction35 `xml:"PmtInf" json:",omitempty"`
 	SplmtryData []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -1120,6 +1121,7 @@ func (r Charges7) Validate() error {
 }
 
 type CreditorPaymentActivationRequestStatusReportV08 struct {
+	Attr              []utils.Attr                   `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr            GroupHeader87                  `xml:"GrpHdr"`
 	OrgnlGrpInfAndSts OriginalGroupInformation30     `xml:"OrgnlGrpInfAndSts"`
 	OrgnlPmtInfAndSts []OriginalPaymentInstruction39 `xml:"OrgnlPmtInfAndSts,omitempty" json:",omitempty"`

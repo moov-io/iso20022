@@ -5,8 +5,9 @@
 package pacs_v09
 
 import (
-	"github.com/moov-io/iso20022/pkg/utils"
 	"reflect"
+
+	"github.com/moov-io/iso20022/pkg/utils"
 )
 
 // Must be at least 1 items long

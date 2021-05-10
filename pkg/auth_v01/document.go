@@ -11,13 +11,16 @@ import (
 )
 
 type DocumentAuth00100101 struct {
-	Xmlns      string                       `xml:"xmlns,attr"`
+	XMLName    xml.Name
+	Attrs      []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
 	InfReqOpng InformationRequestOpeningV01 `xml:"InfReqOpng"`
 }
 
 func (doc DocumentAuth00100101) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -27,22 +30,33 @@ func (doc DocumentAuth00100101) NameSpace() string {
 }
 
 func (doc DocumentAuth00100101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		InfReqOpng InformationRequestOpeningV01 `xml:"InfReqOpng"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.InfReqOpng = doc.InfReqOpng
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName    xml.Name
+		Attrs      []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
+		InfReqOpng InformationRequestOpeningV01 `xml:"InfReqOpng"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }
 
 type DocumentAuth00200101 struct {
-	Xmlns      string                        `xml:"xmlns,attr"`
+	XMLName    xml.Name
+	Attrs      []utils.Attr                  `xml:",any,attr,omitempty" json:",omitempty"`
 	InfReqRspn InformationRequestResponseV01 `xml:"InfReqRspn"`
 }
 
 func (doc DocumentAuth00200101) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -52,22 +66,33 @@ func (doc DocumentAuth00200101) NameSpace() string {
 }
 
 func (doc DocumentAuth00200101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		InfReqRspn InformationRequestResponseV01 `xml:"InfReqRspn"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.InfReqRspn = doc.InfReqRspn
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName    xml.Name
+		Attrs      []utils.Attr                  `xml:",any,attr,omitempty" json:",omitempty"`
+		InfReqRspn InformationRequestResponseV01 `xml:"InfReqRspn"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }
 
 type DocumentAuth00300101 struct {
-	Xmlns               string                                        `xml:"xmlns,attr"`
+	XMLName             xml.Name
+	Attrs               []utils.Attr                                  `xml:",any,attr,omitempty" json:",omitempty"`
 	InfReqStsChngNtfctn InformationRequestStatusChangeNotificationV01 `xml:"InfReqStsChngNtfctn"`
 }
 
 func (doc DocumentAuth00300101) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -77,10 +102,18 @@ func (doc DocumentAuth00300101) NameSpace() string {
 }
 
 func (doc DocumentAuth00300101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		InfReqStsChngNtfctn InformationRequestStatusChangeNotificationV01 `xml:"InfReqStsChngNtfctn"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.InfReqStsChngNtfctn = doc.InfReqStsChngNtfctn
-	utils.XmlElement(&start, doc.NameSpace())
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName             xml.Name
+		Attrs               []utils.Attr                                  `xml:",any,attr,omitempty" json:",omitempty"`
+		InfReqStsChngNtfctn InformationRequestStatusChangeNotificationV01 `xml:"InfReqStsChngNtfctn"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }

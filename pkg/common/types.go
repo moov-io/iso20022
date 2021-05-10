@@ -206,11 +206,41 @@ func (r Max256Text) Validate() error {
 }
 
 // Must be at least 1 items long
+type Max1000Text string
+
+func (r Max1000Text) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 1000 {
+		return utils.NewErrTextLengthInvalid("Max1000Text", 1, 1000)
+	}
+	return nil
+}
+
+// Must be at least 1 items long
 type Max4Text string
 
 func (r Max4Text) Validate() error {
 	if len(string(r)) < 1 || len(string(r)) > 4 {
 		return utils.NewErrTextLengthInvalid("Max4Text", 1, 4)
+	}
+	return nil
+}
+
+// Must be at least 1 items long
+type Max11Text string
+
+func (r Max11Text) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 11 {
+		return utils.NewErrTextLengthInvalid("Max11Text", 1, 11)
+	}
+	return nil
+}
+
+// Must be at least 1 items long
+type Max3Text string
+
+func (r Max3Text) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 3 {
+		return utils.NewErrTextLengthInvalid("Max3Text", 1, 3)
 	}
 	return nil
 }
@@ -790,4 +820,13 @@ func (t *Max10MbBinary) UnmarshalText(text []byte) error {
 }
 func (t Max10MbBinary) MarshalText() ([]byte, error) {
 	return xsdBase64Binary(t).MarshalText()
+}
+
+type ISONormalisedDateTime time.Time
+
+func (t *ISONormalisedDateTime) UnmarshalText(text []byte) error {
+	return (*xsdDateTime)(t).UnmarshalText(text)
+}
+func (t ISONormalisedDateTime) MarshalText() ([]byte, error) {
+	return xsdDateTime(t).MarshalText()
 }
