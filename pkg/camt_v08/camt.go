@@ -5,8 +5,6 @@
 package camt_v08
 
 import (
-	"encoding/xml"
-
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -551,8 +549,7 @@ func (r RequestType4Choice) Validate() error {
 }
 
 type ReturnAccountV08 struct {
-	XMLName     *xml.Name                        `json:",omitempty"`
-	Attr        *utils.Attr                      `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr                     `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgHdr      MessageHeader7                   `xml:"MsgHdr"`
 	RptOrErr    AccountOrOperationalError4Choice `xml:"RptOrErr"`
 	SplmtryData []SupplementaryData1             `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -791,8 +788,7 @@ func (r FromToAmountRange1) Validate() error {
 }
 
 type GetTransactionV08 struct {
-	XMLName     *xml.Name            `json:",omitempty"`
-	Attr        *utils.Attr          `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgHdr      MessageHeader9       `xml:"MsgHdr"`
 	TxQryDef    *TransactionQuery5   `xml:"TxQryDef,omitempty" json:",omitempty"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -1277,8 +1273,7 @@ func (r ProprietaryStatusJustification2) Validate() error {
 }
 
 type ReturnTransactionV08 struct {
-	XMLName     *xml.Name                       `json:",omitempty"`
-	Attr        *utils.Attr                     `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr                    `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgHdr      MessageHeader8                  `xml:"MsgHdr"`
 	RptOrErr    TransactionReportOrError4Choice `xml:"RptOrErr"`
 	SplmtryData []SupplementaryData1            `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -1370,8 +1365,7 @@ func (r MessageHeader1) Validate() error {
 }
 
 type ModifyTransactionV08 struct {
-	XMLName     *xml.Name                  `json:",omitempty"`
-	Attr        *utils.Attr                `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr               `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgHdr      MessageHeader1             `xml:"MsgHdr"`
 	Mod         []TransactionModification5 `xml:"Mod" json:",omitempty"`
 	SplmtryData []SupplementaryData1       `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -1402,8 +1396,7 @@ func (r TransactionModification5) Validate() error {
 }
 
 type CancelTransactionV08 struct {
-	XMLName     *xml.Name                    `json:",omitempty"`
-	Attr        *utils.Attr                  `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgHdr      MessageHeader9               `xml:"MsgHdr"`
 	PmtId       PaymentIdentification6Choice `xml:"PmtId"`
 	CshAcct     *CashAccount38               `xml:"CshAcct,omitempty" json:",omitempty"`
@@ -1507,8 +1500,7 @@ func (r Limits7) Validate() error {
 }
 
 type ReturnLimitV08 struct {
-	XMLName     *xml.Name                 `json:",omitempty"`
-	Attr        *utils.Attr               `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr              `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgHdr      MessageHeader7            `xml:"MsgHdr"`
 	RptOrErr    LimitReportOrError4Choice `xml:"RptOrErr"`
 	SplmtryData []SupplementaryData1      `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -2129,8 +2121,7 @@ func (r UnableToApplyMissing1) Validate() error {
 }
 
 type UnableToApplyV08 struct {
-	XMLName     *xml.Name                         `json:",omitempty"`
-	Attr        *utils.Attr                       `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr                      `xml:",any,attr,omitempty" json:",omitempty"`
 	Assgnmt     CaseAssignment5                   `xml:"Assgnmt"`
 	Case        *Case5                            `xml:"Case,omitempty" json:",omitempty"`
 	Undrlyg     UnderlyingTransaction6Choice      `xml:"Undrlyg"`
@@ -2206,8 +2197,7 @@ func (r UnderlyingTransaction6Choice) Validate() error {
 }
 
 type ClaimNonReceiptV08 struct {
-	XMLName        *xml.Name                    `json:",omitempty"`
-	Attr           *utils.Attr                  `xml:",attr,omitempty" json:",omitempty"`
+	Attr           []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
 	Assgnmt        CaseAssignment5              `xml:"Assgnmt"`
 	Case           *Case5                       `xml:"Case,omitempty" json:",omitempty"`
 	Undrlyg        UnderlyingTransaction6Choice `xml:"Undrlyg"`
@@ -2261,8 +2251,7 @@ func (r DebitAuthorisation2) Validate() error {
 }
 
 type DebitAuthorisationRequestV08 struct {
-	XMLName     *xml.Name                    `json:",omitempty"`
-	Attr        *utils.Attr                  `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
 	Assgnmt     CaseAssignment5              `xml:"Assgnmt"`
 	Case        *Case5                       `xml:"Case,omitempty" json:",omitempty"`
 	Undrlyg     UnderlyingTransaction6Choice `xml:"Undrlyg"`
@@ -2401,8 +2390,7 @@ func (r BalanceType13) Validate() error {
 }
 
 type BankToCustomerAccountReportV08 struct {
-	XMLName     *xml.Name            `json:",omitempty"`
-	Attr        *utils.Attr          `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader81        `xml:"GrpHdr"`
 	Rpt         []AccountReport25    `xml:"Rpt" json:",omitempty"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -3380,8 +3368,7 @@ func (r AccountStatement9) Validate() error {
 }
 
 type BankToCustomerStatementV08 struct {
-	XMLName     *xml.Name            `json:",omitempty"`
-	Attr        *utils.Attr          `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader81        `xml:"GrpHdr"`
 	Stmt        []AccountStatement9  `xml:"Stmt" json:",omitempty"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -3414,8 +3401,7 @@ func (r AccountNotification17) Validate() error {
 }
 
 type BankToCustomerDebitCreditNotificationV08 struct {
-	XMLName     *xml.Name               `json:",omitempty"`
-	Attr        *utils.Attr             `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr            `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader81           `xml:"GrpHdr"`
 	Ntfctn      []AccountNotification17 `xml:"Ntfctn" json:",omitempty"`
 	SplmtryData []SupplementaryData1    `xml:"SplmtryData,omitempty" json:",omitempty"`

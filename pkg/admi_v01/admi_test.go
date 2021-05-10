@@ -18,7 +18,6 @@ func TestDocumentAdmi00200101(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi00200101{
-		Xmlns: sample.NameSpace(),
 		Admi00200101: Admi00200101{
 			RltdRef: MessageReference{
 				Ref: "Ref",
@@ -33,11 +32,15 @@ func TestDocumentAdmi00200101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.002.001.01","Admi00200101":{"RltdRef":{"Ref":"Ref"},"Rsn":{"RjctgPtyRsn":"RjctgPtyRsn"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"Admi00200101":{"RltdRef":{"Ref":"Ref"},"Rsn":{"RjctgPtyRsn":"RjctgPtyRsn"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.002.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><admi.002.001.01><RltdRef><Ref>Ref</Ref></RltdRef><Rsn><RjctgPtyRsn>RjctgPtyRsn</RjctgPtyRsn></Rsn></admi.002.001.01></Document>`)
+	assert.Equal(t,
+		`<DocumentAdmi00200101><admi.002.001.01><RltdRef><Ref>Ref</Ref></RltdRef><Rsn><RjctgPtyRsn>RjctgPtyRsn</RjctgPtyRsn></Rsn></admi.002.001.01></DocumentAdmi00200101>`,
+		string(buf))
 }
 
 func TestDocumentAdmi00400101(t *testing.T) {
@@ -46,7 +49,6 @@ func TestDocumentAdmi00400101(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi00400101{
-		Xmlns: sample.NameSpace(),
 		Admi00400101: Admi00400101{
 			EvtInf: Event1{
 				EvtCd: "EvtCd",
@@ -58,11 +60,15 @@ func TestDocumentAdmi00400101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.004.001.01","Admi00400101":{"EvtInf":{"EvtCd":"EvtCd"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"Admi00400101":{"EvtInf":{"EvtCd":"EvtCd"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.004.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><admi.004.001.01><EvtInf><EvtCd>EvtCd</EvtCd></EvtInf></admi.004.001.01></Document>`)
+	assert.Equal(t,
+		`<DocumentAdmi00400101><admi.004.001.01><EvtInf><EvtCd>EvtCd</EvtCd></EvtInf></admi.004.001.01></DocumentAdmi00400101>`,
+		string(buf))
 }
 
 func TestDocumentAdmi00500101(t *testing.T) {
@@ -71,7 +77,6 @@ func TestDocumentAdmi00500101(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi00500101{
-		Xmlns: sample.NameSpace(),
 		RptQryReq: ReportQueryRequestV01{
 			MsgHdr: MessageHeader7{
 				MsgId: "MsgId",
@@ -83,11 +88,15 @@ func TestDocumentAdmi00500101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.005.001.01","RptQryReq":{"MsgHdr":{"MsgId":"MsgId"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"RptQryReq":{"MsgHdr":{"MsgId":"MsgId"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.005.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><RptQryReq><MsgHdr><MsgId>MsgId</MsgId></MsgHdr></RptQryReq></Document>`)
+	assert.Equal(t,
+		`<DocumentAdmi00500101><RptQryReq><MsgHdr><MsgId>MsgId</MsgId></MsgHdr></RptQryReq></DocumentAdmi00500101>`,
+		string(buf))
 }
 
 func TestDocumentAdmi00600101(t *testing.T) {
@@ -96,7 +105,6 @@ func TestDocumentAdmi00600101(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi00600101{
-		Xmlns: sample.NameSpace(),
 		RsndReq: ResendRequestV01{
 			MsgHdr: MessageHeader7{
 				MsgId: "MsgId",
@@ -108,11 +116,15 @@ func TestDocumentAdmi00600101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.006.001.01","RsndReq":{"MsgHdr":{"MsgId":"MsgId"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"RsndReq":{"MsgHdr":{"MsgId":"MsgId"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.006.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><RsndReq><MsgHdr><MsgId>MsgId</MsgId></MsgHdr></RsndReq></Document>`)
+	assert.Equal(t,
+		`<DocumentAdmi00600101><RsndReq><MsgHdr><MsgId>MsgId</MsgId></MsgHdr></RsndReq></DocumentAdmi00600101>`,
+		string(buf))
 }
 
 func TestDocumentAdmi00700101(t *testing.T) {
@@ -121,7 +133,6 @@ func TestDocumentAdmi00700101(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi00700101{
-		Xmlns: sample.NameSpace(),
 		RctAck: ReceiptAcknowledgementV01{
 			MsgId: MessageHeader10{
 				MsgId: "MsgId",
@@ -133,11 +144,15 @@ func TestDocumentAdmi00700101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.007.001.01","RctAck":{"MsgId":{"MsgId":"MsgId"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"RctAck":{"MsgId":{"MsgId":"MsgId"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.007.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><RctAck><MsgId><MsgId>MsgId</MsgId></MsgId></RctAck></Document>`)
+	assert.Equal(t,
+		`<DocumentAdmi00700101><RctAck><MsgId><MsgId>MsgId</MsgId></MsgId></RctAck></DocumentAdmi00700101>`,
+		string(buf))
 }
 
 func TestDocumentAdmi01100101(t *testing.T) {
@@ -146,7 +161,6 @@ func TestDocumentAdmi01100101(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi01100101{
-		Xmlns: sample.NameSpace(),
 		SysEvtAck: SystemEventAcknowledgementV01{
 			MsgId: "MsgId",
 		},
@@ -156,11 +170,15 @@ func TestDocumentAdmi01100101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.011.001.01","SysEvtAck":{"MsgId":"MsgId"}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"SysEvtAck":{"MsgId":"MsgId"}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.011.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><SysEvtAck><MsgId>MsgId</MsgId></SysEvtAck></Document>`)
+	assert.Equal(t,
+		`<DocumentAdmi01100101><SysEvtAck><MsgId>MsgId</MsgId></SysEvtAck></DocumentAdmi01100101>`,
+		string(buf))
 }
 
 func TestDocumentAdmi01700101(t *testing.T) {
@@ -169,7 +187,6 @@ func TestDocumentAdmi01700101(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi01700101{
-		Xmlns: sample.NameSpace(),
 		PrcgReq: ProcessingRequestV01{
 			MsgId: "MsgId",
 			Req: RequestDetails19{
@@ -182,11 +199,15 @@ func TestDocumentAdmi01700101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.017.001.01","PrcgReq":{"MsgId":"MsgId","Req":{"Tp":"Tp"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"PrcgReq":{"MsgId":"MsgId","Req":{"Tp":"Tp"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.017.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><PrcgReq><MsgId>MsgId</MsgId><Req><Tp>Tp</Tp></Req></PrcgReq></Document>`)
+	assert.Equal(t,
+		`<DocumentAdmi01700101><PrcgReq><MsgId>MsgId</MsgId><Req><Tp>Tp</Tp></Req></PrcgReq></DocumentAdmi01700101>`,
+		string(buf))
 }
 
 func TestNestedTypes(t *testing.T) {

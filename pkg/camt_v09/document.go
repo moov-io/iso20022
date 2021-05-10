@@ -11,15 +11,16 @@ import (
 )
 
 type DocumentCamt05500109 struct {
-	XMLName                 *xml.Name                             `json:",omitempty"`
-	Xmlns                   string                                `xml:"xmlns,attr,omitempty" json:",omitempty"`
-	DisableDefaultNamespace bool                                  `xml:",omitempty" json:",omitempty"`
-	CstmrPmtCxlReq          CustomerPaymentCancellationRequestV09 `xml:"CstmrPmtCxlReq"`
+	XMLName        xml.Name
+	Attrs          []utils.Attr                          `xml:",any,attr,omitempty" json:",omitempty"`
+	CstmrPmtCxlReq CustomerPaymentCancellationRequestV09 `xml:"CstmrPmtCxlReq"`
 }
 
 func (doc DocumentCamt05500109) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -29,24 +30,33 @@ func (doc DocumentCamt05500109) NameSpace() string {
 }
 
 func (doc DocumentCamt05500109) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		CstmrPmtCxlReq CustomerPaymentCancellationRequestV09 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.055.001.09 CstmrPmtCxlReq"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.CstmrPmtCxlReq = doc.CstmrPmtCxlReq
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName        xml.Name
+		Attrs          []utils.Attr                          `xml:",any,attr,omitempty" json:",omitempty"`
+		CstmrPmtCxlReq CustomerPaymentCancellationRequestV09 `xml:"CstmrPmtCxlReq"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }
 
 type DocumentCamt05600109 struct {
-	XMLName                 *xml.Name                           `json:",omitempty"`
-	Xmlns                   string                              `xml:"xmlns,attr,omitempty" json:",omitempty"`
-	DisableDefaultNamespace bool                                `xml:",omitempty" json:",omitempty"`
-	FIToFIPmtCxlReq         FIToFIPaymentCancellationRequestV09 `xml:"FIToFIPmtCxlReq"`
+	XMLName         xml.Name
+	Attrs           []utils.Attr                        `xml:",any,attr,omitempty" json:",omitempty"`
+	FIToFIPmtCxlReq FIToFIPaymentCancellationRequestV09 `xml:"FIToFIPmtCxlReq"`
 }
 
 func (doc DocumentCamt05600109) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -56,10 +66,18 @@ func (doc DocumentCamt05600109) NameSpace() string {
 }
 
 func (doc DocumentCamt05600109) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		FIToFIPmtCxlReq FIToFIPaymentCancellationRequestV09 `xml:"urn:iso:std:iso:20022:tech:xsd:camt.056.001.09 FIToFIPmtCxlReq"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.FIToFIPmtCxlReq = doc.FIToFIPmtCxlReq
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName         xml.Name
+		Attrs           []utils.Attr                        `xml:",any,attr,omitempty" json:",omitempty"`
+		FIToFIPmtCxlReq FIToFIPaymentCancellationRequestV09 `xml:"FIToFIPmtCxlReq"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }

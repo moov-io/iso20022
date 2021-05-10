@@ -5,8 +5,6 @@
 package admi_v02
 
 import (
-	"encoding/xml"
-
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -23,9 +21,8 @@ func (r Event2) Validate() error {
 }
 
 type SystemEventNotificationV02 struct {
-	XMLName *xml.Name   `json:",omitempty"`
-	Attr    *utils.Attr `xml:",attr,omitempty" json:",omitempty"`
-	EvtInf  Event2      `xml:"EvtInf"`
+	Attr   []utils.Attr `xml:",any,attr,omitempty" json:",omitempty"`
+	EvtInf Event2       `xml:"EvtInf"`
 }
 
 func (r SystemEventNotificationV02) Validate() error {
@@ -42,8 +39,7 @@ func (r RequestDetails3) Validate() error {
 }
 
 type StaticDataRequestV02 struct {
-	XMLName     *xml.Name                      `json:",omitempty"`
-	Attr        *utils.Attr                    `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr                   `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgId       common.Max35Text               `xml:"MsgId"`
 	SttlmSsnIdr *common.Exact4AlphaNumericText `xml:"SttlmSsnIdr,omitempty" json:",omitempty"`
 	DataReqDtls RequestDetails3                `xml:"DataReqDtls"`
@@ -83,8 +79,7 @@ func (r RequestDetails5) Validate() error {
 }
 
 type StaticDataReportV02 struct {
-	XMLName     *xml.Name                      `json:",omitempty"`
-	Attr        *utils.Attr                    `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr                   `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgId       common.Max35Text               `xml:"MsgId"`
 	SttlmSsnIdr *common.Exact4AlphaNumericText `xml:"SttlmSsnIdr,omitempty" json:",omitempty"`
 	RptDtls     RequestDetails5                `xml:"RptDtls"`

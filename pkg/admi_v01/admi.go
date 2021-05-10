@@ -5,15 +5,12 @@
 package admi_v01
 
 import (
-	"encoding/xml"
-
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
 
 type Admi00200101 struct {
-	XMLName *xml.Name        `json:",omitempty"`
-	Attr    *utils.Attr      `xml:",attr,omitempty" json:",omitempty"`
+	Attr    []utils.Attr     `xml:",any,attr,omitempty" json:",omitempty"`
 	RltdRef MessageReference `xml:"RltdRef"`
 	Rsn     RejectionReason2 `xml:"Rsn"`
 }
@@ -43,9 +40,8 @@ func (r RejectionReason2) Validate() error {
 }
 
 type Admi00400101 struct {
-	XMLName *xml.Name   `json:",omitempty"`
-	Attr    *utils.Attr `xml:",attr,omitempty" json:",omitempty"`
-	EvtInf  Event1      `xml:"EvtInf"`
+	Attr   []utils.Attr `xml:",any,attr,omitempty" json:",omitempty"`
+	EvtInf Event1       `xml:"EvtInf"`
 }
 
 func (r Admi00400101) Validate() error {
@@ -399,8 +395,7 @@ func (r ReportQueryCriteria2) Validate() error {
 }
 
 type ReportQueryRequestV01 struct {
-	XMLName     *xml.Name              `json:",omitempty"`
-	Attr        *utils.Attr            `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgHdr      MessageHeader7         `xml:"MsgHdr"`
 	RptQryCrit  []ReportQueryCriteria2 `xml:"RptQryCrit,omitempty" json:",omitempty"`
 	SplmtryData []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -437,8 +432,7 @@ func (r RequestType4Choice) Validate() error {
 }
 
 type ResendRequestV01 struct {
-	XMLName     *xml.Name               `json:",omitempty"`
-	Attr        *utils.Attr             `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr            `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgHdr      MessageHeader7          `xml:"MsgHdr"`
 	RsndSchCrit []ResendSearchCriteria2 `xml:"RsndSchCrit,omitempty" json:",omitempty"`
 	SplmtryData []SupplementaryData1    `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -529,8 +523,7 @@ func (r ReceiptAcknowledgementReport2) Validate() error {
 }
 
 type ReceiptAcknowledgementV01 struct {
-	XMLName     *xml.Name                       `json:",omitempty"`
-	Attr        *utils.Attr                     `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr                    `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgId       MessageHeader10                 `xml:"MsgId"`
 	Rpt         []ReceiptAcknowledgementReport2 `xml:"Rpt,omitempty" json:",omitempty"`
 	SplmtryData []SupplementaryData1            `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -551,8 +544,7 @@ func (r RequestHandling2) Validate() error {
 }
 
 type SystemEventAcknowledgementV01 struct {
-	XMLName     *xml.Name                      `json:",omitempty"`
-	Attr        *utils.Attr                    `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr                   `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgId       common.Max35Text               `xml:"MsgId"`
 	OrgtrRef    *common.Max35Text              `xml:"OrgtrRef,omitempty" json:",omitempty"`
 	SttlmSsnIdr *common.Exact4AlphaNumericText `xml:"SttlmSsnIdr,omitempty" json:",omitempty"`
@@ -607,8 +599,7 @@ func (r PartyIdentification73Choice) Validate() error {
 }
 
 type ProcessingRequestV01 struct {
-	XMLName     *xml.Name                      `json:",omitempty"`
-	Attr        *utils.Attr                    `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr                   `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgId       common.Max35Text               `xml:"MsgId"`
 	SttlmSsnIdr *common.Exact4AlphaNumericText `xml:"SttlmSsnIdr,omitempty" json:",omitempty"`
 	Req         RequestDetails19               `xml:"Req"`

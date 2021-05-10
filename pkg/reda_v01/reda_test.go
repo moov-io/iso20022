@@ -22,7 +22,6 @@ func TestDocumentReda06600101(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentReda06600101{
-		Xmlns: sample.NameSpace(),
 		ReqToPayCdtrEnrlmntReq: RequestToPayCreditorEnrolmentRequestV01{
 			Hdr: EnrolmentHeader2{
 				MsgId:   "MsgId",
@@ -35,11 +34,15 @@ func TestDocumentReda06600101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:reda.066.001.01","ReqToPayCdtrEnrlmntReq":{"Hdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}},"ActvtnData":{"LtdPresntmntInd":false,"ActvtnReqDlvryPty":{}}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"ReqToPayCdtrEnrlmntReq":{"Hdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}},"ActvtnData":{"LtdPresntmntInd":false,"ActvtnReqDlvryPty":{}}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:reda.066.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ReqToPayCdtrEnrlmntReq><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr><ActvtnData><LtdPresntmntInd>false</LtdPresntmntInd><ActvtnReqDlvryPty></ActvtnReqDlvryPty></ActvtnData></ReqToPayCdtrEnrlmntReq></Document>`)
+	assert.Equal(t,
+		`<DocumentReda06600101><ReqToPayCdtrEnrlmntReq><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr><ActvtnData><LtdPresntmntInd>false</LtdPresntmntInd><ActvtnReqDlvryPty></ActvtnReqDlvryPty></ActvtnData></ReqToPayCdtrEnrlmntReq></DocumentReda06600101>`,
+		string(buf))
 }
 
 func TestDocumentReda07200101(t *testing.T) {
@@ -49,7 +52,6 @@ func TestDocumentReda07200101(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentReda07200101{
-		Xmlns: sample.NameSpace(),
 		ReqToPayDbtrActvtnCxlReq: RequestToPayDebtorActivationCancellationRequestV01{
 			Hdr: ActivationHeader2{
 				MsgId:   "MsgId",
@@ -62,11 +64,15 @@ func TestDocumentReda07200101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:reda.072.001.01","ReqToPayDbtrActvtnCxlReq":{"Hdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"ReqToPayDbtrActvtnCxlReq":{"Hdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:reda.072.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ReqToPayDbtrActvtnCxlReq><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr></ReqToPayDbtrActvtnCxlReq></Document>`)
+	assert.Equal(t,
+		`<DocumentReda07200101><ReqToPayDbtrActvtnCxlReq><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr></ReqToPayDbtrActvtnCxlReq></DocumentReda07200101>`,
+		string(buf))
 }
 
 func TestDocumentReda06700101(t *testing.T) {
@@ -76,7 +82,6 @@ func TestDocumentReda06700101(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentReda06700101{
-		Xmlns: sample.NameSpace(),
 		ReqToPayCdtrEnrlmntAmdmntReq: RequestToPayCreditorEnrolmentAmendmentRequestV01{
 			Hdr: EnrolmentHeader2{
 				MsgId:   "MsgId",
@@ -89,11 +94,15 @@ func TestDocumentReda06700101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:reda.067.001.01","ReqToPayCdtrEnrlmntAmdmntReq":{"Hdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"ReqToPayCdtrEnrlmntAmdmntReq":{"Hdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:reda.067.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ReqToPayCdtrEnrlmntAmdmntReq><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr></ReqToPayCdtrEnrlmntAmdmntReq></Document>`)
+	assert.Equal(t,
+		`<DocumentReda06700101><ReqToPayCdtrEnrlmntAmdmntReq><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr></ReqToPayCdtrEnrlmntAmdmntReq></DocumentReda06700101>`,
+		string(buf))
 }
 
 func TestDocumentReda07300101(t *testing.T) {
@@ -103,7 +112,6 @@ func TestDocumentReda07300101(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentReda07300101{
-		Xmlns: sample.NameSpace(),
 		ReqToPayDbtrActvtnStsRpt: RequestToPayDebtorActivationStatusReportV01{
 			Hdr: ActivationHeader2{
 				MsgId:   "MsgId",
@@ -116,11 +124,15 @@ func TestDocumentReda07300101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:reda.073.001.01","ReqToPayDbtrActvtnStsRpt":{"Hdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"ReqToPayDbtrActvtnStsRpt":{"Hdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:reda.073.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ReqToPayDbtrActvtnStsRpt><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr></ReqToPayDbtrActvtnStsRpt></Document>`)
+	assert.Equal(t,
+		`<DocumentReda07300101><ReqToPayDbtrActvtnStsRpt><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr></ReqToPayDbtrActvtnStsRpt></DocumentReda07300101>`,
+		string(buf))
 }
 
 func TestDocumentReda07100101(t *testing.T) {
@@ -130,7 +142,6 @@ func TestDocumentReda07100101(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentReda07100101{
-		Xmlns: sample.NameSpace(),
 		ReqToPayDbtrActvtnAmdmntReq: RequestToPayDebtorActivationAmendmentRequestV01{
 			Hdr: ActivationHeader2{
 				MsgId:   "MsgId",
@@ -143,11 +154,15 @@ func TestDocumentReda07100101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:reda.071.001.01","ReqToPayDbtrActvtnAmdmntReq":{"Hdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"ReqToPayDbtrActvtnAmdmntReq":{"Hdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:reda.071.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ReqToPayDbtrActvtnAmdmntReq><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr></ReqToPayDbtrActvtnAmdmntReq></Document>`)
+	assert.Equal(t,
+		`<DocumentReda07100101><ReqToPayDbtrActvtnAmdmntReq><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr></ReqToPayDbtrActvtnAmdmntReq></DocumentReda07100101>`,
+		string(buf))
 }
 
 func TestDocumentReda07000101(t *testing.T) {
@@ -157,7 +172,6 @@ func TestDocumentReda07000101(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentReda07000101{
-		Xmlns: sample.NameSpace(),
 		ReqToPayDbtrActvtnReq: RequestToPayDebtorActivationRequestV01{
 			Hdr: ActivationHeader2{
 				MsgId:   "MsgId",
@@ -173,11 +187,15 @@ func TestDocumentReda07000101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:reda.070.001.01","ReqToPayDbtrActvtnReq":{"Hdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}},"ElctrncInvcData":{"PresntmntTp":"FULL"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"ReqToPayDbtrActvtnReq":{"Hdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}},"ElctrncInvcData":{"PresntmntTp":"FULL"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:reda.070.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ReqToPayDbtrActvtnReq><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr><ElctrncInvcData><PresntmntTp>FULL</PresntmntTp></ElctrncInvcData></ReqToPayDbtrActvtnReq></Document>`)
+	assert.Equal(t,
+		`<DocumentReda07000101><ReqToPayDbtrActvtnReq><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr><ElctrncInvcData><PresntmntTp>FULL</PresntmntTp></ElctrncInvcData></ReqToPayDbtrActvtnReq></DocumentReda07000101>`,
+		string(buf))
 }
 
 func TestDocumentReda06800101(t *testing.T) {
@@ -187,7 +205,6 @@ func TestDocumentReda06800101(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentReda06800101{
-		Xmlns: sample.NameSpace(),
 		ReqToPayCdtrEnrlmntCxlReq: RequestToPayCreditorEnrolmentCancellationRequestV01{
 			Hdr: EnrolmentHeader2{
 				MsgId:   "MsgId",
@@ -200,11 +217,15 @@ func TestDocumentReda06800101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:reda.068.001.01","ReqToPayCdtrEnrlmntCxlReq":{"Hdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"ReqToPayCdtrEnrlmntCxlReq":{"Hdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:reda.068.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ReqToPayCdtrEnrlmntCxlReq><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr></ReqToPayCdtrEnrlmntCxlReq></Document>`)
+	assert.Equal(t,
+		`<DocumentReda06800101><ReqToPayCdtrEnrlmntCxlReq><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr></ReqToPayCdtrEnrlmntCxlReq></DocumentReda06800101>`,
+		string(buf))
 }
 
 func TestDocumentReda06900101(t *testing.T) {
@@ -214,7 +235,6 @@ func TestDocumentReda06900101(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentReda06900101{
-		Xmlns: sample.NameSpace(),
 		ReqToPayCdtrEnrlmntStsRpt: RequestToPayCreditorEnrolmentStatusReportV01{
 			Hdr: EnrolmentHeader2{
 				MsgId:   "MsgId",
@@ -227,11 +247,15 @@ func TestDocumentReda06900101(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:reda.069.001.01","ReqToPayCdtrEnrlmntStsRpt":{"Hdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"ReqToPayCdtrEnrlmntStsRpt":{"Hdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:reda.069.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ReqToPayCdtrEnrlmntStsRpt><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr></ReqToPayCdtrEnrlmntStsRpt></Document>`)
+	assert.Equal(t,
+		`<DocumentReda06900101><ReqToPayCdtrEnrlmntStsRpt><Hdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></Hdr></ReqToPayCdtrEnrlmntStsRpt></DocumentReda06900101>`,
+		string(buf))
 }
 
 func TestNestedTypes(t *testing.T) {

@@ -28,11 +28,15 @@ func TestBusinessApplicationHeaderV02(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:head.001.001.02","Fr":{"OrgId":{},"FIId":{"FinInstnId":{}}},"To":{"OrgId":{},"FIId":{"FinInstnId":{}}},"BizMsgIdr":"BizMsgIdr","MsgDefIdr":"MsgDefIdr","CreDt":"2014-11-12T11:45:26.371"}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"Xmlns":"urn:iso:std:iso:20022:tech:xsd:head.001.001.02","Fr":{"OrgId":{},"FIId":{"FinInstnId":{}}},"To":{"OrgId":{},"FIId":{"FinInstnId":{}}},"BizMsgIdr":"BizMsgIdr","MsgDefIdr":"MsgDefIdr","CreDt":"2014-11-12T11:45:26.371"}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<AppHdr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02"><Fr><OrgId></OrgId><FIId><FinInstnId></FinInstnId></FIId></Fr><To><OrgId></OrgId><FIId><FinInstnId></FinInstnId></FIId></To><BizMsgIdr>BizMsgIdr</BizMsgIdr><MsgDefIdr>MsgDefIdr</MsgDefIdr><CreDt>2014-11-12T11:45:26.371</CreDt></AppHdr>`)
+	assert.Equal(t,
+		`<BusinessApplicationHeaderV02 xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02"><Fr><OrgId></OrgId><FIId><FinInstnId></FinInstnId></FIId></Fr><To><OrgId></OrgId><FIId><FinInstnId></FinInstnId></FIId></To><BizMsgIdr>BizMsgIdr</BizMsgIdr><MsgDefIdr>MsgDefIdr</MsgDefIdr><CreDt>2014-11-12T11:45:26.371</CreDt></BusinessApplicationHeaderV02>`,
+		string(buf))
 }
 
 func TestNestedTypes(t *testing.T) {

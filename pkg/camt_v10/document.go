@@ -11,15 +11,16 @@ import (
 )
 
 type DocumentCamt02800110 struct {
-	XMLName                 *xml.Name                       `json:",omitempty"`
-	Xmlns                   string                          `xml:"xmlns,attr,omitempty" json:",omitempty"`
-	DisableDefaultNamespace bool                            `xml:",omitempty" json:",omitempty"`
-	AddtlPmtInf             AdditionalPaymentInformationV10 `xml:"AddtlPmtInf"`
+	XMLName     xml.Name
+	Attrs       []utils.Attr                    `xml:",any,attr,omitempty" json:",omitempty"`
+	AddtlPmtInf AdditionalPaymentInformationV10 `xml:"AddtlPmtInf"`
 }
 
 func (doc DocumentCamt02800110) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -29,24 +30,33 @@ func (doc DocumentCamt02800110) NameSpace() string {
 }
 
 func (doc DocumentCamt02800110) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		AddtlPmtInf AdditionalPaymentInformationV10 `xml:"AddtlPmtInf"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.AddtlPmtInf = doc.AddtlPmtInf
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName     xml.Name
+		Attrs       []utils.Attr                    `xml:",any,attr,omitempty" json:",omitempty"`
+		AddtlPmtInf AdditionalPaymentInformationV10 `xml:"AddtlPmtInf"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }
 
 type DocumentCamt02900110 struct {
-	XMLName                 *xml.Name                    `json:",omitempty"`
-	Xmlns                   string                       `xml:"xmlns,attr,omitempty" json:",omitempty"`
-	DisableDefaultNamespace bool                         `xml:",omitempty" json:",omitempty"`
-	RsltnOfInvstgtn         ResolutionOfInvestigationV10 `xml:"RsltnOfInvstgtn"`
+	XMLName         xml.Name
+	Attrs           []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
+	RsltnOfInvstgtn ResolutionOfInvestigationV10 `xml:"RsltnOfInvstgtn"`
 }
 
 func (doc DocumentCamt02900110) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -56,10 +66,18 @@ func (doc DocumentCamt02900110) NameSpace() string {
 }
 
 func (doc DocumentCamt02900110) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		RsltnOfInvstgtn ResolutionOfInvestigationV10 `xml:"RsltnOfInvstgtn"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.RsltnOfInvstgtn = doc.RsltnOfInvstgtn
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName         xml.Name
+		Attrs           []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
+		RsltnOfInvstgtn ResolutionOfInvestigationV10 `xml:"RsltnOfInvstgtn"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }

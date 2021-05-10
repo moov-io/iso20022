@@ -5,8 +5,6 @@
 package reda_v01
 
 import (
-	"encoding/xml"
-
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -310,8 +308,7 @@ func (r RTPPartyIdentification1) Validate() error {
 }
 
 type RequestToPayCreditorEnrolmentRequestV01 struct {
-	XMLName     *xml.Name            `json:",omitempty"`
-	Attr        *utils.Attr          `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
 	Hdr         EnrolmentHeader2     `xml:"Hdr"`
 	CdtrEnrlmnt []CreditorEnrolment3 `xml:"CdtrEnrlmnt" json:",omitempty"`
 	ActvtnData  CreditorInvoice3     `xml:"ActvtnData"`
@@ -435,8 +432,7 @@ func (r OriginalEnrolment2Choice) Validate() error {
 }
 
 type RequestToPayCreditorEnrolmentAmendmentRequestV01 struct {
-	XMLName     *xml.Name                     `json:",omitempty"`
-	Attr        *utils.Attr                   `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr                  `xml:",any,attr,omitempty" json:",omitempty"`
 	Hdr         EnrolmentHeader2              `xml:"Hdr"`
 	AmdmntData  []CreditorEnrolmentAmendment3 `xml:"AmdmntData" json:",omitempty"`
 	SplmtryData []SupplementaryData1          `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -477,8 +473,7 @@ func (r CreditorEnrolmentCancellationReason2) Validate() error {
 }
 
 type RequestToPayCreditorEnrolmentCancellationRequestV01 struct {
-	XMLName     *xml.Name                        `json:",omitempty"`
-	Attr        *utils.Attr                      `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr                     `xml:",any,attr,omitempty" json:",omitempty"`
 	Hdr         EnrolmentHeader2                 `xml:"Hdr"`
 	CxlData     []CreditorEnrolmentCancellation2 `xml:"CxlData" json:",omitempty"`
 	SplmtryData []SupplementaryData1             `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -521,8 +516,7 @@ func (r EnrolmentStatus2) Validate() error {
 }
 
 type RequestToPayCreditorEnrolmentStatusReportV01 struct {
-	XMLName            *xml.Name            `json:",omitempty"`
-	Attr               *utils.Attr          `xml:",attr,omitempty" json:",omitempty"`
+	Attr               []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
 	Hdr                EnrolmentHeader2     `xml:"Hdr"`
 	OrgnlEnrlmntAndSts []EnrolmentStatus2   `xml:"OrgnlEnrlmntAndSts" json:",omitempty"`
 	SplmtryData        []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -592,8 +586,7 @@ func (r ElectronicInvoice1) Validate() error {
 }
 
 type RequestToPayDebtorActivationRequestV01 struct {
-	XMLName         *xml.Name            `json:",omitempty"`
-	Attr            *utils.Attr          `xml:",attr,omitempty" json:",omitempty"`
+	Attr            []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
 	Hdr             ActivationHeader2    `xml:"Hdr"`
 	DbtrActvtn      []DebtorActivation3  `xml:"DbtrActvtn" json:",omitempty"`
 	ElctrncInvcData ElectronicInvoice1   `xml:"ElctrncInvcData"`
@@ -666,8 +659,7 @@ func (r DebtorActivationAmendmentReason2) Validate() error {
 }
 
 type RequestToPayDebtorActivationAmendmentRequestV01 struct {
-	XMLName     *xml.Name                    `json:",omitempty"`
-	Attr        *utils.Attr                  `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
 	Hdr         ActivationHeader2            `xml:"Hdr"`
 	AmdmntData  []DebtorActivationAmendment3 `xml:"AmdmntData" json:",omitempty"`
 	SplmtryData []SupplementaryData1         `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -717,8 +709,7 @@ func (r OriginalActivation2Choice) Validate() error {
 }
 
 type RequestToPayDebtorActivationCancellationRequestV01 struct {
-	XMLName     *xml.Name                       `json:",omitempty"`
-	Attr        *utils.Attr                     `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr                    `xml:",any,attr,omitempty" json:",omitempty"`
 	Hdr         ActivationHeader2               `xml:"Hdr"`
 	CxlData     []DebtorActivationCancellation2 `xml:"CxlData" json:",omitempty"`
 	SplmtryData []SupplementaryData1            `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -761,8 +752,7 @@ func (r DebtorActivationStatusReason2) Validate() error {
 }
 
 type RequestToPayDebtorActivationStatusReportV01 struct {
-	XMLName           *xml.Name            `json:",omitempty"`
-	Attr              *utils.Attr          `xml:",attr,omitempty" json:",omitempty"`
+	Attr              []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
 	Hdr               ActivationHeader2    `xml:"Hdr"`
 	OrgnlActvtnAndSts []ActivationStatus2  `xml:"OrgnlActvtnAndSts" json:",omitempty"`
 	SplmtryData       []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`

@@ -22,7 +22,6 @@ func TestDocumentPain00900105(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPain00900105{
-		Xmlns: sample.NameSpace(),
 		MndtInitnReq: MandateInitiationRequestV05{
 			GrpHdr: GroupHeader47{
 				MsgId:   "MsgId",
@@ -35,11 +34,15 @@ func TestDocumentPain00900105(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:pain.009.001.05","MndtInitnReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"MndtInitnReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.009.001.05" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><MndtInitnReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></MndtInitnReq></Document>`)
+	assert.Equal(t,
+		`<DocumentPain00900105><MndtInitnReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></MndtInitnReq></DocumentPain00900105>`,
+		string(buf))
 }
 
 func TestDocumentPain01000105(t *testing.T) {
@@ -49,7 +52,6 @@ func TestDocumentPain01000105(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPain01000105{
-		Xmlns: sample.NameSpace(),
 		MndtAmdmntReq: MandateAmendmentRequestV05{
 			GrpHdr: GroupHeader47{
 				MsgId:   "MsgId",
@@ -62,11 +64,15 @@ func TestDocumentPain01000105(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:pain.010.001.05","MndtAmdmntReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"MndtAmdmntReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.010.001.05" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><MndtAmdmntReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></MndtAmdmntReq></Document>`)
+	assert.Equal(t,
+		`<DocumentPain01000105><MndtAmdmntReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></MndtAmdmntReq></DocumentPain01000105>`,
+		string(buf))
 }
 
 func TestDocumentPain01200105(t *testing.T) {
@@ -76,7 +82,6 @@ func TestDocumentPain01200105(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPain01200105{
-		Xmlns: sample.NameSpace(),
 		MndtAccptncRpt: MandateAcceptanceReportV05{
 			GrpHdr: GroupHeader47{
 				MsgId:   "MsgId",
@@ -89,11 +94,15 @@ func TestDocumentPain01200105(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:pain.012.001.05","MndtAccptncRpt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"MndtAccptncRpt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.012.001.05" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><MndtAccptncRpt><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></MndtAccptncRpt></Document>`)
+	assert.Equal(t,
+		`<DocumentPain01200105><MndtAccptncRpt><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></MndtAccptncRpt></DocumentPain01200105>`,
+		string(buf))
 }
 
 func TestDocumentPain01100105(t *testing.T) {
@@ -103,7 +112,6 @@ func TestDocumentPain01100105(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPain01100105{
-		Xmlns: sample.NameSpace(),
 		MndtCxlReq: MandateCancellationRequestV05{
 			GrpHdr: GroupHeader47{
 				MsgId:   "MsgId",
@@ -116,11 +124,15 @@ func TestDocumentPain01100105(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:pain.011.001.05","MndtCxlReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"MndtCxlReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.011.001.05" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><MndtCxlReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></MndtCxlReq></Document>`)
+	assert.Equal(t,
+		`<DocumentPain01100105><MndtCxlReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></MndtCxlReq></DocumentPain01100105>`,
+		string(buf))
 }
 
 func TestNestedTypes(t *testing.T) {

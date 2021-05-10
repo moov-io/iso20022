@@ -22,7 +22,6 @@ func TestDocumentPain01400108(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPain01400108{
-		Xmlns: sample.NameSpace(),
 		CdtrPmtActvtnReqStsRpt: CreditorPaymentActivationRequestStatusReportV08{
 			GrpHdr: GroupHeader87{
 				MsgId:   "MsgId",
@@ -42,11 +41,15 @@ func TestDocumentPain01400108(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:pain.014.001.08","CdtrPmtActvtnReqStsRpt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{},"DbtrAgt":{"FinInstnId":{}},"CdtrAgt":{"FinInstnId":{}}},"OrgnlGrpInfAndSts":{"OrgnlMsgId":"OrgnlMsgId","OrgnlMsgNmId":"OrgnlMsgNmId","OrgnlCreDtTm":"2014-11-12T11:45:26.371","OrgnlNbOfTxs":"001","GrpSts":"GRP"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"CdtrPmtActvtnReqStsRpt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{},"DbtrAgt":{"FinInstnId":{}},"CdtrAgt":{"FinInstnId":{}}},"OrgnlGrpInfAndSts":{"OrgnlMsgId":"OrgnlMsgId","OrgnlMsgNmId":"OrgnlMsgNmId","OrgnlCreDtTm":"2014-11-12T11:45:26.371","OrgnlNbOfTxs":"001","GrpSts":"GRP"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.014.001.08" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CdtrPmtActvtnReqStsRpt><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty><DbtrAgt><FinInstnId></FinInstnId></DbtrAgt><CdtrAgt><FinInstnId></FinInstnId></CdtrAgt></GrpHdr><OrgnlGrpInfAndSts><OrgnlMsgId>OrgnlMsgId</OrgnlMsgId><OrgnlMsgNmId>OrgnlMsgNmId</OrgnlMsgNmId><OrgnlCreDtTm>2014-11-12T11:45:26.371</OrgnlCreDtTm><OrgnlNbOfTxs>001</OrgnlNbOfTxs><GrpSts>GRP</GrpSts></OrgnlGrpInfAndSts></CdtrPmtActvtnReqStsRpt></Document>`)
+	assert.Equal(t,
+		`<DocumentPain01400108><CdtrPmtActvtnReqStsRpt><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty><DbtrAgt><FinInstnId></FinInstnId></DbtrAgt><CdtrAgt><FinInstnId></FinInstnId></CdtrAgt></GrpHdr><OrgnlGrpInfAndSts><OrgnlMsgId>OrgnlMsgId</OrgnlMsgId><OrgnlMsgNmId>OrgnlMsgNmId</OrgnlMsgNmId><OrgnlCreDtTm>2014-11-12T11:45:26.371</OrgnlCreDtTm><OrgnlNbOfTxs>001</OrgnlNbOfTxs><GrpSts>GRP</GrpSts></OrgnlGrpInfAndSts></CdtrPmtActvtnReqStsRpt></DocumentPain01400108>`,
+		string(buf))
 }
 
 func TestDocumentPain01300108(t *testing.T) {
@@ -56,7 +59,6 @@ func TestDocumentPain01300108(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentPain01300108{
-		Xmlns: sample.NameSpace(),
 		CdtrPmtActvtnReq: CreditorPaymentActivationRequestV08{
 			GrpHdr: GroupHeader78{
 				MsgId:   "MsgId",
@@ -70,11 +72,15 @@ func TestDocumentPain01300108(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:pain.013.001.08","CdtrPmtActvtnReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfTxs":"001","InitgPty":{}}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"CdtrPmtActvtnReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfTxs":"001","InitgPty":{}}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.013.001.08" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CdtrPmtActvtnReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfTxs>001</NbOfTxs><InitgPty></InitgPty></GrpHdr></CdtrPmtActvtnReq></Document>`)
+	assert.Equal(t,
+		`<DocumentPain01300108><CdtrPmtActvtnReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfTxs>001</NbOfTxs><InitgPty></InitgPty></GrpHdr></CdtrPmtActvtnReq></DocumentPain01300108>`,
+		string(buf))
 }
 
 func TestNestedTypes(t *testing.T) {

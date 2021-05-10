@@ -11,15 +11,16 @@ import (
 )
 
 type DocumentPacs00800109 struct {
-	XMLName                 *xml.Name                       `json:",omitempty"`
-	Xmlns                   string                          `xml:"xmlns,attr,omitempty" json:",omitempty"`
-	DisableDefaultNamespace bool                            `xml:",omitempty" json:",omitempty"`
-	FIToFICstmrCdtTrf       FIToFICustomerCreditTransferV09 `xml:"FIToFICstmrCdtTrf"`
+	XMLName           xml.Name
+	Attrs             []utils.Attr                    `xml:",any,attr,omitempty" json:",omitempty"`
+	FIToFICstmrCdtTrf FIToFICustomerCreditTransferV09 `xml:"FIToFICstmrCdtTrf"`
 }
 
 func (doc DocumentPacs00800109) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -29,24 +30,33 @@ func (doc DocumentPacs00800109) NameSpace() string {
 }
 
 func (doc DocumentPacs00800109) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		FIToFICstmrCdtTrf FIToFICustomerCreditTransferV09 `xml:"FIToFICstmrCdtTrf"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.FIToFICstmrCdtTrf = doc.FIToFICstmrCdtTrf
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName           xml.Name
+		Attrs             []utils.Attr                    `xml:",any,attr,omitempty" json:",omitempty"`
+		FIToFICstmrCdtTrf FIToFICustomerCreditTransferV09 `xml:"FIToFICstmrCdtTrf"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }
 
 type DocumentPacs00900109 struct {
-	XMLName                 *xml.Name                             `json:",omitempty"`
-	Xmlns                   string                                `xml:"xmlns,attr,omitempty" json:",omitempty"`
-	DisableDefaultNamespace bool                                  `xml:",omitempty" json:",omitempty"`
-	FICdtTrf                FinancialInstitutionCreditTransferV09 `xml:"FICdtTrf"`
+	XMLName  xml.Name
+	Attrs    []utils.Attr                          `xml:",any,attr,omitempty" json:",omitempty"`
+	FICdtTrf FinancialInstitutionCreditTransferV09 `xml:"FICdtTrf"`
 }
 
 func (doc DocumentPacs00900109) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -56,10 +66,18 @@ func (doc DocumentPacs00900109) NameSpace() string {
 }
 
 func (doc DocumentPacs00900109) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		FICdtTrf FinancialInstitutionCreditTransferV09 `xml:"FICdtTrf"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.FICdtTrf = doc.FICdtTrf
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName  xml.Name
+		Attrs    []utils.Attr                          `xml:",any,attr,omitempty" json:",omitempty"`
+		FICdtTrf FinancialInstitutionCreditTransferV09 `xml:"FICdtTrf"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }

@@ -5,8 +5,6 @@
 package pacs_v07
 
 import (
-	"encoding/xml"
-
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -287,8 +285,7 @@ func (r EquivalentAmount2) Validate() error {
 }
 
 type FIToFIPaymentStatusReportV07 struct {
-	XMLName           *xml.Name              `json:",omitempty"`
-	Attr              *utils.Attr            `xml:",attr,omitempty" json:",omitempty"`
+	Attr              []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr            GroupHeader53          `xml:"GrpHdr"`
 	OrgnlGrpInfAndSts []OriginalGroupHeader1 `xml:"OrgnlGrpInfAndSts,omitempty" json:",omitempty"`
 	TxInfAndSts       []PaymentTransaction63 `xml:"TxInfAndSts,omitempty" json:",omitempty"`

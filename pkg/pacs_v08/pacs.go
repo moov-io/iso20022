@@ -5,8 +5,6 @@
 package pacs_v08
 
 import (
-	"encoding/xml"
-
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -358,8 +356,7 @@ func (r DocumentLineType1Choice) Validate() error {
 }
 
 type FIToFICustomerDirectDebitV08 struct {
-	XMLName      *xml.Name                             `json:",omitempty"`
-	Attr         *utils.Attr                           `xml:",attr,omitempty" json:",omitempty"`
+	Attr         []utils.Attr                          `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr       GroupHeader94                         `xml:"GrpHdr"`
 	DrctDbtTxInf []DirectDebitTransactionInformation24 `xml:"DrctDbtTxInf" json:",omitempty"`
 	SplmtryData  []SupplementaryData1                  `xml:"SplmtryData,omitempty" json:",omitempty"`

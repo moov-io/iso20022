@@ -5,7 +5,6 @@
 package camt_v06
 
 import (
-	"encoding/xml"
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -117,8 +116,7 @@ func (r RequestType4Choice) Validate() error {
 }
 
 type ReturnGeneralBusinessInformationV06 struct {
-	XMLName     *xml.Name                     `json:",omitempty"`
-	Attr        *utils.Attr                   `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr                  `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgHdr      MessageHeader7                `xml:"MsgHdr"`
 	RptOrErr    GeneralBusinessOrError7Choice `xml:"RptOrErr"`
 	SplmtryData []SupplementaryData1          `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -348,8 +346,7 @@ func (r MessageHeader1) Validate() error {
 }
 
 type ModifyStandingOrderV06 struct {
-	XMLName          *xml.Name                    `json:",omitempty"`
-	Attr             *utils.Attr                  `xml:",attr,omitempty" json:",omitempty"`
+	Attr             []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgHdr           MessageHeader1               `xml:"MsgHdr"`
 	StgOrdrId        StandingOrderIdentification4 `xml:"StgOrdrId"`
 	NewStgOrdrValSet StandingOrder7               `xml:"NewStgOrdrValSet"`
@@ -583,8 +580,7 @@ func (r PersonIdentificationSchemeName1Choice) Validate() error {
 }
 
 type RejectInvestigationV06 struct {
-	XMLName     *xml.Name                            `json:",omitempty"`
-	Attr        *utils.Attr                          `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr                         `xml:",any,attr,omitempty" json:",omitempty"`
 	Assgnmt     CaseAssignment5                      `xml:"Assgnmt"`
 	Case        *Case5                               `xml:"Case,omitempty" json:",omitempty"`
 	Justfn      InvestigationRejectionJustification1 `xml:"Justfn"`
@@ -596,8 +592,7 @@ func (r RejectInvestigationV06) Validate() error {
 }
 
 type RequestForDuplicateV06 struct {
-	XMLName     *xml.Name            `json:",omitempty"`
-	Attr        *utils.Attr          `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
 	Assgnmt     CaseAssignment5      `xml:"Assgnmt"`
 	Case        *Case5               `xml:"Case,omitempty" json:",omitempty"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -608,8 +603,7 @@ func (r RequestForDuplicateV06) Validate() error {
 }
 
 type DuplicateV06 struct {
-	XMLName     *xml.Name            `json:",omitempty"`
-	Attr        *utils.Attr          `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
 	Assgnmt     CaseAssignment5      `xml:"Assgnmt"`
 	Case        *Case5               `xml:"Case,omitempty" json:",omitempty"`
 	Dplct       ProprietaryData7     `xml:"Dplct"`
@@ -740,8 +734,7 @@ func (r ReservationType1Choice) Validate() error {
 }
 
 type ReturnReservationV06 struct {
-	XMLName     *xml.Name                 `json:",omitempty"`
-	Attr        *utils.Attr               `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr              `xml:",any,attr,omitempty" json:",omitempty"`
 	MsgHdr      MessageHeader7            `xml:"MsgHdr"`
 	RptOrErr    ReservationOrError8Choice `xml:"RptOrErr"`
 	SplmtryData []SupplementaryData1      `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -801,8 +794,7 @@ func (r NotificationItem7) Validate() error {
 }
 
 type NotificationToReceiveV06 struct {
-	XMLName     *xml.Name             `json:",omitempty"`
-	Attr        *utils.Attr           `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr          `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader77         `xml:"GrpHdr"`
 	Ntfctn      AccountNotification16 `xml:"Ntfctn"`
 	SplmtryData []SupplementaryData1  `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -1187,8 +1179,7 @@ func (r NameAndAddress16) Validate() error {
 }
 
 type NotificationToReceiveCancellationAdviceV06 struct {
-	XMLName     *xml.Name              `json:",omitempty"`
-	Attr        *utils.Attr            `xml:",attr,omitempty" json:",omitempty"`
+	Attr        []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader77          `xml:"GrpHdr"`
 	OrgnlNtfctn OriginalNotification12 `xml:"OrgnlNtfctn"`
 	SplmtryData []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -1268,8 +1259,7 @@ func (r GroupHeader84) Validate() error {
 }
 
 type NotificationToReceiveStatusReportV06 struct {
-	XMLName           *xml.Name              `json:",omitempty"`
-	Attr              *utils.Attr            `xml:",attr,omitempty" json:",omitempty"`
+	Attr              []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr            GroupHeader84          `xml:"GrpHdr"`
 	OrgnlNtfctnAndSts OriginalNotification11 `xml:"OrgnlNtfctnAndSts"`
 	SplmtryData       []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -1888,8 +1878,7 @@ func (r ResolutionInformation1) Validate() error {
 }
 
 type ResolutionOfInvestigationV06 struct {
-	XMLName      *xml.Name                     `json:",omitempty"`
-	Attr         *utils.Attr                   `xml:",attr,omitempty" json:",omitempty"`
+	Attr         []utils.Attr                  `xml:",any,attr,omitempty" json:",omitempty"`
 	Assgnmt      CaseAssignment3               `xml:"Assgnmt"`
 	RslvdCase    *Case3                        `xml:"RslvdCase,omitempty" json:",omitempty"`
 	Sts          InvestigationStatus3Choice    `xml:"Sts"`

@@ -21,7 +21,6 @@ func TestDocumentCamt00300107(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentCamt00300107{
-		Xmlns: sample.NameSpace(),
 		GetAcct: GetAccountV07{
 			MsgHdr: MessageHeader9{
 				MsgId: "Id",
@@ -33,11 +32,15 @@ func TestDocumentCamt00300107(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:camt.003.001.07","GetAcct":{"MsgHdr":{"MsgId":"Id"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"GetAcct":{"MsgHdr":{"MsgId":"Id"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.003.001.07" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><GetAcct><MsgHdr><MsgId>Id</MsgId></MsgHdr></GetAcct></Document>`)
+	assert.Equal(t,
+		`<DocumentCamt00300107><GetAcct><MsgHdr><MsgId>Id</MsgId></MsgHdr></GetAcct></DocumentCamt00300107>`,
+		string(buf))
 }
 
 func TestDocumentCamt00900107(t *testing.T) {
@@ -46,7 +49,6 @@ func TestDocumentCamt00900107(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentCamt00900107{
-		Xmlns: sample.NameSpace(),
 		GetLmt: GetLimitV07{
 			MsgHdr: MessageHeader9{
 				MsgId: "Id",
@@ -58,11 +60,15 @@ func TestDocumentCamt00900107(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:camt.009.001.07","GetLmt":{"MsgHdr":{"MsgId":"Id"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"GetLmt":{"MsgHdr":{"MsgId":"Id"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.009.001.07" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><GetLmt><MsgHdr><MsgId>Id</MsgId></MsgHdr></GetLmt></Document>`)
+	assert.Equal(t,
+		`<DocumentCamt00900107><GetLmt><MsgHdr><MsgId>Id</MsgId></MsgHdr></GetLmt></DocumentCamt00900107>`,
+		string(buf))
 }
 
 func TestDocumentCamt01100107(t *testing.T) {
@@ -71,7 +77,6 @@ func TestDocumentCamt01100107(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentCamt01100107{
-		Xmlns: sample.NameSpace(),
 		ModfyLmt: ModifyLimitV07{
 			MsgHdr: MessageHeader1{
 				MsgId: "Id",
@@ -83,11 +88,15 @@ func TestDocumentCamt01100107(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:camt.011.001.07","ModfyLmt":{"MsgHdr":{"MsgId":"Id"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"ModfyLmt":{"MsgHdr":{"MsgId":"Id"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.011.001.07" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModfyLmt><MsgHdr><MsgId>Id</MsgId></MsgHdr></ModfyLmt></Document>`)
+	assert.Equal(t,
+		`<DocumentCamt01100107><ModfyLmt><MsgHdr><MsgId>Id</MsgId></MsgHdr></ModfyLmt></DocumentCamt01100107>`,
+		string(buf))
 }
 
 func TestDocumentCamt01900107(t *testing.T) {
@@ -96,7 +105,6 @@ func TestDocumentCamt01900107(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentCamt01900107{
-		Xmlns: sample.NameSpace(),
 		RtrBizDayInf: ReturnBusinessDayInformationV07{
 			MsgHdr: MessageHeader7{
 				MsgId: "Id",
@@ -108,11 +116,15 @@ func TestDocumentCamt01900107(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:camt.019.001.07","RtrBizDayInf":{"MsgHdr":{"MsgId":"Id"},"RptOrErr":{}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"RtrBizDayInf":{"MsgHdr":{"MsgId":"Id"},"RptOrErr":{}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.019.001.07" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><RtrBizDayInf><MsgHdr><MsgId>Id</MsgId></MsgHdr><RptOrErr></RptOrErr></RtrBizDayInf></Document>`)
+	assert.Equal(t,
+		`<DocumentCamt01900107><RtrBizDayInf><MsgHdr><MsgId>Id</MsgId></MsgHdr><RptOrErr></RptOrErr></RtrBizDayInf></DocumentCamt01900107>`,
+		string(buf))
 }
 
 func TestDocumentCamt02300107(t *testing.T) {
@@ -121,7 +133,6 @@ func TestDocumentCamt02300107(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentCamt02300107{
-		Xmlns: sample.NameSpace(),
 		BckpPmt: BackupPaymentV07{
 			MsgHdr: MessageHeader1{
 				MsgId: "Id",
@@ -143,11 +154,15 @@ func TestDocumentCamt02300107(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:camt.023.001.07","BckpPmt":{"MsgHdr":{"MsgId":"Id"},"TrfdAmt":{"AmtWthtCcy":0,"AmtWthCcy":{"Value":0,"Ccy":"ABC"}},"Cdtr":{"MmbId":{"BICFI":"0000AA00BBB","ClrSysMmbId":{"MmbId":"Id"},"Othr":{"Id":"ID"}}}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"BckpPmt":{"MsgHdr":{"MsgId":"Id"},"TrfdAmt":{"AmtWthtCcy":0,"AmtWthCcy":{"Value":0,"Ccy":"ABC"}},"Cdtr":{"MmbId":{"BICFI":"0000AA00BBB","ClrSysMmbId":{"MmbId":"Id"},"Othr":{"Id":"ID"}}}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.023.001.07" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><BckpPmt><MsgHdr><MsgId>Id</MsgId></MsgHdr><TrfdAmt><AmtWthtCcy>0</AmtWthtCcy><AmtWthCcy Ccy="ABC">0</AmtWthCcy></TrfdAmt><Cdtr><MmbId><BICFI>0000AA00BBB</BICFI><ClrSysMmbId><MmbId>Id</MmbId></ClrSysMmbId><Othr><Id>ID</Id></Othr></MmbId></Cdtr></BckpPmt></Document>`)
+	assert.Equal(t,
+		`<DocumentCamt02300107><BckpPmt><MsgHdr><MsgId>Id</MsgId></MsgHdr><TrfdAmt><AmtWthtCcy>0</AmtWthtCcy><AmtWthCcy Ccy="ABC">0</AmtWthCcy></TrfdAmt><Cdtr><MmbId><BICFI>0000AA00BBB</BICFI><ClrSysMmbId><MmbId>Id</MmbId></ClrSysMmbId><Othr><Id>ID</Id></Othr></MmbId></Cdtr></BckpPmt></DocumentCamt02300107>`,
+		string(buf))
 }
 
 func TestDocumentCamt01200107(t *testing.T) {
@@ -156,7 +171,6 @@ func TestDocumentCamt01200107(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentCamt01200107{
-		Xmlns: sample.NameSpace(),
 		DelLmt: DeleteLimitV07{
 			MsgHdr: MessageHeader1{
 				MsgId: "Id",
@@ -182,11 +196,15 @@ func TestDocumentCamt01200107(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:camt.012.001.07","DelLmt":{"MsgHdr":{"MsgId":"Id"},"LmtDtls":{"CurLmtId":{"Tp":{"Cd":"INBI","Prtry":"Prtry"}},"AllCurLmts":{"Tp":{"Cd":"INBI","Prtry":"Prtry"}}}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"DelLmt":{"MsgHdr":{"MsgId":"Id"},"LmtDtls":{"CurLmtId":{"Tp":{"Cd":"INBI","Prtry":"Prtry"}},"AllCurLmts":{"Tp":{"Cd":"INBI","Prtry":"Prtry"}}}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.012.001.07" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><DelLmt><MsgHdr><MsgId>Id</MsgId></MsgHdr><LmtDtls><CurLmtId><Tp><Cd>INBI</Cd><Prtry>Prtry</Prtry></Tp></CurLmtId><AllCurLmts><Tp><Cd>INBI</Cd><Prtry>Prtry</Prtry></Tp></AllCurLmts></LmtDtls></DelLmt></Document>`)
+	assert.Equal(t,
+		`<DocumentCamt01200107><DelLmt><MsgHdr><MsgId>Id</MsgId></MsgHdr><LmtDtls><CurLmtId><Tp><Cd>INBI</Cd><Prtry>Prtry</Prtry></Tp></CurLmtId><AllCurLmts><Tp><Cd>INBI</Cd><Prtry>Prtry</Prtry></Tp></AllCurLmts></LmtDtls></DelLmt></DocumentCamt01200107>`,
+		string(buf))
 }
 
 func TestDocumentCamt08700107(t *testing.T) {
@@ -196,7 +214,6 @@ func TestDocumentCamt08700107(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentCamt08700107{
-		Xmlns: sample.NameSpace(),
 		ReqToModfyPmt: RequestToModifyPaymentV07{
 			Assgnmt: CaseAssignment5{
 				Id:      "Id",
@@ -222,11 +239,15 @@ func TestDocumentCamt08700107(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:camt.087.001.07","ReqToModfyPmt":{"Assgnmt":{"Id":"Id","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}},"CreDtTm":"2014-11-12T11:45:26.371"},"Undrlyg":{"Initn":{"OrgnlInstdAmt":{"Value":0,"Ccy":"ABC"}},"IntrBk":{"OrgnlIntrBkSttlmAmt":{"Value":0,"Ccy":"ABC"},"OrgnlIntrBkSttlmDt":"2014-11-12"},"StmtNtry":{}},"Mod":{}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"ReqToModfyPmt":{"Assgnmt":{"Id":"Id","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}},"CreDtTm":"2014-11-12T11:45:26.371"},"Undrlyg":{"Initn":{"OrgnlInstdAmt":{"Value":0,"Ccy":"ABC"}},"IntrBk":{"OrgnlIntrBkSttlmAmt":{"Value":0,"Ccy":"ABC"},"OrgnlIntrBkSttlmDt":"2014-11-12"},"StmtNtry":{}},"Mod":{}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.087.001.07" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ReqToModfyPmt><Assgnmt><Id>Id</Id><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></Assgnmt><Undrlyg><Initn><OrgnlInstdAmt Ccy="ABC">0</OrgnlInstdAmt></Initn><IntrBk><OrgnlIntrBkSttlmAmt Ccy="ABC">0</OrgnlIntrBkSttlmAmt><OrgnlIntrBkSttlmDt>2014-11-12</OrgnlIntrBkSttlmDt></IntrBk><StmtNtry></StmtNtry></Undrlyg><Mod></Mod></ReqToModfyPmt></Document>`)
+	assert.Equal(t,
+		`<DocumentCamt08700107><ReqToModfyPmt><Assgnmt><Id>Id</Id><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></Assgnmt><Undrlyg><Initn><OrgnlInstdAmt Ccy="ABC">0</OrgnlInstdAmt></Initn><IntrBk><OrgnlIntrBkSttlmAmt Ccy="ABC">0</OrgnlIntrBkSttlmAmt><OrgnlIntrBkSttlmDt>2014-11-12</OrgnlIntrBkSttlmDt></IntrBk><StmtNtry></StmtNtry></Undrlyg><Mod></Mod></ReqToModfyPmt></DocumentCamt08700107>`,
+		string(buf))
 }
 
 func TestNestedTypes(t *testing.T) {

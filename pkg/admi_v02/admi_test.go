@@ -18,7 +18,6 @@ func TestDocumentAdmi00400102(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi00400102{
-		Xmlns: sample.NameSpace(),
 		SysEvtNtfctn: SystemEventNotificationV02{
 			EvtInf: Event2{
 				EvtCd: "ABCD",
@@ -30,11 +29,15 @@ func TestDocumentAdmi00400102(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.004.001.02","SysEvtNtfctn":{"EvtInf":{"EvtCd":"ABCD"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"SysEvtNtfctn":{"EvtInf":{"EvtCd":"ABCD"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.004.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><SysEvtNtfctn><EvtInf><EvtCd>ABCD</EvtCd></EvtInf></SysEvtNtfctn></Document>`)
+	assert.Equal(t,
+		`<DocumentAdmi00400102><SysEvtNtfctn><EvtInf><EvtCd>ABCD</EvtCd></EvtInf></SysEvtNtfctn></DocumentAdmi00400102>`,
+		string(buf))
 }
 
 func TestDocumentAdmi00900102(t *testing.T) {
@@ -43,7 +46,6 @@ func TestDocumentAdmi00900102(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi00900102{
-		Xmlns: sample.NameSpace(),
 		StatcDataReq: StaticDataRequestV02{
 			MsgId: "MsgId",
 			DataReqDtls: RequestDetails3{
@@ -56,11 +58,15 @@ func TestDocumentAdmi00900102(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.009.001.02","StatcDataReq":{"MsgId":"MsgId","DataReqDtls":{"Tp":"Tp"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"StatcDataReq":{"MsgId":"MsgId","DataReqDtls":{"Tp":"Tp"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.009.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><StatcDataReq><MsgId>MsgId</MsgId><DataReqDtls><Tp>Tp</Tp></DataReqDtls></StatcDataReq></Document>`)
+	assert.Equal(t,
+		`<DocumentAdmi00900102><StatcDataReq><MsgId>MsgId</MsgId><DataReqDtls><Tp>Tp</Tp></DataReqDtls></StatcDataReq></DocumentAdmi00900102>`,
+		string(buf))
 }
 
 func TestDocumentAdmi01000102(t *testing.T) {
@@ -69,7 +75,6 @@ func TestDocumentAdmi01000102(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAdmi01000102{
-		Xmlns: sample.NameSpace(),
 		StatcDataRpt: StaticDataReportV02{
 			MsgId: "MsgId",
 			RptDtls: RequestDetails5{
@@ -83,11 +88,15 @@ func TestDocumentAdmi01000102(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:admi.010.001.02","StatcDataRpt":{"MsgId":"MsgId","RptDtls":{"Tp":"Tp","ReqRef":"ReqRef"}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"StatcDataRpt":{"MsgId":"MsgId","RptDtls":{"Tp":"Tp","ReqRef":"ReqRef"}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.010.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><StatcDataRpt><MsgId>MsgId</MsgId><RptDtls><Tp>Tp</Tp><ReqRef>ReqRef</ReqRef></RptDtls></StatcDataRpt></Document>`)
+	assert.Equal(t,
+		`<DocumentAdmi01000102><StatcDataRpt><MsgId>MsgId</MsgId><RptDtls><Tp>Tp</Tp><ReqRef>ReqRef</ReqRef></RptDtls></StatcDataRpt></DocumentAdmi01000102>`,
+		string(buf))
 }
 
 func TestNestedTypes(t *testing.T) {

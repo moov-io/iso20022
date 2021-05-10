@@ -5,8 +5,6 @@
 package pain_v11
 
 import (
-	"encoding/xml"
-
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -244,8 +242,7 @@ func (r CurrencyExchange13) Validate() error {
 }
 
 type CustomerPaymentStatusReportV11 struct {
-	XMLName           *xml.Name                      `json:",omitempty"`
-	Attr              *utils.Attr                    `xml:",attr,omitempty" json:",omitempty"`
+	Attr              []utils.Attr                   `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr            GroupHeader86                  `xml:"GrpHdr"`
 	OrgnlGrpInfAndSts OriginalGroupHeader17          `xml:"OrgnlGrpInfAndSts"`
 	OrgnlPmtInfAndSts []OriginalPaymentInstruction38 `xml:"OrgnlPmtInfAndSts,omitempty" json:",omitempty"`

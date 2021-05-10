@@ -22,7 +22,6 @@ func TestDocumentAuth001001V01(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = DocumentAuth00100101{
-		Xmlns: sample.NameSpace(),
 		InfReqOpng: InformationRequestOpeningV01{
 			InvstgtnId: "InvstgtnId",
 			LglMndtBsis: LegalMandate1{
@@ -64,11 +63,15 @@ func TestDocumentAuth001001V01(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:auth.001.001.01","InfReqOpng":{"InvstgtnId":"InvstgtnId","LglMndtBsis":{"Prgrph":"Prgrph"},"CnfdtltySts":false,"InvstgtnPrd":{"Dt":{"FrDt":"2014-11-12","ToDt":"2014-11-12"},"DtTm":{"FrDtTm":"2014-11-12T11:45:26.371","ToDtTm":"2014-11-12T11:45:26.371"}},"SchCrit":{"Acct":{"Id":{"Id":{"IBAN":"AA000130","Othr":{"Id":"Id"}}},"InvstgtdPties":{"Cd":"OWNE","Prtry":"Prtry"}},"CstmrId":{"Pty":{}},"PmtInstrm":{"CardNb":"11111111111"}}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"InfReqOpng":{"InvstgtnId":"InvstgtnId","LglMndtBsis":{"Prgrph":"Prgrph"},"CnfdtltySts":false,"InvstgtnPrd":{"Dt":{"FrDt":"2014-11-12","ToDt":"2014-11-12"},"DtTm":{"FrDtTm":"2014-11-12T11:45:26.371","ToDtTm":"2014-11-12T11:45:26.371"}},"SchCrit":{"Acct":{"Id":{"Id":{"IBAN":"AA000130","Othr":{"Id":"Id"}}},"InvstgtdPties":{"Cd":"OWNE","Prtry":"Prtry"}},"CstmrId":{"Pty":{}},"PmtInstrm":{"CardNb":"11111111111"}}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.001.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><InfReqOpng><InvstgtnId>InvstgtnId</InvstgtnId><LglMndtBsis><Prgrph>Prgrph</Prgrph></LglMndtBsis><CnfdtltySts>false</CnfdtltySts><InvstgtnPrd><Dt><FrDt>2014-11-12</FrDt><ToDt>2014-11-12</ToDt></Dt><DtTm><FrDtTm>2014-11-12T11:45:26.371</FrDtTm><ToDtTm>2014-11-12T11:45:26.371</ToDtTm></DtTm></InvstgtnPrd><SchCrit><Acct><Id><Id><IBAN>AA000130</IBAN><Othr><Id>Id</Id></Othr></Id></Id><InvstgtdPties><Cd>OWNE</Cd><Prtry>Prtry</Prtry></InvstgtdPties></Acct><CstmrId><Pty></Pty></CstmrId><PmtInstrm><CardNb>11111111111</CardNb></PmtInstrm></SchCrit></InfReqOpng></Document>`)
+	assert.Equal(t,
+		`<DocumentAuth00100101><InfReqOpng><InvstgtnId>InvstgtnId</InvstgtnId><LglMndtBsis><Prgrph>Prgrph</Prgrph></LglMndtBsis><CnfdtltySts>false</CnfdtltySts><InvstgtnPrd><Dt><FrDt>2014-11-12</FrDt><ToDt>2014-11-12</ToDt></Dt><DtTm><FrDtTm>2014-11-12T11:45:26.371</FrDtTm><ToDtTm>2014-11-12T11:45:26.371</ToDtTm></DtTm></InvstgtnPrd><SchCrit><Acct><Id><Id><IBAN>AA000130</IBAN><Othr><Id>Id</Id></Othr></Id></Id><InvstgtdPties><Cd>OWNE</Cd><Prtry>Prtry</Prtry></InvstgtdPties></Acct><CstmrId><Pty></Pty></CstmrId><PmtInstrm><CardNb>11111111111</CardNb></PmtInstrm></SchCrit></InfReqOpng></DocumentAuth00100101>`,
+		string(buf))
 }
 
 func TestDocumentAuth002001V01(t *testing.T) {
@@ -77,7 +80,6 @@ func TestDocumentAuth002001V01(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAuth00200101{
-		Xmlns: sample.NameSpace(),
 		InfReqRspn: InformationRequestResponseV01{
 			InvstgtnId: "InvstgtnId",
 			RspnId:     "RspnId",
@@ -109,11 +111,15 @@ func TestDocumentAuth002001V01(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:auth.002.001.01","InfReqRspn":{"RspnId":"RspnId","InvstgtnId":"InvstgtnId","RspnSts":"PART","SchCrit":{"Acct":{"Id":{"Id":{"IBAN":"AA000130","Othr":{"Id":"Id"}}},"InvstgtdPties":{"Cd":"OWNE","Prtry":"Prtry"}},"CstmrId":{"Pty":{}},"PmtInstrm":{"CardNb":"11111111111"}}}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"InfReqRspn":{"RspnId":"RspnId","InvstgtnId":"InvstgtnId","RspnSts":"PART","SchCrit":{"Acct":{"Id":{"Id":{"IBAN":"AA000130","Othr":{"Id":"Id"}}},"InvstgtdPties":{"Cd":"OWNE","Prtry":"Prtry"}},"CstmrId":{"Pty":{}},"PmtInstrm":{"CardNb":"11111111111"}}}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><InfReqRspn><RspnId>RspnId</RspnId><InvstgtnId>InvstgtnId</InvstgtnId><RspnSts>PART</RspnSts><SchCrit><Acct><Id><Id><IBAN>AA000130</IBAN><Othr><Id>Id</Id></Othr></Id></Id><InvstgtdPties><Cd>OWNE</Cd><Prtry>Prtry</Prtry></InvstgtdPties></Acct><CstmrId><Pty></Pty></CstmrId><PmtInstrm><CardNb>11111111111</CardNb></PmtInstrm></SchCrit></InfReqRspn></Document>`)
+	assert.Equal(t,
+		`<DocumentAuth00200101><InfReqRspn><RspnId>RspnId</RspnId><InvstgtnId>InvstgtnId</InvstgtnId><RspnSts>PART</RspnSts><SchCrit><Acct><Id><Id><IBAN>AA000130</IBAN><Othr><Id>Id</Id></Othr></Id></Id><InvstgtdPties><Cd>OWNE</Cd><Prtry>Prtry</Prtry></InvstgtdPties></Acct><CstmrId><Pty></Pty></CstmrId><PmtInstrm><CardNb>11111111111</CardNb></PmtInstrm></SchCrit></InfReqRspn></DocumentAuth00200101>`,
+		string(buf))
 }
 
 func TestDocumentAuth003001V01(t *testing.T) {
@@ -122,7 +128,6 @@ func TestDocumentAuth003001V01(t *testing.T) {
 	assert.NotNil(t, err)
 
 	sample = DocumentAuth00300101{
-		Xmlns: sample.NameSpace(),
 		InfReqStsChngNtfctn: InformationRequestStatusChangeNotificationV01{
 			OrgnlBizQry: "OrgnlBizQry",
 		},
@@ -133,11 +138,15 @@ func TestDocumentAuth003001V01(t *testing.T) {
 
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `{"Xmlns":"urn:iso:std:iso:20022:tech:xsd:auth.003.001.01","InfReqStsChngNtfctn":{"OrgnlBizQry":"OrgnlBizQry","CnfdtltySts":false}}`)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"InfReqStsChngNtfctn":{"OrgnlBizQry":"OrgnlBizQry","CnfdtltySts":false}}`,
+		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
-	assert.Equal(t, string(buf), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.003.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><InfReqStsChngNtfctn><OrgnlBizQry>OrgnlBizQry</OrgnlBizQry><CnfdtltySts>false</CnfdtltySts></InfReqStsChngNtfctn></Document>`)
+	assert.Equal(t,
+		`<DocumentAuth00300101><InfReqStsChngNtfctn><OrgnlBizQry>OrgnlBizQry</OrgnlBizQry><CnfdtltySts>false</CnfdtltySts></InfReqStsChngNtfctn></DocumentAuth00300101>`,
+		string(buf))
 }
 
 func TestNestedTypes(t *testing.T) {

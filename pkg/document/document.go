@@ -203,12 +203,10 @@ var availableDocuments = map[string]Iso20022Document{
 	utils.DocumentRemt00100104NameSpace: &remt_v04.DocumentRemt00100104{},
 }
 
-type documentXmlDummy struct {
-	Xmlns string      `xml:"xmlns,attr"`
-	Other interface{} `xml:",any"`
+type documentDummy struct {
+	XMLName xml.Name
+	Attrs   []utils.Attr `xml:",any,attr,omitempty" json:",omitempty"`
 }
-
-type documentJsonDummy map[string]interface{}
 
 // ParseIso20022Document will return a interface of ISO 20022 document after pass buffer
 func ParseIso20022Document(buf []byte) (doc Iso20022Document, err error) {
@@ -219,34 +217,41 @@ func ParseIso20022Document(buf []byte) (doc Iso20022Document, err error) {
 
 	var exit bool
 
+	var dummy documentDummy
 	if bType == utils.DocumentTypeJson {
-		var jsonDoc documentJsonDummy
+		err = json.Unmarshal(buf, &dummy)
+	} else if bType == utils.DocumentTypeXml {
+		err = xml.Unmarshal(buf, &dummy)
+	}
+	if err != nil {
+		return nil, err
+	}
 
-		json.Unmarshal(buf, &jsonDoc)
-		if jsonDoc["Xmlns"] == nil {
-			return nil, utils.NewErrOmittedNameSpace()
+	var namespace string
+	if len(dummy.XMLName.Space) > 0 {
+		namespace = dummy.XMLName.Space
+	}
+
+	if len(namespace) == 0 {
+		for _, attr := range dummy.Attrs {
+			if attr.Name.Local == utils.XmlDefaultNamespace {
+				namespace = attr.Value
+			}
 		}
+	}
 
-		ns := jsonDoc["Xmlns"].(string)
-		doc, exit = availableDocuments[ns]
-		if !exit {
-			return nil, utils.NewErrUnsupportedNameSpace()
-		}
+	if namespace == "" {
+		return nil, utils.NewErrOmittedNameSpace()
+	}
 
+	doc, exit = availableDocuments[namespace]
+	if !exit {
+		return nil, utils.NewErrUnsupportedNameSpace()
+	}
+
+	if bType == utils.DocumentTypeJson {
 		err = json.Unmarshal(buf, doc)
 	} else if bType == utils.DocumentTypeXml {
-		var xmlDoc documentXmlDummy
-
-		xml.Unmarshal(buf, &xmlDoc)
-		if len(xmlDoc.Xmlns) == 0 {
-			return nil, utils.NewErrOmittedNameSpace()
-		}
-
-		doc, exit = availableDocuments[xmlDoc.Xmlns]
-		if !exit {
-			return nil, utils.NewErrUnsupportedNameSpace()
-		}
-
 		err = xml.Unmarshal(buf, doc)
 	}
 

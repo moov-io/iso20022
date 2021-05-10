@@ -11,15 +11,16 @@ import (
 )
 
 type DocumentCamt10100101 struct {
-	XMLName                 *xml.Name      `json:",omitempty"`
-	Xmlns                   string         `xml:"xmlns,attr,omitempty" json:",omitempty"`
-	DisableDefaultNamespace bool           `xml:",omitempty" json:",omitempty"`
-	CretLmt                 CreateLimitV01 `xml:"CretLmt"`
+	XMLName xml.Name
+	Attrs   []utils.Attr   `xml:",any,attr,omitempty" json:",omitempty"`
+	CretLmt CreateLimitV01 `xml:"CretLmt"`
 }
 
 func (doc DocumentCamt10100101) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -29,24 +30,33 @@ func (doc DocumentCamt10100101) NameSpace() string {
 }
 
 func (doc DocumentCamt10100101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		CretLmt CreateLimitV01 `xml:"CretLmt"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.CretLmt = doc.CretLmt
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName xml.Name
+		Attrs   []utils.Attr   `xml:",any,attr,omitempty" json:",omitempty"`
+		CretLmt CreateLimitV01 `xml:"CretLmt"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }
 
 type DocumentCamt10200101 struct {
-	XMLName                 *xml.Name              `json:",omitempty"`
-	Xmlns                   string                 `xml:"xmlns,attr,omitempty" json:",omitempty"`
-	DisableDefaultNamespace bool                   `xml:",omitempty" json:",omitempty"`
-	CretStgOrdr             CreateStandingOrderV01 `xml:"CretStgOrdr"`
+	XMLName     xml.Name
+	Attrs       []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
+	CretStgOrdr CreateStandingOrderV01 `xml:"CretStgOrdr"`
 }
 
 func (doc DocumentCamt10200101) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -56,24 +66,33 @@ func (doc DocumentCamt10200101) NameSpace() string {
 }
 
 func (doc DocumentCamt10200101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		CretStgOrdr CreateStandingOrderV01 `xml:"CretStgOrdr"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.CretStgOrdr = doc.CretStgOrdr
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName     xml.Name
+		Attrs       []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
+		CretStgOrdr CreateStandingOrderV01 `xml:"CretStgOrdr"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }
 
 type DocumentCamt10300101 struct {
-	XMLName                 *xml.Name            `json:",omitempty"`
-	Xmlns                   string               `xml:"xmlns,attr,omitempty" json:",omitempty"`
-	DisableDefaultNamespace bool                 `xml:",omitempty" json:",omitempty"`
-	CretRsvatn              CreateReservationV01 `xml:"CretRsvatn"`
+	XMLName    xml.Name
+	Attrs      []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+	CretRsvatn CreateReservationV01 `xml:"CretRsvatn"`
 }
 
 func (doc DocumentCamt10300101) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -83,24 +102,33 @@ func (doc DocumentCamt10300101) NameSpace() string {
 }
 
 func (doc DocumentCamt10300101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		CretRsvatn CreateReservationV01 `xml:"CretRsvatn"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.CretRsvatn = doc.CretRsvatn
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName    xml.Name
+		Attrs      []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+		CretRsvatn CreateReservationV01 `xml:"CretRsvatn"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }
 
 type DocumentCamt10400101 struct {
-	XMLName                 *xml.Name       `json:",omitempty"`
-	Xmlns                   string          `xml:"xmlns,attr,omitempty" json:",omitempty"`
-	DisableDefaultNamespace bool            `xml:",omitempty" json:",omitempty"`
-	CretMmb                 CreateMemberV01 `xml:"CretMmb"`
+	XMLName xml.Name
+	Attrs   []utils.Attr    `xml:",any,attr,omitempty" json:",omitempty"`
+	CretMmb CreateMemberV01 `xml:"CretMmb"`
 }
 
 func (doc DocumentCamt10400101) Validate() error {
-	if doc.NameSpace() != doc.Xmlns {
-		return utils.NewErrInvalidNameSpace()
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
+			return utils.NewErrInvalidNameSpace()
+		}
 	}
 	return utils.Validate(&doc)
 }
@@ -110,10 +138,18 @@ func (doc DocumentCamt10400101) NameSpace() string {
 }
 
 func (doc DocumentCamt10400101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	var output struct {
-		CretMmb CreateMemberV01 `xml:"CretMmb"`
+	for _, attr := range doc.Attrs {
+		if attr.Name.Local == utils.XmlDefaultNamespace {
+			doc.XMLName.Space = ""
+		}
 	}
-	output.CretMmb = doc.CretMmb
-	utils.BaseXmlElement(&start, doc.XMLName, doc.NameSpace(), doc.DisableDefaultNamespace)
-	return e.EncodeElement(&output, start)
+	α := struct {
+		XMLName xml.Name
+		Attrs   []utils.Attr    `xml:",any,attr,omitempty" json:",omitempty"`
+		CretMmb CreateMemberV01 `xml:"CretMmb"`
+	}(doc)
+	if len(doc.XMLName.Local) > 0 {
+		start.Name = doc.XMLName
+	}
+	return e.EncodeElement(&α, start)
 }
