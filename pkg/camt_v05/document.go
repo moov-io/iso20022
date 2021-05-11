@@ -41,7 +41,7 @@ func (doc DocumentCamt01800105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		GetBizDayInf GetBusinessDayInformationV05 `xml:"GetBizDayInf"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -77,7 +77,7 @@ func (doc DocumentCamt02500105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		Rct     ReceiptV05   `xml:"Rct"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -113,7 +113,7 @@ func (doc DocumentCamt02600105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		UblToApply UnableToApplyV05 `xml:"UblToApply"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -149,7 +149,7 @@ func (doc DocumentCamt02800105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AddtlPmtInf AdditionalPaymentInformationV05 `xml:"AddtlPmtInf"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -185,7 +185,7 @@ func (doc DocumentCamt03000105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		NtfctnOfCaseAssgnmt NotificationOfCaseAssignmentV05 `xml:"NtfctnOfCaseAssgnmt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -221,7 +221,7 @@ func (doc DocumentCamt03500105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		PrtryFrmtInvstgtn ProprietaryFormatInvestigationV05 `xml:"PrtryFrmtInvstgtn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -257,7 +257,7 @@ func (doc DocumentCamt03600105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		DbtAuthstnRspn DebitAuthorisationResponseV05 `xml:"DbtAuthstnRspn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -293,7 +293,7 @@ func (doc DocumentCamt03900105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CaseStsRpt CaseStatusReportV05 `xml:"CaseStsRpt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -329,7 +329,7 @@ func (doc DocumentCamt04600105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		GetRsvatn GetReservationV05 `xml:"GetRsvatn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -365,7 +365,7 @@ func (doc DocumentCamt04800105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		ModfyRsvatn ModifyReservationV05 `xml:"ModfyRsvatn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -401,7 +401,7 @@ func (doc DocumentCamt04900105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		DelRsvatn DeleteReservationV05 `xml:"DelRsvatn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -437,7 +437,7 @@ func (doc DocumentCamt05000105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		LqdtyCdtTrf LiquidityCreditTransferV05 `xml:"LqdtyCdtTrf"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -473,7 +473,7 @@ func (doc DocumentCamt05100105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		LqdtyDbtTrf LiquidityDebitTransferV05 `xml:"LqdtyDbtTrf"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -509,7 +509,7 @@ func (doc DocumentCamt05600105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		FIToFIPmtCxlReq FIToFIPaymentCancellationRequestV05 `xml:"FIToFIPmtCxlReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -545,7 +545,7 @@ func (doc DocumentCamt06000105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctRptgReq AccountReportingRequestV05 `xml:"AcctRptgReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }

@@ -18,7 +18,6 @@ func TestBusinessApplicationHeaderV02(t *testing.T) {
 
 	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
 	sample = BusinessApplicationHeaderV02{
-		Xmlns:     sample.NameSpace(),
 		BizMsgIdr: "BizMsgIdr",
 		MsgDefIdr: "MsgDefIdr",
 		CreDt:     common.ISODateTime(testTime),
@@ -29,13 +28,13 @@ func TestBusinessApplicationHeaderV02(t *testing.T) {
 	buf, err := json.Marshal(&sample)
 	assert.Nil(t, err)
 	assert.Equal(t,
-		`{"XMLName":{"Space":"","Local":""},"Xmlns":"urn:iso:std:iso:20022:tech:xsd:head.001.001.02","Fr":{"OrgId":{},"FIId":{"FinInstnId":{}}},"To":{"OrgId":{},"FIId":{"FinInstnId":{}}},"BizMsgIdr":"BizMsgIdr","MsgDefIdr":"MsgDefIdr","CreDt":"2014-11-12T11:45:26.371"}`,
+		`{"XMLName":{"Space":"","Local":""},"Fr":{"OrgId":{},"FIId":{"FinInstnId":{}}},"To":{"OrgId":{},"FIId":{"FinInstnId":{}}},"BizMsgIdr":"BizMsgIdr","MsgDefIdr":"MsgDefIdr","CreDt":"2014-11-12T11:45:26.371"}`,
 		string(buf))
 
 	buf, err = xml.Marshal(&sample)
 	assert.Nil(t, err)
 	assert.Equal(t,
-		`<BusinessApplicationHeaderV02 xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02"><Fr><OrgId></OrgId><FIId><FinInstnId></FinInstnId></FIId></Fr><To><OrgId></OrgId><FIId><FinInstnId></FinInstnId></FIId></To><BizMsgIdr>BizMsgIdr</BizMsgIdr><MsgDefIdr>MsgDefIdr</MsgDefIdr><CreDt>2014-11-12T11:45:26.371</CreDt></BusinessApplicationHeaderV02>`,
+		`<BusinessApplicationHeaderV02><Fr><OrgId></OrgId><FIId><FinInstnId></FinInstnId></FIId></Fr><To><OrgId></OrgId><FIId><FinInstnId></FinInstnId></FIId></To><BizMsgIdr>BizMsgIdr</BizMsgIdr><MsgDefIdr>MsgDefIdr</MsgDefIdr><CreDt>2014-11-12T11:45:26.371</CreDt></BusinessApplicationHeaderV02>`,
 		string(buf))
 }
 

@@ -1273,3 +1273,123 @@ type ReversalReason4Choice struct {
 func (r ReversalReason4Choice) Validate() error {
 	return utils.Validate(&r)
 }
+
+type FIToFIPaymentStatusReportV10 struct {
+	Attr              []utils.Attr            `xml:",any,attr,omitempty" json:",omitempty"`
+	GrpHdr            GroupHeader91           `xml:"GrpHdr"`
+	OrgnlGrpInfAndSts []OriginalGroupHeader17 `xml:"OrgnlGrpInfAndSts,omitempty" json:",omitempty"`
+	TxInfAndSts       []PaymentTransaction110 `xml:"TxInfAndSts,omitempty" json:",omitempty"`
+	SplmtryData       []SupplementaryData1    `xml:"SplmtryData,omitempty" json:",omitempty"`
+}
+
+func (r FIToFIPaymentStatusReportV10) Validate() error {
+	return utils.Validate(&r)
+}
+
+type GroupHeader91 struct {
+	MsgId    common.Max35Text                              `xml:"MsgId"`
+	CreDtTm  common.ISODateTime                            `xml:"CreDtTm"`
+	InstgAgt *BranchAndFinancialInstitutionIdentification6 `xml:"InstgAgt,omitempty" json:",omitempty"`
+	InstdAgt *BranchAndFinancialInstitutionIdentification6 `xml:"InstdAgt,omitempty" json:",omitempty"`
+}
+
+func (r GroupHeader91) Validate() error {
+	return utils.Validate(&r)
+}
+
+type OriginalGroupHeader17 struct {
+	OrgnlMsgId    common.Max35Text                 `xml:"OrgnlMsgId"`
+	OrgnlMsgNmId  common.Max35Text                 `xml:"OrgnlMsgNmId"`
+	OrgnlCreDtTm  *common.ISODateTime              `xml:"OrgnlCreDtTm,omitempty" json:",omitempty"`
+	OrgnlNbOfTxs  *common.Max15NumericText         `xml:"OrgnlNbOfTxs,omitempty" json:",omitempty"`
+	OrgnlCtrlSum  float64                          `xml:"OrgnlCtrlSum,omitempty" json:",omitempty"`
+	GrpSts        *ExternalPaymentGroupStatus1Code `xml:"GrpSts,omitempty" json:",omitempty"`
+	StsRsnInf     []StatusReasonInformation12      `xml:"StsRsnInf,omitempty" json:",omitempty"`
+	NbOfTxsPerSts []NumberOfTransactionsPerStatus5 `xml:"NbOfTxsPerSts,omitempty" json:",omitempty"`
+}
+
+func (r OriginalGroupHeader17) Validate() error {
+	return utils.Validate(&r)
+}
+
+type PaymentTransaction110 struct {
+	StsId             *common.Max35Text                             `xml:"StsId,omitempty" json:",omitempty"`
+	OrgnlGrpInf       *OriginalGroupInformation29                   `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
+	OrgnlInstrId      *common.Max35Text                             `xml:"OrgnlInstrId,omitempty" json:",omitempty"`
+	OrgnlEndToEndId   *common.Max35Text                             `xml:"OrgnlEndToEndId,omitempty" json:",omitempty"`
+	OrgnlTxId         *common.Max35Text                             `xml:"OrgnlTxId,omitempty" json:",omitempty"`
+	OrgnlUETR         *common.UUIDv4Identifier                      `xml:"OrgnlUETR,omitempty" json:",omitempty"`
+	TxSts             *ExternalPaymentTransactionStatus1Code        `xml:"TxSts,omitempty" json:",omitempty"`
+	StsRsnInf         []StatusReasonInformation12                   `xml:"StsRsnInf,omitempty" json:",omitempty"`
+	ChrgsInf          []Charges7                                    `xml:"ChrgsInf,omitempty" json:",omitempty"`
+	AccptncDtTm       *common.ISODateTime                           `xml:"AccptncDtTm,omitempty" json:",omitempty"`
+	FctvIntrBkSttlmDt *DateAndDateTime2Choice                       `xml:"FctvIntrBkSttlmDt,omitempty" json:",omitempty"`
+	AcctSvcrRef       *common.Max35Text                             `xml:"AcctSvcrRef,omitempty" json:",omitempty"`
+	ClrSysRef         *common.Max35Text                             `xml:"ClrSysRef,omitempty" json:",omitempty"`
+	InstgAgt          *BranchAndFinancialInstitutionIdentification6 `xml:"InstgAgt,omitempty" json:",omitempty"`
+	InstdAgt          *BranchAndFinancialInstitutionIdentification6 `xml:"InstdAgt,omitempty" json:",omitempty"`
+	OrgnlTxRef        *OriginalTransactionReference28               `xml:"OrgnlTxRef,omitempty" json:",omitempty"`
+	SplmtryData       []SupplementaryData1                          `xml:"SplmtryData,omitempty" json:",omitempty"`
+}
+
+func (r PaymentTransaction110) Validate() error {
+	return utils.Validate(&r)
+}
+
+type StatusReasonInformation12 struct {
+	Orgtr    *PartyIdentification135 `xml:"Orgtr,omitempty" json:",omitempty"`
+	Rsn      *StatusReason6Choice    `xml:"Rsn,omitempty" json:",omitempty"`
+	AddtlInf []common.Max105Text     `xml:"AddtlInf,omitempty" json:",omitempty"`
+}
+
+func (r StatusReasonInformation12) Validate() error {
+	return utils.Validate(&r)
+}
+
+type StatusReason6Choice struct {
+	Cd    ExternalStatusReason1Code `xml:"Cd"`
+	Prtry common.Max35Text          `xml:"Prtry"`
+}
+
+func (r StatusReason6Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
+type OriginalTransactionReference28 struct {
+	IntrBkSttlmAmt *ActiveOrHistoricCurrencyAndAmount            `xml:"IntrBkSttlmAmt,omitempty" json:",omitempty"`
+	Amt            *AmountType4Choice                            `xml:"Amt,omitempty" json:",omitempty"`
+	IntrBkSttlmDt  *common.ISODate                               `xml:"IntrBkSttlmDt,omitempty" json:",omitempty"`
+	ReqdColltnDt   *common.ISODate                               `xml:"ReqdColltnDt,omitempty" json:",omitempty"`
+	ReqdExctnDt    *DateAndDateTime2Choice                       `xml:"ReqdExctnDt,omitempty" json:",omitempty"`
+	CdtrSchmeId    *PartyIdentification135                       `xml:"CdtrSchmeId,omitempty" json:",omitempty"`
+	SttlmInf       *SettlementInstruction7                       `xml:"SttlmInf,omitempty" json:",omitempty"`
+	PmtTpInf       *PaymentTypeInformation27                     `xml:"PmtTpInf,omitempty" json:",omitempty"`
+	PmtMtd         *PaymentMethod4Code                           `xml:"PmtMtd,omitempty" json:",omitempty"`
+	MndtRltdInf    *MandateRelatedInformation14                  `xml:"MndtRltdInf,omitempty" json:",omitempty"`
+	RmtInf         *RemittanceInformation16                      `xml:"RmtInf,omitempty" json:",omitempty"`
+	UltmtDbtr      *Party40Choice                                `xml:"UltmtDbtr,omitempty" json:",omitempty"`
+	Dbtr           *Party40Choice                                `xml:"Dbtr,omitempty" json:",omitempty"`
+	DbtrAcct       *CashAccount38                                `xml:"DbtrAcct,omitempty" json:",omitempty"`
+	DbtrAgt        *BranchAndFinancialInstitutionIdentification6 `xml:"DbtrAgt,omitempty" json:",omitempty"`
+	DbtrAgtAcct    *CashAccount38                                `xml:"DbtrAgtAcct,omitempty" json:",omitempty"`
+	CdtrAgt        *BranchAndFinancialInstitutionIdentification6 `xml:"CdtrAgt,omitempty" json:",omitempty"`
+	CdtrAgtAcct    *CashAccount38                                `xml:"CdtrAgtAcct,omitempty" json:",omitempty"`
+	Cdtr           *Party40Choice                                `xml:"Cdtr,omitempty" json:",omitempty"`
+	CdtrAcct       *CashAccount38                                `xml:"CdtrAcct,omitempty" json:",omitempty"`
+	UltmtCdtr      *Party40Choice                                `xml:"UltmtCdtr,omitempty" json:",omitempty"`
+	Purp           *Purpose2Choice                               `xml:"Purp,omitempty" json:",omitempty"`
+}
+
+func (r OriginalTransactionReference28) Validate() error {
+	return utils.Validate(&r)
+}
+
+type NumberOfTransactionsPerStatus5 struct {
+	DtldNbOfTxs common.Max15NumericText               `xml:"DtldNbOfTxs"`
+	DtldSts     ExternalPaymentTransactionStatus1Code `xml:"DtldSts"`
+	DtldCtrlSum float64                               `xml:"DtldCtrlSum,omitempty" json:",omitempty"`
+}
+
+func (r NumberOfTransactionsPerStatus5) Validate() error {
+	return utils.Validate(&r)
+}

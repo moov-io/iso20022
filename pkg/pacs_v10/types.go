@@ -391,3 +391,33 @@ func (r TaxRecordPeriod1Code) Validate() error {
 	}
 	return utils.NewErrValueInvalid("TaxRecordPeriod1Code")
 }
+
+// Must be at least 1 items long
+type ExternalStatusReason1Code string
+
+func (r ExternalStatusReason1Code) Validate() error {
+	if len(string(r)) < 1 {
+		return utils.NewErrTextLengthInvalid("ExternalStatusReason1Code", 1, 0)
+	}
+	return nil
+}
+
+// Must be at least 1 items long
+type ExternalPaymentTransactionStatus1Code string
+
+func (r ExternalPaymentTransactionStatus1Code) Validate() error {
+	if len(string(r)) < 1 {
+		return utils.NewErrTextLengthInvalid("ExternalPaymentTransactionStatus1Code", 1, 0)
+	}
+	return nil
+}
+
+// Must be at least 1 items long
+type ExternalPaymentGroupStatus1Code string
+
+func (r ExternalPaymentGroupStatus1Code) Validate() error {
+	if len(string(r)) < 1 {
+		return utils.NewErrTextLengthInvalid("ExternalPaymentGroupStatus1Code", 1, 0)
+	}
+	return nil
+}

@@ -41,7 +41,7 @@ func (doc DocumentCamt03500103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		PrtryFrmtInvstgtn ProprietaryFormatInvestigationV03 `xml:"PrtryFrmtInvstgtn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -77,7 +77,7 @@ func (doc DocumentCamt06900103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		GetStgOrdr GetStandingOrderV03 `xml:"GetStgOrdr"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -113,7 +113,7 @@ func (doc DocumentCamt07100103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		DelStgOrdr DeleteStandingOrderV03 `xml:"DelStgOrdr"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -149,7 +149,7 @@ func (doc DocumentCamt08600103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		BkSvcsBllgStmt BankServicesBillingStatementV03 `xml:"BkSvcsBllgStmt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }

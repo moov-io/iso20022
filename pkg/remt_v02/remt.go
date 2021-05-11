@@ -356,6 +356,10 @@ type AccountSchemeName1Choice struct {
 	Prtry common.Max35Text                   `xml:"Prtry"`
 }
 
+func (r AccountSchemeName1Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
 type TaxRecordDetails1 struct {
 	Prd *TaxPeriod1                       `xml:"Prd,omitempty" json:",omitempty"`
 	Amt ActiveOrHistoricCurrencyAndAmount `xml:"Amt"`
@@ -782,7 +786,7 @@ func (r ReferredDocumentType4) Validate() error {
 type RemittanceAdviceV02 struct {
 	Attr        []utils.Attr              `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader62             `xml:"GrpHdr"`
-	RmtInf      []RemittanceInformation12 `xml:"RmtInf"`
+	RmtInf      []RemittanceInformation12 `xml:"RmtInf" json:",omitempty"`
 	SplmtryData []SupplementaryData1      `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 

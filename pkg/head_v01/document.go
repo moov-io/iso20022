@@ -63,7 +63,7 @@ func (doc BusinessApplicationHeaderV01) MarshalXML(e *xml.Encoder, start xml.Sta
 		Rltd       *BusinessApplicationHeader1  `xml:"Rltd,omitempty" json:",omitempty"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }

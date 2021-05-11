@@ -59,8 +59,8 @@ func TestFuzzWithInValidData(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if ret := Fuzz(byteData); ret != 0 {
-		t.Errorf("Expected value is 0 (got %v)", ret)
+	if ret := Fuzz(byteData); ret != -1 {
+		t.Errorf("Expected value is -1 (got %v)", ret)
 	}
 }
 

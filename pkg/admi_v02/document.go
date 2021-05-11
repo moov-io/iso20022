@@ -41,7 +41,7 @@ func (doc DocumentAdmi00400102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		SysEvtNtfctn SystemEventNotificationV02 `xml:"SysEvtNtfctn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -77,7 +77,7 @@ func (doc DocumentAdmi00900102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		StatcDataReq StaticDataRequestV02 `xml:"StatcDataReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -113,7 +113,7 @@ func (doc DocumentAdmi01000102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		StatcDataRpt StaticDataReportV02 `xml:"StatcDataRpt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }

@@ -41,7 +41,7 @@ func (doc DocumentAuth00100101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		InfReqOpng InformationRequestOpeningV01 `xml:"InfReqOpng"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -77,7 +77,7 @@ func (doc DocumentAuth00200101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		InfReqRspn InformationRequestResponseV01 `xml:"InfReqRspn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -113,7 +113,7 @@ func (doc DocumentAuth00300101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		InfReqStsChngNtfctn InformationRequestStatusChangeNotificationV01 `xml:"InfReqStsChngNtfctn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }

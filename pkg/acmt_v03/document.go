@@ -41,7 +41,7 @@ func (doc DocumentAcmt00700103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctOpngReq AccountOpeningRequestV03 `xml:"AcctOpngReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -77,7 +77,7 @@ func (doc DocumentAcmt00800103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctOpngAmdmntReq AccountOpeningAmendmentRequestV03 `xml:"AcctOpngAmdmntReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -113,7 +113,7 @@ func (doc DocumentAcmt00900103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctOpngAddtlInfReq AccountOpeningAdditionalInformationRequestV03 `xml:"AcctOpngAddtlInfReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -149,7 +149,7 @@ func (doc DocumentAcmt01000103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctReqAck AccountRequestAcknowledgementV03 `xml:"AcctReqAck"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -185,7 +185,7 @@ func (doc DocumentAcmt01100103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctReqRjctn AccountRequestRejectionV03 `xml:"AcctReqRjctn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -221,7 +221,7 @@ func (doc DocumentAcmt01200103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctAddtlInfReq AccountAdditionalInformationRequestV03 `xml:"AcctAddtlInfReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -257,7 +257,7 @@ func (doc DocumentAcmt01300103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctRptReq AccountReportRequestV03 `xml:"AcctRptReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -293,7 +293,7 @@ func (doc DocumentAcmt01400103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctRpt AccountReportV03 `xml:"AcctRpt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -329,7 +329,7 @@ func (doc DocumentAcmt01500103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctExcldMndtMntncReq AccountExcludedMandateMaintenanceRequestV03 `xml:"AcctExcldMndtMntncReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -365,7 +365,7 @@ func (doc DocumentAcmt01600103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctExcldMndtMntncAmdmntReq AccountExcludedMandateMaintenanceAmendmentRequestV03 `xml:"AcctExcldMndtMntncAmdmntReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -401,7 +401,7 @@ func (doc DocumentAcmt01700103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctMndtMntncReq AccountMandateMaintenanceRequestV03 `xml:"AcctMndtMntncReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -437,7 +437,7 @@ func (doc DocumentAcmt01800103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctMndtMntncAmdmntReq AccountMandateMaintenanceAmendmentRequestV03 `xml:"AcctMndtMntncAmdmntReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -473,7 +473,7 @@ func (doc DocumentAcmt01900103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctClsgReq AccountClosingRequestV03 `xml:"AcctClsgReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -509,7 +509,7 @@ func (doc DocumentAcmt02000103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctClsgAmdmntReq AccountClosingAmendmentRequestV03 `xml:"AcctClsgAmdmntReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -545,7 +545,7 @@ func (doc DocumentAcmt02100103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctClsgAddtlInfReq AccountClosingAdditionalInformationRequestV03 `xml:"AcctClsgAddtlInfReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -581,7 +581,7 @@ func (doc DocumentAcmt02700103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctSwtchInfReq AccountSwitchInformationRequestV03 `xml:"AcctSwtchInfReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -617,7 +617,7 @@ func (doc DocumentAcmt02800103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctSwtchInfRspn AccountSwitchInformationResponseV03 `xml:"AcctSwtchInfRspn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -653,7 +653,7 @@ func (doc DocumentAcmt02900103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctSwtchCclExstgPmt AccountSwitchCancelExistingPaymentV03 `xml:"AcctSwtchCclExstgPmt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -689,7 +689,7 @@ func (doc DocumentAcmt03100103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctSwtchReqBalTrf AccountSwitchRequestBalanceTransferV03 `xml:"AcctSwtchReqBalTrf"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -725,7 +725,7 @@ func (doc DocumentAcmt03200103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctSwtchBalTrfAck AccountSwitchBalanceTransferAcknowledgementV03 `xml:"AcctSwtchBalTrfAck"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -761,7 +761,7 @@ func (doc DocumentAcmt03400103) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctSwtchReqPmt AccountSwitchRequestPaymentV03 `xml:"AcctSwtchReqPmt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }

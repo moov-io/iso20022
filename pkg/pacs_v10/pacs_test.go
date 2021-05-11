@@ -15,6 +15,36 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestDocumentPacs00200110(t *testing.T) {
+	sample := DocumentPacs00200110{}
+	err := sample.Validate()
+	assert.NotNil(t, err)
+
+	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
+	sample = DocumentPacs00200110{
+		FIToFIPmtStsRpt: FIToFIPaymentStatusReportV10{
+			GrpHdr: GroupHeader91{
+				MsgId:   "MsgId",
+				CreDtTm: common.ISODateTime(testTime),
+			},
+		},
+	}
+	err = sample.Validate()
+	assert.Nil(t, err)
+
+	buf, err := json.Marshal(&sample)
+	assert.Nil(t, err)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"FIToFIPmtStsRpt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"}}}`,
+		string(buf))
+
+	buf, err = xml.Marshal(&sample)
+	assert.Nil(t, err)
+	assert.Equal(t,
+		`<DocumentPacs00200110><FIToFIPmtStsRpt><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></FIToFIPmtStsRpt></DocumentPacs00200110>`,
+		string(buf))
+}
+
 func TestDocumentPacs00400110(t *testing.T) {
 	sample := DocumentPacs00400110{}
 	err := sample.Validate()
@@ -191,6 +221,13 @@ func TestNestedTypes(t *testing.T) {
 	assert.Nil(t, PaymentReversalReason9{}.Validate())
 	assert.NotNil(t, PaymentTransaction119{}.Validate())
 	assert.NotNil(t, ReversalReason4Choice{}.Validate())
+	assert.NotNil(t, GroupHeader91{}.Validate())
+	assert.NotNil(t, OriginalGroupHeader17{}.Validate())
+	assert.Nil(t, PaymentTransaction110{}.Validate())
+	assert.Nil(t, StatusReasonInformation12{}.Validate())
+	assert.NotNil(t, StatusReason6Choice{}.Validate())
+	assert.Nil(t, OriginalTransactionReference28{}.Validate())
+	assert.NotNil(t, NumberOfTransactionsPerStatus5{}.Validate())
 }
 
 func TestTypes(t *testing.T) {
@@ -384,4 +421,19 @@ func TestTypes(t *testing.T) {
 	assert.NotNil(t, type33.Validate())
 	type33 = "test"
 	assert.Nil(t, type33.Validate())
+
+	var type34 ExternalStatusReason1Code
+	assert.NotNil(t, type34.Validate())
+	type34 = "test"
+	assert.Nil(t, type34.Validate())
+
+	var type35 ExternalPaymentTransactionStatus1Code
+	assert.NotNil(t, type35.Validate())
+	type35 = "test"
+	assert.Nil(t, type35.Validate())
+
+	var type36 ExternalPaymentGroupStatus1Code
+	assert.NotNil(t, type36.Validate())
+	type36 = "test"
+	assert.Nil(t, type36.Validate())
 }

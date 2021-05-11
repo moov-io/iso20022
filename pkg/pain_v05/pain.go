@@ -794,7 +794,7 @@ func (r CreditTransferTransaction22) Validate() error {
 type CreditorPaymentActivationRequestV05 struct {
 	Attr        []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr      GroupHeader45          `xml:"GrpHdr"`
-	PmtInf      []PaymentInstruction19 `xml:"PmtInf"`
+	PmtInf      []PaymentInstruction19 `xml:"PmtInf" json:",omitempty"`
 	SplmtryData []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
@@ -1278,12 +1278,20 @@ type Charges2 struct {
 	Agt BranchAndFinancialInstitutionIdentification5 `xml:"Agt"`
 }
 
+func (r Charges2) Validate() error {
+	return utils.Validate(&r)
+}
+
 type CreditorPaymentActivationRequestStatusReportV05 struct {
 	Attr              []utils.Attr                   `xml:",any,attr,omitempty" json:",omitempty"`
 	GrpHdr            GroupHeader46                  `xml:"GrpHdr"`
 	OrgnlGrpInfAndSts OriginalGroupInformation25     `xml:"OrgnlGrpInfAndSts"`
 	OrgnlPmtInfAndSts []OriginalPaymentInstruction19 `xml:"OrgnlPmtInfAndSts,omitempty" json:",omitempty"`
 	SplmtryData       []SupplementaryData1           `xml:"SplmtryData,omitempty" json:",omitempty"`
+}
+
+func (r CreditorPaymentActivationRequestStatusReportV05) Validate() error {
+	return utils.Validate(&r)
 }
 
 type GroupHeader46 struct {
@@ -1294,10 +1302,18 @@ type GroupHeader46 struct {
 	CdtrAgt  *BranchAndFinancialInstitutionIdentification5 `xml:"CdtrAgt,omitempty" json:",omitempty"`
 }
 
+func (r GroupHeader46) Validate() error {
+	return utils.Validate(&r)
+}
+
 type NumberOfTransactionsPerStatus3 struct {
 	DtldNbOfTxs common.Max15NumericText          `xml:"DtldNbOfTxs"`
 	DtldSts     TransactionIndividualStatus3Code `xml:"DtldSts"`
 	DtldCtrlSum float64                          `xml:"DtldCtrlSum,omitempty" json:",omitempty"`
+}
+
+func (r NumberOfTransactionsPerStatus3) Validate() error {
+	return utils.Validate(&r)
 }
 
 type OriginalGroupInformation25 struct {
@@ -1311,6 +1327,10 @@ type OriginalGroupInformation25 struct {
 	NbOfTxsPerSts []NumberOfTransactionsPerStatus3 `xml:"NbOfTxsPerSts,omitempty" json:",omitempty"`
 }
 
+func (r OriginalGroupInformation25) Validate() error {
+	return utils.Validate(&r)
+}
+
 type OriginalPaymentInstruction19 struct {
 	OrgnlPmtInfId *common.Max35Text                `xml:"OrgnlPmtInfId"`
 	OrgnlNbOfTxs  *common.Max15NumericText         `xml:"OrgnlNbOfTxs,omitempty" json:",omitempty"`
@@ -1319,6 +1339,10 @@ type OriginalPaymentInstruction19 struct {
 	StsRsnInf     []StatusReasonInformation9       `xml:"StsRsnInf,omitempty" json:",omitempty"`
 	NbOfTxsPerSts []NumberOfTransactionsPerStatus3 `xml:"NbOfTxsPerSts,omitempty" json:",omitempty"`
 	TxInfAndSts   []PaymentTransaction69           `xml:"TxInfAndSts,omitempty" json:",omitempty"`
+}
+
+func (r OriginalPaymentInstruction19) Validate() error {
+	return utils.Validate(&r)
 }
 
 type OriginalTransactionReference23 struct {
@@ -1337,6 +1361,10 @@ type OriginalTransactionReference23 struct {
 	UltmtCdtr   *PartyIdentification43                        `xml:"UltmtCdtr,omitempty" json:",omitempty"`
 }
 
+func (r OriginalTransactionReference23) Validate() error {
+	return utils.Validate(&r)
+}
+
 type PaymentTransaction69 struct {
 	StsId           *common.Max35Text                 `xml:"StsId,omitempty" json:",omitempty"`
 	OrgnlInstrId    *common.Max35Text                 `xml:"OrgnlInstrId,omitempty" json:",omitempty"`
@@ -1351,13 +1379,25 @@ type PaymentTransaction69 struct {
 	SplmtryData     []SupplementaryData1              `xml:"SplmtryData,omitempty" json:",omitempty"`
 }
 
+func (r PaymentTransaction69) Validate() error {
+	return utils.Validate(&r)
+}
+
 type StatusReason6Choice struct {
 	Cd    ExternalStatusReason1Code `xml:"Cd"`
 	Prtry common.Max35Text          `xml:"Prtry"`
+}
+
+func (r StatusReason6Choice) Validate() error {
+	return utils.Validate(&r)
 }
 
 type StatusReasonInformation9 struct {
 	Orgtr    *PartyIdentification43 `xml:"Orgtr,omitempty" json:",omitempty"`
 	Rsn      *StatusReason6Choice   `xml:"Rsn,omitempty" json:",omitempty"`
 	AddtlInf []common.Max105Text    `xml:"AddtlInf,omitempty" json:",omitempty"`
+}
+
+func (r StatusReasonInformation9) Validate() error {
+	return utils.Validate(&r)
 }

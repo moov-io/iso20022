@@ -41,7 +41,7 @@ func (doc DocumentAcmt02200102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		IdModAdvc IdentificationModificationAdviceV02 `xml:"IdModAdvc"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -77,7 +77,7 @@ func (doc DocumentAcmt02300102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		IdVrfctnReq IdentificationVerificationRequestV02 `xml:"IdVrfctnReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -113,7 +113,7 @@ func (doc DocumentAcmt02400102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		IdVrfctnRpt IdentificationVerificationReportV02 `xml:"IdVrfctnRpt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -149,7 +149,7 @@ func (doc DocumentAcmt03000102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctSwtchReqRdrctn AccountSwitchRequestRedirectionV02 `xml:"AcctSwtchReqRdrctn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -185,7 +185,7 @@ func (doc DocumentAcmt03300102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctSwtchNtfyAcctSwtchCmplt AccountSwitchNotifyAccountSwitchCompleteV02 `xml:"AcctSwtchNtfyAcctSwtchCmplt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -221,7 +221,7 @@ func (doc DocumentAcmt03500102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctSwtchPmtRspn AccountSwitchPaymentResponseV02 `xml:"AcctSwtchPmtRspn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -257,7 +257,7 @@ func (doc DocumentAcmt03700102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AcctSwtchTechRjctn AccountSwitchTechnicalRejectionV02 `xml:"AcctSwtchTechRjctn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }

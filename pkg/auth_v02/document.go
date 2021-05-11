@@ -41,7 +41,7 @@ func (doc DocumentAuth01800102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CtrctRegnReq ContractRegistrationRequestV02 `xml:"CtrctRegnReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -77,7 +77,7 @@ func (doc DocumentAuth01900102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CtrctRegnConf ContractRegistrationConfirmationV02 `xml:"CtrctRegnConf"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -113,7 +113,7 @@ func (doc DocumentAuth02000102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CtrctRegnClsrReq ContractRegistrationClosureRequestV02 `xml:"CtrctRegnClsrReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -149,7 +149,7 @@ func (doc DocumentAuth02100102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CtrctRegnAmdmntReq ContractRegistrationAmendmentRequestV02 `xml:"CtrctRegnAmdmntReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -185,7 +185,7 @@ func (doc DocumentAuth02200102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CtrctRegnStmt ContractRegistrationStatementV02 `xml:"CtrctRegnStmt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -221,7 +221,7 @@ func (doc DocumentAuth02300102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CtrctRegnStmtReq ContractRegistrationStatementRequestV02 `xml:"CtrctRegnStmtReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -257,7 +257,7 @@ func (doc DocumentAuth02400102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		PmtRgltryInfNtfctn PaymentRegulatoryInformationNotificationV02 `xml:"PmtRgltryInfNtfctn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -293,7 +293,7 @@ func (doc DocumentAuth02500102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CcyCtrlSpprtgDocDlvry CurrencyControlSupportingDocumentDeliveryV02 `xml:"CcyCtrlSpprtgDocDlvry"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -329,7 +329,7 @@ func (doc DocumentAuth02600102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CcyCtrlReqOrLttr CurrencyControlRequestOrLetterV02 `xml:"CcyCtrlReqOrLttr"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -365,7 +365,7 @@ func (doc DocumentAuth02700102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CcyCtrlStsAdvc CurrencyControlStatusAdviceV02 `xml:"CcyCtrlStsAdvc"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }

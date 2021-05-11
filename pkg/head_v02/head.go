@@ -275,7 +275,7 @@ func (r ImplementationSpecification1) Validate() error {
 }
 
 type SignatureEnvelope struct {
-	Item string `xml:",any"`
+	Item string `xml:",innerxml"`
 }
 
 func (r SignatureEnvelope) Validate() error {

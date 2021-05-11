@@ -41,7 +41,7 @@ func (doc DocumentCamt10100101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CretLmt CreateLimitV01 `xml:"CretLmt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -77,7 +77,7 @@ func (doc DocumentCamt10200101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CretStgOrdr CreateStandingOrderV01 `xml:"CretStgOrdr"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -113,7 +113,7 @@ func (doc DocumentCamt10300101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CretRsvatn CreateReservationV01 `xml:"CretRsvatn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -149,7 +149,7 @@ func (doc DocumentCamt10400101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CretMmb CreateMemberV01 `xml:"CretMmb"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
