@@ -23,8 +23,8 @@ func TestDocumentPacs00800106(t *testing.T) {
 				MsgId:   "MsgId",
 				CreDtTm: common.ISODateTime(testTime),
 				NbOfTxs: "111",
-				SttlmInf:SettlementInstruction4{
-					SttlmMtd:             "CLRG",
+				SttlmInf: SettlementInstruction4{
+					SttlmMtd: "CLRG",
 				},
 			},
 		},
@@ -127,7 +127,6 @@ func TestNestedTypes(t *testing.T) {
 	assert.NotNil(t, AccountSchemeName1Choice{}.Validate())
 	assert.NotNil(t, ActiveCurrencyAndAmount{}.Validate())
 }
-
 
 func TestTypes(t *testing.T) {
 	var type1 ExternalTaxAmountType1Code
