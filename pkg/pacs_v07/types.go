@@ -65,6 +65,118 @@ func (r DocumentType6Code) Validate() error {
 	return utils.NewErrValueInvalid("DocumentType6Code")
 }
 
+// May be one of YEAR, MNTH, QURT, MIAN, WEEK, DAIL, ADHO, INDA, FRTN
+type Frequency6Code string
+
+func (r Frequency6Code) Validate() error {
+	for _, vv := range []string{
+		"YEAR", "MNTH", "QURT", "MIAN", "WEEK", "DAIL", "ADHO", "INDA", "FRTN",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("Frequency6Code")
+}
+
+// May be one of CHK, TRF, DD, TRA
+type PaymentMethod4Code string
+
+func (r PaymentMethod4Code) Validate() error {
+	for _, vv := range []string{
+		"CHK", "TRF", "DD", "TRA",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("PaymentMethod4Code")
+}
+
+// May be one of HIGH, NORM
+type Priority2Code string
+
+func (r Priority2Code) Validate() error {
+	for _, vv := range []string{
+		"HIGH", "NORM",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("Priority2Code")
+}
+
+// May be one of FRST, RCUR, FNAL, OOFF, RPRE
+type SequenceType3Code string
+
+func (r SequenceType3Code) Validate() error {
+	for _, vv := range []string{
+		"FRST", "RCUR", "FNAL", "OOFF", "RPRE",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("SequenceType3Code")
+}
+
+// May be one of INDA, INGA, COVE, CLRG
+type SettlementMethod1Code string
+
+func (r SettlementMethod1Code) Validate() error {
+	for _, vv := range []string{
+		"INDA", "INGA", "COVE", "CLRG",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("SettlementMethod1Code")
+}
+
+// May be one of MM01, MM02, MM03, MM04, MM05, MM06, MM07, MM08, MM09, MM10, MM11, MM12, QTR1, QTR2, QTR3, QTR4, HLF1, HLF2
+type TaxRecordPeriod1Code string
+
+func (r TaxRecordPeriod1Code) Validate() error {
+	for _, vv := range []string{
+		"MM01", "MM02", "MM03", "MM04", "MM05", "MM06", "MM07", "MM08", "MM09", "MM10", "MM11", "MM12", "QTR1", "QTR2", "QTR3", "QTR4", "HLF1", "HLF2",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("TaxRecordPeriod1Code")
+}
+
+// May be one of ACTC, RCVD, PART, RJCT, PDNG, ACCP, ACSP, ACSC, ACWC
+type TransactionGroupStatus3Code string
+
+func (r TransactionGroupStatus3Code) Validate() error {
+	for _, vv := range []string{
+		"ACTC", "RCVD", "PART", "RJCT", "PDNG", "ACCP", "ACSP", "ACSC", "ACWC",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("TransactionGroupStatus3Code")
+}
+
+// May be one of ACTC, RJCT, PDNG, ACCP, ACSP, ACSC, ACWC
+type TransactionIndividualStatus3Code string
+
+func (r TransactionIndividualStatus3Code) Validate() error {
+	for _, vv := range []string{
+		"ACTC", "RJCT", "PDNG", "ACCP", "ACSP", "ACSC", "ACWC",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("TransactionIndividualStatus3Code")
+}
+
 // Must be at least 1 items long
 type ExternalAccountIdentification1Code string
 
@@ -223,116 +335,4 @@ func (r ExternalTaxAmountType1Code) Validate() error {
 		return utils.NewErrTextLengthInvalid("ExternalTaxAmountType1Code", 1, 0)
 	}
 	return nil
-}
-
-// May be one of YEAR, MNTH, QURT, MIAN, WEEK, DAIL, ADHO, INDA, FRTN
-type Frequency6Code string
-
-func (r Frequency6Code) Validate() error {
-	for _, vv := range []string{
-		"YEAR", "MNTH", "QURT", "MIAN", "WEEK", "DAIL", "ADHO", "INDA", "FRTN",
-	} {
-		if reflect.DeepEqual(string(r), vv) {
-			return nil
-		}
-	}
-	return utils.NewErrValueInvalid("Frequency6Code")
-}
-
-// May be one of CHK, TRF, DD, TRA
-type PaymentMethod4Code string
-
-func (r PaymentMethod4Code) Validate() error {
-	for _, vv := range []string{
-		"CHK", "TRF", "DD", "TRA",
-	} {
-		if reflect.DeepEqual(string(r), vv) {
-			return nil
-		}
-	}
-	return utils.NewErrValueInvalid("PaymentMethod4Code")
-}
-
-// May be one of HIGH, NORM
-type Priority2Code string
-
-func (r Priority2Code) Validate() error {
-	for _, vv := range []string{
-		"HIGH", "NORM",
-	} {
-		if reflect.DeepEqual(string(r), vv) {
-			return nil
-		}
-	}
-	return utils.NewErrValueInvalid("Priority2Code")
-}
-
-// May be one of FRST, RCUR, FNAL, OOFF, RPRE
-type SequenceType3Code string
-
-func (r SequenceType3Code) Validate() error {
-	for _, vv := range []string{
-		"FRST", "RCUR", "FNAL", "OOFF", "RPRE",
-	} {
-		if reflect.DeepEqual(string(r), vv) {
-			return nil
-		}
-	}
-	return utils.NewErrValueInvalid("SequenceType3Code")
-}
-
-// May be one of INDA, INGA, COVE, CLRG
-type SettlementMethod1Code string
-
-func (r SettlementMethod1Code) Validate() error {
-	for _, vv := range []string{
-		"INDA", "INGA", "COVE", "CLRG",
-	} {
-		if reflect.DeepEqual(string(r), vv) {
-			return nil
-		}
-	}
-	return utils.NewErrValueInvalid("SettlementMethod1Code")
-}
-
-// May be one of MM01, MM02, MM03, MM04, MM05, MM06, MM07, MM08, MM09, MM10, MM11, MM12, QTR1, QTR2, QTR3, QTR4, HLF1, HLF2
-type TaxRecordPeriod1Code string
-
-func (r TaxRecordPeriod1Code) Validate() error {
-	for _, vv := range []string{
-		"MM01", "MM02", "MM03", "MM04", "MM05", "MM06", "MM07", "MM08", "MM09", "MM10", "MM11", "MM12", "QTR1", "QTR2", "QTR3", "QTR4", "HLF1", "HLF2",
-	} {
-		if reflect.DeepEqual(string(r), vv) {
-			return nil
-		}
-	}
-	return utils.NewErrValueInvalid("TaxRecordPeriod1Code")
-}
-
-// May be one of ACTC, RCVD, PART, RJCT, PDNG, ACCP, ACSP, ACSC, ACWC
-type TransactionGroupStatus3Code string
-
-func (r TransactionGroupStatus3Code) Validate() error {
-	for _, vv := range []string{
-		"ACTC", "RCVD", "PART", "RJCT", "PDNG", "ACCP", "ACSP", "ACSC", "ACWC",
-	} {
-		if reflect.DeepEqual(string(r), vv) {
-			return nil
-		}
-	}
-	return utils.NewErrValueInvalid("TransactionGroupStatus3Code")
-}
-
-// May be one of ACTC, RJCT, PDNG, ACCP, ACSP, ACSC, ACWC
-type TransactionIndividualStatus3Code string
-
-func (r TransactionIndividualStatus3Code) Validate() error {
-	for _, vv := range []string{
-		"ACTC", "RJCT", "PDNG", "ACCP", "ACSP", "ACSC", "ACWC",
-	} {
-		if reflect.DeepEqual(string(r), vv) {
-			return nil
-		}
-	}
-	return utils.NewErrValueInvalid("TransactionIndividualStatus3Code")
 }

@@ -41,7 +41,7 @@ func (doc DocumentCamt02100106) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RtrGnlBizInf ReturnGeneralBusinessInformationV06 `xml:"RtrGnlBizInf"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -77,7 +77,7 @@ func (doc DocumentCamt02400106) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		ModfyStgOrdr ModifyStandingOrderV06 `xml:"ModfyStgOrdr"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -113,7 +113,7 @@ func (doc DocumentCamt02900106) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RsltnOfInvstgtn ResolutionOfInvestigationV06 `xml:"RsltnOfInvstgtn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -149,7 +149,7 @@ func (doc DocumentCamt03100106) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RjctInvstgtn RejectInvestigationV06 `xml:"RjctInvstgtn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -185,7 +185,7 @@ func (doc DocumentCamt03300106) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		ReqForDplct RequestForDuplicateV06 `xml:"ReqForDplct"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -221,7 +221,7 @@ func (doc DocumentCamt03400106) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		Dplct   DuplicateV06 `xml:"Dplct"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -257,7 +257,7 @@ func (doc DocumentCamt04700106) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RtrRsvatn ReturnReservationV06 `xml:"RtrRsvatn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -293,7 +293,7 @@ func (doc DocumentCamt05700106) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		NtfctnToRcv NotificationToReceiveV06 `xml:"NtfctnToRcv"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -329,7 +329,7 @@ func (doc DocumentCamt05800106) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		NtfctnToRcvCxlAdvc NotificationToReceiveCancellationAdviceV06 `xml:"NtfctnToRcvCxlAdvc"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -365,7 +365,7 @@ func (doc DocumentCamt05900106) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		NtfctnToRcvStsRpt NotificationToReceiveStatusReportV06 `xml:"NtfctnToRcvStsRpt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }

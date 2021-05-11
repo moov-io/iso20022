@@ -41,7 +41,7 @@ func (doc DocumentCamt00400108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RtrAcct ReturnAccountV08 `xml:"RtrAcct"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -77,7 +77,7 @@ func (doc DocumentCamt00500108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		GetTx   GetTransactionV08 `xml:"GetTx"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -113,7 +113,7 @@ func (doc DocumentCamt00600108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RtrTx   ReturnTransactionV08 `xml:"RtrTx"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -149,7 +149,7 @@ func (doc DocumentCamt00700108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		ModfyTx ModifyTransactionV08 `xml:"ModfyTx"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -185,7 +185,7 @@ func (doc DocumentCamt00800108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CclTx   CancelTransactionV08 `xml:"CclTx"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -221,7 +221,7 @@ func (doc DocumentCamt01000108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RtrLmt  ReturnLimitV08 `xml:"RtrLmt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -257,7 +257,7 @@ func (doc DocumentCamt02600108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		UblToApply UnableToApplyV08 `xml:"UblToApply"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -293,7 +293,7 @@ func (doc DocumentCamt02700108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		ClmNonRct ClaimNonReceiptV08 `xml:"ClmNonRct"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -329,7 +329,7 @@ func (doc DocumentCamt03700108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		DbtAuthstnReq DebitAuthorisationRequestV08 `xml:"DbtAuthstnReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -365,7 +365,7 @@ func (doc DocumentCamt05200108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		BkToCstmrAcctRpt BankToCustomerAccountReportV08 `xml:"BkToCstmrAcctRpt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -401,7 +401,7 @@ func (doc DocumentCamt05300108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		BkToCstmrStmt BankToCustomerStatementV08 `xml:"BkToCstmrStmt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -437,7 +437,7 @@ func (doc DocumentCamt05400108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		BkToCstmrDbtCdtNtfctn BankToCustomerDebitCreditNotificationV08 `xml:"BkToCstmrDbtCdtNtfctn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }

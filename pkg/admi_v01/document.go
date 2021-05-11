@@ -41,7 +41,7 @@ func (doc DocumentAdmi00200101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		Admi00200101 Admi00200101 `xml:"admi.002.001.01"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -77,7 +77,7 @@ func (doc DocumentAdmi00400101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		Admi00400101 Admi00400101 `xml:"admi.004.001.01"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -113,7 +113,7 @@ func (doc DocumentAdmi00500101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RptQryReq ReportQueryRequestV01 `xml:"RptQryReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -149,7 +149,7 @@ func (doc DocumentAdmi00600101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RsndReq ResendRequestV01 `xml:"RsndReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -185,7 +185,7 @@ func (doc DocumentAdmi00700101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RctAck  ReceiptAcknowledgementV01 `xml:"RctAck"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -221,7 +221,7 @@ func (doc DocumentAdmi01100101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		SysEvtAck SystemEventAcknowledgementV01 `xml:"SysEvtAck"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -257,7 +257,7 @@ func (doc DocumentAdmi01700101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		PrcgReq ProcessingRequestV01 `xml:"PrcgReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }

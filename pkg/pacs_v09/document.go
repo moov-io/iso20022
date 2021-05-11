@@ -41,7 +41,7 @@ func (doc DocumentPacs00800109) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		FIToFICstmrCdtTrf FIToFICustomerCreditTransferV09 `xml:"FIToFICstmrCdtTrf"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -77,7 +77,7 @@ func (doc DocumentPacs00900109) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		FICdtTrf FinancialInstitutionCreditTransferV09 `xml:"FICdtTrf"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }

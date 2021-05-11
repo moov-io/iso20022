@@ -41,7 +41,7 @@ func (doc DocumentPain00700101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		MndtCpyReq MandateCopyRequestV01 `xml:"MndtCpyReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -77,7 +77,7 @@ func (doc DocumentPain01800101) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		MndtSspnsnReq MandateSuspensionRequestV01 `xml:"MndtSspnsnReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }

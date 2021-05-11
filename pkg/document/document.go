@@ -7,12 +7,12 @@ package document
 import (
 	"encoding/json"
 	"encoding/xml"
-	"github.com/moov-io/iso20022/pkg/admi_v01"
-	"github.com/moov-io/iso20022/pkg/admi_v02"
 
 	"github.com/moov-io/iso20022/pkg/acmt_v01"
 	"github.com/moov-io/iso20022/pkg/acmt_v02"
 	"github.com/moov-io/iso20022/pkg/acmt_v03"
+	"github.com/moov-io/iso20022/pkg/admi_v01"
+	"github.com/moov-io/iso20022/pkg/admi_v02"
 	"github.com/moov-io/iso20022/pkg/auth_v01"
 	"github.com/moov-io/iso20022/pkg/auth_v02"
 	"github.com/moov-io/iso20022/pkg/camt_v01"
@@ -24,7 +24,10 @@ import (
 	"github.com/moov-io/iso20022/pkg/camt_v08"
 	"github.com/moov-io/iso20022/pkg/camt_v09"
 	"github.com/moov-io/iso20022/pkg/camt_v10"
+	"github.com/moov-io/iso20022/pkg/head_v01"
+	"github.com/moov-io/iso20022/pkg/head_v02"
 	"github.com/moov-io/iso20022/pkg/pacs_v04"
+	"github.com/moov-io/iso20022/pkg/pacs_v07"
 	"github.com/moov-io/iso20022/pkg/pacs_v08"
 	"github.com/moov-io/iso20022/pkg/pacs_v09"
 	"github.com/moov-io/iso20022/pkg/pacs_v10"
@@ -108,6 +111,7 @@ var availableDocuments = map[string]Iso20022Document{
 	utils.DocumentCamt10200101NameSpace: &camt_v01.DocumentCamt10200101{},
 	utils.DocumentCamt10300101NameSpace: &camt_v01.DocumentCamt10300101{},
 	utils.DocumentCamt10400101NameSpace: &camt_v01.DocumentCamt10400101{},
+	utils.DocumentCamt03500103NameSpace: &camt_v03.DocumentCamt03500103{},
 	utils.DocumentCamt06900103NameSpace: &camt_v03.DocumentCamt06900103{},
 	utils.DocumentCamt07100103NameSpace: &camt_v03.DocumentCamt07100103{},
 	utils.DocumentCamt08600103NameSpace: &camt_v03.DocumentCamt08600103{},
@@ -115,8 +119,8 @@ var availableDocuments = map[string]Iso20022Document{
 	utils.DocumentCamt01400104NameSpace: &camt_v04.DocumentCamt01400104{},
 	utils.DocumentCamt01500104NameSpace: &camt_v04.DocumentCamt01500104{},
 	utils.DocumentCamt01600104NameSpace: &camt_v04.DocumentCamt01600104{},
-	utils.DocumentCamt02000104NameSpace: &camt_v04.DocumentCamt02000104{},
 	utils.DocumentCamt01700104NameSpace: &camt_v04.DocumentCamt01700104{},
+	utils.DocumentCamt02000104NameSpace: &camt_v04.DocumentCamt02000104{},
 	utils.DocumentCamt03200104NameSpace: &camt_v04.DocumentCamt03200104{},
 	utils.DocumentCamt03800104NameSpace: &camt_v04.DocumentCamt03800104{},
 	utils.DocumentCamt07000104NameSpace: &camt_v04.DocumentCamt07000104{},
@@ -164,15 +168,19 @@ var availableDocuments = map[string]Iso20022Document{
 	utils.DocumentCamt05200108NameSpace: &camt_v08.DocumentCamt05200108{},
 	utils.DocumentCamt05300108NameSpace: &camt_v08.DocumentCamt05300108{},
 	utils.DocumentCamt05400108NameSpace: &camt_v08.DocumentCamt05400108{},
-	utils.DocumentCamt05600109NameSpace: &camt_v09.DocumentCamt05600109{},
 	utils.DocumentCamt05500109NameSpace: &camt_v09.DocumentCamt05500109{},
+	utils.DocumentCamt05600109NameSpace: &camt_v09.DocumentCamt05600109{},
 	utils.DocumentCamt02800110NameSpace: &camt_v10.DocumentCamt02800110{},
 	utils.DocumentCamt02900110NameSpace: &camt_v10.DocumentCamt02900110{},
+	utils.DocumentHead00100101NameSpace: &head_v01.BusinessApplicationHeaderV01{},
+	utils.DocumentHead00100102NameSpace: &head_v02.BusinessApplicationHeaderV02{},
 	utils.DocumentPacs01000104NameSpace: &pacs_v04.DocumentPacs01000104{},
 	utils.DocumentPacs02800104NameSpace: &pacs_v04.DocumentPacs02800104{},
+	utils.DocumentPacs00200107NameSpace: &pacs_v07.DocumentPacs00200107{},
 	utils.DocumentPacs00300108NameSpace: &pacs_v08.DocumentPacs00300108{},
 	utils.DocumentPacs00800109NameSpace: &pacs_v09.DocumentPacs00800109{},
 	utils.DocumentPacs00900109NameSpace: &pacs_v09.DocumentPacs00900109{},
+	utils.DocumentPacs00200110NameSpace: &pacs_v10.DocumentPacs00200110{},
 	utils.DocumentPacs00400110NameSpace: &pacs_v10.DocumentPacs00400110{},
 	utils.DocumentPacs00700110NameSpace: &pacs_v10.DocumentPacs00700110{},
 	utils.DocumentPacs00200111NameSpace: &pacs_v11.DocumentPacs00200111{},

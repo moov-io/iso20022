@@ -41,7 +41,7 @@ func (doc DocumentPacs00200111) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		FIToFIPmtStsRpt FIToFIPaymentStatusReportV11 `xml:"FIToFIPmtStsRpt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }

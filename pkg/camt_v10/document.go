@@ -41,7 +41,7 @@ func (doc DocumentCamt02800110) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		AddtlPmtInf AdditionalPaymentInformationV10 `xml:"AddtlPmtInf"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -77,7 +77,7 @@ func (doc DocumentCamt02900110) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RsltnOfInvstgtn ResolutionOfInvestigationV10 `xml:"RsltnOfInvstgtn"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }

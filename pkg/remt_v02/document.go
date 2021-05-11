@@ -41,7 +41,7 @@ func (doc DocumentRemt00200102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RmtLctnAdvc RemittanceLocationAdviceV02 `xml:"RmtLctnAdvc"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -77,7 +77,7 @@ func (doc DocumentRemt00100102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		RmtAdvc RemittanceAdviceV02 `xml:"RmtAdvc"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }

@@ -41,7 +41,7 @@ func (doc DocumentPain00900105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		MndtInitnReq MandateInitiationRequestV05 `xml:"MndtInitnReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -77,7 +77,7 @@ func (doc DocumentPain01000105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		MndtAmdmntReq MandateAmendmentRequestV05 `xml:"MndtAmdmntReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -113,7 +113,7 @@ func (doc DocumentPain01200105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		MndtAccptncRpt MandateAcceptanceReportV05 `xml:"MndtAccptncRpt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -149,7 +149,7 @@ func (doc DocumentPain01100105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		MndtCxlReq MandateCancellationRequestV05 `xml:"MndtCxlReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -185,7 +185,7 @@ func (doc DocumentPain01300105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CdtrPmtActvtnReq CreditorPaymentActivationRequestV05 `xml:"CdtrPmtActvtnReq"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
@@ -221,7 +221,7 @@ func (doc DocumentPain01400105) MarshalXML(e *xml.Encoder, start xml.StartElemen
 		CdtrPmtActvtnReqStsRpt CreditorPaymentActivationRequestStatusReportV05 `xml:"CdtrPmtActvtnReqStsRpt"`
 	}(doc)
 	if len(doc.XMLName.Local) > 0 {
-		start.Name = doc.XMLName
+		start.Name.Local = doc.XMLName.Local
 	}
 	return e.EncodeElement(&α, start)
 }
