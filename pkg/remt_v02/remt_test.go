@@ -19,8 +19,7 @@ func TestDocumentRemt00100102(t *testing.T) {
 	sample := DocumentRemt00100102{
 		RmtAdvc: RemittanceAdviceV02{
 			GrpHdr: GroupHeader62{
-				InitgPty: PartyIdentification43{
-				},
+				InitgPty: PartyIdentification43{},
 			},
 		},
 	}

@@ -179,7 +179,7 @@ func TestDocumentPain01400105(t *testing.T) {
 				CreDtTm: common.ISODateTime(testTime),
 			},
 			OrgnlGrpInfAndSts: OriginalGroupInformation25{
-				OrgnlMsgId: "OrgnlMsgId",
+				OrgnlMsgId:   "OrgnlMsgId",
 				OrgnlMsgNmId: "OrgnlMsgNmId",
 			},
 		},
