@@ -12,6 +12,40 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestDocumentCamt03500103(t *testing.T) {
+	sample := DocumentCamt03500103{}
+	err := sample.Validate()
+	assert.NotNil(t, err)
+
+	sample = DocumentCamt03500103{
+		PrtryFrmtInvstgtn: ProprietaryFormatInvestigationV03{
+			Assgnmt: CaseAssignment3{
+				Id: "Id",
+			},
+			Case: Case3{
+				Id: "Id",
+			},
+			PrtryData: ProprietaryData4{
+				Tp: "Tp",
+			},
+		},
+	}
+	err = sample.Validate()
+	assert.Nil(t, err)
+
+	buf, err := json.Marshal(&sample)
+	assert.Nil(t, err)
+	assert.Equal(t,
+		`{"XMLName":{"Space":"","Local":""},"PrtryFrmtInvstgtn":{"Assgnmt":{"Id":"Id","Assgnr":{"Pty":{},"Agt":{"FinInstnId":{}}},"Assgne":{"Pty":{},"Agt":{"FinInstnId":{}}},"CreDtTm":"0001-01-01T00:00:00"},"Case":{"Id":"Id","Cretr":{"Pty":{},"Agt":{"FinInstnId":{}}}},"PrtryData":{"Tp":"Tp","Data":{"Item":""}}}}`,
+		string(buf))
+
+	buf, err = xml.Marshal(&sample)
+	assert.Nil(t, err)
+	assert.Equal(t,
+		`<DocumentCamt03500103><PrtryFrmtInvstgtn><Assgnmt><Id>Id</Id><Assgnr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgnr><Assgne><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Assgne><CreDtTm>0001-01-01T00:00:00</CreDtTm></Assgnmt><Case><Id>Id</Id><Cretr><Pty></Pty><Agt><FinInstnId></FinInstnId></Agt></Cretr></Case><PrtryData><Tp>Tp</Tp><Data><Item></Item></Data></PrtryData></PrtryFrmtInvstgtn></DocumentCamt03500103>`,
+		string(buf))
+}
+
 func TestDocumentCamt06900103(t *testing.T) {
 	sample := DocumentCamt06900103{}
 	err := sample.Validate()
@@ -372,4 +406,22 @@ func TestNestedTypes(t *testing.T) {
 	assert.NotNil(t, StatementGroup3{}.Validate())
 	assert.NotNil(t, TaxCalculation1{}.Validate())
 	assert.NotNil(t, TaxReason1{}.Validate())
+	assert.Nil(t, BranchAndFinancialInstitutionIdentification5{}.Validate())
+	assert.Nil(t, BranchData2{}.Validate())
+	assert.NotNil(t, Case3{}.Validate())
+	assert.NotNil(t, CaseAssignment3{}.Validate())
+	assert.Nil(t, ContactDetails2{}.Validate())
+	assert.NotNil(t, DateAndPlaceOfBirth{}.Validate())
+	assert.Nil(t, FinancialInstitutionIdentification8{}.Validate())
+	assert.NotNil(t, GenericPersonIdentification1{}.Validate())
+	assert.Nil(t, OrganisationIdentification8{}.Validate())
+	assert.Nil(t, Party11Choice{}.Validate())
+	assert.Nil(t, Party12Choice{}.Validate())
+	assert.Nil(t, PartyIdentification43{}.Validate())
+	assert.Nil(t, PersonIdentification5{}.Validate())
+	assert.NotNil(t, PersonIdentificationSchemeName1Choice{}.Validate())
+	assert.Nil(t, PostalAddress6{}.Validate())
+	assert.Nil(t, ProprietaryData3{}.Validate())
+	assert.NotNil(t, ProprietaryData4{}.Validate())
+	assert.NotNil(t, ProprietaryFormatInvestigationV03{}.Validate())
 }
