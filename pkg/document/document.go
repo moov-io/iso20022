@@ -27,6 +27,7 @@ import (
 	"github.com/moov-io/iso20022/pkg/head_v01"
 	"github.com/moov-io/iso20022/pkg/head_v02"
 	"github.com/moov-io/iso20022/pkg/pacs_v04"
+	"github.com/moov-io/iso20022/pkg/pacs_v06"
 	"github.com/moov-io/iso20022/pkg/pacs_v07"
 	"github.com/moov-io/iso20022/pkg/pacs_v08"
 	"github.com/moov-io/iso20022/pkg/pacs_v09"
@@ -176,6 +177,7 @@ var availableDocuments = map[string]Iso20022Document{
 	utils.DocumentHead00100102NameSpace: &head_v02.BusinessApplicationHeaderV02{},
 	utils.DocumentPacs01000104NameSpace: &pacs_v04.DocumentPacs01000104{},
 	utils.DocumentPacs02800104NameSpace: &pacs_v04.DocumentPacs02800104{},
+	utils.DocumentPacs00800106NameSpace: &pacs_v06.DocumentPacs00800106{},
 	utils.DocumentPacs00200107NameSpace: &pacs_v07.DocumentPacs00200107{},
 	utils.DocumentPacs00300108NameSpace: &pacs_v08.DocumentPacs00300108{},
 	utils.DocumentPacs00800109NameSpace: &pacs_v09.DocumentPacs00800109{},
