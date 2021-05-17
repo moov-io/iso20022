@@ -43,11 +43,6 @@ func (doc BusinessApplicationHeaderV02) NameSpace() string {
 }
 
 func (doc BusinessApplicationHeaderV02) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	for _, attr := range doc.Attrs {
-		if attr.Name.Local == utils.XmlDefaultNamespace {
-			doc.XMLName.Space = ""
-		}
-	}
 	α := struct {
 		XMLName    xml.Name
 		Attrs      []utils.Attr                  `xml:",any,attr,omitempty" json:",omitempty"`
@@ -66,8 +61,7 @@ func (doc BusinessApplicationHeaderV02) MarshalXML(e *xml.Encoder, start xml.Sta
 		Sgntr      *SignatureEnvelope            `xml:"Sgntr,omitempty" json:",omitempty"`
 		Rltd       []BusinessApplicationHeader5  `xml:"Rltd,omitempty" json:",omitempty"`
 	}(doc)
-	if len(doc.XMLName.Local) > 0 {
-		start.Name.Local = doc.XMLName.Local
-	}
+
+	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
 }

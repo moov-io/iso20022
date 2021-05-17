@@ -66,3 +66,15 @@ const (
 	TestTimeString      = "2014-11-12T11:45:26.371Z"
 	XmlDefaultNamespace = "xmlns"
 )
+
+func SettingStartElement(start *xml.StartElement, attrs []Attr, name xml.Name) {
+	for _, attr := range attrs {
+		if attr.Name.Local == XmlDefaultNamespace {
+			name.Space = ""
+		}
+	}
+	if len(name.Local) > 0 {
+		start.Name.Local = name.Local
+	}
+	start.Name.Space = name.Space
+}

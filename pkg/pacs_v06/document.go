@@ -25,18 +25,12 @@ func (doc DocumentPacs00800106) NameSpace() string {
 }
 
 func (doc DocumentPacs00800106) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	for _, attr := range doc.Attrs {
-		if attr.Name.Local == utils.XmlDefaultNamespace {
-			doc.XMLName.Space = ""
-		}
-	}
 	α := struct {
 		XMLName           xml.Name
 		Attrs             []utils.Attr                    `xml:",any,attr,omitempty" json:",omitempty"`
 		FIToFICstmrCdtTrf FIToFICustomerCreditTransferV06 `xml:"FIToFICstmrCdtTrf"`
 	}(doc)
-	if len(doc.XMLName.Local) > 0 {
-		start.Name.Local = doc.XMLName.Local
-	}
+
+	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
 }

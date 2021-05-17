@@ -30,19 +30,13 @@ func (doc DocumentAuth00100101) NameSpace() string {
 }
 
 func (doc DocumentAuth00100101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	for _, attr := range doc.Attrs {
-		if attr.Name.Local == utils.XmlDefaultNamespace {
-			doc.XMLName.Space = ""
-		}
-	}
 	α := struct {
 		XMLName    xml.Name
 		Attrs      []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
 		InfReqOpng InformationRequestOpeningV01 `xml:"InfReqOpng"`
 	}(doc)
-	if len(doc.XMLName.Local) > 0 {
-		start.Name.Local = doc.XMLName.Local
-	}
+
+	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
 }
 
@@ -66,19 +60,13 @@ func (doc DocumentAuth00200101) NameSpace() string {
 }
 
 func (doc DocumentAuth00200101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	for _, attr := range doc.Attrs {
-		if attr.Name.Local == utils.XmlDefaultNamespace {
-			doc.XMLName.Space = ""
-		}
-	}
 	α := struct {
 		XMLName    xml.Name
 		Attrs      []utils.Attr                  `xml:",any,attr,omitempty" json:",omitempty"`
 		InfReqRspn InformationRequestResponseV01 `xml:"InfReqRspn"`
 	}(doc)
-	if len(doc.XMLName.Local) > 0 {
-		start.Name.Local = doc.XMLName.Local
-	}
+
+	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
 }
 
@@ -102,18 +90,12 @@ func (doc DocumentAuth00300101) NameSpace() string {
 }
 
 func (doc DocumentAuth00300101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	for _, attr := range doc.Attrs {
-		if attr.Name.Local == utils.XmlDefaultNamespace {
-			doc.XMLName.Space = ""
-		}
-	}
 	α := struct {
 		XMLName             xml.Name
 		Attrs               []utils.Attr                                  `xml:",any,attr,omitempty" json:",omitempty"`
 		InfReqStsChngNtfctn InformationRequestStatusChangeNotificationV01 `xml:"InfReqStsChngNtfctn"`
 	}(doc)
-	if len(doc.XMLName.Local) > 0 {
-		start.Name.Local = doc.XMLName.Local
-	}
+
+	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
 }

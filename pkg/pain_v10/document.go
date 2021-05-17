@@ -30,19 +30,13 @@ func (doc DocumentPain00100110) NameSpace() string {
 }
 
 func (doc DocumentPain00100110) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	for _, attr := range doc.Attrs {
-		if attr.Name.Local == utils.XmlDefaultNamespace {
-			doc.XMLName.Space = ""
-		}
-	}
 	α := struct {
 		XMLName          xml.Name
 		Attrs            []utils.Attr                        `xml:",any,attr,omitempty" json:",omitempty"`
 		CstmrCdtTrfInitn CustomerCreditTransferInitiationV10 `xml:"CstmrCdtTrfInitn"`
 	}(doc)
-	if len(doc.XMLName.Local) > 0 {
-		start.Name.Local = doc.XMLName.Local
-	}
+
+	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
 }
 
@@ -66,18 +60,12 @@ func (doc DocumentPain00700110) NameSpace() string {
 }
 
 func (doc DocumentPain00700110) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	for _, attr := range doc.Attrs {
-		if attr.Name.Local == utils.XmlDefaultNamespace {
-			doc.XMLName.Space = ""
-		}
-	}
 	α := struct {
 		XMLName      xml.Name
 		Attrs        []utils.Attr               `xml:",any,attr,omitempty" json:",omitempty"`
 		CstmrPmtRvsl CustomerPaymentReversalV10 `xml:"CstmrPmtRvsl"`
 	}(doc)
-	if len(doc.XMLName.Local) > 0 {
-		start.Name.Local = doc.XMLName.Local
-	}
+
+	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
 }
