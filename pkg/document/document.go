@@ -73,6 +73,18 @@ func NewDocumentBySpace(space string) Iso20022Document {
 	if doc != nil {
 		return doc
 	}
+	doc = newDocumentPart5(space)
+	if doc != nil {
+		return doc
+	}
+	doc = newDocumentPart6(space)
+	if doc != nil {
+		return doc
+	}
+	doc = newDocumentPart7(space)
+	if doc != nil {
+		return doc
+	}
 
 	return doc
 }
@@ -128,6 +140,13 @@ func newDocumentPart1(space string) Iso20022Document {
 		doc = &acmt_v03.DocumentAcmt02100103{}
 	case utils.DocumentAcmt02700103NameSpace:
 		doc = &acmt_v03.DocumentAcmt02700103{}
+	}
+	return doc
+}
+
+func newDocumentPart2(space string) Iso20022Document {
+	var doc Iso20022Document
+	switch space {
 	case utils.DocumentAcmt02800103NameSpace:
 		doc = &acmt_v03.DocumentAcmt02800103{}
 	case utils.DocumentAcmt02900103NameSpace:
@@ -144,13 +163,6 @@ func newDocumentPart1(space string) Iso20022Document {
 		doc = &admi_v01.DocumentAdmi00400101{}
 	case utils.DocumentAdmi00500101NameSpace:
 		doc = &admi_v01.DocumentAdmi00500101{}
-	}
-	return doc
-}
-
-func newDocumentPart2(space string) Iso20022Document {
-	var doc Iso20022Document
-	switch space {
 	case utils.DocumentAdmi00600101NameSpace:
 		doc = &admi_v01.DocumentAdmi00600101{}
 	case utils.DocumentAdmi00700101NameSpace:
@@ -183,6 +195,13 @@ func newDocumentPart2(space string) Iso20022Document {
 		doc = &auth_v02.DocumentAuth02200102{}
 	case utils.DocumentAuth02300102NameSpace:
 		doc = &auth_v02.DocumentAuth02300102{}
+	}
+	return doc
+}
+
+func newDocumentPart3(space string) Iso20022Document {
+	var doc Iso20022Document
+	switch space {
 	case utils.DocumentAuth02400102NameSpace:
 		doc = &auth_v02.DocumentAuth02400102{}
 	case utils.DocumentAuth02500102NameSpace:
@@ -227,17 +246,17 @@ func newDocumentPart2(space string) Iso20022Document {
 		doc = &camt_v04.DocumentCamt07000104{}
 	case utils.DocumentCamt01800105NameSpace:
 		doc = &camt_v05.DocumentCamt01800105{}
-	}
-	return doc
-}
-
-func newDocumentPart3(space string) Iso20022Document {
-	var doc Iso20022Document
-	switch space {
 	case utils.DocumentCamt02500105NameSpace:
 		doc = &camt_v05.DocumentCamt02500105{}
 	case utils.DocumentCamt02600105NameSpace:
 		doc = &camt_v05.DocumentCamt02600105{}
+	}
+	return doc
+}
+
+func newDocumentPart4(space string) Iso20022Document {
+	var doc Iso20022Document
+	switch space {
 	case utils.DocumentCamt02800105NameSpace:
 		doc = &camt_v05.DocumentCamt02800105{}
 	case utils.DocumentCamt03000105NameSpace:
@@ -286,6 +305,13 @@ func newDocumentPart3(space string) Iso20022Document {
 		doc = &camt_v07.DocumentCamt00300107{}
 	case utils.DocumentCamt00900107NameSpace:
 		doc = &camt_v07.DocumentCamt00900107{}
+	}
+	return doc
+}
+
+func newDocumentPart5(space string) Iso20022Document {
+	var doc Iso20022Document
+	switch space {
 	case utils.DocumentCamt01100107NameSpace:
 		doc = &camt_v07.DocumentCamt01100107{}
 	case utils.DocumentCamt01200107NameSpace:
@@ -332,15 +358,15 @@ func newDocumentPart3(space string) Iso20022Document {
 		doc = &head_v01.BusinessApplicationHeaderV01{}
 	case utils.DocumentHead00100102NameSpace:
 		doc = &head_v02.BusinessApplicationHeaderV02{}
+	case utils.DocumentPacs01000104NameSpace:
+		doc = &pacs_v04.DocumentPacs01000104{}
 	}
 	return doc
 }
 
-func newDocumentPart4(space string) Iso20022Document {
+func newDocumentPart6(space string) Iso20022Document {
 	var doc Iso20022Document
 	switch space {
-	case utils.DocumentPacs01000104NameSpace:
-		doc = &pacs_v04.DocumentPacs01000104{}
 	case utils.DocumentPacs02800104NameSpace:
 		doc = &pacs_v04.DocumentPacs02800104{}
 	case utils.DocumentPacs00800106NameSpace:
@@ -389,6 +415,13 @@ func newDocumentPart4(space string) Iso20022Document {
 		doc = &pain_v10.DocumentPain00700110{}
 	case utils.DocumentPain00200111NameSpace:
 		doc = &pain_v11.DocumentPain00200111{}
+	}
+	return doc
+}
+
+func newDocumentPart7(space string) Iso20022Document {
+	var doc Iso20022Document
+	switch space {
 	case utils.DocumentReda06600101NameSpace:
 		doc = &reda_v01.DocumentReda06600101{}
 	case utils.DocumentReda06700101NameSpace:
