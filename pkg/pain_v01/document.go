@@ -30,19 +30,13 @@ func (doc DocumentPain00700101) NameSpace() string {
 }
 
 func (doc DocumentPain00700101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	for _, attr := range doc.Attrs {
-		if attr.Name.Local == utils.XmlDefaultNamespace {
-			doc.XMLName.Space = ""
-		}
-	}
 	α := struct {
 		XMLName    xml.Name
 		Attrs      []utils.Attr          `xml:",any,attr,omitempty" json:",omitempty"`
 		MndtCpyReq MandateCopyRequestV01 `xml:"MndtCpyReq"`
 	}(doc)
-	if len(doc.XMLName.Local) > 0 {
-		start.Name.Local = doc.XMLName.Local
-	}
+
+	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
 }
 
@@ -66,18 +60,12 @@ func (doc DocumentPain01800101) NameSpace() string {
 }
 
 func (doc DocumentPain01800101) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	for _, attr := range doc.Attrs {
-		if attr.Name.Local == utils.XmlDefaultNamespace {
-			doc.XMLName.Space = ""
-		}
-	}
 	α := struct {
 		XMLName       xml.Name
 		Attrs         []utils.Attr                `xml:",any,attr,omitempty" json:",omitempty"`
 		MndtSspnsnReq MandateSuspensionRequestV01 `xml:"MndtSspnsnReq"`
 	}(doc)
-	if len(doc.XMLName.Local) > 0 {
-		start.Name.Local = doc.XMLName.Local
-	}
+
+	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
 }
