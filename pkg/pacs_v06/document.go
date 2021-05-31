@@ -34,3 +34,11 @@ func (doc DocumentPacs00800106) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
 }
+
+func (doc *DocumentPacs00800106) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentPacs00800106) GetAttrs() []utils.Attr {
+	return doc.Attrs
+}

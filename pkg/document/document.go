@@ -53,6 +53,12 @@ type Iso20022Document interface {
 
 	// NameSpace check will return xmlns of document
 	NameSpace() string
+
+	// GetXmlName returns xml name of document
+	GetXmlName() *xml.Name
+
+	// GetAttrs returns attributes of document
+	GetAttrs() []utils.Attr
 }
 
 func NewDocumentBySpace(space string) Iso20022Document {
