@@ -40,6 +40,14 @@ func (doc DocumentAcmt02200102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&α, start)
 }
 
+func (doc *DocumentAcmt02200102) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentAcmt02200102) GetAttrs() []utils.Attr {
+	return doc.Attrs
+}
+
 type DocumentAcmt02300102 struct {
 	XMLName     xml.Name
 	Attrs       []utils.Attr                         `xml:",any,attr,omitempty" json:",omitempty"`
@@ -68,6 +76,14 @@ func (doc DocumentAcmt02300102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 
 	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
+}
+
+func (doc *DocumentAcmt02300102) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentAcmt02300102) GetAttrs() []utils.Attr {
+	return doc.Attrs
 }
 
 type DocumentAcmt02400102 struct {
@@ -100,6 +116,14 @@ func (doc DocumentAcmt02400102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&α, start)
 }
 
+func (doc *DocumentAcmt02400102) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentAcmt02400102) GetAttrs() []utils.Attr {
+	return doc.Attrs
+}
+
 type DocumentAcmt03000102 struct {
 	XMLName            xml.Name
 	Attrs              []utils.Attr                       `xml:",any,attr,omitempty" json:",omitempty"`
@@ -128,6 +152,14 @@ func (doc DocumentAcmt03000102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 
 	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
+}
+
+func (doc *DocumentAcmt03000102) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentAcmt03000102) GetAttrs() []utils.Attr {
+	return doc.Attrs
 }
 
 type DocumentAcmt03300102 struct {
@@ -160,6 +192,14 @@ func (doc DocumentAcmt03300102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&α, start)
 }
 
+func (doc *DocumentAcmt03300102) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentAcmt03300102) GetAttrs() []utils.Attr {
+	return doc.Attrs
+}
+
 type DocumentAcmt03500102 struct {
 	XMLName          xml.Name
 	Attrs            []utils.Attr                    `xml:",any,attr,omitempty" json:",omitempty"`
@@ -190,6 +230,14 @@ func (doc DocumentAcmt03500102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&α, start)
 }
 
+func (doc *DocumentAcmt03500102) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentAcmt03500102) GetAttrs() []utils.Attr {
+	return doc.Attrs
+}
+
 type DocumentAcmt03700102 struct {
 	XMLName            xml.Name
 	Attrs              []utils.Attr                       `xml:",any,attr,omitempty" json:",omitempty"`
@@ -218,4 +266,12 @@ func (doc DocumentAcmt03700102) MarshalXML(e *xml.Encoder, start xml.StartElemen
 
 	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
+}
+
+func (doc *DocumentAcmt03700102) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentAcmt03700102) GetAttrs() []utils.Attr {
+	return doc.Attrs
 }

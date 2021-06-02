@@ -40,6 +40,14 @@ func (doc DocumentCamt00400108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&α, start)
 }
 
+func (doc *DocumentCamt00400108) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentCamt00400108) GetAttrs() []utils.Attr {
+	return doc.Attrs
+}
+
 type DocumentCamt00500108 struct {
 	XMLName xml.Name
 	Attrs   []utils.Attr      `xml:",any,attr,omitempty" json:",omitempty"`
@@ -68,6 +76,14 @@ func (doc DocumentCamt00500108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 
 	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
+}
+
+func (doc *DocumentCamt00500108) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentCamt00500108) GetAttrs() []utils.Attr {
+	return doc.Attrs
 }
 
 type DocumentCamt00600108 struct {
@@ -100,6 +116,14 @@ func (doc DocumentCamt00600108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&α, start)
 }
 
+func (doc *DocumentCamt00600108) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentCamt00600108) GetAttrs() []utils.Attr {
+	return doc.Attrs
+}
+
 type DocumentCamt00700108 struct {
 	XMLName xml.Name
 	Attrs   []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
@@ -128,6 +152,14 @@ func (doc DocumentCamt00700108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 
 	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
+}
+
+func (doc *DocumentCamt00700108) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentCamt00700108) GetAttrs() []utils.Attr {
+	return doc.Attrs
 }
 
 type DocumentCamt00800108 struct {
@@ -160,6 +192,14 @@ func (doc DocumentCamt00800108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&α, start)
 }
 
+func (doc *DocumentCamt00800108) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentCamt00800108) GetAttrs() []utils.Attr {
+	return doc.Attrs
+}
+
 type DocumentCamt01000108 struct {
 	XMLName xml.Name
 	Attrs   []utils.Attr   `xml:",any,attr,omitempty" json:",omitempty"`
@@ -188,6 +228,14 @@ func (doc DocumentCamt01000108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 
 	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
+}
+
+func (doc *DocumentCamt01000108) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentCamt01000108) GetAttrs() []utils.Attr {
+	return doc.Attrs
 }
 
 type DocumentCamt02600108 struct {
@@ -220,6 +268,14 @@ func (doc DocumentCamt02600108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&α, start)
 }
 
+func (doc *DocumentCamt02600108) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentCamt02600108) GetAttrs() []utils.Attr {
+	return doc.Attrs
+}
+
 type DocumentCamt02700108 struct {
 	XMLName   xml.Name
 	Attrs     []utils.Attr       `xml:",any,attr,omitempty" json:",omitempty"`
@@ -248,6 +304,14 @@ func (doc DocumentCamt02700108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 
 	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
+}
+
+func (doc *DocumentCamt02700108) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentCamt02700108) GetAttrs() []utils.Attr {
+	return doc.Attrs
 }
 
 type DocumentCamt03700108 struct {
@@ -280,6 +344,14 @@ func (doc DocumentCamt03700108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&α, start)
 }
 
+func (doc *DocumentCamt03700108) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentCamt03700108) GetAttrs() []utils.Attr {
+	return doc.Attrs
+}
+
 type DocumentCamt05200108 struct {
 	XMLName          xml.Name
 	Attrs            []utils.Attr                   `xml:",any,attr,omitempty" json:",omitempty"`
@@ -308,6 +380,14 @@ func (doc DocumentCamt05200108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 
 	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
+}
+
+func (doc *DocumentCamt05200108) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentCamt05200108) GetAttrs() []utils.Attr {
+	return doc.Attrs
 }
 
 type DocumentCamt05300108 struct {
@@ -340,6 +420,14 @@ func (doc DocumentCamt05300108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&α, start)
 }
 
+func (doc *DocumentCamt05300108) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentCamt05300108) GetAttrs() []utils.Attr {
+	return doc.Attrs
+}
+
 type DocumentCamt05400108 struct {
 	XMLName               xml.Name
 	Attrs                 []utils.Attr                             `xml:",any,attr,omitempty" json:",omitempty"`
@@ -368,4 +456,12 @@ func (doc DocumentCamt05400108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 
 	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
+}
+
+func (doc *DocumentCamt05400108) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentCamt05400108) GetAttrs() []utils.Attr {
+	return doc.Attrs
 }

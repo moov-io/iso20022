@@ -65,3 +65,11 @@ func (doc BusinessApplicationHeaderV02) MarshalXML(e *xml.Encoder, start xml.Sta
 	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
 }
+
+func (doc *BusinessApplicationHeaderV02) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *BusinessApplicationHeaderV02) GetAttrs() []utils.Attr {
+	return doc.Attrs
+}

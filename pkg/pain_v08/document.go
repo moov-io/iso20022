@@ -40,6 +40,14 @@ func (doc DocumentPain01400108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 	return e.EncodeElement(&α, start)
 }
 
+func (doc *DocumentPain01400108) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentPain01400108) GetAttrs() []utils.Attr {
+	return doc.Attrs
+}
+
 type DocumentPain01300108 struct {
 	XMLName          xml.Name
 	Attrs            []utils.Attr                        `xml:",any,attr,omitempty" json:",omitempty"`
@@ -68,4 +76,12 @@ func (doc DocumentPain01300108) MarshalXML(e *xml.Encoder, start xml.StartElemen
 
 	utils.SettingStartElement(&start, doc.Attrs, doc.XMLName)
 	return e.EncodeElement(&α, start)
+}
+
+func (doc *DocumentPain01300108) GetXmlName() *xml.Name {
+	return &doc.XMLName
+}
+
+func (doc *DocumentPain01300108) GetAttrs() []utils.Attr {
+	return doc.Attrs
 }
