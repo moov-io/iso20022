@@ -11,5 +11,5 @@ require (
 	github.com/moov-io/base v0.20.1
 	github.com/spf13/cobra v1.1.3
 	github.com/stretchr/testify v1.7.0
-	golang.org/x/oauth2 v0.0.0-20210622190553-bce0382f6c22
+	golang.org/x/oauth2 v0.0.0-20210628180205-a41e5a781914
 )
