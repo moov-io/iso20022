@@ -30,3 +30,4 @@ staticcheck*
 bin/
 tmp/
 api/*.jar
+/vendor/
