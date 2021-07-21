@@ -21,7 +21,7 @@
 [![Slack Channel](https://slack.moov.io/badge.svg?bg=e01563&fgColor=fffff)](https://slack.moov.io/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/moov/iso20022)](https://hub.docker.com/r/moov/iso20022)
 [![GitHub Stars](https://img.shields.io/github/stars/moov-io/iso20022)](https://github.com/moov-io/iso20022)
-[![Twitter](https://img.shields.io/twitter/follow/moov_io?style=social)](https://twitter.com/moov_io?lang=en)
+[![Twitter](https://img.shields.io/twitter/follow/moov?style=social)](https://twitter.com/moov?lang=en)
 
 # moov-io/iso20022
 
@@ -340,7 +340,7 @@ web page example to use iso20022 web server:
  channel | info
  ------- | -------
 [Project Documentation](https://github.com/moov-io/iso20022/tree/master/docs) | Our project documentation available online.
-Twitter [@moov_io](https://twitter.com/moov_io) | You can follow Moov.IO's Twitter feed to get updates on our project(s). You can also tweet us questions or just share blogs or stories.
+Twitter [@moov](https://twitter.com/moov) | You can follow Moov.io's Twitter feed to get updates on our project(s). You can also tweet us questions or just share blogs or stories.
 [GitHub Issue](https://github.com/moov-io/iso20022/issues/new) | If you are able to reproduce a problem please open a GitHub Issue under the specific project that caused the error.
 [moov-io slack](https://slack.moov.io/) | Join our slack channel (`#iso20022`) to have an interactive discussion about the development of the project.
 
