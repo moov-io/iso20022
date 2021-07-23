@@ -8,7 +8,7 @@ COPY . .
 
 RUN VERSION=${VERSION} make build
 
-FROM debian:buster AS runtime
+FROM debian:stable-slim AS runtime
 LABEL maintainer="Moov <support@moov.io>"
 
 WORKDIR /
