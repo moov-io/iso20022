@@ -48,6 +48,10 @@ func (doc *DocumentAdmi00200101) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentAdmi00200101) InspectDocument() interface{} {
+	return &doc.Admi00200101
+}
+
 type DocumentAdmi00400101 struct {
 	XMLName      xml.Name
 	Attrs        []utils.Attr `xml:",any,attr,omitempty" json:",omitempty"`
@@ -84,6 +88,10 @@ func (doc *DocumentAdmi00400101) GetXmlName() *xml.Name {
 
 func (doc *DocumentAdmi00400101) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentAdmi00400101) InspectDocument() interface{} {
+	return &doc.Admi00400101
 }
 
 type DocumentAdmi00500101 struct {
@@ -124,6 +132,10 @@ func (doc *DocumentAdmi00500101) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentAdmi00500101) InspectDocument() interface{} {
+	return &doc.RptQryReq
+}
+
 type DocumentAdmi00600101 struct {
 	XMLName xml.Name
 	Attrs   []utils.Attr     `xml:",any,attr,omitempty" json:",omitempty"`
@@ -160,6 +172,10 @@ func (doc *DocumentAdmi00600101) GetXmlName() *xml.Name {
 
 func (doc *DocumentAdmi00600101) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentAdmi00600101) InspectDocument() interface{} {
+	return &doc.RsndReq
 }
 
 type DocumentAdmi00700101 struct {
@@ -200,6 +216,10 @@ func (doc *DocumentAdmi00700101) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentAdmi00700101) InspectDocument() interface{} {
+	return &doc.RctAck
+}
+
 type DocumentAdmi01100101 struct {
 	XMLName   xml.Name
 	Attrs     []utils.Attr                  `xml:",any,attr,omitempty" json:",omitempty"`
@@ -238,6 +258,10 @@ func (doc *DocumentAdmi01100101) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentAdmi01100101) InspectDocument() interface{} {
+	return &doc.SysEvtAck
+}
+
 type DocumentAdmi01700101 struct {
 	XMLName xml.Name
 	Attrs   []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
@@ -274,4 +298,8 @@ func (doc *DocumentAdmi01700101) GetXmlName() *xml.Name {
 
 func (doc *DocumentAdmi01700101) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentAdmi01700101) InspectDocument() interface{} {
+	return &doc.PrcgReq
 }

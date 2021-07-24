@@ -48,6 +48,10 @@ func (doc *DocumentCamt00300107) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentCamt00300107) InspectDocument() interface{} {
+	return &doc.GetAcct
+}
+
 type DocumentCamt00900107 struct {
 	XMLName xml.Name
 	Attrs   []utils.Attr `xml:",any,attr,omitempty" json:",omitempty"`
@@ -84,6 +88,10 @@ func (doc *DocumentCamt00900107) GetXmlName() *xml.Name {
 
 func (doc *DocumentCamt00900107) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentCamt00900107) InspectDocument() interface{} {
+	return &doc.GetLmt
 }
 
 type DocumentCamt01100107 struct {
@@ -124,6 +132,10 @@ func (doc *DocumentCamt01100107) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentCamt01100107) InspectDocument() interface{} {
+	return &doc.ModfyLmt
+}
+
 type DocumentCamt01200107 struct {
 	XMLName xml.Name
 	Attrs   []utils.Attr   `xml:",any,attr,omitempty" json:",omitempty"`
@@ -160,6 +172,10 @@ func (doc *DocumentCamt01200107) GetXmlName() *xml.Name {
 
 func (doc *DocumentCamt01200107) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentCamt01200107) InspectDocument() interface{} {
+	return &doc.DelLmt
 }
 
 type DocumentCamt01900107 struct {
@@ -200,6 +216,10 @@ func (doc *DocumentCamt01900107) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentCamt01900107) InspectDocument() interface{} {
+	return &doc.RtrBizDayInf
+}
+
 type DocumentCamt02300107 struct {
 	XMLName xml.Name
 	Attrs   []utils.Attr     `xml:",any,attr,omitempty" json:",omitempty"`
@@ -238,6 +258,10 @@ func (doc *DocumentCamt02300107) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentCamt02300107) InspectDocument() interface{} {
+	return &doc.BckpPmt
+}
+
 type DocumentCamt08700107 struct {
 	XMLName       xml.Name
 	Attrs         []utils.Attr              `xml:",any,attr,omitempty" json:",omitempty"`
@@ -274,4 +298,8 @@ func (doc *DocumentCamt08700107) GetXmlName() *xml.Name {
 
 func (doc *DocumentCamt08700107) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentCamt08700107) InspectDocument() interface{} {
+	return &doc.ReqToModfyPmt
 }

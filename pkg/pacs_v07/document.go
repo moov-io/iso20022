@@ -47,3 +47,7 @@ func (doc *DocumentPacs00200107) GetXmlName() *xml.Name {
 func (doc *DocumentPacs00200107) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
+
+func (doc *DocumentPacs00200107) InspectDocument() interface{} {
+	return &doc.FIToFIPmtStsRpt
+}

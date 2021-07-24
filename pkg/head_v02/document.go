@@ -73,3 +73,7 @@ func (doc *BusinessApplicationHeaderV02) GetXmlName() *xml.Name {
 func (doc *BusinessApplicationHeaderV02) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
+
+func (doc *BusinessApplicationHeaderV02) InspectDocument() interface{} {
+	return nil
+}

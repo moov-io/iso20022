@@ -48,6 +48,10 @@ func (doc *DocumentAdmi00400102) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentAdmi00400102) InspectDocument() interface{} {
+	return &doc.SysEvtNtfctn
+}
+
 type DocumentAdmi00900102 struct {
 	XMLName      xml.Name
 	Attrs        []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
@@ -86,6 +90,10 @@ func (doc *DocumentAdmi00900102) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentAdmi00900102) InspectDocument() interface{} {
+	return &doc.StatcDataReq
+}
+
 type DocumentAdmi01000102 struct {
 	XMLName      xml.Name
 	Attrs        []utils.Attr        `xml:",any,attr,omitempty" json:",omitempty"`
@@ -122,4 +130,8 @@ func (doc *DocumentAdmi01000102) GetXmlName() *xml.Name {
 
 func (doc *DocumentAdmi01000102) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentAdmi01000102) InspectDocument() interface{} {
+	return &doc.StatcDataRpt
 }

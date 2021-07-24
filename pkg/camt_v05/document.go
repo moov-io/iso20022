@@ -48,6 +48,10 @@ func (doc *DocumentCamt01800105) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentCamt01800105) InspectDocument() interface{} {
+	return &doc.GetBizDayInf
+}
+
 type DocumentCamt02500105 struct {
 	XMLName xml.Name
 	Attrs   []utils.Attr `xml:",any,attr,omitempty" json:",omitempty"`
@@ -84,6 +88,10 @@ func (doc *DocumentCamt02500105) GetXmlName() *xml.Name {
 
 func (doc *DocumentCamt02500105) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentCamt02500105) InspectDocument() interface{} {
+	return &doc.Rct
 }
 
 type DocumentCamt02600105 struct {
@@ -124,6 +132,10 @@ func (doc *DocumentCamt02600105) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentCamt02600105) InspectDocument() interface{} {
+	return &doc.UblToApply
+}
+
 type DocumentCamt02800105 struct {
 	XMLName     xml.Name
 	Attrs       []utils.Attr                    `xml:",any,attr,omitempty" json:",omitempty"`
@@ -160,6 +172,10 @@ func (doc *DocumentCamt02800105) GetXmlName() *xml.Name {
 
 func (doc *DocumentCamt02800105) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentCamt02800105) InspectDocument() interface{} {
+	return &doc.AddtlPmtInf
 }
 
 type DocumentCamt03000105 struct {
@@ -200,6 +216,10 @@ func (doc *DocumentCamt03000105) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentCamt03000105) InspectDocument() interface{} {
+	return &doc.NtfctnOfCaseAssgnmt
+}
+
 type DocumentCamt03500105 struct {
 	XMLName           xml.Name
 	Attrs             []utils.Attr                      `xml:",any,attr,omitempty" json:",omitempty"`
@@ -236,6 +256,10 @@ func (doc *DocumentCamt03500105) GetXmlName() *xml.Name {
 
 func (doc *DocumentCamt03500105) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentCamt03500105) InspectDocument() interface{} {
+	return &doc.PrtryFrmtInvstgtn
 }
 
 type DocumentCamt03600105 struct {
@@ -276,6 +300,10 @@ func (doc *DocumentCamt03600105) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentCamt03600105) InspectDocument() interface{} {
+	return &doc.DbtAuthstnRspn
+}
+
 type DocumentCamt03900105 struct {
 	XMLName    xml.Name
 	Attrs      []utils.Attr        `xml:",any,attr,omitempty" json:",omitempty"`
@@ -312,6 +340,10 @@ func (doc *DocumentCamt03900105) GetXmlName() *xml.Name {
 
 func (doc *DocumentCamt03900105) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentCamt03900105) InspectDocument() interface{} {
+	return &doc.CaseStsRpt
 }
 
 type DocumentCamt04600105 struct {
@@ -352,6 +384,10 @@ func (doc *DocumentCamt04600105) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentCamt04600105) InspectDocument() interface{} {
+	return &doc.GetRsvatn
+}
+
 type DocumentCamt04800105 struct {
 	XMLName     xml.Name
 	Attrs       []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
@@ -388,6 +424,10 @@ func (doc *DocumentCamt04800105) GetXmlName() *xml.Name {
 
 func (doc *DocumentCamt04800105) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentCamt04800105) InspectDocument() interface{} {
+	return &doc.ModfyRsvatn
 }
 
 type DocumentCamt04900105 struct {
@@ -428,6 +468,10 @@ func (doc *DocumentCamt04900105) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentCamt04900105) InspectDocument() interface{} {
+	return &doc.DelRsvatn
+}
+
 type DocumentCamt05000105 struct {
 	XMLName     xml.Name
 	Attrs       []utils.Attr               `xml:",any,attr,omitempty" json:",omitempty"`
@@ -464,6 +508,10 @@ func (doc *DocumentCamt05000105) GetXmlName() *xml.Name {
 
 func (doc *DocumentCamt05000105) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentCamt05000105) InspectDocument() interface{} {
+	return &doc.LqdtyCdtTrf
 }
 
 type DocumentCamt05100105 struct {
@@ -504,6 +552,10 @@ func (doc *DocumentCamt05100105) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentCamt05100105) InspectDocument() interface{} {
+	return &doc.LqdtyDbtTrf
+}
+
 type DocumentCamt05600105 struct {
 	XMLName         xml.Name
 	Attrs           []utils.Attr                        `xml:",any,attr,omitempty" json:",omitempty"`
@@ -542,6 +594,10 @@ func (doc *DocumentCamt05600105) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentCamt05600105) InspectDocument() interface{} {
+	return &doc.FIToFIPmtCxlReq
+}
+
 type DocumentCamt06000105 struct {
 	XMLName     xml.Name
 	Attrs       []utils.Attr               `xml:",any,attr,omitempty" json:",omitempty"`
@@ -578,4 +634,8 @@ func (doc *DocumentCamt06000105) GetXmlName() *xml.Name {
 
 func (doc *DocumentCamt06000105) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentCamt06000105) InspectDocument() interface{} {
+	return &doc.AcctRptgReq
 }

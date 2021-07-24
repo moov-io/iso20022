@@ -47,3 +47,7 @@ func (doc *DocumentPain00800109) GetXmlName() *xml.Name {
 func (doc *DocumentPain00800109) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
+
+func (doc *DocumentPain00800109) InspectDocument() interface{} {
+	return &doc.CstmrDrctDbtInitn
+}

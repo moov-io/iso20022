@@ -48,6 +48,10 @@ func (doc *DocumentCamt05500109) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentCamt05500109) InspectDocument() interface{} {
+	return &doc.CstmrPmtCxlReq
+}
+
 type DocumentCamt05600109 struct {
 	XMLName         xml.Name
 	Attrs           []utils.Attr                        `xml:",any,attr,omitempty" json:",omitempty"`
@@ -84,4 +88,8 @@ func (doc *DocumentCamt05600109) GetXmlName() *xml.Name {
 
 func (doc *DocumentCamt05600109) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentCamt05600109) InspectDocument() interface{} {
+	return &doc.FIToFIPmtCxlReq
 }

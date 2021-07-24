@@ -48,6 +48,10 @@ func (doc *DocumentPain00700101) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentPain00700101) InspectDocument() interface{} {
+	return &doc.MndtCpyReq
+}
+
 type DocumentPain01800101 struct {
 	XMLName       xml.Name
 	Attrs         []utils.Attr                `xml:",any,attr,omitempty" json:",omitempty"`
@@ -84,4 +88,8 @@ func (doc *DocumentPain01800101) GetXmlName() *xml.Name {
 
 func (doc *DocumentPain01800101) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentPain01800101) InspectDocument() interface{} {
+	return &doc.MndtSspnsnReq
 }

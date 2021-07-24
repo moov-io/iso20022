@@ -48,6 +48,10 @@ func (doc *DocumentRemt00100102) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentRemt00100102) InspectDocument() interface{} {
+	return &doc.RmtAdvc
+}
+
 type DocumentRemt00200102 struct {
 	XMLName     xml.Name
 	Attrs       []utils.Attr                `xml:",any,attr,omitempty" json:",omitempty"`
@@ -84,4 +88,8 @@ func (doc *DocumentRemt00200102) GetXmlName() *xml.Name {
 
 func (doc *DocumentRemt00200102) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentRemt00200102) InspectDocument() interface{} {
+	return &doc.RmtLctnAdvc
 }

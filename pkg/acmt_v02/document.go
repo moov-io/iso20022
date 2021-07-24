@@ -48,6 +48,10 @@ func (doc *DocumentAcmt02200102) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentAcmt02200102) InspectDocument() interface{} {
+	return &doc.IdModAdvc
+}
+
 type DocumentAcmt02300102 struct {
 	XMLName     xml.Name
 	Attrs       []utils.Attr                         `xml:",any,attr,omitempty" json:",omitempty"`
@@ -84,6 +88,10 @@ func (doc *DocumentAcmt02300102) GetXmlName() *xml.Name {
 
 func (doc *DocumentAcmt02300102) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentAcmt02300102) InspectDocument() interface{} {
+	return &doc.IdVrfctnReq
 }
 
 type DocumentAcmt02400102 struct {
@@ -124,6 +132,10 @@ func (doc *DocumentAcmt02400102) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentAcmt02400102) InspectDocument() interface{} {
+	return &doc.IdVrfctnRpt
+}
+
 type DocumentAcmt03000102 struct {
 	XMLName            xml.Name
 	Attrs              []utils.Attr                       `xml:",any,attr,omitempty" json:",omitempty"`
@@ -160,6 +172,10 @@ func (doc *DocumentAcmt03000102) GetXmlName() *xml.Name {
 
 func (doc *DocumentAcmt03000102) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentAcmt03000102) InspectDocument() interface{} {
+	return &doc.AcctSwtchReqRdrctn
 }
 
 type DocumentAcmt03300102 struct {
@@ -200,6 +216,10 @@ func (doc *DocumentAcmt03300102) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentAcmt03300102) InspectDocument() interface{} {
+	return &doc.AcctSwtchNtfyAcctSwtchCmplt
+}
+
 type DocumentAcmt03500102 struct {
 	XMLName          xml.Name
 	Attrs            []utils.Attr                    `xml:",any,attr,omitempty" json:",omitempty"`
@@ -238,6 +258,10 @@ func (doc *DocumentAcmt03500102) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentAcmt03500102) InspectDocument() interface{} {
+	return &doc.AcctSwtchPmtRspn
+}
+
 type DocumentAcmt03700102 struct {
 	XMLName            xml.Name
 	Attrs              []utils.Attr                       `xml:",any,attr,omitempty" json:",omitempty"`
@@ -274,4 +298,8 @@ func (doc *DocumentAcmt03700102) GetXmlName() *xml.Name {
 
 func (doc *DocumentAcmt03700102) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentAcmt03700102) InspectDocument() interface{} {
+	return &doc.AcctSwtchTechRjctn
 }

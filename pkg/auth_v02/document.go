@@ -48,6 +48,10 @@ func (doc *DocumentAuth01800102) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentAuth01800102) InspectDocument() interface{} {
+	return &doc.CtrctRegnReq
+}
+
 type DocumentAuth01900102 struct {
 	XMLName       xml.Name
 	Attrs         []utils.Attr                        `xml:",any,attr,omitempty" json:",omitempty"`
@@ -84,6 +88,10 @@ func (doc *DocumentAuth01900102) GetXmlName() *xml.Name {
 
 func (doc *DocumentAuth01900102) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentAuth01900102) InspectDocument() interface{} {
+	return &doc.CtrctRegnConf
 }
 
 type DocumentAuth02000102 struct {
@@ -124,6 +132,10 @@ func (doc *DocumentAuth02000102) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentAuth02000102) InspectDocument() interface{} {
+	return &doc.CtrctRegnClsrReq
+}
+
 type DocumentAuth02100102 struct {
 	XMLName            xml.Name
 	Attrs              []utils.Attr                            `xml:",any,attr,omitempty" json:",omitempty"`
@@ -160,6 +172,10 @@ func (doc *DocumentAuth02100102) GetXmlName() *xml.Name {
 
 func (doc *DocumentAuth02100102) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentAuth02100102) InspectDocument() interface{} {
+	return &doc.CtrctRegnAmdmntReq
 }
 
 type DocumentAuth02200102 struct {
@@ -200,6 +216,10 @@ func (doc *DocumentAuth02200102) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentAuth02200102) InspectDocument() interface{} {
+	return &doc.CtrctRegnStmt
+}
+
 type DocumentAuth02300102 struct {
 	XMLName          xml.Name
 	Attrs            []utils.Attr                            `xml:",any,attr,omitempty" json:",omitempty"`
@@ -236,6 +256,10 @@ func (doc *DocumentAuth02300102) GetXmlName() *xml.Name {
 
 func (doc *DocumentAuth02300102) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentAuth02300102) InspectDocument() interface{} {
+	return &doc.CtrctRegnStmtReq
 }
 
 type DocumentAuth02400102 struct {
@@ -276,6 +300,10 @@ func (doc *DocumentAuth02400102) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentAuth02400102) InspectDocument() interface{} {
+	return &doc.PmtRgltryInfNtfctn
+}
+
 type DocumentAuth02500102 struct {
 	XMLName               xml.Name
 	Attrs                 []utils.Attr                                 `xml:",any,attr,omitempty" json:",omitempty"`
@@ -312,6 +340,10 @@ func (doc *DocumentAuth02500102) GetXmlName() *xml.Name {
 
 func (doc *DocumentAuth02500102) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentAuth02500102) InspectDocument() interface{} {
+	return &doc.CcyCtrlSpprtgDocDlvry
 }
 
 type DocumentAuth02600102 struct {
@@ -352,6 +384,10 @@ func (doc *DocumentAuth02600102) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentAuth02600102) InspectDocument() interface{} {
+	return &doc.CcyCtrlReqOrLttr
+}
+
 type DocumentAuth02700102 struct {
 	XMLName        xml.Name
 	Attrs          []utils.Attr                   `xml:",any,attr,omitempty" json:",omitempty"`
@@ -388,4 +424,8 @@ func (doc *DocumentAuth02700102) GetXmlName() *xml.Name {
 
 func (doc *DocumentAuth02700102) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentAuth02700102) InspectDocument() interface{} {
+	return &doc.CcyCtrlStsAdvc
 }

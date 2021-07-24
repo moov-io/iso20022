@@ -47,3 +47,7 @@ func (doc *DocumentAcmt03600101) GetXmlName() *xml.Name {
 func (doc *DocumentAcmt03600101) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
+
+func (doc *DocumentAcmt03600101) InspectDocument() interface{} {
+	return &doc.AcctSwtchTermntnSwtch
+}

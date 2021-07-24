@@ -48,6 +48,10 @@ func (doc *DocumentReda06600101) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentReda06600101) InspectDocument() interface{} {
+	return &doc.ReqToPayCdtrEnrlmntReq
+}
+
 type DocumentReda06700101 struct {
 	XMLName                      xml.Name
 	Attrs                        []utils.Attr                                     `xml:",any,attr,omitempty" json:",omitempty"`
@@ -84,6 +88,10 @@ func (doc *DocumentReda06700101) GetXmlName() *xml.Name {
 
 func (doc *DocumentReda06700101) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentReda06700101) InspectDocument() interface{} {
+	return &doc.ReqToPayCdtrEnrlmntAmdmntReq
 }
 
 type DocumentReda06800101 struct {
@@ -124,6 +132,10 @@ func (doc *DocumentReda06800101) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentReda06800101) InspectDocument() interface{} {
+	return &doc.ReqToPayCdtrEnrlmntCxlReq
+}
+
 type DocumentReda06900101 struct {
 	XMLName                   xml.Name
 	Attrs                     []utils.Attr                                 `xml:",any,attr,omitempty" json:",omitempty"`
@@ -160,6 +172,10 @@ func (doc *DocumentReda06900101) GetXmlName() *xml.Name {
 
 func (doc *DocumentReda06900101) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentReda06900101) InspectDocument() interface{} {
+	return &doc.ReqToPayCdtrEnrlmntStsRpt
 }
 
 type DocumentReda07000101 struct {
@@ -200,6 +216,10 @@ func (doc *DocumentReda07000101) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentReda07000101) InspectDocument() interface{} {
+	return &doc.ReqToPayDbtrActvtnReq
+}
+
 type DocumentReda07100101 struct {
 	XMLName                     xml.Name
 	Attrs                       []utils.Attr                                    `xml:",any,attr,omitempty" json:",omitempty"`
@@ -236,6 +256,10 @@ func (doc *DocumentReda07100101) GetXmlName() *xml.Name {
 
 func (doc *DocumentReda07100101) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentReda07100101) InspectDocument() interface{} {
+	return &doc.ReqToPayDbtrActvtnAmdmntReq
 }
 
 type DocumentReda07200101 struct {
@@ -276,6 +300,10 @@ func (doc *DocumentReda07200101) GetAttrs() []utils.Attr {
 	return doc.Attrs
 }
 
+func (doc *DocumentReda07200101) InspectDocument() interface{} {
+	return &doc.ReqToPayDbtrActvtnCxlReq
+}
+
 type DocumentReda07300101 struct {
 	XMLName                  xml.Name
 	Attrs                    []utils.Attr                                `xml:",any,attr,omitempty" json:",omitempty"`
@@ -312,4 +340,8 @@ func (doc *DocumentReda07300101) GetXmlName() *xml.Name {
 
 func (doc *DocumentReda07300101) GetAttrs() []utils.Attr {
 	return doc.Attrs
+}
+
+func (doc *DocumentReda07300101) InspectDocument() interface{} {
+	return &doc.ReqToPayDbtrActvtnStsRpt
 }
