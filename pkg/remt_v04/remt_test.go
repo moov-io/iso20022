@@ -5,45 +5,10 @@
 package remt_v04
 
 import (
-	"encoding/json"
-	"encoding/xml"
 	"testing"
-	"time"
 
-	"github.com/moov-io/iso20022/pkg/common"
-	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
 )
-
-func TestDocumentRemt00100104(t *testing.T) {
-	sample := DocumentRemt00100104{}
-	err := sample.Validate()
-	assert.NotNil(t, err)
-
-	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
-	sample = DocumentRemt00100104{
-		RmtAdvc: RemittanceAdviceV04{
-			GrpHdr: GroupHeader79{
-				MsgId:   "MsgId",
-				CreDtTm: common.ISODateTime(testTime),
-			},
-		},
-	}
-	err = sample.Validate()
-	assert.Nil(t, err)
-
-	buf, err := json.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`{"XMLName":{"Space":"","Local":""},"RmtAdvc":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{}}}}`,
-		string(buf))
-
-	buf, err = xml.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`<DocumentRemt00100104><RmtAdvc><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty></GrpHdr></RmtAdvc></DocumentRemt00100104>`,
-		string(buf))
-}
 
 func TestNestedTypes(t *testing.T) {
 	assert.NotNil(t, AccountIdentification4Choice{}.Validate())

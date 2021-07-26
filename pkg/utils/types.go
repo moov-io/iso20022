@@ -46,35 +46,7 @@ func GetBufferFormat(buf []byte) string {
 	return DocumentTypeUnknown
 }
 
-type Attr xml.Attr
-
-func (a *Attr) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
-	name.Local = a.Name.Local
-	return xml.Attr{Name: name, Value: a.Value}, nil
-}
-
-func (a *Attr) UnmarshalXMLAttr(attr xml.Attr) error {
-	if attr.Name.Space != "" {
-		attr.Name.Local = attr.Name.Space + ":" + attr.Name.Local
-		attr.Name.Space = ""
-	}
-	*a = Attr(attr)
-	return nil
-}
-
 const (
 	TestTimeString      = "2014-11-12T11:45:26.371Z"
 	XmlDefaultNamespace = "xmlns"
 )
-
-func SettingStartElement(start *xml.StartElement, attrs []Attr, name xml.Name) {
-	for _, attr := range attrs {
-		if attr.Name.Local == XmlDefaultNamespace {
-			name.Space = ""
-		}
-	}
-	if len(name.Local) > 0 {
-		start.Name.Local = name.Local
-	}
-	start.Name.Space = name.Space
-}

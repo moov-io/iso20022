@@ -5,42 +5,10 @@
 package head_v01
 
 import (
-	"encoding/json"
-	"encoding/xml"
 	"testing"
-	"time"
 
-	"github.com/moov-io/iso20022/pkg/common"
-	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
 )
-
-func TestBusinessApplicationHeaderV01(t *testing.T) {
-	sample := BusinessApplicationHeaderV01{}
-	err := sample.Validate()
-	assert.NotNil(t, err)
-
-	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
-	sample = BusinessApplicationHeaderV01{
-		BizMsgIdr: "BizMsgIdr",
-		MsgDefIdr: "MsgDefIdr",
-		CreDt:     common.ISONormalisedDateTime(testTime),
-	}
-	err = sample.Validate()
-	assert.Nil(t, err)
-
-	buf, err := json.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`{"XMLName":{"Space":"","Local":""},"Fr":{"OrgId":{},"FIId":{"FinInstnId":{},"BrnchId":{}}},"To":{"OrgId":{},"FIId":{"FinInstnId":{},"BrnchId":{}}},"BizMsgIdr":"BizMsgIdr","MsgDefIdr":"MsgDefIdr","CreDt":"2014-11-12T11:45:26.371"}`,
-		string(buf))
-
-	buf, err = xml.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`<BusinessApplicationHeaderV01><Fr><OrgId></OrgId><FIId><FinInstnId></FinInstnId><BrnchId></BrnchId></FIId></Fr><To><OrgId></OrgId><FIId><FinInstnId></FinInstnId><BrnchId></BrnchId></FIId></To><BizMsgIdr>BizMsgIdr</BizMsgIdr><MsgDefIdr>MsgDefIdr</MsgDefIdr><CreDt>2014-11-12T11:45:26.371</CreDt></BusinessApplicationHeaderV01>`,
-		string(buf))
-}
 
 func TestNestedTypes(t *testing.T) {
 	assert.Nil(t, BranchAndFinancialInstitutionIdentification5{}.Validate())

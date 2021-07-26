@@ -5,6 +5,8 @@
 package camt_v04
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -57,7 +59,7 @@ func (r GenericIdentification1) Validate() error {
 }
 
 type GetMemberV04 struct {
-	Attr        []utils.Attr            `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                `xml:"GetMmb"`
 	MsgHdr      MessageHeader9          `xml:"MsgHdr"`
 	MmbQryDef   *MemberQueryDefinition4 `xml:"MmbQryDef,omitempty" json:",omitempty"`
 	SplmtryData []SupplementaryData1    `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -363,7 +365,7 @@ func (r ProxyAccountType1Choice) Validate() error {
 }
 
 type ReturnMemberV04 struct {
-	Attr        []utils.Attr               `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                   `xml:"RtrMmb"`
 	MsgHdr      MessageHeader7             `xml:"MsgHdr"`
 	RptOrErr    MemberReportOrError5Choice `xml:"RptOrErr"`
 	SplmtryData []SupplementaryData1       `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -423,7 +425,7 @@ func (r MessageHeader1) Validate() error {
 }
 
 type ModifyMemberV04 struct {
-	Attr         []utils.Attr                `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName      xml.Name                    `xml:"ModfyMmb"`
 	MsgHdr       MessageHeader1              `xml:"MsgHdr"`
 	MmbId        MemberIdentification3Choice `xml:"MmbId"`
 	NewMmbValSet Member6                     `xml:"NewMmbValSet"`
@@ -490,7 +492,7 @@ func (r CurrencyQueryDefinition3) Validate() error {
 }
 
 type GetCurrencyExchangeRateV04 struct {
-	Attr        []utils.Attr              `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                  `xml:"GetCcyXchgRate"`
 	MsgHdr      MessageHeader1            `xml:"MsgHdr"`
 	CcyQryDef   *CurrencyQueryDefinition3 `xml:"CcyQryDef,omitempty" json:",omitempty"`
 	SplmtryData []SupplementaryData1      `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -547,7 +549,7 @@ func (r ExchangeRateReportOrError2Choice) Validate() error {
 }
 
 type ReturnCurrencyExchangeRateV04 struct {
-	Attr        []utils.Attr                     `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                         `xml:"RtrCcyXchgRate"`
 	MsgHdr      MessageHeader7                   `xml:"MsgHdr"`
 	RptOrErr    ExchangeRateReportOrError1Choice `xml:"RptOrErr"`
 	SplmtryData []SupplementaryData1             `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -617,7 +619,7 @@ func (r GeneralBusinessInformationSearchCriteria1) Validate() error {
 }
 
 type GetGeneralBusinessInformationV04 struct {
-	Attr            []utils.Attr                         `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName         xml.Name                             `xml:"GetGnlBizInf"`
 	MsgHdr          MessageHeader1                       `xml:"MsgHdr"`
 	GnlBizInfQryDef *BusinessInformationQueryDefinition3 `xml:"GnlBizInfQryDef,omitempty" json:",omitempty"`
 	SplmtryData     []SupplementaryData1                 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -637,7 +639,7 @@ func (r InformationQualifierType1) Validate() error {
 }
 
 type CancelCaseAssignmentV04 struct {
-	Attr        []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name             `xml:"CclCaseAssgnmt"`
 	Assgnmt     CaseAssignment5      `xml:"Assgnmt"`
 	Case        Case5                `xml:"Case"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -698,7 +700,7 @@ func (r Case5) Validate() error {
 }
 
 type CaseStatusReportRequestV04 struct {
-	Attr        []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name             `xml:"CaseStsRptReq"`
 	ReqHdr      ReportHeader5        `xml:"ReqHdr"`
 	Case        Case5                `xml:"Case"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -976,7 +978,7 @@ func (r RequestType3Choice) Validate() error {
 }
 
 type ReturnStandingOrderV04 struct {
-	Attr        []utils.Attr                `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                    `xml:"RtrStgOrdr"`
 	MsgHdr      MessageHeader6              `xml:"MsgHdr"`
 	RptOrErr    StandingOrderOrError5Choice `xml:"RptOrErr"`
 	SplmtryData []SupplementaryData1        `xml:"SplmtryData,omitempty" json:",omitempty"`

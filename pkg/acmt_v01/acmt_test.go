@@ -5,51 +5,10 @@
 package acmt_v01
 
 import (
-	"encoding/json"
-	"encoding/xml"
 	"testing"
-	"time"
 
-	"github.com/moov-io/iso20022/pkg/common"
-	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
 )
-
-func TestDocumentAcmt03600101(t *testing.T) {
-	sample := DocumentAcmt03600101{}
-	err := sample.Validate()
-	assert.NotNil(t, err)
-
-	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
-	sample = DocumentAcmt03600101{
-		AcctSwtchTermntnSwtch: AccountSwitchTerminationSwitchV01{
-			MsgId: MessageIdentification1{
-				Id:      "ID",
-				CreDtTm: common.ISODateTime(testTime),
-			},
-			AcctSwtchDtls: AccountSwitchDetails1{
-				UnqRefNb:    "UnqRefNb",
-				RtgUnqRefNb: "RtgUnqRefNb",
-				SwtchDt:     common.ISODate(testTime),
-				SwtchTp:     "PART",
-			},
-		},
-	}
-	err = sample.Validate()
-	assert.Nil(t, err)
-
-	buf, err := json.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`{"XMLName":{"Space":"","Local":""},"AcctSwtchTermntnSwtch":{"MsgId":{"Id":"ID","CreDtTm":"2014-11-12T11:45:26.371"},"AcctSwtchDtls":{"UnqRefNb":"UnqRefNb","RtgUnqRefNb":"RtgUnqRefNb","SwtchDt":"2014-11-12","SwtchTp":"PART"}}}`,
-		string(buf))
-
-	buf, err = xml.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`<DocumentAcmt03600101><AcctSwtchTermntnSwtch><MsgId><Id>ID</Id><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></MsgId><AcctSwtchDtls><UnqRefNb>UnqRefNb</UnqRefNb><RtgUnqRefNb>RtgUnqRefNb</RtgUnqRefNb><SwtchDt>2014-11-12</SwtchDt><SwtchTp>PART</SwtchTp></AcctSwtchDtls></AcctSwtchTermntnSwtch></DocumentAcmt03600101>`,
-		string(buf))
-}
 
 func TestTypes(t *testing.T) {
 	var type1 BalanceTransferWindow1Code

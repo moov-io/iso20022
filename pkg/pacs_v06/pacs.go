@@ -1,6 +1,8 @@
 package pacs_v06
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -267,7 +269,7 @@ func (r DocumentLineType1Choice) Validate() error {
 }
 
 type FIToFICustomerCreditTransferV06 struct {
-	Attr        []utils.Attr                  `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                      `xml:"FIToFICstmrCdtTrf"`
 	GrpHdr      GroupHeader70                 `xml:"GrpHdr"`
 	CdtTrfTxInf []CreditTransferTransaction25 `xml:"CdtTrfTxInf"`
 	SplmtryData []SupplementaryData1          `xml:"SplmtryData,omitempty" json:",omitempty"`

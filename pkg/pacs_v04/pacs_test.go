@@ -5,76 +5,10 @@
 package pacs_v04
 
 import (
-	"encoding/json"
-	"encoding/xml"
 	"testing"
-	"time"
 
-	"github.com/moov-io/iso20022/pkg/common"
-	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
 )
-
-func TestDocumentPacs01000104(t *testing.T) {
-	sample := DocumentPacs01000104{}
-	err := sample.Validate()
-	assert.NotNil(t, err)
-
-	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
-	sample = DocumentPacs01000104{
-		FIDrctDbt: FinancialInstitutionDirectDebitV04{
-			GrpHdr: GroupHeader92{
-				MsgId:   "MsgId",
-				CreDtTm: common.ISODateTime(testTime),
-				NbOfTxs: "111",
-			},
-		},
-	}
-	err = sample.Validate()
-	assert.Nil(t, err)
-
-	buf, err := json.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`{"XMLName":{"Space":"","Local":""},"FIDrctDbt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfTxs":"111"}}}`,
-		string(buf))
-
-	buf, err = xml.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`<DocumentPacs01000104><FIDrctDbt><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfTxs>111</NbOfTxs></GrpHdr></FIDrctDbt></DocumentPacs01000104>`,
-		string(buf))
-}
-
-func TestDocumentPacs02800104(t *testing.T) {
-	sample := DocumentPacs02800104{}
-	err := sample.Validate()
-	assert.NotNil(t, err)
-
-	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
-	sample = DocumentPacs02800104{
-		FIToFIPmtStsReq: FIToFIPaymentStatusRequestV04{
-			GrpHdr: GroupHeader91{
-				MsgId:   "MsgId",
-				CreDtTm: common.ISODateTime(testTime),
-			},
-		},
-	}
-	err = sample.Validate()
-	assert.Nil(t, err)
-
-	buf, err := json.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`{"XMLName":{"Space":"","Local":""},"FIToFIPmtStsReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"}}}`,
-		string(buf))
-
-	buf, err = xml.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`<DocumentPacs02800104><FIToFIPmtStsReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr></FIToFIPmtStsReq></DocumentPacs02800104>`,
-		string(buf))
-}
 
 func TestNestedTypes(t *testing.T) {
 	assert.NotNil(t, AccountIdentification4Choice{}.Validate())

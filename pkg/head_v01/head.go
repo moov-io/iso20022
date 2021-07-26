@@ -5,9 +5,27 @@
 package head_v01
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
+
+type BusinessApplicationHeaderV01 struct {
+	XMLName    xml.Name                     `xml:"AppHdr"`
+	CharSet    string                       `xml:"CharSet,omitempty" json:",omitempty"`
+	Fr         Party9Choice                 `xml:"Fr"`
+	To         Party9Choice                 `xml:"To"`
+	BizMsgIdr  common.Max35Text             `xml:"BizMsgIdr"`
+	MsgDefIdr  common.Max35Text             `xml:"MsgDefIdr"`
+	BizSvc     *common.Max35Text            `xml:"BizSvc,omitempty" json:",omitempty"`
+	CreDt      common.ISONormalisedDateTime `xml:"CreDt"`
+	CpyDplct   *common.CopyDuplicate1Code   `xml:"CpyDplct,omitempty" json:",omitempty"`
+	PssblDplct bool                         `xml:"PssblDplct,omitempty" json:",omitempty"`
+	Prty       string                       `xml:"Prty,omitempty" json:",omitempty"`
+	Sgntr      *SignatureEnvelope           `xml:"Sgntr,omitempty" json:",omitempty"`
+	Rltd       *BusinessApplicationHeader1  `xml:"Rltd,omitempty" json:",omitempty"`
+}
 
 type BranchAndFinancialInstitutionIdentification5 struct {
 	FinInstnId FinancialInstitutionIdentification8 `xml:"FinInstnId"`

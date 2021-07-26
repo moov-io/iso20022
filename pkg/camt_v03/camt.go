@@ -5,6 +5,8 @@
 package camt_v03
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -177,7 +179,7 @@ func (r GenericIdentification30) Validate() error {
 }
 
 type GetStandingOrderV03 struct {
-	Attr          []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName       xml.Name             `xml:"GetStgOrdr"`
 	MsgHdr        MessageHeader4       `xml:"MsgHdr"`
 	StgOrdrQryDef *StandingOrderQuery3 `xml:"StgOrdrQryDef,omitempty" json:",omitempty"`
 	SplmtryData   []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -346,7 +348,7 @@ func (r SupplementaryDataEnvelope1) Validate() error {
 }
 
 type DeleteStandingOrderV03 struct {
-	Attr        []utils.Attr              `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                  `xml:"DelStgOrdr"`
 	MsgHdr      MessageHeader1            `xml:"MsgHdr"`
 	StgOrdrDtls StandingOrderOrAll2Choice `xml:"StgOrdrDtls"`
 	SplmtryData []SupplementaryData1      `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -437,7 +439,7 @@ func (r BalanceAdjustment1) Validate() error {
 }
 
 type BankServicesBillingStatementV03 struct {
-	Attr        []utils.Attr      `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name          `xml:"BkSvcsBllgStmt"`
 	RptHdr      ReportHeader6     `xml:"RptHdr"`
 	BllgStmtGrp []StatementGroup3 `xml:"BllgStmtGrp" json:",omitempty"`
 }
@@ -1208,7 +1210,7 @@ func (r ProprietaryData4) Validate() error {
 }
 
 type ProprietaryFormatInvestigationV03 struct {
-	Attr        []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name             `xml:"PrtryFrmtInvstgtn"`
 	Assgnmt     CaseAssignment3      `xml:"Assgnmt"`
 	Case        Case3                `xml:"Case"`
 	PrtryData   ProprietaryData4     `xml:"PrtryData"`

@@ -10,32 +10,13 @@
 				"Local": "xmlns"
 			},
 			"Value": "urn:iso:std:iso:20022:tech:xsd:camt.055.001.09"
-		},
-		{
-			"Name": {
-				"Space": "",
-				"Local": "xmlns:xs"
-			},
-			"Value": "http://www.w3.org/2001/XMLSchema"
-		},
-		{
-			"Name": {
-				"Space": "",
-				"Local": "xmlns:xsi"
-			},
-			"Value": "http://www.w3.org/2001/XMLSchema-instance"
 		}
 	],
-	"CstmrPmtCxlReq": {
-		"Attr": [
-			{
-				"Name": {
-					"Space": "",
-					"Local": "xmlns"
-				},
-				"Value": "urn:iso:std:iso:20022:tech:xsd:camt.055.001.09"
-			}
-		],
+	"Element": {
+		"XMLName": {
+			"Space": "urn:iso:std:iso:20022:tech:xsd:camt.055.001.09",
+			"Local": "CstmrPmtCxlReq"
+		},
 		"Assgnmt": {
 			"Id": "Id",
 			"Assgnr": {

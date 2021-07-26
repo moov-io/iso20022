@@ -5,6 +5,8 @@
 package remt_v02
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -281,7 +283,7 @@ func (r RemittanceLocation5) Validate() error {
 }
 
 type RemittanceLocationAdviceV02 struct {
-	Attr        []utils.Attr          `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name              `xml:"RmtLctnAdvc"`
 	GrpHdr      GroupHeader79         `xml:"GrpHdr"`
 	RmtLctn     []RemittanceLocation5 `xml:"RmtLctn" json:",omitempty"`
 	SplmtryData []SupplementaryData1  `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -784,7 +786,7 @@ func (r ReferredDocumentType4) Validate() error {
 }
 
 type RemittanceAdviceV02 struct {
-	Attr        []utils.Attr              `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                  `xml:"RmtAdvc"`
 	GrpHdr      GroupHeader62             `xml:"GrpHdr"`
 	RmtInf      []RemittanceInformation12 `xml:"RmtInf" json:",omitempty"`
 	SplmtryData []SupplementaryData1      `xml:"SplmtryData,omitempty" json:",omitempty"`

@@ -1,4 +1,4 @@
-<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.018.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.018.001.02">
 	<CtrctRegnReq>
 		<GrpHdr>
 			<MsgId>MsgId</MsgId>

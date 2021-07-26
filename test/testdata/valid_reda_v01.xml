@@ -1,4 +1,4 @@
-<Document xmlns="urn:iso:std:iso:20022:tech:xsd:reda.066.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:reda.066.001.01">
 	<ReqToPayCdtrEnrlmntReq>
 		<Hdr>
 			<MsgId>MsgId</MsgId>

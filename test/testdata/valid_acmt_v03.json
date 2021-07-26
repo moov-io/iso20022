@@ -10,23 +10,13 @@
 				"Local": "xmlns"
 			},
 			"Value": "urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03"
-		},
-		{
-			"Name": {
-				"Space": "",
-				"Local": "xmlns:xs"
-			},
-			"Value": "http://www.w3.org/2001/XMLSchema"
-		},
-		{
-			"Name": {
-				"Space": "",
-				"Local": "xmlns:xsi"
-			},
-			"Value": "http://www.w3.org/2001/XMLSchema-instance"
 		}
 	],
-	"AcctOpngReq": {
+	"Element": {
+		"XMLName": {
+			"Space": "urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03",
+			"Local": "AcctOpngReq"
+		},
 		"Refs": {
 			"MsgId": {
 				"Id": "Id",

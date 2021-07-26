@@ -5,6 +5,8 @@
 package pain_v01
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -354,7 +356,7 @@ func (r MandateCopy1) Validate() error {
 }
 
 type MandateCopyRequestV01 struct {
-	Attr              []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName           xml.Name             `xml:"MndtCpyReq"`
 	GrpHdr            GroupHeader47        `xml:"GrpHdr"`
 	UndrlygCpyReqDtls []MandateCopy1       `xml:"UndrlygCpyReqDtls" json:",omitempty"`
 	SplmtryData       []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -585,7 +587,7 @@ func (r MandateSuspensionReason1Choice) Validate() error {
 }
 
 type MandateSuspensionRequestV01 struct {
-	Attr              []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName           xml.Name             `xml:"MndtSspnsnReq"`
 	GrpHdr            GroupHeader47        `xml:"GrpHdr"`
 	UndrlygSspnsnDtls []MandateSuspension1 `xml:"UndrlygSspnsnDtls" json:",omitempty"`
 	SplmtryData       []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`

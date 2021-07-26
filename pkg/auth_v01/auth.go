@@ -5,12 +5,14 @@
 package auth_v01
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
 
 type InformationRequestOpeningV01 struct {
-	Attr        []utils.Attr               `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                   `xml:"InfReqOpng"`
 	InvstgtnId  common.Max35Text           `xml:"InvstgtnId"`
 	LglMndtBsis LegalMandate1              `xml:"LglMndtBsis"`
 	CnfdtltySts bool                       `xml:"CnfdtltySts"`
@@ -25,7 +27,7 @@ func (r InformationRequestOpeningV01) Validate() error {
 }
 
 type InformationRequestResponseV01 struct {
-	Attr        []utils.Attr          `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name              `xml:"InfReqRspn"`
 	RspnId      common.Max35Text      `xml:"RspnId"`
 	InvstgtnId  common.Max35Text      `xml:"InvstgtnId"`
 	RspnSts     StatusResponse1Code   `xml:"RspnSts"`
@@ -39,7 +41,7 @@ func (r InformationRequestResponseV01) Validate() error {
 }
 
 type InformationRequestStatusChangeNotificationV01 struct {
-	Attr        []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name             `xml:"InfReqStsChngNtfctn"`
 	OrgnlBizQry common.Max35Text     `xml:"OrgnlBizQry"`
 	CnfdtltySts bool                 `xml:"CnfdtltySts"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`

@@ -5,49 +5,10 @@
 package pain_v11
 
 import (
-	"encoding/json"
-	"encoding/xml"
 	"testing"
-	"time"
 
-	"github.com/moov-io/iso20022/pkg/common"
-	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
 )
-
-func TestDocumentPain00200111(t *testing.T) {
-	sample := DocumentPain00200111{}
-	err := sample.Validate()
-	assert.NotNil(t, err)
-
-	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
-	sample = DocumentPain00200111{
-		CstmrPmtStsRpt: CustomerPaymentStatusReportV11{
-			GrpHdr: GroupHeader86{
-				MsgId:   "MsgId",
-				CreDtTm: common.ISODateTime(testTime),
-			},
-			OrgnlGrpInfAndSts: OriginalGroupHeader17{
-				OrgnlMsgId:   "OrgnlMsgId",
-				OrgnlMsgNmId: "OrgnlMsgNmId",
-			},
-		},
-	}
-	err = sample.Validate()
-	assert.Nil(t, err)
-
-	buf, err := json.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`{"XMLName":{"Space":"","Local":""},"CstmrPmtStsRpt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371"},"OrgnlGrpInfAndSts":{"OrgnlMsgId":"OrgnlMsgId","OrgnlMsgNmId":"OrgnlMsgNmId"}}}`,
-		string(buf))
-
-	buf, err = xml.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`<DocumentPain00200111><CstmrPmtStsRpt><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm></GrpHdr><OrgnlGrpInfAndSts><OrgnlMsgId>OrgnlMsgId</OrgnlMsgId><OrgnlMsgNmId>OrgnlMsgNmId</OrgnlMsgNmId></OrgnlGrpInfAndSts></CstmrPmtStsRpt></DocumentPain00200111>`,
-		string(buf))
-}
 
 func TestNestedTypes(t *testing.T) {
 	assert.NotNil(t, AccountIdentification4Choice{}.Validate())
