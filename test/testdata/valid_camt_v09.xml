@@ -1,5 +1,5 @@
-<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.055.001.09" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<CstmrPmtCxlReq xmlns="urn:iso:std:iso:20022:tech:xsd:camt.055.001.09">
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.055.001.09">
+	<CstmrPmtCxlReq>
 		<Assgnmt>
 			<Id>Id</Id>
 			<Assgnr>

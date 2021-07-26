@@ -7,20 +7,13 @@ package document
 import (
 	"encoding/json"
 	"encoding/xml"
+	"github.com/moov-io/iso20022/pkg/utils"
 	"io/ioutil"
 	"path/filepath"
 	"strings"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-
-	"github.com/moov-io/iso20022/pkg/acmt_v03"
-	"github.com/moov-io/iso20022/pkg/auth_v02"
-	"github.com/moov-io/iso20022/pkg/camt_v09"
-	"github.com/moov-io/iso20022/pkg/pacs_v11"
-	"github.com/moov-io/iso20022/pkg/pain_v11"
-	"github.com/moov-io/iso20022/pkg/reda_v01"
-	"github.com/moov-io/iso20022/pkg/remt_v04"
 )
 
 func TestJsonXmlWithDocumentCamt05500109(t *testing.T) {
@@ -30,7 +23,8 @@ func TestJsonXmlWithDocumentCamt05500109(t *testing.T) {
 	inputJson, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_camt_v09.json"))
 	assert.Equal(t, nil, err)
 
-	doc := &camt_v09.DocumentCamt05500109{}
+	doc, err := NewDocument(utils.DocumentCamt05500109NameSpace)
+	assert.Equal(t, nil, err)
 	err = xml.Unmarshal(inputXml, doc)
 	assert.Equal(t, nil, err)
 	assert.Equal(t, nil, doc.Validate())
@@ -45,7 +39,8 @@ func TestJsonXmlWithDocumentCamt05500109(t *testing.T) {
 	assert.Equal(t, nil, err)
 	assert.Equal(t, expectJson, string(buf))
 
-	doc = &camt_v09.DocumentCamt05500109{}
+	doc, err = NewDocument(utils.DocumentCamt05500109NameSpace)
+	assert.Equal(t, nil, err)
 	err = json.Unmarshal(inputJson, doc)
 	assert.Equal(t, nil, err)
 	assert.Equal(t, nil, doc.Validate())
@@ -65,7 +60,8 @@ func TestJsonXmlWithDocumentAcmt00700103(t *testing.T) {
 	inputJson, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_acmt_v03.json"))
 	assert.Equal(t, nil, err)
 
-	doc := &acmt_v03.DocumentAcmt00700103{}
+	doc, err := NewDocument(utils.DocumentAcmt00700103NameSpace)
+	assert.Equal(t, nil, err)
 	err = xml.Unmarshal(inputXml, doc)
 	assert.Equal(t, nil, err)
 	assert.Equal(t, nil, doc.Validate())
@@ -80,7 +76,8 @@ func TestJsonXmlWithDocumentAcmt00700103(t *testing.T) {
 	assert.Equal(t, nil, err)
 	assert.Equal(t, expectJson, string(buf))
 
-	doc = &acmt_v03.DocumentAcmt00700103{}
+	doc, err = NewDocument(utils.DocumentAcmt00700103NameSpace)
+	assert.Equal(t, nil, err)
 	err = json.Unmarshal(inputJson, doc)
 	assert.Equal(t, nil, err)
 	assert.Equal(t, nil, doc.Validate())
@@ -100,7 +97,8 @@ func TestJsonXmlWithDocumentAuth01800102(t *testing.T) {
 	inputJson, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_auth_v02.json"))
 	assert.Equal(t, nil, err)
 
-	doc := &auth_v02.DocumentAuth01800102{}
+	doc, err := NewDocument(utils.DocumentAuth01800102NameSpace)
+	assert.Equal(t, nil, err)
 	err = xml.Unmarshal(inputXml, doc)
 	assert.Equal(t, nil, err)
 	assert.Equal(t, nil, doc.Validate())
@@ -115,7 +113,8 @@ func TestJsonXmlWithDocumentAuth01800102(t *testing.T) {
 	assert.Equal(t, nil, err)
 	assert.Equal(t, expectJson, string(buf))
 
-	doc = &auth_v02.DocumentAuth01800102{}
+	doc, err = NewDocument(utils.DocumentAuth01800102NameSpace)
+	assert.Equal(t, nil, err)
 	err = json.Unmarshal(inputJson, doc)
 	assert.Equal(t, nil, err)
 	assert.Equal(t, nil, doc.Validate())
@@ -135,7 +134,8 @@ func TestJsonXmlWithDocumentPacs00200111(t *testing.T) {
 	inputJson, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_pacs_v11.json"))
 	assert.Equal(t, nil, err)
 
-	doc := &pacs_v11.DocumentPacs00200111{}
+	doc, err := NewDocument(utils.DocumentPacs00200111NameSpace)
+	assert.Equal(t, nil, err)
 	err = xml.Unmarshal(inputXml, doc)
 	assert.Equal(t, nil, err)
 	assert.Equal(t, nil, doc.Validate())
@@ -150,7 +150,8 @@ func TestJsonXmlWithDocumentPacs00200111(t *testing.T) {
 	assert.Equal(t, nil, err)
 	assert.Equal(t, expectJson, string(buf))
 
-	doc = &pacs_v11.DocumentPacs00200111{}
+	doc, err = NewDocument(utils.DocumentPacs00200111NameSpace)
+	assert.Equal(t, nil, err)
 	err = json.Unmarshal(inputJson, doc)
 	assert.Equal(t, nil, err)
 	assert.Equal(t, nil, doc.Validate())
@@ -170,7 +171,8 @@ func TestJsonXmlWithDocumentPain00200111(t *testing.T) {
 	inputJson, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_pain_v11.json"))
 	assert.Equal(t, nil, err)
 
-	doc := &pain_v11.DocumentPain00200111{}
+	doc, err := NewDocument(utils.DocumentPain00200111NameSpace)
+	assert.Equal(t, nil, err)
 	err = xml.Unmarshal(inputXml, doc)
 	assert.Equal(t, nil, err)
 	assert.Equal(t, nil, doc.Validate())
@@ -185,7 +187,8 @@ func TestJsonXmlWithDocumentPain00200111(t *testing.T) {
 	assert.Equal(t, nil, err)
 	assert.Equal(t, expectJson, string(buf))
 
-	doc = &pain_v11.DocumentPain00200111{}
+	doc, err = NewDocument(utils.DocumentPain00200111NameSpace)
+	assert.Equal(t, nil, err)
 	err = json.Unmarshal(inputJson, doc)
 	assert.Equal(t, nil, err)
 	assert.Equal(t, nil, doc.Validate())
@@ -205,7 +208,8 @@ func TestJsonXmlWithDocumentReda06600101(t *testing.T) {
 	inputJson, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_reda_v01.json"))
 	assert.Equal(t, nil, err)
 
-	doc := &reda_v01.DocumentReda06600101{}
+	doc, err := NewDocument(utils.DocumentReda06600101NameSpace)
+	assert.Equal(t, nil, err)
 	err = xml.Unmarshal(inputXml, doc)
 	assert.Equal(t, nil, err)
 	assert.Equal(t, nil, doc.Validate())
@@ -220,7 +224,8 @@ func TestJsonXmlWithDocumentReda06600101(t *testing.T) {
 	assert.Equal(t, nil, err)
 	assert.Equal(t, expectJson, string(buf))
 
-	doc = &reda_v01.DocumentReda06600101{}
+	doc, err = NewDocument(utils.DocumentReda06600101NameSpace)
+	assert.Equal(t, nil, err)
 	err = json.Unmarshal(inputJson, doc)
 	assert.Equal(t, nil, err)
 	assert.Equal(t, nil, doc.Validate())
@@ -241,7 +246,8 @@ func TestJsonXmlWithDocumentRemt00100104(t *testing.T) {
 	inputJson, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_remt_v04.json"))
 	assert.Nil(t, err)
 
-	doc := &remt_v04.DocumentRemt00100104{}
+	doc, err := NewDocument(utils.DocumentRemt00100104NameSpace)
+	assert.Equal(t, nil, err)
 	err = xml.Unmarshal(inputXml, doc)
 	assert.Nil(t, err)
 	assert.Nil(t, doc.Validate())
@@ -256,7 +262,8 @@ func TestJsonXmlWithDocumentRemt00100104(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Equal(t, expectJson, string(buf))
 
-	doc = &remt_v04.DocumentRemt00100104{}
+	doc, err = NewDocument(utils.DocumentRemt00100104NameSpace)
+	assert.Equal(t, nil, err)
 	err = json.Unmarshal(inputJson, doc)
 	assert.Nil(t, err)
 	assert.Nil(t, doc.Validate())
@@ -280,6 +287,7 @@ func TestJsonXmlWithDummy(t *testing.T) {
 	var docInterface Iso20022Document
 	docInterface, err = ParseIso20022Document(inputJson)
 	assert.Equal(t, nil, err)
+	assert.NotNil(t, docInterface)
 	assert.Equal(t, nil, docInterface.Validate())
 
 	docInterface, err = ParseIso20022Document(inputXml)

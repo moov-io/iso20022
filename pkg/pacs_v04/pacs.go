@@ -5,6 +5,8 @@
 package pacs_v04
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -174,7 +176,7 @@ func (r FinancialIdentificationSchemeName1Choice) Validate() error {
 }
 
 type FinancialInstitutionDirectDebitV04 struct {
-	Attr        []utils.Attr                  `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                      `xml:"FIDrctDbt"`
 	GrpHdr      GroupHeader92                 `xml:"GrpHdr"`
 	CdtInstr    []CreditTransferTransaction47 `xml:"CdtInstr" json:",omitempty"`
 	SplmtryData []SupplementaryData1          `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -600,7 +602,7 @@ func (r EquivalentAmount2) Validate() error {
 }
 
 type FIToFIPaymentStatusRequestV04 struct {
-	Attr        []utils.Attr                 `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                     `xml:"FIToFIPmtStsReq"`
 	GrpHdr      GroupHeader91                `xml:"GrpHdr"`
 	OrgnlGrpInf []OriginalGroupInformation27 `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
 	TxInf       []PaymentTransaction121      `xml:"TxInf,omitempty" json:",omitempty"`

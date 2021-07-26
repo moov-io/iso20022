@@ -10,23 +10,13 @@
 				"Local": "xmlns"
 			},
 			"Value": "urn:iso:std:iso:20022:tech:xsd:pacs.002.001.11"
-		},
-		{
-			"Name": {
-				"Space": "",
-				"Local": "xmlns:xs"
-			},
-			"Value": "http://www.w3.org/2001/XMLSchema"
-		},
-		{
-			"Name": {
-				"Space": "",
-				"Local": "xmlns:xsi"
-			},
-			"Value": "http://www.w3.org/2001/XMLSchema-instance"
 		}
 	],
-	"FIToFIPmtStsRpt": {
+	"Message": {
+		"XMLName": {
+			"Space": "urn:iso:std:iso:20022:tech:xsd:pacs.002.001.11",
+			"Local": "FIToFIPmtStsRpt"
+		},
 		"GrpHdr": {
 			"MsgId": "MsgId",
 			"CreDtTm": "2014-11-12T11:45:26.371"

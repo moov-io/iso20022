@@ -1,49 +1,10 @@
 package pacs_v06
 
 import (
-	"encoding/json"
-	"encoding/xml"
-	"github.com/moov-io/iso20022/pkg/common"
-	"github.com/moov-io/iso20022/pkg/utils"
 	"testing"
-	"time"
 
 	"github.com/stretchr/testify/assert"
 )
-
-func TestDocumentPacs00800106(t *testing.T) {
-	sample := DocumentPacs00800106{}
-	err := sample.Validate()
-	assert.NotNil(t, err)
-
-	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
-	sample = DocumentPacs00800106{
-		FIToFICstmrCdtTrf: FIToFICustomerCreditTransferV06{
-			GrpHdr: GroupHeader70{
-				MsgId:   "MsgId",
-				CreDtTm: common.ISODateTime(testTime),
-				NbOfTxs: "111",
-				SttlmInf: SettlementInstruction4{
-					SttlmMtd: "CLRG",
-				},
-			},
-		},
-	}
-	err = sample.Validate()
-	assert.Nil(t, err)
-
-	buf, err := json.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`{"XMLName":{"Space":"","Local":""},"FIToFICstmrCdtTrf":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfTxs":"111","SttlmInf":{"SttlmMtd":"CLRG"}},"CdtTrfTxInf":null}}`,
-		string(buf))
-
-	buf, err = xml.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`<DocumentPacs00800106><FIToFICstmrCdtTrf><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfTxs>111</NbOfTxs><SttlmInf><SttlmMtd>CLRG</SttlmMtd></SttlmInf></GrpHdr></FIToFICstmrCdtTrf></DocumentPacs00800106>`,
-		string(buf))
-}
 
 func TestNestedTypes(t *testing.T) {
 	assert.Nil(t, BranchAndFinancialInstitutionIdentification5{}.Validate())

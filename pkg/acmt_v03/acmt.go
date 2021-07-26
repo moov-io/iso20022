@@ -5,6 +5,8 @@
 package acmt_v03
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -29,7 +31,7 @@ func (r AccountIdentification4Choice) Validate() error {
 }
 
 type AccountOpeningRequestV03 struct {
-	Attr             []utils.Attr                                 `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName          xml.Name                                     `xml:"AcctOpngReq"`
 	Refs             References4                                  `xml:"Refs"`
 	Fr               *OrganisationIdentification29                `xml:"Fr,omitempty" json:",omitempty"`
 	Acct             CustomerAccount4                             `xml:"Acct"`
@@ -646,7 +648,7 @@ func (r SupplementaryDataEnvelope1) Validate() error {
 }
 
 type AccountOpeningAmendmentRequestV03 struct {
-	Attr             []utils.Attr                                 `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName          xml.Name                                     `xml:"AcctOpngAmdmntReq"`
 	Refs             References4                                  `xml:"Refs"`
 	Fr               *OrganisationIdentification29                `xml:"Fr,omitempty" json:",omitempty"`
 	CtrctDts         *AccountContract2                            `xml:"CtrctDts,omitempty" json:",omitempty"`
@@ -678,7 +680,7 @@ func (r References3) Validate() error {
 }
 
 type AccountOpeningAdditionalInformationRequestV03 struct {
-	Attr             []utils.Attr                                 `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName          xml.Name                                     `xml:"AcctOpngAddtlInfReq"`
 	Refs             References3                                  `xml:"Refs"`
 	Fr               *OrganisationIdentification29                `xml:"Fr,omitempty" json:",omitempty"`
 	OrgId            OrganisationIdentification29                 `xml:"OrgId"`
@@ -694,7 +696,7 @@ func (r AccountOpeningAdditionalInformationRequestV03) Validate() error {
 }
 
 type AccountRequestAcknowledgementV03 struct {
-	Attr        []utils.Attr                                 `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                                     `xml:"AcctReqAck"`
 	Refs        References5                                  `xml:"Refs"`
 	Fr          *OrganisationIdentification29                `xml:"Fr,omitempty" json:",omitempty"`
 	AcctId      []AccountForAction1                          `xml:"AcctId,omitempty" json:",omitempty"`
@@ -709,7 +711,7 @@ func (r AccountRequestAcknowledgementV03) Validate() error {
 }
 
 type AccountRequestRejectionV03 struct {
-	Attr        []utils.Attr                                 `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                                     `xml:"AcctReqRjctn"`
 	Refs        References6                                  `xml:"Refs"`
 	Fr          *OrganisationIdentification29                `xml:"Fr,omitempty" json:",omitempty"`
 	AcctSvcrId  BranchAndFinancialInstitutionIdentification6 `xml:"AcctSvcrId"`
@@ -737,7 +739,7 @@ func (r References6) Validate() error {
 }
 
 type AccountAdditionalInformationRequestV03 struct {
-	Attr        []utils.Attr                                 `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                                     `xml:"AcctAddtlInfReq"`
 	Refs        References3                                  `xml:"Refs"`
 	Fr          *OrganisationIdentification29                `xml:"Fr,omitempty" json:",omitempty"`
 	OrgId       OrganisationIdentification29                 `xml:"OrgId"`
@@ -752,7 +754,7 @@ func (r AccountAdditionalInformationRequestV03) Validate() error {
 }
 
 type AccountReportRequestV03 struct {
-	Attr        []utils.Attr                                 `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                                     `xml:"AcctRptReq"`
 	Refs        References4                                  `xml:"Refs"`
 	Fr          *OrganisationIdentification29                `xml:"Fr,omitempty" json:",omitempty"`
 	AcctId      []AccountForAction1                          `xml:"AcctId" json:",omitempty"`
@@ -795,7 +797,7 @@ func (r AccountReport23) Validate() error {
 }
 
 type AccountReportV03 struct {
-	Attr        []utils.Attr                                 `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                                     `xml:"AcctRpt"`
 	Refs        References5                                  `xml:"Refs"`
 	Fr          *OrganisationIdentification29                `xml:"Fr,omitempty" json:",omitempty"`
 	AcctSvcrId  BranchAndFinancialInstitutionIdentification6 `xml:"AcctSvcrId"`
@@ -832,7 +834,7 @@ func (r CustomerAccount5) Validate() error {
 }
 
 type AccountExcludedMandateMaintenanceRequestV03 struct {
-	Attr             []utils.Attr                                 `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName          xml.Name                                     `xml:"AcctExcldMndtMntncReq"`
 	Refs             References4                                  `xml:"Refs"`
 	Fr               *OrganisationIdentification29                `xml:"Fr,omitempty" json:",omitempty"`
 	CtrctDts         *AccountContract2                            `xml:"CtrctDts,omitempty" json:",omitempty"`
@@ -1009,7 +1011,7 @@ func (r TypeModification1) Validate() error {
 }
 
 type AccountExcludedMandateMaintenanceAmendmentRequestV03 struct {
-	Attr             []utils.Attr                                 `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName          xml.Name                                     `xml:"AcctExcldMndtMntncAmdmntReq"`
 	Refs             References4                                  `xml:"Refs"`
 	Fr               *OrganisationIdentification29                `xml:"Fr,omitempty" json:",omitempty"`
 	CtrctDts         *AccountContract2                            `xml:"CtrctDts,omitempty" json:",omitempty"`
@@ -1048,7 +1050,7 @@ func (r CustomerAccountModification1) Validate() error {
 }
 
 type AccountMandateMaintenanceRequestV03 struct {
-	Attr             []utils.Attr                                 `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName          xml.Name                                     `xml:"AcctMndtMntncReq"`
 	Refs             References4                                  `xml:"Refs"`
 	Fr               *OrganisationIdentification29                `xml:"Fr,omitempty" json:",omitempty"`
 	CtrctDts         *AccountContract2                            `xml:"CtrctDts,omitempty" json:",omitempty"`
@@ -1124,7 +1126,7 @@ func (r PartyAndCertificate5) Validate() error {
 }
 
 type AccountMandateMaintenanceAmendmentRequestV03 struct {
-	Attr             []utils.Attr                                 `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName          xml.Name                                     `xml:"AcctMndtMntncAmdmntReq"`
 	Refs             References4                                  `xml:"Refs"`
 	Fr               *OrganisationIdentification29                `xml:"Fr,omitempty" json:",omitempty"`
 	CtrctDts         *AccountContract2                            `xml:"CtrctDts,omitempty" json:",omitempty"`
@@ -1143,7 +1145,7 @@ func (r AccountMandateMaintenanceAmendmentRequestV03) Validate() error {
 }
 
 type AccountClosingRequestV03 struct {
-	Attr          []utils.Attr                                  `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName       xml.Name                                      `xml:"AcctClsgReq"`
 	Refs          References4                                   `xml:"Refs"`
 	Fr            *OrganisationIdentification29                 `xml:"Fr,omitempty" json:",omitempty"`
 	AcctId        AccountForAction2                             `xml:"AcctId"`
@@ -1180,7 +1182,7 @@ func (r AccountForAction1) Validate() error {
 }
 
 type AccountClosingAmendmentRequestV03 struct {
-	Attr          []utils.Attr                                  `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName       xml.Name                                      `xml:"AcctClsgAmdmntReq"`
 	Refs          References4                                   `xml:"Refs"`
 	Fr            *OrganisationIdentification29                 `xml:"Fr,omitempty" json:",omitempty"`
 	AcctId        AccountForAction1                             `xml:"AcctId"`
@@ -1208,7 +1210,7 @@ func (r AccountContract4) Validate() error {
 }
 
 type AccountClosingAdditionalInformationRequestV03 struct {
-	Attr          []utils.Attr                                  `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName       xml.Name                                      `xml:"AcctClsgAddtlInfReq"`
 	Refs          References3                                   `xml:"Refs"`
 	Fr            *OrganisationIdentification29                 `xml:"Fr,omitempty" json:",omitempty"`
 	OrgId         OrganisationIdentification29                  `xml:"OrgId"`
@@ -1225,7 +1227,7 @@ func (r AccountClosingAdditionalInformationRequestV03) Validate() error {
 }
 
 type AccountSwitchInformationRequestV03 struct {
-	Attr          []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName       xml.Name               `xml:"AcctSwtchInfReq"`
 	MsgId         MessageIdentification1 `xml:"MsgId"`
 	AcctSwtchDtls AccountSwitchDetails1  `xml:"AcctSwtchDtls"`
 	NewAcct       NewAccount2            `xml:"NewAcct"`
@@ -1520,7 +1522,7 @@ func (r TransferInstruction1) Validate() error {
 }
 
 type AccountSwitchBalanceTransferAcknowledgementV03 struct {
-	Attr          []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName       xml.Name               `xml:"AcctSwtchBalTrfAck"`
 	MsgId         MessageIdentification1 `xml:"MsgId"`
 	AcctSwtchDtls AccountSwitchDetails1  `xml:"AcctSwtchDtls"`
 	OdAcct        CashAccount39          `xml:"OdAcct"`
@@ -2045,7 +2047,7 @@ func (r TaxAuthorisation1) Validate() error {
 }
 
 type AccountSwitchInformationResponseV03 struct {
-	Attr          []utils.Attr                     `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName       xml.Name                         `xml:"AcctSwtchInfRspn"`
 	MsgId         MessageIdentification1           `xml:"MsgId"`
 	AcctSwtchDtls AccountSwitchDetails1            `xml:"AcctSwtchDtls"`
 	NewAcct       CashAccount39                    `xml:"NewAcct"`
@@ -2099,7 +2101,7 @@ func (r PaymentInstruction36) Validate() error {
 }
 
 type AccountSwitchCancelExistingPaymentV03 struct {
-	Attr          []utils.Attr                     `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName       xml.Name                         `xml:"AcctSwtchCclExstgPmt"`
 	MsgId         MessageIdentification1           `xml:"MsgId"`
 	AcctSwtchDtls AccountSwitchDetails1            `xml:"AcctSwtchDtls"`
 	OdAcct        CashAccount39                    `xml:"OdAcct"`
@@ -2113,7 +2115,7 @@ func (r AccountSwitchCancelExistingPaymentV03) Validate() error {
 }
 
 type AccountSwitchRequestBalanceTransferV03 struct {
-	Attr          []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName       xml.Name               `xml:"AcctSwtchReqBalTrf"`
 	MsgId         MessageIdentification1 `xml:"MsgId"`
 	AcctSwtchDtls AccountSwitchDetails1  `xml:"AcctSwtchDtls"`
 	NewAcct       CashAccount39          `xml:"NewAcct"`
@@ -2127,7 +2129,7 @@ func (r AccountSwitchRequestBalanceTransferV03) Validate() error {
 }
 
 type AccountSwitchRequestPaymentV03 struct {
-	Attr          []utils.Attr                `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName       xml.Name                    `xml:"AcctSwtchReqPmt"`
 	MsgId         MessageIdentification1      `xml:"MsgId"`
 	AcctSwtchDtls AccountSwitchDetails1       `xml:"AcctSwtchDtls"`
 	OdAcct        CashAccount39               `xml:"OdAcct"`

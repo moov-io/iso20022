@@ -10,23 +10,13 @@
 				"Local": "xmlns"
 			},
 			"Value": "urn:iso:std:iso:20022:tech:xsd:reda.066.001.01"
-		},
-		{
-			"Name": {
-				"Space": "",
-				"Local": "xmlns:xs"
-			},
-			"Value": "http://www.w3.org/2001/XMLSchema"
-		},
-		{
-			"Name": {
-				"Space": "",
-				"Local": "xmlns:xsi"
-			},
-			"Value": "http://www.w3.org/2001/XMLSchema-instance"
 		}
 	],
-	"ReqToPayCdtrEnrlmntReq": {
+	"Message": {
+		"XMLName": {
+			"Space": "urn:iso:std:iso:20022:tech:xsd:reda.066.001.01",
+			"Local": "ReqToPayCdtrEnrlmntReq"
+		},
 		"Hdr": {
 			"MsgId": "MsgId",
 			"CreDtTm": "2014-11-12T11:45:26.371",

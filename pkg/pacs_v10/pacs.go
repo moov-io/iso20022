@@ -5,6 +5,8 @@
 package pacs_v10
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -733,7 +735,7 @@ func (r PaymentReturnReason6) Validate() error {
 }
 
 type PaymentReturnV10 struct {
-	Attr        []utils.Attr            `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                `xml:"PmtRtr"`
 	GrpHdr      GroupHeader90           `xml:"GrpHdr"`
 	OrgnlGrpInf *OriginalGroupHeader18  `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
 	TxInf       []PaymentTransaction118 `xml:"TxInf,omitempty" json:",omitempty"`
@@ -1156,7 +1158,7 @@ func (r TransactionParties8) Validate() error {
 }
 
 type FIToFIPaymentReversalV10 struct {
-	Attr        []utils.Attr            `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                `xml:"FIToFIPmtRvsl"`
 	GrpHdr      GroupHeader89           `xml:"GrpHdr"`
 	OrgnlGrpInf *OriginalGroupHeader16  `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
 	TxInf       []PaymentTransaction119 `xml:"TxInf,omitempty" json:",omitempty"`
@@ -1275,7 +1277,7 @@ func (r ReversalReason4Choice) Validate() error {
 }
 
 type FIToFIPaymentStatusReportV10 struct {
-	Attr              []utils.Attr            `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName           xml.Name                `xml:"FIToFIPmtStsRpt"`
 	GrpHdr            GroupHeader91           `xml:"GrpHdr"`
 	OrgnlGrpInfAndSts []OriginalGroupHeader17 `xml:"OrgnlGrpInfAndSts,omitempty" json:",omitempty"`
 	TxInfAndSts       []PaymentTransaction110 `xml:"TxInfAndSts,omitempty" json:",omitempty"`

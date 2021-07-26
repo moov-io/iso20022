@@ -5,83 +5,10 @@
 package pain_v08
 
 import (
-	"encoding/json"
-	"encoding/xml"
 	"testing"
-	"time"
 
-	"github.com/moov-io/iso20022/pkg/common"
-	"github.com/moov-io/iso20022/pkg/utils"
 	"github.com/stretchr/testify/assert"
 )
-
-func TestDocumentPain01400108(t *testing.T) {
-	sample := DocumentPain01400108{}
-	err := sample.Validate()
-	assert.NotNil(t, err)
-
-	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
-	sample = DocumentPain01400108{
-		CdtrPmtActvtnReqStsRpt: CreditorPaymentActivationRequestStatusReportV08{
-			GrpHdr: GroupHeader87{
-				MsgId:   "MsgId",
-				CreDtTm: common.ISODateTime(testTime),
-			},
-			OrgnlGrpInfAndSts: OriginalGroupInformation30{
-				OrgnlMsgId:   "OrgnlMsgId",
-				OrgnlMsgNmId: "OrgnlMsgNmId",
-				OrgnlCreDtTm: common.ISODateTime(testTime),
-				OrgnlNbOfTxs: "001",
-				GrpSts:       "GRP",
-			},
-		},
-	}
-	err = sample.Validate()
-	assert.Nil(t, err)
-
-	buf, err := json.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`{"XMLName":{"Space":"","Local":""},"CdtrPmtActvtnReqStsRpt":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","InitgPty":{},"DbtrAgt":{"FinInstnId":{}},"CdtrAgt":{"FinInstnId":{}}},"OrgnlGrpInfAndSts":{"OrgnlMsgId":"OrgnlMsgId","OrgnlMsgNmId":"OrgnlMsgNmId","OrgnlCreDtTm":"2014-11-12T11:45:26.371","OrgnlNbOfTxs":"001","GrpSts":"GRP"}}}`,
-		string(buf))
-
-	buf, err = xml.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`<DocumentPain01400108><CdtrPmtActvtnReqStsRpt><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><InitgPty></InitgPty><DbtrAgt><FinInstnId></FinInstnId></DbtrAgt><CdtrAgt><FinInstnId></FinInstnId></CdtrAgt></GrpHdr><OrgnlGrpInfAndSts><OrgnlMsgId>OrgnlMsgId</OrgnlMsgId><OrgnlMsgNmId>OrgnlMsgNmId</OrgnlMsgNmId><OrgnlCreDtTm>2014-11-12T11:45:26.371</OrgnlCreDtTm><OrgnlNbOfTxs>001</OrgnlNbOfTxs><GrpSts>GRP</GrpSts></OrgnlGrpInfAndSts></CdtrPmtActvtnReqStsRpt></DocumentPain01400108>`,
-		string(buf))
-}
-
-func TestDocumentPain01300108(t *testing.T) {
-	sample := DocumentPain01300108{}
-	err := sample.Validate()
-	assert.NotNil(t, err)
-
-	testTime, _ := time.Parse(time.RFC3339, utils.TestTimeString)
-	sample = DocumentPain01300108{
-		CdtrPmtActvtnReq: CreditorPaymentActivationRequestV08{
-			GrpHdr: GroupHeader78{
-				MsgId:   "MsgId",
-				CreDtTm: common.ISODateTime(testTime),
-				NbOfTxs: "001",
-			},
-		},
-	}
-	err = sample.Validate()
-	assert.Nil(t, err)
-
-	buf, err := json.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`{"XMLName":{"Space":"","Local":""},"CdtrPmtActvtnReq":{"GrpHdr":{"MsgId":"MsgId","CreDtTm":"2014-11-12T11:45:26.371","NbOfTxs":"001","InitgPty":{}}}}`,
-		string(buf))
-
-	buf, err = xml.Marshal(&sample)
-	assert.Nil(t, err)
-	assert.Equal(t,
-		`<DocumentPain01300108><CdtrPmtActvtnReq><GrpHdr><MsgId>MsgId</MsgId><CreDtTm>2014-11-12T11:45:26.371</CreDtTm><NbOfTxs>001</NbOfTxs><InitgPty></InitgPty></GrpHdr></CdtrPmtActvtnReq></DocumentPain01300108>`,
-		string(buf))
-}
 
 func TestNestedTypes(t *testing.T) {
 	assert.NotNil(t, AccountIdentification4Choice{}.Validate())

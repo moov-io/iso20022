@@ -5,6 +5,8 @@
 package camt_v05
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -93,7 +95,7 @@ func (r GenericIdentification1) Validate() error {
 }
 
 type GetBusinessDayInformationV05 struct {
-	Attr            []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName         xml.Name             `xml:"GetBizDayInf"`
 	MsgHdr          MessageHeader9       `xml:"MsgHdr"`
 	BizDayInfQryDef *BusinessDayQuery2   `xml:"BizDayInfQryDef,omitempty" json:",omitempty"`
 	SplmtryData     []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -348,7 +350,7 @@ func (r Receipt3) Validate() error {
 }
 
 type ReceiptV05 struct {
-	Attr        []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name             `xml:"Rct"`
 	MsgHdr      MessageHeader9       `xml:"MsgHdr"`
 	RctDtls     []Receipt3           `xml:"RctDtls" json:",omitempty"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -457,7 +459,7 @@ func (r GenericPersonIdentification1) Validate() error {
 }
 
 type NotificationOfCaseAssignmentV05 struct {
-	Attr        []utils.Attr                `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                    `xml:"NtfctnOfCaseAssgnmt"`
 	Hdr         ReportHeader5               `xml:"Hdr"`
 	Case        Case5                       `xml:"Case"`
 	Assgnmt     CaseAssignment5             `xml:"Assgnmt"`
@@ -574,7 +576,7 @@ func (r ProprietaryData7) Validate() error {
 }
 
 type ProprietaryFormatInvestigationV05 struct {
-	Attr        []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name             `xml:"PrtryFrmtInvstgtn"`
 	Assgnmt     CaseAssignment5      `xml:"Assgnmt"`
 	Case        *Case5               `xml:"Case,omitempty" json:",omitempty"`
 	PrtryData   ProprietaryData7     `xml:"PrtryData"`
@@ -614,7 +616,7 @@ func (r DebitAuthorisationConfirmation2) Validate() error {
 }
 
 type DebitAuthorisationResponseV05 struct {
-	Attr        []utils.Attr                    `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                        `xml:"DbtAuthstnRspn"`
 	Assgnmt     CaseAssignment5                 `xml:"Assgnmt"`
 	Case        Case5                           `xml:"Case,omitempty" json:",omitempty"`
 	Conf        DebitAuthorisationConfirmation2 `xml:"Conf"`
@@ -636,7 +638,7 @@ func (r CaseStatus2) Validate() error {
 }
 
 type CaseStatusReportV05 struct {
-	Attr        []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name             `xml:"CaseStsRpt"`
 	Hdr         ReportHeader5        `xml:"Hdr"`
 	Case        Case5                `xml:"Case"`
 	Sts         CaseStatus2          `xml:"Sts"`
@@ -677,7 +679,7 @@ func (r GenericAccountIdentification1) Validate() error {
 }
 
 type GetReservationV05 struct {
-	Attr         []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName      xml.Name             `xml:"GetRsvatn"`
 	MsgHdr       MessageHeader9       `xml:"MsgHdr"`
 	RsvatnQryDef *ReservationQuery3   `xml:"RsvatnQryDef,omitempty" json:",omitempty"`
 	SplmtryData  []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -764,7 +766,7 @@ func (r DateAndDateTime2Choice) Validate() error {
 }
 
 type ModifyReservationV05 struct {
-	Attr            []utils.Attr                       `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName         xml.Name                           `xml:"ModfyRsvatn"`
 	MsgHdr          MessageHeader1                     `xml:"MsgHdr"`
 	RsvatnId        CurrentOrDefaultReservation2Choice `xml:"RsvatnId"`
 	NewRsvatnValSet Reservation4                       `xml:"NewRsvatnValSet"`
@@ -785,7 +787,7 @@ func (r Reservation4) Validate() error {
 }
 
 type DeleteReservationV05 struct {
-	Attr        []utils.Attr                `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                    `xml:"DelRsvatn"`
 	MsgHdr      MessageHeader1              `xml:"MsgHdr"`
 	CurRsvatn   *ReservationIdentification2 `xml:"CurRsvatn,omitempty" json:",omitempty"`
 	SplmtryData []SupplementaryData1        `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -861,7 +863,7 @@ func (r LiquidityCreditTransfer2) Validate() error {
 }
 
 type LiquidityCreditTransferV05 struct {
-	Attr        []utils.Attr             `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                 `xml:"LqdtyCdtTrf"`
 	MsgHdr      MessageHeader1           `xml:"MsgHdr"`
 	LqdtyCdtTrf LiquidityCreditTransfer2 `xml:"LqdtyCdtTrf"`
 	SplmtryData []SupplementaryData1     `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -915,7 +917,7 @@ func (r LiquidityDebitTransfer2) Validate() error {
 }
 
 type LiquidityDebitTransferV05 struct {
-	Attr        []utils.Attr            `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                `xml:"LqdtyDbtTrf"`
 	MsgHdr      MessageHeader1          `xml:"MsgHdr"`
 	LqdtyDbtTrf LiquidityDebitTransfer2 `xml:"LqdtyDbtTrf"`
 	SplmtryData []SupplementaryData1    `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -926,7 +928,7 @@ func (r LiquidityDebitTransferV05) Validate() error {
 }
 
 type AccountReportingRequestV05 struct {
-	Attr        []utils.Attr         `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name             `xml:"AcctRptgReq"`
 	GrpHdr      GroupHeader77        `xml:"GrpHdr"`
 	RptgReq     []ReportingRequest5  `xml:"RptgReq" json:",omitempty"`
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData,omitempty" json:",omitempty"`
@@ -1327,7 +1329,7 @@ func (r EquivalentAmount2) Validate() error {
 }
 
 type FIToFIPaymentCancellationRequestV05 struct {
-	Attr        []utils.Attr              `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                  `xml:"FIToFIPmtCxlReq"`
 	Assgnmt     CaseAssignment3           `xml:"Assgnmt"`
 	Case        *Case3                    `xml:"Case,omitempty" json:",omitempty"`
 	CtrlData    *ControlData1             `xml:"CtrlData,omitempty" json:",omitempty"`
@@ -1872,7 +1874,7 @@ func (r UnableToApplyMissing1) Validate() error {
 }
 
 type UnableToApplyV05 struct {
-	Attr        []utils.Attr                      `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                          `xml:"UblToApply"`
 	Assgnmt     CaseAssignment3                   `xml:"Assgnmt"`
 	Case        Case3                             `xml:"Case"`
 	Undrlyg     UnderlyingTransaction3Choice      `xml:"Undrlyg"`
@@ -1943,7 +1945,7 @@ func (r UnderlyingTransaction3Choice) Validate() error {
 }
 
 type AdditionalPaymentInformationV05 struct {
-	Attr        []utils.Attr                     `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName     xml.Name                         `xml:"AddtlPmtInf"`
 	Assgnmt     CaseAssignment3                  `xml:"Assgnmt"`
 	Case        Case3                            `xml:"Case"`
 	Undrlyg     UnderlyingTransaction2Choice     `xml:"Undrlyg"`

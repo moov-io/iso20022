@@ -5,6 +5,8 @@
 package acmt_v01
 
 import (
+	"encoding/xml"
+
 	"github.com/moov-io/iso20022/pkg/common"
 	"github.com/moov-io/iso20022/pkg/utils"
 )
@@ -25,7 +27,7 @@ func (r AccountSwitchDetails1) Validate() error {
 }
 
 type AccountSwitchTerminationSwitchV01 struct {
-	Attr          []utils.Attr           `xml:",any,attr,omitempty" json:",omitempty"`
+	XMLName       xml.Name               `xml:"AcctSwtchTermntnSwtch"`
 	MsgId         MessageIdentification1 `xml:"MsgId"`
 	AcctSwtchDtls AccountSwitchDetails1  `xml:"AcctSwtchDtls"`
 	SplmtryData   []SupplementaryData1   `xml:"SplmtryData,omitempty" json:",omitempty"`
