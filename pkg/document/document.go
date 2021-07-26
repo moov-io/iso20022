@@ -278,7 +278,7 @@ func ParseIso20022Document(buf []byte) (Iso20022Document, error) {
 		return nil, utils.NewErrOmittedNameSpace()
 	}
 
-	msg := msg[namespace]
+	msg := messageConstructor[namespace]
 	if msg == nil {
 		return nil, utils.NewErrUnsupportedNameSpace()
 	}
