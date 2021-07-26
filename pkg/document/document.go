@@ -58,18 +58,18 @@ type Iso20022Document interface {
 	// GetAttrs returns attributes of document
 	GetAttrs() []xml.Attr
 
-	// InspectDocument returns real document
-	InspectDocument() Iso20022Element
+	// InspectMessage returns message
+	InspectMessage() Iso20022Message
 }
 
 // Element interface for ISO 20022
-type Iso20022Element interface {
+type Iso20022Message interface {
 	// Validate will be process validation check of document
 	Validate() error
 }
 
 var (
-	elementConstructor = map[string]Iso20022Element{
+	messageConstructor = map[string]Iso20022Message{
 		utils.DocumentAcmt03600101NameSpace: &acmt_v01.AccountSwitchTerminationSwitchV01{},
 		utils.DocumentAcmt02200102NameSpace: &acmt_v02.IdentificationModificationAdviceV02{},
 		utils.DocumentAcmt02300102NameSpace: &acmt_v02.IdentificationVerificationRequestV02{},
@@ -243,13 +243,13 @@ func (dummy documentDummy) NameSpace() string {
 }
 
 func NewDocument(space string) (doc Iso20022Document, err error) {
-	element := elementConstructor[space]
-	if element == nil {
+	msg := messageConstructor[space]
+	if msg == nil {
 		return nil, utils.NewErrUnsupportedNameSpace()
 	}
 
 	return &Iso20022DocumentObject{
-		Element: element,
+		Message: msg,
 	}, nil
 }
 
@@ -278,13 +278,13 @@ func ParseIso20022Document(buf []byte) (Iso20022Document, error) {
 		return nil, utils.NewErrOmittedNameSpace()
 	}
 
-	element := elementConstructor[namespace]
-	if element == nil {
+	msg := msg[namespace]
+	if msg == nil {
 		return nil, utils.NewErrUnsupportedNameSpace()
 	}
 
 	doc := &Iso20022DocumentObject{
-		Element: element,
+		Message: msg,
 	}
 
 	if bType == utils.DocumentTypeXml {
@@ -302,7 +302,7 @@ func ParseIso20022Document(buf []byte) (Iso20022Document, error) {
 type Iso20022DocumentObject struct {
 	XMLName xml.Name
 	Attrs   []xml.Attr      `xml:",any,attr,omitempty" json:",omitempty"`
-	Element Iso20022Element `xml:",any"`
+	Message Iso20022Message `xml:",any"`
 }
 
 func (doc Iso20022DocumentObject) Validate() error {
@@ -331,15 +331,15 @@ func (doc *Iso20022DocumentObject) GetAttrs() []xml.Attr {
 	return doc.Attrs
 }
 
-func (doc *Iso20022DocumentObject) InspectDocument() Iso20022Element {
-	return doc.Element
+func (doc *Iso20022DocumentObject) InspectMessage() Iso20022Message {
+	return doc.Message
 }
 
 func (doc Iso20022DocumentObject) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	α := struct {
 		XMLName xml.Name
 		Attrs   []xml.Attr      `xml:",any,attr,omitempty" json:",omitempty"`
-		Element Iso20022Element `xml:",any"`
+		Message Iso20022Message `xml:",any"`
 	}(doc)
 
 	updatingStartElement(&start, doc.Attrs, doc.XMLName)
