@@ -12,7 +12,7 @@
 			"Value": "urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03"
 		}
 	],
-	"Element": {
+	"Message": {
 		"XMLName": {
 			"Space": "urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03",
 			"Local": "AcctOpngReq"

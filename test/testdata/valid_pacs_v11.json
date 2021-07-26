@@ -12,7 +12,7 @@
 			"Value": "urn:iso:std:iso:20022:tech:xsd:pacs.002.001.11"
 		}
 	],
-	"Element": {
+	"Message": {
 		"XMLName": {
 			"Space": "urn:iso:std:iso:20022:tech:xsd:pacs.002.001.11",
 			"Local": "FIToFIPmtStsRpt"

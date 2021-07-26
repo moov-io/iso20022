@@ -12,7 +12,7 @@
 			"Value": "urn:iso:std:iso:20022:tech:xsd:reda.066.001.01"
 		}
 	],
-	"Element": {
+	"Message": {
 		"XMLName": {
 			"Space": "urn:iso:std:iso:20022:tech:xsd:reda.066.001.01",
 			"Local": "ReqToPayCdtrEnrlmntReq"

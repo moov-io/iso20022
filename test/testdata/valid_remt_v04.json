@@ -12,7 +12,7 @@
 			"Value": "urn:iso:std:iso:20022:tech:xsd:remt.001.001.04"
 		}
 	],
-	"Element": {
+	"Message": {
 		"XMLName": {
 			"Space": "urn:iso:std:iso:20022:tech:xsd:remt.001.001.04",
 			"Local": "RmtAdvc"

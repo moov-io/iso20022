@@ -12,7 +12,7 @@
 			"Value": "urn:iso:std:iso:20022:tech:xsd:camt.055.001.09"
 		}
 	],
-	"Element": {
+	"Message": {
 		"XMLName": {
 			"Space": "urn:iso:std:iso:20022:tech:xsd:camt.055.001.09",
 			"Local": "CstmrPmtCxlReq"
