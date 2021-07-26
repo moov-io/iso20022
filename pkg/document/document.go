@@ -59,11 +59,17 @@ type Iso20022Document interface {
 	GetAttrs() []xml.Attr
 
 	// InspectDocument returns real document
-	InspectDocument() interface{}
+	InspectDocument() Iso20022Element
+}
+
+// Element interface for ISO 20022
+type Iso20022Element interface {
+	// Validate will be process validation check of document
+	Validate() error
 }
 
 var (
-	elementConstructor = map[string]interface{}{
+	elementConstructor = map[string]Iso20022Element{
 		utils.DocumentAcmt03600101NameSpace: &acmt_v01.AccountSwitchTerminationSwitchV01{},
 		utils.DocumentAcmt02200102NameSpace: &acmt_v02.IdentificationModificationAdviceV02{},
 		utils.DocumentAcmt02300102NameSpace: &acmt_v02.IdentificationVerificationRequestV02{},
@@ -295,8 +301,8 @@ func ParseIso20022Document(buf []byte) (Iso20022Document, error) {
 
 type Iso20022DocumentObject struct {
 	XMLName xml.Name
-	Attrs   []xml.Attr  `xml:",any,attr,omitempty" json:",omitempty"`
-	Element interface{} `xml:",any"`
+	Attrs   []xml.Attr      `xml:",any,attr,omitempty" json:",omitempty"`
+	Element Iso20022Element `xml:",any"`
 }
 
 func (doc Iso20022DocumentObject) Validate() error {
@@ -325,15 +331,15 @@ func (doc *Iso20022DocumentObject) GetAttrs() []xml.Attr {
 	return doc.Attrs
 }
 
-func (doc *Iso20022DocumentObject) InspectDocument() interface{} {
-	return &doc.Element
+func (doc *Iso20022DocumentObject) InspectDocument() Iso20022Element {
+	return doc.Element
 }
 
 func (doc Iso20022DocumentObject) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	α := struct {
 		XMLName xml.Name
-		Attrs   []xml.Attr  `xml:",any,attr,omitempty" json:",omitempty"`
-		Element interface{} `xml:",any"`
+		Attrs   []xml.Attr      `xml:",any,attr,omitempty" json:",omitempty"`
+		Element Iso20022Element `xml:",any"`
 	}(doc)
 
 	updatingStartElement(&start, doc.Attrs, doc.XMLName)

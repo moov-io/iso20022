@@ -29,6 +29,10 @@ type BusinessApplicationHeaderV02 struct {
 	Rltd       []BusinessApplicationHeader5  `xml:"Rltd,omitempty" json:",omitempty"`
 }
 
+func (r BusinessApplicationHeaderV02) Validate() error {
+	return utils.Validate(&r)
+}
+
 type AddressType3Choice struct {
 	Cd    common.AddressType2Code `xml:"Cd"`
 	Prtry GenericIdentification30 `xml:"Prtry"`

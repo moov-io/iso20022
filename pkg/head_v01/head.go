@@ -27,6 +27,10 @@ type BusinessApplicationHeaderV01 struct {
 	Rltd       *BusinessApplicationHeader1  `xml:"Rltd,omitempty" json:",omitempty"`
 }
 
+func (r BusinessApplicationHeaderV01) Validate() error {
+	return utils.Validate(&r)
+}
+
 type BranchAndFinancialInstitutionIdentification5 struct {
 	FinInstnId FinancialInstitutionIdentification8 `xml:"FinInstnId"`
 	BrnchId    BranchData2                         `xml:"BrnchId,omitempty" json:",omitempty"`
