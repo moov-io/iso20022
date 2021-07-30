@@ -194,6 +194,7 @@ var (
 		utils.DocumentPacs00800106NameSpace: &pacs_v06.FIToFICustomerCreditTransferV06{},
 		utils.DocumentPacs00200107NameSpace: &pacs_v07.FIToFIPaymentStatusReportV07{},
 		utils.DocumentPacs00300108NameSpace: &pacs_v08.FIToFICustomerDirectDebitV08{},
+		utils.DocumentPacs00800108NameSpace: &pacs_v08.FIToFICustomerCreditTransferV08{},
 		utils.DocumentPacs00800109NameSpace: &pacs_v09.FIToFICustomerCreditTransferV09{},
 		utils.DocumentPacs00900109NameSpace: &pacs_v09.FinancialInstitutionCreditTransferV09{},
 		utils.DocumentPacs00200110NameSpace: &pacs_v10.FIToFIPaymentStatusReportV10{},
