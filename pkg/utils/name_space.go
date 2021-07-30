@@ -129,6 +129,7 @@ const (
 	DocumentPacs00800106NameSpace = "urn:iso:std:iso:20022:tech:xsd:pacs.008.001.06"
 	DocumentPacs00200107NameSpace = "urn:iso:std:iso:20022:tech:xsd:pacs.002.001.07"
 	DocumentPacs00300108NameSpace = "urn:iso:std:iso:20022:tech:xsd:pacs.003.001.08"
+	DocumentPacs00800108NameSpace = "urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08"
 	DocumentPacs00800109NameSpace = "urn:iso:std:iso:20022:tech:xsd:pacs.008.001.09"
 	DocumentPacs00900109NameSpace = "urn:iso:std:iso:20022:tech:xsd:pacs.009.001.09"
 	DocumentPacs00200110NameSpace = "urn:iso:std:iso:20022:tech:xsd:pacs.002.001.10"

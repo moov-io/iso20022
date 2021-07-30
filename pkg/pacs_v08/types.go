@@ -361,3 +361,45 @@ func (r ClearingChannel2Code) Validate() error {
 	}
 	return utils.NewErrValueInvalid("ClearingChannel2Code")
 }
+
+// May be one of CHQB, HOLD, PHOB, TELB
+type Instruction3Code string
+
+func (r Instruction3Code) Validate() error {
+	for _, vv := range []string{
+		"CHQB", "HOLD", "PHOB", "TELB",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("Instruction3Code")
+}
+
+// May be one of PHOA, TELA
+type Instruction4Code string
+
+func (r Instruction4Code) Validate() error {
+	for _, vv := range []string{
+		"PHOA", "TELA",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("Instruction4Code")
+}
+
+// May be one of INDA, INGA, COVE, CLRG
+type SettlementMethod1Code string
+
+func (r SettlementMethod1Code) Validate() error {
+	for _, vv := range []string{
+		"INDA", "INGA", "COVE", "CLRG",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("SettlementMethod1Code")
+}
