@@ -12,7 +12,7 @@ import (
 )
 
 type AccountIdentification4Choice struct {
-	IBAN common.IBAN2007Identifier     `xml:"IBAN"`
+	IBAN *common.IBAN2007Identifier    `xml:"IBAN,omitempty" json:",omitempty"`
 	Othr GenericAccountIdentification1 `xml:"Othr"`
 }
 
@@ -117,8 +117,8 @@ func (r CashAccount38) Validate() error {
 }
 
 type CashAccountType2Choice struct {
-	Cd    ExternalCashAccountType1Code `xml:"Cd"`
-	Prtry common.Max35Text             `xml:"Prtry"`
+	Cd    *ExternalCashAccountType1Code `xml:"Cd,omitempty" json:",omitempty"`
+	Prtry *common.Max35Text             `xml:"Prtry,omitempty" json:",omitempty"`
 }
 
 func (r CashAccountType2Choice) Validate() error {
@@ -126,8 +126,8 @@ func (r CashAccountType2Choice) Validate() error {
 }
 
 type CategoryPurpose1Choice struct {
-	Cd    ExternalCategoryPurpose1Code `xml:"Cd"`
-	Prtry common.Max35Text             `xml:"Prtry"`
+	Cd    *ExternalCategoryPurpose1Code `xml:"Cd,omitempty" json:",omitempty"`
+	Prtry *common.Max35Text             `xml:"Prtry,omitempty" json:",omitempty"`
 }
 
 func (r CategoryPurpose1Choice) Validate() error {
@@ -145,7 +145,7 @@ func (r Charges7) Validate() error {
 
 type ClearingSystemIdentification2Choice struct {
 	Cd    ExternalClearingSystemIdentification1Code `xml:"Cd"`
-	Prtry common.Max35Text                          `xml:"Prtry"`
+	Prtry *common.Max35Text                         `xml:"Prtry,omitempty" json:",omitempty"`
 }
 
 func (r ClearingSystemIdentification2Choice) Validate() error {
@@ -154,7 +154,7 @@ func (r ClearingSystemIdentification2Choice) Validate() error {
 
 type ClearingSystemIdentification3Choice struct {
 	Cd    ExternalCashClearingSystem1Code `xml:"Cd"`
-	Prtry common.Max35Text                `xml:"Prtry"`
+	Prtry *common.Max35Text               `xml:"Prtry,omitempty" json:",omitempty"`
 }
 
 func (r ClearingSystemIdentification3Choice) Validate() error {
@@ -521,8 +521,8 @@ func (r GroupHeader94) Validate() error {
 }
 
 type LocalInstrument2Choice struct {
-	Cd    ExternalLocalInstrument1Code `xml:"Cd"`
-	Prtry common.Max35Text             `xml:"Prtry"`
+	Cd    *ExternalLocalInstrument1Code `xml:"Cd,omitempty" json:",omitempty"`
+	Prtry *common.Max35Text             `xml:"Prtry,omitempty" json:",omitempty"`
 }
 
 func (r LocalInstrument2Choice) Validate() error {
@@ -810,7 +810,7 @@ func (r RemittanceLocationData1) Validate() error {
 
 type ServiceLevel8Choice struct {
 	Cd    ExternalServiceLevel1Code `xml:"Cd"`
-	Prtry common.Max35Text          `xml:"Prtry"`
+	Prtry *common.Max35Text         `xml:"Prtry,omitempty" json:",omitempty"`
 }
 
 func (r ServiceLevel8Choice) Validate() error {
