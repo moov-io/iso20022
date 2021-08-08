@@ -183,6 +183,7 @@ var (
 		utils.DocumentCamt05200108NameSpace: &camt_v08.BankToCustomerAccountReportV08{},
 		utils.DocumentCamt05300108NameSpace: &camt_v08.BankToCustomerStatementV08{},
 		utils.DocumentCamt05400108NameSpace: &camt_v08.BankToCustomerDebitCreditNotificationV08{},
+		utils.DocumentCamt05600108NameSpace: &camt_v08.FIToFIPaymentCancellationRequestV08{},
 		utils.DocumentCamt05500109NameSpace: &camt_v09.CustomerPaymentCancellationRequestV09{},
 		utils.DocumentCamt05600109NameSpace: &camt_v09.FIToFIPaymentCancellationRequestV09{},
 		utils.DocumentCamt02800110NameSpace: &camt_v10.AdditionalPaymentInformationV10{},

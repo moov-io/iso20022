@@ -563,7 +563,7 @@ type PaymentTransaction63 struct {
 	OrgnlInstrId    *common.Max35Text                             `xml:"OrgnlInstrId,omitempty" json:",omitempty"`
 	OrgnlEndToEndId *common.Max35Text                             `xml:"OrgnlEndToEndId,omitempty" json:",omitempty"`
 	OrgnlTxId       *common.Max35Text                             `xml:"OrgnlTxId,omitempty" json:",omitempty"`
-	TxSts           *TransactionIndividualStatus3Code             `xml:"TxSts,omitempty" json:",omitempty"`
+	TxSts           *TransactionGroupStatus3Code                  `xml:"TxSts,omitempty" json:",omitempty"`
 	StsRsnInf       []StatusReasonInformation9                    `xml:"StsRsnInf,omitempty" json:",omitempty"`
 	ChrgsInf        []Charges2                                    `xml:"ChrgsInf,omitempty" json:",omitempty"`
 	AccptncDtTm     *common.ISODateTime                           `xml:"AccptncDtTm,omitempty" json:",omitempty"`
