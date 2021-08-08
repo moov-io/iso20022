@@ -202,8 +202,8 @@ func (r Contact4) Validate() error {
 }
 
 type ControlData1 struct {
-	NbOfTxs common.Max15NumericText `xml:"NbOfTxs"`
-	CtrlSum float64                 `xml:"CtrlSum,omitempty" json:",omitempty"`
+	NbOfTxs *common.Max15NumericText `xml:"NbOfTxs,omitempty" json:",omitempty"`
+	CtrlSum float64                  `xml:"CtrlSum,omitempty" json:",omitempty"`
 }
 
 func (r ControlData1) Validate() error {
