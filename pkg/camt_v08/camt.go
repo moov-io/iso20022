@@ -3413,7 +3413,6 @@ func (r BankToCustomerDebitCreditNotificationV08) Validate() error {
 	return utils.Validate(&r)
 }
 
-
 type ControlData1 struct {
 	NbOfTxs common.Max15NumericText `xml:"NbOfTxs"`
 	CtrlSum float64                 `xml:"CtrlSum,omitempty" json:",omitempty"`
@@ -3450,7 +3449,6 @@ type OriginalGroupHeader15 struct {
 func (r OriginalGroupHeader15) Validate() error {
 	return utils.Validate(&r)
 }
-
 
 type OriginalTransactionReference28 struct {
 	IntrBkSttlmAmt ActiveOrHistoricCurrencyAndAmount            `xml:"IntrBkSttlmAmt,omitempty" json:",omitempty"`
