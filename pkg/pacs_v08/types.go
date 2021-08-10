@@ -403,3 +403,47 @@ func (r SettlementMethod1Code) Validate() error {
 	}
 	return utils.NewErrValueInvalid("SettlementMethod1Code")
 }
+
+// May be no more than 4 items long
+type ExternalPaymentGroupStatus1Code string
+
+func (r ExternalPaymentGroupStatus1Code) Validate() error {
+	if len(string(r)) < 1 {
+		return utils.NewErrTextLengthInvalid("ExternalPaymentGroupStatus1Code", 1, 0)
+	}
+	return nil
+}
+
+// May be no more than 4 items long
+type ExternalPaymentTransactionStatus1Code string
+
+func (r ExternalPaymentTransactionStatus1Code) Validate() error {
+	if len(string(r)) < 1 {
+		return utils.NewErrTextLengthInvalid("ExternalPaymentTransactionStatus1Code", 1, 0)
+	}
+	return nil
+}
+
+// May be no more than 4 items long
+type ExternalStatusReason1Code string
+
+func (r ExternalStatusReason1Code) Validate() error {
+	if len(string(r)) < 1 {
+		return utils.NewErrTextLengthInvalid("ExternalStatusReason1Code", 1, 0)
+	}
+	return nil
+}
+
+// May be one of CHK, TRF, DD, TRA
+type PaymentMethod4Code string
+
+func (r PaymentMethod4Code) Validate() error {
+	for _, vv := range []string{
+		"CHK", "TRF", "DD", "TRA",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("PaymentMethod4Code")
+}
