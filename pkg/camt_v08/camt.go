@@ -3423,6 +3423,7 @@ func (r ControlData1) Validate() error {
 }
 
 type FIToFIPaymentCancellationRequestV08 struct {
+	XMLName     xml.Name                  `xml:"FIToFIPmtCxlReq"`
 	Assgnmt     CaseAssignment5           `xml:"Assgnmt"`
 	Case        *Case5                    `xml:"Case,omitempty" json:",omitempty"`
 	CtrlData    *ControlData1             `xml:"CtrlData,omitempty" json:",omitempty"`

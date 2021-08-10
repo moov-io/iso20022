@@ -1269,6 +1269,7 @@ func (r EquivalentAmount2) Validate() error {
 }
 
 type FIToFIPaymentStatusReportV08 struct {
+	XMLName           xml.Name               `xml:"FIToFIPmtStsRpt"`
 	GrpHdr            GroupHeader53          `xml:"GrpHdr"`
 	OrgnlGrpInfAndSts []OriginalGroupHeader7 `xml:"OrgnlGrpInfAndSts,omitempty" json:",omitempty"`
 	TxInfAndSts       []PaymentTransaction80 `xml:"TxInfAndSts,omitempty" json:",omitempty"`
