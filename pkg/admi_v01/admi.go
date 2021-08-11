@@ -12,7 +12,7 @@ import (
 )
 
 type Admi00200101 struct {
-	XMLName xml.Name         `xml:"admi.004.001.01"`
+	XMLName xml.Name         `xml:"admi.002.001.01"`
 	RltdRef MessageReference `xml:"RltdRef"`
 	Rsn     RejectionReason2 `xml:"Rsn"`
 }
