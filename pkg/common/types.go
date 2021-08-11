@@ -685,13 +685,19 @@ func _unmarshalTime(text []byte, t *time.Time, format string) (err error) {
 	return err
 }
 
+const (
+	DefaultDateTimeFormat = "2006-01-02T15:04:05.999999999"
+)
+
+var DateTimeFormatString = DefaultDateTimeFormat
+
 type xsdDateTime time.Time
 
 func (t *xsdDateTime) UnmarshalText(text []byte) error {
-	return _unmarshalTime(text, (*time.Time)(t), "2006-01-02T15:04:05.999999999")
+	return _unmarshalTime(text, (*time.Time)(t), DateTimeFormatString)
 }
 func (t xsdDateTime) MarshalText() ([]byte, error) {
-	return []byte((time.Time)(t).Format("2006-01-02T15:04:05.999999999")), nil
+	return []byte((time.Time)(t).Format(DateTimeFormatString)), nil
 }
 func (t xsdDateTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	if (time.Time)(t).IsZero() {
