@@ -27,7 +27,7 @@ func TestNestedTypes(t *testing.T) {
 	assert.NotNil(t, Charges7{}.Validate())
 	assert.NotNil(t, ClearingSystemIdentification2Choice{}.Validate())
 	assert.NotNil(t, ClearingSystemIdentification3Choice{}.Validate())
-	assert.Nil(t, ClearingSystemMemberIdentification2{}.Validate())
+	assert.NotNil(t, ClearingSystemMemberIdentification2{}.Validate())
 	assert.Nil(t, Contact4{}.Validate())
 	assert.Nil(t, CreditTransferMandateData1{}.Validate())
 	assert.Nil(t, CreditTransferTransaction45{}.Validate())
