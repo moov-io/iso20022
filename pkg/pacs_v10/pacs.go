@@ -172,7 +172,7 @@ func (r ClearingSystemIdentification3Choice) Validate() error {
 
 type ClearingSystemMemberIdentification2 struct {
 	ClrSysId *ClearingSystemIdentification2Choice `xml:"ClrSysId,omitempty" json:",omitempty"`
-	MmbId    common.Max35Text                     `xml:"MmbId"`
+	MmbId    string                               `xml:"MmbId"`
 }
 
 func (r ClearingSystemMemberIdentification2) Validate() error {
