@@ -33,7 +33,7 @@ func (r BusinessApplicationHeaderV01) Validate() error {
 
 type BranchAndFinancialInstitutionIdentification5 struct {
 	FinInstnId FinancialInstitutionIdentification8 `xml:"FinInstnId"`
-	BrnchId    BranchData2                         `xml:"BrnchId,omitempty" json:",omitempty"`
+	BrnchId    *BranchData2                        `xml:"BrnchId,omitempty" json:",omitempty"`
 }
 
 func (r BranchAndFinancialInstitutionIdentification5) Validate() error {
@@ -190,7 +190,7 @@ func (r Party10Choice) Validate() error {
 }
 
 type Party9Choice struct {
-	OrgId PartyIdentification42                        `xml:"OrgId"`
+	OrgId *PartyIdentification42                       `xml:"OrgId,omitempty" json:",omitempty"`
 	FIId  BranchAndFinancialInstitutionIdentification5 `xml:"FIId"`
 }
 
