@@ -511,3 +511,31 @@ func (r TaxRecordPeriod1Code) Validate() error {
 	}
 	return utils.NewErrValueInvalid("TaxRecordPeriod1Code")
 }
+
+// May be one of IN01, IN02, IN03, IN04, IN05, IN06, IN07, IN08, IN09, IN10, IN11, IN12, IN13, IN14, IN15, IN16, IN17, IN18, IN19, MM20, MM21, MM22, MM25, MM26, MM27, MM28, MM29, MM30, MM31, MM32, IN33, MM34, MM35, IN36, IN37, IN38, IN39, NARR
+type UnableToApplyIncorrectInformation4Code string
+
+func (r UnableToApplyIncorrectInformation4Code) Validate() error {
+	for _, vv := range []string{
+		"IN01", "IN02", "IN03", "IN04", "IN05", "IN06", "IN07", "IN08", "IN09", "IN10", "IN11", "IN12", "IN13", "IN14", "IN15", "IN16", "IN17", "IN18", "IN19", "MM20", "MM21", "MM22", "MM25", "MM26", "MM27", "MM28", "MM29", "MM30", "MM31", "MM32", "IN33", "MM34", "MM35", "IN36", "IN37", "IN38", "IN39", "NARR",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("UnableToApplyIncorrectInformation4Code")
+}
+
+// May be one of MS01, MS02, MS03, MS04, MS05, MS06, MS07, MS08, MS09, MS10, MS11, MS12, MS13, MS14, MS15, MS16, MS17, NARR
+type UnableToApplyMissingInformation3Code string
+
+func (r UnableToApplyMissingInformation3Code) Validate() error {
+	for _, vv := range []string{
+		"MS01", "MS02", "MS03", "MS04", "MS05", "MS06", "MS07", "MS08", "MS09", "MS10", "MS11", "MS12", "MS13", "MS14", "MS15", "MS16", "MS17", "NARR",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("UnableToApplyMissingInformation3Code")
+}
