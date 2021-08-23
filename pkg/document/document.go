@@ -316,12 +316,17 @@ type Iso20022DocumentObject struct {
 }
 
 func (doc Iso20022DocumentObject) Validate() error {
+	if len(doc.NameSpace()) == 0 {
+		return utils.Validate(&doc)
+	}
+
 	for _, attr := range doc.Attrs {
-		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() != attr.Value {
-			return utils.NewErrInvalidNameSpace()
+		if attr.Name.Local == utils.XmlDefaultNamespace && doc.NameSpace() == attr.Value {
+			return utils.Validate(&doc)
 		}
 	}
-	return utils.Validate(&doc)
+
+	return utils.NewErrInvalidNameSpace()
 }
 
 func (doc Iso20022DocumentObject) NameSpace() string {
