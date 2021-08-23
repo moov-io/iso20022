@@ -35,6 +35,7 @@ import (
 	"github.com/moov-io/iso20022/pkg/pacs_v11"
 	"github.com/moov-io/iso20022/pkg/pain_v01"
 	"github.com/moov-io/iso20022/pkg/pain_v05"
+	"github.com/moov-io/iso20022/pkg/pain_v07"
 	"github.com/moov-io/iso20022/pkg/pain_v08"
 	"github.com/moov-io/iso20022/pkg/pain_v09"
 	"github.com/moov-io/iso20022/pkg/pain_v10"
@@ -173,6 +174,7 @@ var (
 		utils.DocumentCamt01200107NameSpace: func() Iso20022Message { return &camt_v07.DeleteLimitV07{} },
 		utils.DocumentCamt01900107NameSpace: func() Iso20022Message { return &camt_v07.ReturnBusinessDayInformationV07{} },
 		utils.DocumentCamt02300107NameSpace: func() Iso20022Message { return &camt_v07.BackupPaymentV07{} },
+		utils.DocumentCamt02600107NameSpace: func() Iso20022Message { return &camt_v07.UnableToApplyV07{} },
 		utils.DocumentCamt08700107NameSpace: func() Iso20022Message { return &camt_v07.RequestToModifyPaymentV07{} },
 		utils.DocumentCamt00400108NameSpace: func() Iso20022Message { return &camt_v08.ReturnAccountV08{} },
 		utils.DocumentCamt00500108NameSpace: func() Iso20022Message { return &camt_v08.GetTransactionV08{} },
@@ -214,6 +216,8 @@ var (
 		utils.DocumentPain01200105NameSpace: func() Iso20022Message { return &pain_v05.MandateAcceptanceReportV05{} },
 		utils.DocumentPain01300105NameSpace: func() Iso20022Message { return &pain_v05.CreditorPaymentActivationRequestV05{} },
 		utils.DocumentPain01400105NameSpace: func() Iso20022Message { return &pain_v05.CreditorPaymentActivationRequestStatusReportV05{} },
+		utils.DocumentPain01300107NameSpace: func() Iso20022Message { return &pain_v07.CreditorPaymentActivationRequestV07{} },
+		utils.DocumentPain01400107NameSpace: func() Iso20022Message { return &pain_v07.CreditorPaymentActivationRequestStatusReportV07{} },
 		utils.DocumentPain01400108NameSpace: func() Iso20022Message { return &pain_v08.CreditorPaymentActivationRequestStatusReportV08{} },
 		utils.DocumentPain01300108NameSpace: func() Iso20022Message { return &pain_v08.CreditorPaymentActivationRequestV08{} },
 		utils.DocumentPain00800109NameSpace: func() Iso20022Message { return &pain_v09.CustomerDirectDebitInitiationV09{} },

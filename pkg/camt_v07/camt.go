@@ -1829,3 +1829,124 @@ type UnderlyingTransaction6Choice struct {
 func (r UnderlyingTransaction6Choice) Validate() error {
 	return utils.Validate(&r)
 }
+
+type MissingOrIncorrectInformation3 struct {
+	AMLReq     bool                      `xml:"AMLReq,omitempty" json:",omitempty"`
+	MssngInf   []UnableToApplyMissing1   `xml:"MssngInf,omitempty" json:",omitempty"`
+	IncrrctInf []UnableToApplyIncorrect1 `xml:"IncrrctInf,omitempty" json:",omitempty"`
+}
+
+func (r MissingOrIncorrectInformation3) Validate() error {
+	return utils.Validate(&r)
+}
+
+type OriginalTransactionReference28 struct {
+	IntrBkSttlmAmt *ActiveOrHistoricCurrencyAndAmount            `xml:"IntrBkSttlmAmt,omitempty" json:",omitempty"`
+	Amt            *AmountType4Choice                            `xml:"Amt,omitempty" json:",omitempty"`
+	IntrBkSttlmDt  *common.ISODate                               `xml:"IntrBkSttlmDt,omitempty" json:",omitempty"`
+	ReqdColltnDt   *common.ISODate                               `xml:"ReqdColltnDt,omitempty" json:",omitempty"`
+	ReqdExctnDt    **DateAndDateTime2Choice                      `xml:"ReqdExctnDt,omitempty" json:",omitempty"`
+	CdtrSchmeId    *PartyIdentification135                       `xml:"CdtrSchmeId,omitempty" json:",omitempty"`
+	SttlmInf       *SettlementInstruction7                       `xml:"SttlmInf,omitempty" json:",omitempty"`
+	PmtTpInf       *PaymentTypeInformation27                     `xml:"PmtTpInf,omitempty" json:",omitempty"`
+	PmtMtd         *PaymentMethod4Code                           `xml:"PmtMtd,omitempty" json:",omitempty"`
+	MndtRltdInf    *MandateRelatedInformation14                  `xml:"MndtRltdInf,omitempty" json:",omitempty"`
+	RmtInf         *RemittanceInformation16                      `xml:"RmtInf,omitempty" json:",omitempty"`
+	UltmtDbtr      *Party40Choice                                `xml:"UltmtDbtr,omitempty" json:",omitempty"`
+	Dbtr           *Party40Choice                                `xml:"Dbtr,omitempty" json:",omitempty"`
+	DbtrAcct       *CashAccount38                                `xml:"DbtrAcct,omitempty" json:",omitempty"`
+	DbtrAgt        *BranchAndFinancialInstitutionIdentification6 `xml:"DbtrAgt,omitempty" json:",omitempty"`
+	DbtrAgtAcct    *CashAccount38                                `xml:"DbtrAgtAcct,omitempty" json:",omitempty"`
+	CdtrAgt        *BranchAndFinancialInstitutionIdentification6 `xml:"CdtrAgt,omitempty" json:",omitempty"`
+	CdtrAgtAcct    *CashAccount38                                `xml:"CdtrAgtAcct,omitempty" json:",omitempty"`
+	Cdtr           *Party40Choice                                `xml:"Cdtr,omitempty" json:",omitempty"`
+	CdtrAcct       *CashAccount38                                `xml:"CdtrAcct,omitempty" json:",omitempty"`
+	UltmtCdtr      *Party40Choice                                `xml:"UltmtCdtr,omitempty" json:",omitempty"`
+	Purp           *Purpose2Choice                               `xml:"Purp,omitempty" json:",omitempty"`
+}
+
+func (r OriginalTransactionReference28) Validate() error {
+	return utils.Validate(&r)
+}
+
+type UnableToApplyIncorrect1 struct {
+	Cd              UnableToApplyIncorrectInformation4Code `xml:"Cd"`
+	AddtlIncrrctInf *common.Max140Text                     `xml:"AddtlIncrrctInf,omitempty" json:",omitempty"`
+}
+
+func (r UnableToApplyIncorrect1) Validate() error {
+	return utils.Validate(&r)
+}
+
+type UnableToApplyJustification3Choice struct {
+	AnyInf            bool                            `xml:"AnyInf,omitempty" json:",omitempty"`
+	MssngOrIncrrctInf *MissingOrIncorrectInformation3 `xml:"MssngOrIncrrctInf,omitempty" json:",omitempty"`
+	PssblDplctInstr   bool                            `xml:"PssblDplctInstr,omitempty" json:",omitempty"`
+}
+
+func (r UnableToApplyJustification3Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
+type UnableToApplyMissing1 struct {
+	Cd            UnableToApplyMissingInformation3Code `xml:"Cd"`
+	AddtlMssngInf *common.Max140Text                   `xml:"AddtlMssngInf,omitempty" json:",omitempty"`
+}
+
+func (r UnableToApplyMissing1) Validate() error {
+	return utils.Validate(&r)
+}
+
+type UnableToApplyV07 struct {
+	XMLName     xml.Name                          `xml:"UblToApply"`
+	Assgnmt     CaseAssignment5                   `xml:"Assgnmt"`
+	Case        *Case5                            `xml:"Case,omitempty" json:",omitempty"`
+	Undrlyg     UnderlyingTransaction5Choice      `xml:"Undrlyg"`
+	Justfn      UnableToApplyJustification3Choice `xml:"Justfn"`
+	SplmtryData []SupplementaryData1              `xml:"SplmtryData,omitempty" json:",omitempty"`
+}
+
+func (r UnableToApplyV07) Validate() error {
+	return utils.Validate(&r)
+}
+
+type UnderlyingPaymentInstruction5 struct {
+	OrgnlGrpInf     *UnderlyingGroupInformation1      `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
+	OrgnlPmtInfId   *common.Max35Text                 `xml:"OrgnlPmtInfId,omitempty" json:",omitempty"`
+	OrgnlInstrId    *common.Max35Text                 `xml:"OrgnlInstrId,omitempty" json:",omitempty"`
+	OrgnlEndToEndId *common.Max35Text                 `xml:"OrgnlEndToEndId,omitempty" json:",omitempty"`
+	OrgnlUETR       *common.UUIDv4Identifier          `xml:"OrgnlUETR,omitempty" json:",omitempty"`
+	OrgnlInstdAmt   ActiveOrHistoricCurrencyAndAmount `xml:"OrgnlInstdAmt"`
+	ReqdExctnDt     *DateAndDateTime2Choice           `xml:"ReqdExctnDt,omitempty" json:",omitempty"`
+	ReqdColltnDt    *common.ISODate                   `xml:"ReqdColltnDt,omitempty" json:",omitempty"`
+	OrgnlTxRef      *OriginalTransactionReference28   `xml:"OrgnlTxRef,omitempty" json:",omitempty"`
+}
+
+func (r UnderlyingPaymentInstruction5) Validate() error {
+	return utils.Validate(&r)
+}
+
+type UnderlyingPaymentTransaction4 struct {
+	OrgnlGrpInf         *UnderlyingGroupInformation1      `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
+	OrgnlInstrId        *common.Max35Text                 `xml:"OrgnlInstrId,omitempty" json:",omitempty"`
+	OrgnlEndToEndId     *common.Max35Text                 `xml:"OrgnlEndToEndId,omitempty" json:",omitempty"`
+	OrgnlTxId           *common.Max35Text                 `xml:"OrgnlTxId,omitempty" json:",omitempty"`
+	OrgnlUETR           *common.UUIDv4Identifier          `xml:"OrgnlUETR,omitempty" json:",omitempty"`
+	OrgnlIntrBkSttlmAmt ActiveOrHistoricCurrencyAndAmount `xml:"OrgnlIntrBkSttlmAmt"`
+	OrgnlIntrBkSttlmDt  common.ISODate                    `xml:"OrgnlIntrBkSttlmDt"`
+	OrgnlTxRef          *OriginalTransactionReference28   `xml:"OrgnlTxRef,omitempty" json:",omitempty"`
+}
+
+func (r UnderlyingPaymentTransaction4) Validate() error {
+	return utils.Validate(&r)
+}
+
+type UnderlyingTransaction5Choice struct {
+	Initn    *UnderlyingPaymentInstruction5 `xml:"Initn,omitempty" json:",omitempty"`
+	IntrBk   *UnderlyingPaymentTransaction4 `xml:"IntrBk,omitempty" json:",omitempty"`
+	StmtNtry *UnderlyingStatementEntry3     `xml:"StmtNtry,omitempty" json:",omitempty"`
+}
+
+func (r UnderlyingTransaction5Choice) Validate() error {
+	return utils.Validate(&r)
+}
