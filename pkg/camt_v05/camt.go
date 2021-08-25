@@ -566,9 +566,13 @@ func (r ProprietaryData6) Validate() error {
 	return utils.Validate(&r)
 }
 
+type DataPayload struct {
+	Content []byte `xml:",innerxml"`
+}
+
 type ProprietaryData7 struct {
 	Tp   common.Max35Text `xml:"Tp"`
-	Data ProprietaryData6 `xml:"Data"`
+	Data DataPayload      `xml:"Data"`
 }
 
 func (r ProprietaryData7) Validate() error {
