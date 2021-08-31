@@ -190,6 +190,150 @@ func (r ExternalTaxAmountType1Code) Validate() error {
 	return nil
 }
 
+// May be no more than 4 items long
+type ExternalChargeType1Code string
+
+func (r ExternalChargeType1Code) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 4 {
+		return utils.NewErrTextLengthInvalid("ExternalChargeType1Code", 1, 4)
+	}
+	return nil
+}
+
+// May be no more than 4 items long
+type ExternalClaimNonReceiptRejection1Code string
+
+func (r ExternalClaimNonReceiptRejection1Code) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 4 {
+		return utils.NewErrTextLengthInvalid("ExternalClaimNonReceiptRejection1Code", 1, 4)
+	}
+	return nil
+}
+
+// May be no more than 4 items long
+type ExternalInvestigationExecutionConfirmation1Code string
+
+func (r ExternalInvestigationExecutionConfirmation1Code) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 4 {
+		return utils.NewErrTextLengthInvalid("ExternalInvestigationExecutionConfirmation1Code", 1, 4)
+	}
+	return nil
+}
+
+// May be no more than 4 items long
+type ExternalPaymentCancellationRejection1Code string
+
+func (r ExternalPaymentCancellationRejection1Code) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 4 {
+		return utils.NewErrTextLengthInvalid("ExternalPaymentCancellationRejection1Code", 1, 4)
+	}
+	return nil
+}
+
+// May be no more than 4 items long
+type ExternalPaymentCompensationReason1Code string
+
+func (r ExternalPaymentCompensationReason1Code) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 4 {
+		return utils.NewErrTextLengthInvalid("ExternalPaymentCompensationReason1Code", 1, 4)
+	}
+	return nil
+}
+
+// May be no more than 4 items long
+type ExternalPaymentModificationRejection1Code string
+
+func (r ExternalPaymentModificationRejection1Code) Validate() error {
+	if len(string(r)) < 1 || len(string(r)) > 4 {
+		return utils.NewErrTextLengthInvalid("ExternalPaymentModificationRejection1Code", 1, 4)
+	}
+	return nil
+}
+
+// May be one of RJCR, ACCR, PDCR
+type CancellationIndividualStatus1Code string
+
+func (r CancellationIndividualStatus1Code) Validate() error {
+	for _, vv := range []string{
+		"RJCR", "ACCR", "PDCR",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("CancellationIndividualStatus1Code")
+}
+
+// May be one of DEBT, CRED, SHAR, SLEV
+type ChargeBearerType1Code string
+
+func (r ChargeBearerType1Code) Validate() error {
+	for _, vv := range []string{
+		"DEBT", "CRED", "SHAR", "SLEV",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("ChargeBearerType1Code")
+}
+
+// May be one of PACR, RJCR, ACCR, PDCR
+type GroupCancellationStatus1Code string
+
+func (r GroupCancellationStatus1Code) Validate() error {
+	for _, vv := range []string{
+		"PACR", "RJCR", "ACCR", "PDCR",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("GroupCancellationStatus1Code")
+}
+
+// May be one of ACTC, RJCT, PDNG, ACCP, ACSP, ACSC, ACCR, ACWC
+type TransactionIndividualStatus1Code string
+
+func (r TransactionIndividualStatus1Code) Validate() error {
+	for _, vv := range []string{
+		"ACTC", "RJCT", "PDNG", "ACCP", "ACSP", "ACSC", "ACCR", "ACWC",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("TransactionIndividualStatus1Code")
+}
+
+// May be one of CHQB, HOLD, PHOB, TELB
+type Instruction3Code string
+
+func (r Instruction3Code) Validate() error {
+	for _, vv := range []string{
+		"CHQB", "HOLD", "PHOB", "TELB",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("Instruction3Code")
+}
+
+// May be one of PHOA, TELA
+type Instruction4Code string
+
+func (r Instruction4Code) Validate() error {
+	for _, vv := range []string{
+		"PHOA", "TELA",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return utils.NewErrValueInvalid("Instruction4Code")
+}
+
 // May be one of RTGS, RTNS, MPNS, BOOK
 type ClearingChannel2Code string
 
