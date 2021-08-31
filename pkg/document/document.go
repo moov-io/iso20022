@@ -189,6 +189,8 @@ var (
 		utils.DocumentCamt05300108NameSpace: func() Iso20022Message { return &camt_v08.BankToCustomerStatementV08{} },
 		utils.DocumentCamt05400108NameSpace: func() Iso20022Message { return &camt_v08.BankToCustomerDebitCreditNotificationV08{} },
 		utils.DocumentCamt05600108NameSpace: func() Iso20022Message { return &camt_v08.FIToFIPaymentCancellationRequestV08{} },
+		utils.DocumentCamt02800109NameSpace: func() Iso20022Message { return &camt_v09.AdditionalPaymentInformationV09{} },
+		utils.DocumentCamt02900109NameSpace: func() Iso20022Message { return &camt_v09.ResolutionOfInvestigationV09{} },
 		utils.DocumentCamt05500109NameSpace: func() Iso20022Message { return &camt_v09.CustomerPaymentCancellationRequestV09{} },
 		utils.DocumentCamt05600109NameSpace: func() Iso20022Message { return &camt_v09.FIToFIPaymentCancellationRequestV09{} },
 		utils.DocumentCamt02800110NameSpace: func() Iso20022Message { return &camt_v10.AdditionalPaymentInformationV10{} },

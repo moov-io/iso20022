@@ -1091,3 +1091,560 @@ type UnderlyingTransaction26 struct {
 func (r UnderlyingTransaction26) Validate() error {
 	return utils.Validate(&r)
 }
+
+type AdditionalPaymentInformationV09 struct {
+	XMLName     xml.Name                         `xml:"AddtlPmtInf"`
+	Assgnmt     CaseAssignment5                  `xml:"Assgnmt"`
+	Case        *Case5                           `xml:"Case,omitempty" json:",omitempty"`
+	Undrlyg     UnderlyingTransaction5Choice     `xml:"Undrlyg"`
+	Inf         PaymentComplementaryInformation8 `xml:"Inf"`
+	SplmtryData []SupplementaryData1             `xml:"SplmtryData,omitempty" json:",omitempty"`
+}
+
+func (r AdditionalPaymentInformationV09) Validate() error {
+	return utils.Validate(&r)
+}
+
+type InstructionForCreditorAgent1 struct {
+	Cd       *Instruction3Code  `xml:"Cd,omitempty" json:",omitempty"`
+	InstrInf *common.Max140Text `xml:"InstrInf,omitempty" json:",omitempty"`
+}
+
+func (r InstructionForCreditorAgent1) Validate() error {
+	return utils.Validate(&r)
+}
+
+type InstructionForNextAgent1 struct {
+	Cd       *Instruction4Code  `xml:"Cd,omitempty" json:",omitempty"`
+	InstrInf *common.Max140Text `xml:"InstrInf,omitempty" json:",omitempty"`
+}
+
+func (r InstructionForNextAgent1) Validate() error {
+	return utils.Validate(&r)
+}
+
+type PaymentComplementaryInformation8 struct {
+	InstrId           *common.Max35Text                             `xml:"InstrId,omitempty" json:",omitempty"`
+	EndToEndId        *common.Max35Text                             `xml:"EndToEndId,omitempty" json:",omitempty"`
+	TxId              *common.Max35Text                             `xml:"TxId,omitempty" json:",omitempty"`
+	PmtTpInf          *PaymentTypeInformation27                     `xml:"PmtTpInf,omitempty" json:",omitempty"`
+	ReqdExctnDt       *DateAndDateTime2Choice                       `xml:"ReqdExctnDt,omitempty" json:",omitempty"`
+	ReqdColltnDt      *common.ISODate                               `xml:"ReqdColltnDt,omitempty" json:",omitempty"`
+	IntrBkSttlmDt     *common.ISODate                               `xml:"IntrBkSttlmDt,omitempty" json:",omitempty"`
+	Amt               *AmountType4Choice                            `xml:"Amt,omitempty" json:",omitempty"`
+	IntrBkSttlmAmt    *ActiveOrHistoricCurrencyAndAmount            `xml:"IntrBkSttlmAmt,omitempty" json:",omitempty"`
+	ChrgBr            *ChargeBearerType1Code                        `xml:"ChrgBr,omitempty" json:",omitempty"`
+	UltmtDbtr         *PartyIdentification135                       `xml:"UltmtDbtr,omitempty" json:",omitempty"`
+	Dbtr              *PartyIdentification135                       `xml:"Dbtr,omitempty" json:",omitempty"`
+	DbtrAcct          *CashAccount38                                `xml:"DbtrAcct,omitempty" json:",omitempty"`
+	DbtrAgt           *BranchAndFinancialInstitutionIdentification6 `xml:"DbtrAgt,omitempty" json:",omitempty"`
+	DbtrAgtAcct       *CashAccount38                                `xml:"DbtrAgtAcct,omitempty" json:",omitempty"`
+	SttlmInf          *SettlementInstruction7                       `xml:"SttlmInf,omitempty" json:",omitempty"`
+	IntrmyAgt1        *BranchAndFinancialInstitutionIdentification6 `xml:"IntrmyAgt1,omitempty" json:",omitempty"`
+	IntrmyAgt1Acct    *CashAccount38                                `xml:"IntrmyAgt1Acct,omitempty" json:",omitempty"`
+	IntrmyAgt2        *BranchAndFinancialInstitutionIdentification6 `xml:"IntrmyAgt2,omitempty" json:",omitempty"`
+	IntrmyAgt2Acct    *CashAccount38                                `xml:"IntrmyAgt2Acct,omitempty" json:",omitempty"`
+	IntrmyAgt3        *BranchAndFinancialInstitutionIdentification6 `xml:"IntrmyAgt3,omitempty" json:",omitempty"`
+	IntrmyAgt3Acct    *CashAccount38                                `xml:"IntrmyAgt3Acct,omitempty" json:",omitempty"`
+	CdtrAgt           *BranchAndFinancialInstitutionIdentification6 `xml:"CdtrAgt,omitempty" json:",omitempty"`
+	CdtrAgtAcct       *CashAccount38                                `xml:"CdtrAgtAcct,omitempty" json:",omitempty"`
+	Cdtr              *PartyIdentification135                       `xml:"Cdtr,omitempty" json:",omitempty"`
+	CdtrAcct          *CashAccount38                                `xml:"CdtrAcct,omitempty" json:",omitempty"`
+	UltmtCdtr         *PartyIdentification135                       `xml:"UltmtCdtr,omitempty" json:",omitempty"`
+	Purp              *Purpose2Choice                               `xml:"Purp,omitempty" json:",omitempty"`
+	InstrForDbtrAgt   *common.Max140Text                            `xml:"InstrForDbtrAgt,omitempty" json:",omitempty"`
+	PrvsInstgAgt1     *BranchAndFinancialInstitutionIdentification6 `xml:"PrvsInstgAgt1,omitempty" json:",omitempty"`
+	PrvsInstgAgt1Acct *CashAccount38                                `xml:"PrvsInstgAgt1Acct,omitempty" json:",omitempty"`
+	PrvsInstgAgt2     *BranchAndFinancialInstitutionIdentification6 `xml:"PrvsInstgAgt2,omitempty" json:",omitempty"`
+	PrvsInstgAgt2Acct *CashAccount38                                `xml:"PrvsInstgAgt2Acct,omitempty" json:",omitempty"`
+	PrvsInstgAgt3     *BranchAndFinancialInstitutionIdentification6 `xml:"PrvsInstgAgt3,omitempty" json:",omitempty"`
+	PrvsInstgAgt3Acct *CashAccount38                                `xml:"PrvsInstgAgt3Acct,omitempty" json:",omitempty"`
+	InstrForNxtAgt    []InstructionForNextAgent1                    `xml:"InstrForNxtAgt,omitempty" json:",omitempty"`
+	InstrForCdtrAgt   []InstructionForCreditorAgent1                `xml:"InstrForCdtrAgt,omitempty" json:",omitempty"`
+	RmtInf            *RemittanceInformation16                      `xml:"RmtInf,omitempty" json:",omitempty"`
+}
+
+func (r PaymentComplementaryInformation8) Validate() error {
+	return utils.Validate(&r)
+}
+
+type UnderlyingGroupInformation1 struct {
+	OrgnlMsgId         common.Max35Text    `xml:"OrgnlMsgId"`
+	OrgnlMsgNmId       common.Max35Text    `xml:"OrgnlMsgNmId"`
+	OrgnlCreDtTm       *common.ISODateTime `xml:"OrgnlCreDtTm,omitempty" json:",omitempty"`
+	OrgnlMsgDlvryChanl *common.Max35Text   `xml:"OrgnlMsgDlvryChanl,omitempty" json:",omitempty"`
+}
+
+func (r UnderlyingGroupInformation1) Validate() error {
+	return utils.Validate(&r)
+}
+
+type UnderlyingPaymentInstruction5 struct {
+	OrgnlGrpInf     *UnderlyingGroupInformation1      `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
+	OrgnlPmtInfId   *common.Max35Text                 `xml:"OrgnlPmtInfId,omitempty" json:",omitempty"`
+	OrgnlInstrId    *common.Max35Text                 `xml:"OrgnlInstrId,omitempty" json:",omitempty"`
+	OrgnlEndToEndId *common.Max35Text                 `xml:"OrgnlEndToEndId,omitempty" json:",omitempty"`
+	OrgnlUETR       *common.UUIDv4Identifier          `xml:"OrgnlUETR,omitempty" json:",omitempty"`
+	OrgnlInstdAmt   ActiveOrHistoricCurrencyAndAmount `xml:"OrgnlInstdAmt"`
+	ReqdExctnDt     *DateAndDateTime2Choice           `xml:"ReqdExctnDt,omitempty" json:",omitempty"`
+	ReqdColltnDt    *common.ISODate                   `xml:"ReqdColltnDt,omitempty" json:",omitempty"`
+	OrgnlTxRef      *OriginalTransactionReference28   `xml:"OrgnlTxRef,omitempty" json:",omitempty"`
+}
+
+func (r UnderlyingPaymentInstruction5) Validate() error {
+	return utils.Validate(&r)
+}
+
+type UnderlyingPaymentTransaction4 struct {
+	OrgnlGrpInf         *UnderlyingGroupInformation1       `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
+	OrgnlInstrId        *common.Max35Text                  `xml:"OrgnlInstrId,omitempty" json:",omitempty"`
+	OrgnlEndToEndId     *common.Max35Text                  `xml:"OrgnlEndToEndId,omitempty" json:",omitempty"`
+	OrgnlTxId           *common.Max35Text                  `xml:"OrgnlTxId,omitempty" json:",omitempty"`
+	OrgnlUETR           *common.UUIDv4Identifier           `xml:"OrgnlUETR,omitempty" json:",omitempty"`
+	OrgnlIntrBkSttlmAmt *ActiveOrHistoricCurrencyAndAmount `xml:"OrgnlIntrBkSttlmAmt"`
+	OrgnlIntrBkSttlmDt  *common.ISODate                    `xml:"OrgnlIntrBkSttlmDt"`
+	OrgnlTxRef          *OriginalTransactionReference28    `xml:"OrgnlTxRef,omitempty" json:",omitempty"`
+}
+
+func (r UnderlyingPaymentTransaction4) Validate() error {
+	return utils.Validate(&r)
+}
+
+type UnderlyingStatementEntry3 struct {
+	OrgnlGrpInf *OriginalGroupInformation29 `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
+	OrgnlStmtId *common.Max35Text           `xml:"OrgnlStmtId,omitempty" json:",omitempty"`
+	OrgnlNtryId *common.Max35Text           `xml:"OrgnlNtryId,omitempty" json:",omitempty"`
+	OrgnlUETR   *common.UUIDv4Identifier    `xml:"OrgnlUETR,omitempty" json:",omitempty"`
+}
+
+func (r UnderlyingStatementEntry3) Validate() error {
+	return utils.Validate(&r)
+}
+
+type UnderlyingTransaction5Choice struct {
+	Initn    *UnderlyingPaymentInstruction5 `xml:"Initn,omitempty" json:",omitempty"`
+	IntrBk   *UnderlyingPaymentTransaction4 `xml:"IntrBk,omitempty" json:",omitempty"`
+	StmtNtry *UnderlyingStatementEntry3     `xml:"StmtNtry,omitempty" json:",omitempty"`
+}
+
+func (r UnderlyingTransaction5Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
+type ActiveCurrencyAndAmount struct {
+	Value float64                   `xml:",chardata"`
+	Ccy   common.ActiveCurrencyCode `xml:"Ccy,attr"`
+}
+
+func (r ActiveCurrencyAndAmount) Validate() error {
+	return utils.Validate(&r)
+}
+
+type CancellationStatusReason3Choice struct {
+	Cd    *ExternalPaymentCancellationRejection1Code `xml:"Cd,omitempty" json:",omitempty"`
+	Prtry *common.Max35Text                          `xml:"Prtry,omitempty" json:",omitempty"`
+}
+
+func (r CancellationStatusReason3Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
+type CancellationStatusReason4 struct {
+	Orgtr    *PartyIdentification135          `xml:"Orgtr,omitempty" json:",omitempty"`
+	Rsn      *CancellationStatusReason3Choice `xml:"Rsn,omitempty" json:",omitempty"`
+	AddtlInf []common.Max105Text              `xml:"AddtlInf,omitempty" json:",omitempty"`
+}
+
+func (r CancellationStatusReason4) Validate() error {
+	return utils.Validate(&r)
+}
+
+type ChargeType3Choice struct {
+	Cd    *ExternalChargeType1Code `xml:"Cd,omitempty" json:",omitempty"`
+	Prtry *GenericIdentification3  `xml:"Prtry,omitempty" json:",omitempty"`
+}
+
+func (r ChargeType3Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
+type Charges6 struct {
+	TtlChrgsAndTaxAmt *ActiveOrHistoricCurrencyAndAmount `xml:"TtlChrgsAndTaxAmt,omitempty" json:",omitempty"`
+	Rcrd              []ChargesRecord3                   `xml:"Rcrd,omitempty" json:",omitempty"`
+}
+
+func (r Charges6) Validate() error {
+	return utils.Validate(&r)
+}
+
+type Charges7 struct {
+	Amt ActiveOrHistoricCurrencyAndAmount            `xml:"Amt"`
+	Agt BranchAndFinancialInstitutionIdentification6 `xml:"Agt"`
+}
+
+func (r Charges7) Validate() error {
+	return utils.Validate(&r)
+}
+
+type ChargesRecord3 struct {
+	Amt         *ActiveOrHistoricCurrencyAndAmount            `xml:"Amt"`
+	CdtDbtInd   *common.CreditDebitCode                       `xml:"CdtDbtInd,omitempty" json:",omitempty"`
+	ChrgInclInd bool                                          `xml:"ChrgInclInd,omitempty" json:",omitempty"`
+	Tp          *ChargeType3Choice                            `xml:"Tp,omitempty" json:",omitempty"`
+	Rate        float64                                       `xml:"Rate,omitempty" json:",omitempty"`
+	Br          *ChargeBearerType1Code                        `xml:"Br,omitempty" json:",omitempty"`
+	Agt         *BranchAndFinancialInstitutionIdentification6 `xml:"Agt,omitempty" json:",omitempty"`
+	Tax         *TaxCharges2                                  `xml:"Tax,omitempty" json:",omitempty"`
+}
+
+func (r ChargesRecord3) Validate() error {
+	return utils.Validate(&r)
+}
+
+type ClaimNonReceipt2 struct {
+	DtPrcd      common.ISODate                                `xml:"DtPrcd"`
+	OrgnlNxtAgt *BranchAndFinancialInstitutionIdentification6 `xml:"OrgnlNxtAgt,omitempty" json:",omitempty"`
+}
+
+func (r ClaimNonReceipt2) Validate() error {
+	return utils.Validate(&r)
+}
+
+type ClaimNonReceipt2Choice struct {
+	Accptd *ClaimNonReceipt2                   `xml:"Accptd,omitempty" json:",omitempty"`
+	Rjctd  *ClaimNonReceiptRejectReason1Choice `xml:"Rjctd,omitempty" json:",omitempty"`
+}
+
+func (r ClaimNonReceipt2Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
+type ClaimNonReceiptRejectReason1Choice struct {
+	Cd    *ExternalClaimNonReceiptRejection1Code `xml:"Cd,omitempty" json:",omitempty"`
+	Prtry *common.Max35Text                      `xml:"Prtry,omitempty" json:",omitempty"`
+}
+
+func (r ClaimNonReceiptRejectReason1Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
+type Compensation2 struct {
+	Amt     ActiveCurrencyAndAmount                      `xml:"Amt"`
+	DbtrAgt BranchAndFinancialInstitutionIdentification6 `xml:"DbtrAgt"`
+	CdtrAgt BranchAndFinancialInstitutionIdentification6 `xml:"CdtrAgt"`
+	Rsn     CompensationReason1Choice                    `xml:"Rsn"`
+}
+
+func (r Compensation2) Validate() error {
+	return utils.Validate(&r)
+}
+
+type CompensationReason1Choice struct {
+	Cd    *ExternalPaymentCompensationReason1Code `xml:"Cd,omitempty" json:",omitempty"`
+	Prtry *common.Max35Text                       `xml:"Prtry,omitempty" json:",omitempty"`
+}
+
+func (r CompensationReason1Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
+type CorrectiveGroupInformation1 struct {
+	MsgId   common.Max35Text    `xml:"MsgId"`
+	MsgNmId common.Max35Text    `xml:"MsgNmId"`
+	CreDtTm *common.ISODateTime `xml:"CreDtTm,omitempty" json:",omitempty"`
+}
+
+func (r CorrectiveGroupInformation1) Validate() error {
+	return utils.Validate(&r)
+}
+
+type CorrectiveInterbankTransaction2 struct {
+	GrpHdr         *CorrectiveGroupInformation1      `xml:"GrpHdr,omitempty" json:",omitempty"`
+	InstrId        *common.Max35Text                 `xml:"InstrId,omitempty" json:",omitempty"`
+	EndToEndId     *common.Max35Text                 `xml:"EndToEndId,omitempty" json:",omitempty"`
+	TxId           *common.Max35Text                 `xml:"TxId,omitempty" json:",omitempty"`
+	UETR           *common.UUIDv4Identifier          `xml:"UETR,omitempty" json:",omitempty"`
+	IntrBkSttlmAmt ActiveOrHistoricCurrencyAndAmount `xml:"IntrBkSttlmAmt"`
+	IntrBkSttlmDt  common.ISODate                    `xml:"IntrBkSttlmDt"`
+}
+
+func (r CorrectiveInterbankTransaction2) Validate() error {
+	return utils.Validate(&r)
+}
+
+type CorrectivePaymentInitiation4 struct {
+	GrpHdr       *CorrectiveGroupInformation1      `xml:"GrpHdr,omitempty" json:",omitempty"`
+	PmtInfId     *common.Max35Text                 `xml:"PmtInfId,omitempty" json:",omitempty"`
+	InstrId      *common.Max35Text                 `xml:"InstrId,omitempty" json:",omitempty"`
+	EndToEndId   *common.Max35Text                 `xml:"EndToEndId,omitempty" json:",omitempty"`
+	UETR         *common.UUIDv4Identifier          `xml:"UETR,omitempty" json:",omitempty"`
+	InstdAmt     ActiveOrHistoricCurrencyAndAmount `xml:"InstdAmt"`
+	ReqdExctnDt  *DateAndDateTime2Choice           `xml:"ReqdExctnDt,omitempty" json:",omitempty"`
+	ReqdColltnDt *common.ISODate                   `xml:"ReqdColltnDt,omitempty" json:",omitempty"`
+}
+
+func (r CorrectivePaymentInitiation4) Validate() error {
+	return utils.Validate(&r)
+}
+
+type CorrectiveTransaction4Choice struct {
+	Initn  *CorrectivePaymentInitiation4    `xml:"Initn,omitempty" json:",omitempty"`
+	IntrBk *CorrectiveInterbankTransaction2 `xml:"IntrBk,omitempty" json:",omitempty"`
+}
+
+func (r CorrectiveTransaction4Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
+type GenericIdentification3 struct {
+	Id   common.Max35Text  `xml:"Id"`
+	Issr *common.Max35Text `xml:"Issr,omitempty" json:",omitempty"`
+}
+
+func (r GenericIdentification3) Validate() error {
+	return utils.Validate(&r)
+}
+
+type InvestigationStatus5Choice struct {
+	Conf           *ExternalInvestigationExecutionConfirmation1Code `xml:"Conf,omitempty" json:",omitempty"`
+	RjctdMod       []ModificationStatusReason1Choice                `xml:"RjctdMod,omitempty" json:",omitempty"`
+	DplctOf        *Case5                                           `xml:"DplctOf,omitempty" json:",omitempty"`
+	AssgnmtCxlConf bool                                             `xml:"AssgnmtCxlConf,omitempty" json:",omitempty"`
+}
+
+func (r InvestigationStatus5Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
+type ModificationStatusReason1Choice struct {
+	Cd    *ExternalPaymentModificationRejection1Code `xml:"Cd,omitempty" json:",omitempty"`
+	Prtry *common.Max35Text                          `xml:"Prtry,omitempty" json:",omitempty"`
+}
+
+func (r ModificationStatusReason1Choice) Validate() error {
+	return utils.Validate(&r)
+}
+
+type ModificationStatusReason2 struct {
+	Orgtr    *PartyIdentification135          `xml:"Orgtr,omitempty" json:",omitempty"`
+	Rsn      *ModificationStatusReason1Choice `xml:"Rsn,omitempty" json:",omitempty"`
+	AddtlInf []common.Max105Text              `xml:"AddtlInf,omitempty" json:",omitempty"`
+}
+
+func (r ModificationStatusReason2) Validate() error {
+	return utils.Validate(&r)
+}
+
+type NumberOfCancellationsPerStatus1 struct {
+	DtldNbOfTxs common.Max15NumericText           `xml:"DtldNbOfTxs"`
+	DtldSts     CancellationIndividualStatus1Code `xml:"DtldSts"`
+	DtldCtrlSum float64                           `xml:"DtldCtrlSum,omitempty" json:",omitempty"`
+}
+
+func (r NumberOfCancellationsPerStatus1) Validate() error {
+	return utils.Validate(&r)
+}
+
+type NumberOfTransactionsPerStatus1 struct {
+	DtldNbOfTxs common.Max15NumericText          `xml:"DtldNbOfTxs"`
+	DtldSts     TransactionIndividualStatus1Code `xml:"DtldSts"`
+	DtldCtrlSum float64                          `xml:"DtldCtrlSum,omitempty" json:",omitempty"`
+}
+
+func (r NumberOfTransactionsPerStatus1) Validate() error {
+	return utils.Validate(&r)
+}
+
+type OriginalGroupHeader14 struct {
+	OrgnlGrpCxlId    *common.Max35Text                `xml:"OrgnlGrpCxlId,omitempty" json:",omitempty"`
+	RslvdCase        *Case5                           `xml:"RslvdCase,omitempty" json:",omitempty"`
+	OrgnlMsgId       common.Max35Text                 `xml:"OrgnlMsgId"`
+	OrgnlMsgNmId     common.Max35Text                 `xml:"OrgnlMsgNmId"`
+	OrgnlCreDtTm     *common.ISODateTime              `xml:"OrgnlCreDtTm,omitempty" json:",omitempty"`
+	OrgnlNbOfTxs     *common.Max15NumericText         `xml:"OrgnlNbOfTxs,omitempty" json:",omitempty"`
+	OrgnlCtrlSum     float64                          `xml:"OrgnlCtrlSum,omitempty" json:",omitempty"`
+	GrpCxlSts        *GroupCancellationStatus1Code    `xml:"GrpCxlSts,omitempty" json:",omitempty"`
+	CxlStsRsnInf     []CancellationStatusReason4      `xml:"CxlStsRsnInf,omitempty" json:",omitempty"`
+	NbOfTxsPerCxlSts []NumberOfTransactionsPerStatus1 `xml:"NbOfTxsPerCxlSts,omitempty" json:",omitempty"`
+}
+
+func (r OriginalGroupHeader14) Validate() error {
+	return utils.Validate(&r)
+}
+
+type OriginalPaymentInstruction30 struct {
+	OrgnlPmtInfCxlId *common.Max35Text                 `xml:"OrgnlPmtInfCxlId,omitempty" json:",omitempty"`
+	RslvdCase        *Case5                            `xml:"RslvdCase,omitempty" json:",omitempty"`
+	OrgnlPmtInfId    common.Max35Text                  `xml:"OrgnlPmtInfId"`
+	OrgnlGrpInf      *OriginalGroupInformation29       `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
+	OrgnlNbOfTxs     *common.Max15NumericText          `xml:"OrgnlNbOfTxs,omitempty" json:",omitempty"`
+	OrgnlCtrlSum     float64                           `xml:"OrgnlCtrlSum,omitempty" json:",omitempty"`
+	PmtInfCxlSts     *GroupCancellationStatus1Code     `xml:"PmtInfCxlSts,omitempty" json:",omitempty"`
+	CxlStsRsnInf     []CancellationStatusReason4       `xml:"CxlStsRsnInf,omitempty" json:",omitempty"`
+	NbOfTxsPerCxlSts []NumberOfCancellationsPerStatus1 `xml:"NbOfTxsPerCxlSts,omitempty" json:",omitempty"`
+	TxInfAndSts      []PaymentTransaction103           `xml:"TxInfAndSts,omitempty" json:",omitempty"`
+}
+
+func (r OriginalPaymentInstruction30) Validate() error {
+	return utils.Validate(&r)
+}
+
+type OriginalTransactionReference28 struct {
+	IntrBkSttlmAmt *ActiveOrHistoricCurrencyAndAmount            `xml:"IntrBkSttlmAmt,omitempty" json:",omitempty"`
+	Amt            *AmountType4Choice                            `xml:"Amt,omitempty" json:",omitempty"`
+	IntrBkSttlmDt  *common.ISODate                               `xml:"IntrBkSttlmDt,omitempty" json:",omitempty"`
+	ReqdColltnDt   *common.ISODate                               `xml:"ReqdColltnDt,omitempty" json:",omitempty"`
+	ReqdExctnDt    *DateAndDateTime2Choice                       `xml:"ReqdExctnDt,omitempty" json:",omitempty"`
+	CdtrSchmeId    *PartyIdentification135                       `xml:"CdtrSchmeId,omitempty" json:",omitempty"`
+	SttlmInf       *SettlementInstruction7                       `xml:"SttlmInf,omitempty" json:",omitempty"`
+	PmtTpInf       *PaymentTypeInformation27                     `xml:"PmtTpInf,omitempty" json:",omitempty"`
+	PmtMtd         *PaymentMethod4Code                           `xml:"PmtMtd,omitempty" json:",omitempty"`
+	MndtRltdInf    *MandateRelatedInformation14                  `xml:"MndtRltdInf,omitempty" json:",omitempty"`
+	RmtInf         *RemittanceInformation16                      `xml:"RmtInf,omitempty" json:",omitempty"`
+	UltmtDbtr      *Party40Choice                                `xml:"UltmtDbtr,omitempty" json:",omitempty"`
+	Dbtr           *Party40Choice                                `xml:"Dbtr,omitempty" json:",omitempty"`
+	DbtrAcct       *CashAccount38                                `xml:"DbtrAcct,omitempty" json:",omitempty"`
+	DbtrAgt        *BranchAndFinancialInstitutionIdentification6 `xml:"DbtrAgt,omitempty" json:",omitempty"`
+	DbtrAgtAcct    *CashAccount38                                `xml:"DbtrAgtAcct,omitempty" json:",omitempty"`
+	CdtrAgt        *BranchAndFinancialInstitutionIdentification6 `xml:"CdtrAgt,omitempty" json:",omitempty"`
+	CdtrAgtAcct    *CashAccount38                                `xml:"CdtrAgtAcct,omitempty" json:",omitempty"`
+	Cdtr           *Party40Choice                                `xml:"Cdtr,omitempty" json:",omitempty"`
+	CdtrAcct       *CashAccount38                                `xml:"CdtrAcct,omitempty" json:",omitempty"`
+	UltmtCdtr      *Party40Choice                                `xml:"UltmtCdtr,omitempty" json:",omitempty"`
+	Purp           *Purpose2Choice                               `xml:"Purp,omitempty" json:",omitempty"`
+}
+
+func (r OriginalTransactionReference28) Validate() error {
+	return utils.Validate(&r)
+}
+
+type PaymentTransaction102 struct {
+	CxlStsId            *common.Max35Text                  `xml:"CxlStsId,omitempty" json:",omitempty"`
+	RslvdCase           *Case5                             `xml:"RslvdCase,omitempty" json:",omitempty"`
+	OrgnlGrpInf         *OriginalGroupInformation29        `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
+	OrgnlInstrId        *common.Max35Text                  `xml:"OrgnlInstrId,omitempty" json:",omitempty"`
+	OrgnlEndToEndId     *common.Max35Text                  `xml:"OrgnlEndToEndId,omitempty" json:",omitempty"`
+	OrgnlTxId           *common.Max35Text                  `xml:"OrgnlTxId,omitempty" json:",omitempty"`
+	OrgnlClrSysRef      *common.Max35Text                  `xml:"OrgnlClrSysRef,omitempty" json:",omitempty"`
+	OrgnlUETR           *common.UUIDv4Identifier           `xml:"OrgnlUETR,omitempty" json:",omitempty"`
+	TxCxlSts            *CancellationIndividualStatus1Code `xml:"TxCxlSts,omitempty" json:",omitempty"`
+	CxlStsRsnInf        []CancellationStatusReason4        `xml:"CxlStsRsnInf,omitempty" json:",omitempty"`
+	RsltnRltdInf        *ResolutionData1                   `xml:"RsltnRltdInf,omitempty" json:",omitempty"`
+	OrgnlIntrBkSttlmAmt *ActiveOrHistoricCurrencyAndAmount `xml:"OrgnlIntrBkSttlmAmt,omitempty" json:",omitempty"`
+	OrgnlIntrBkSttlmDt  *common.ISODate                    `xml:"OrgnlIntrBkSttlmDt,omitempty" json:",omitempty"`
+	Assgnr              *Party40Choice                     `xml:"Assgnr,omitempty" json:",omitempty"`
+	Assgne              *Party40Choice                     `xml:"Assgne,omitempty" json:",omitempty"`
+	OrgnlTxRef          *OriginalTransactionReference28    `xml:"OrgnlTxRef,omitempty" json:",omitempty"`
+}
+
+func (r PaymentTransaction102) Validate() error {
+	return utils.Validate(&r)
+}
+
+type PaymentTransaction103 struct {
+	CxlStsId          *common.Max35Text                  `xml:"CxlStsId,omitempty" json:",omitempty"`
+	RslvdCase         *Case5                             `xml:"RslvdCase,omitempty" json:",omitempty"`
+	OrgnlInstrId      *common.Max35Text                  `xml:"OrgnlInstrId,omitempty" json:",omitempty"`
+	OrgnlEndToEndId   *common.Max35Text                  `xml:"OrgnlEndToEndId,omitempty" json:",omitempty"`
+	UETR              *common.UUIDv4Identifier           `xml:"UETR,omitempty" json:",omitempty"`
+	TxCxlSts          *CancellationIndividualStatus1Code `xml:"TxCxlSts,omitempty" json:",omitempty"`
+	CxlStsRsnInf      []CancellationStatusReason4        `xml:"CxlStsRsnInf,omitempty" json:",omitempty"`
+	OrgnlInstdAmt     *ActiveOrHistoricCurrencyAndAmount `xml:"OrgnlInstdAmt,omitempty" json:",omitempty"`
+	OrgnlReqdExctnDt  *DateAndDateTime2Choice            `xml:"OrgnlReqdExctnDt,omitempty" json:",omitempty"`
+	OrgnlReqdColltnDt *common.ISODate                    `xml:"OrgnlReqdColltnDt,omitempty" json:",omitempty"`
+	OrgnlTxRef        *OriginalTransactionReference28    `xml:"OrgnlTxRef,omitempty" json:",omitempty"`
+}
+
+func (r PaymentTransaction103) Validate() error {
+	return utils.Validate(&r)
+}
+
+type PaymentTransaction107 struct {
+	ModStsId            *common.Max35Text                  `xml:"ModStsId,omitempty" json:",omitempty"`
+	RslvdCase           *Case5                             `xml:"RslvdCase,omitempty" json:",omitempty"`
+	OrgnlGrpInf         *OriginalGroupInformation29        `xml:"OrgnlGrpInf"`
+	OrgnlPmtInfId       *common.Max35Text                  `xml:"OrgnlPmtInfId,omitempty" json:",omitempty"`
+	OrgnlInstrId        *common.Max35Text                  `xml:"OrgnlInstrId,omitempty" json:",omitempty"`
+	OrgnlEndToEndId     *common.Max35Text                  `xml:"OrgnlEndToEndId,omitempty" json:",omitempty"`
+	OrgnlTxId           *common.Max35Text                  `xml:"OrgnlTxId,omitempty" json:",omitempty"`
+	OrgnlClrSysRef      *common.Max35Text                  `xml:"OrgnlClrSysRef,omitempty" json:",omitempty"`
+	OrgnlUETR           *common.UUIDv4Identifier           `xml:"OrgnlUETR,omitempty" json:",omitempty"`
+	ModStsRsnInf        []ModificationStatusReason2        `xml:"ModStsRsnInf,omitempty" json:",omitempty"`
+	RsltnRltdInf        *ResolutionData1                   `xml:"RsltnRltdInf,omitempty" json:",omitempty"`
+	OrgnlIntrBkSttlmAmt *ActiveOrHistoricCurrencyAndAmount `xml:"OrgnlIntrBkSttlmAmt,omitempty" json:",omitempty"`
+	OrgnlIntrBkSttlmDt  *common.ISODate                    `xml:"OrgnlIntrBkSttlmDt,omitempty" json:",omitempty"`
+	Assgnr              *Party40Choice                     `xml:"Assgnr,omitempty" json:",omitempty"`
+	Assgne              *Party40Choice                     `xml:"Assgne,omitempty" json:",omitempty"`
+	OrgnlTxRef          *OriginalTransactionReference28    `xml:"OrgnlTxRef,omitempty" json:",omitempty"`
+}
+
+func (r PaymentTransaction107) Validate() error {
+	return utils.Validate(&r)
+}
+
+type ResolutionData1 struct {
+	EndToEndId     *common.Max35Text                  `xml:"EndToEndId,omitempty" json:",omitempty"`
+	TxId           *common.Max35Text                  `xml:"TxId,omitempty" json:",omitempty"`
+	UETR           *common.UUIDv4Identifier           `xml:"UETR,omitempty" json:",omitempty"`
+	IntrBkSttlmAmt *ActiveOrHistoricCurrencyAndAmount `xml:"IntrBkSttlmAmt,omitempty" json:",omitempty"`
+	IntrBkSttlmDt  *common.ISODate                    `xml:"IntrBkSttlmDt,omitempty" json:",omitempty"`
+	ClrChanl       *ClearingChannel2Code              `xml:"ClrChanl,omitempty" json:",omitempty"`
+	Compstn        *Compensation2                     `xml:"Compstn,omitempty" json:",omitempty"`
+	Chrgs          []Charges7                         `xml:"Chrgs,omitempty" json:",omitempty"`
+}
+
+func (r ResolutionData1) Validate() error {
+	return utils.Validate(&r)
+}
+
+type ResolutionOfInvestigationV09 struct {
+	XMLName       xml.Name                      `xml:"RsltnOfInvstgtn"`
+	Assgnmt       CaseAssignment5               `xml:"Assgnmt"`
+	RslvdCase     *Case5                        `xml:"RslvdCase,omitempty" json:",omitempty"`
+	Sts           InvestigationStatus5Choice    `xml:"Sts"`
+	CxlDtls       []UnderlyingTransaction22     `xml:"CxlDtls,omitempty" json:",omitempty"`
+	ModDtls       *PaymentTransaction107        `xml:"ModDtls,omitempty" json:",omitempty"`
+	ClmNonRctDtls *ClaimNonReceipt2Choice       `xml:"ClmNonRctDtls,omitempty" json:",omitempty"`
+	StmtDtls      *StatementResolutionEntry4    `xml:"StmtDtls,omitempty" json:",omitempty"`
+	CrrctnTx      *CorrectiveTransaction4Choice `xml:"CrrctnTx,omitempty" json:",omitempty"`
+	RsltnRltdInf  *ResolutionData1              `xml:"RsltnRltdInf,omitempty" json:",omitempty"`
+	SplmtryData   []SupplementaryData1          `xml:"SplmtryData,omitempty" json:",omitempty"`
+}
+
+func (r ResolutionOfInvestigationV09) Validate() error {
+	return utils.Validate(&r)
+}
+
+type StatementResolutionEntry4 struct {
+	OrgnlGrpInf *OriginalGroupInformation29        `xml:"OrgnlGrpInf,omitempty" json:",omitempty"`
+	OrgnlStmtId *common.Max35Text                  `xml:"OrgnlStmtId,omitempty" json:",omitempty"`
+	UETR        *common.UUIDv4Identifier           `xml:"UETR,omitempty" json:",omitempty"`
+	AcctSvcrRef *common.Max35Text                  `xml:"AcctSvcrRef,omitempty" json:",omitempty"`
+	CrrctdAmt   *ActiveOrHistoricCurrencyAndAmount `xml:"CrrctdAmt,omitempty" json:",omitempty"`
+	Chrgs       []Charges6                         `xml:"Chrgs,omitempty" json:",omitempty"`
+	Purp        *Purpose2Choice                    `xml:"Purp,omitempty" json:",omitempty"`
+}
+
+func (r StatementResolutionEntry4) Validate() error {
+	return utils.Validate(&r)
+}
+
+type TaxCharges2 struct {
+	Id   *common.Max35Text                  `xml:"Id,omitempty" json:",omitempty"`
+	Rate float64                            `xml:"Rate,omitempty" json:",omitempty"`
+	Amt  *ActiveOrHistoricCurrencyAndAmount `xml:"Amt,omitempty" json:",omitempty"`
+}
+
+func (r TaxCharges2) Validate() error {
+	return utils.Validate(&r)
+}
+
+type UnderlyingTransaction22 struct {
+	OrgnlGrpInfAndSts *OriginalGroupHeader14         `xml:"OrgnlGrpInfAndSts,omitempty" json:",omitempty"`
+	OrgnlPmtInfAndSts []OriginalPaymentInstruction30 `xml:"OrgnlPmtInfAndSts,omitempty" json:",omitempty"`
+	TxInfAndSts       []PaymentTransaction102        `xml:"TxInfAndSts,omitempty" json:",omitempty"`
+}
+
+func (r UnderlyingTransaction22) Validate() error {
+	return utils.Validate(&r)
+}
