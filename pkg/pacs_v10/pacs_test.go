@@ -122,7 +122,7 @@ func TestNestedTypes(t *testing.T) {
 	assert.NotNil(t, OriginalGroupHeader17{}.Validate())
 	assert.Nil(t, PaymentTransaction110{}.Validate())
 	assert.Nil(t, StatusReasonInformation12{}.Validate())
-	assert.NotNil(t, StatusReason6Choice{}.Validate())
+	assert.Nil(t, StatusReason6Choice{}.Validate())
 	assert.Nil(t, OriginalTransactionReference28{}.Validate())
 	assert.NotNil(t, NumberOfTransactionsPerStatus5{}.Validate())
 }
