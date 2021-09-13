@@ -1349,8 +1349,8 @@ func (r StatusReasonInformation12) Validate() error {
 }
 
 type StatusReason6Choice struct {
-	Cd    ExternalStatusReason1Code `xml:"Cd"`
-	Prtry *common.Max35Text         `xml:"Prtry,omitempty" json:",omitempty"`
+	Cd    *ExternalStatusReason1Code `xml:"Cd,omitempty" json:",omitempty"`
+	Prtry *common.Max35Text          `xml:"Prtry,omitempty" json:",omitempty"`
 }
 
 func (r StatusReason6Choice) Validate() error {
