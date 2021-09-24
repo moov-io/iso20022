@@ -868,7 +868,7 @@ func (r MessageHeader9) Validate() error {
 }
 
 type Party40Choice struct {
-	Pty PartyIdentification135                       `xml:"Pty"`
+	Pty *PartyIdentification135                      `xml:"Pty,omitempty" json:",omitempty"`
 	Agt BranchAndFinancialInstitutionIdentification6 `xml:"Agt"`
 }
 
