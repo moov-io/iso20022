@@ -472,7 +472,7 @@ func (r OtherContact1) Validate() error {
 
 type Party38Choice struct {
 	OrgId  OrganisationIdentification29 `xml:"OrgId"`
-	PrvtId PersonIdentification13       `xml:"PrvtId"`
+	PrvtId *PersonIdentification13      `xml:"PrvtId,omitempty" json:",omitempty"`
 }
 
 func (r Party38Choice) Validate() error {
