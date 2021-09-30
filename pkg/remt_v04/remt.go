@@ -49,7 +49,7 @@ func (r AddressType3Choice) Validate() error {
 
 type AmountType3Choice struct {
 	InstdAmt ActiveOrHistoricCurrencyAndAmount `xml:"InstdAmt"`
-	EqvtAmt  EquivalentAmount2                 `xml:"EqvtAmt"`
+	EqvtAmt  *EquivalentAmount2                `xml:"EqvtAmt,omitempty" json:",omitempty"`
 }
 
 func (r AmountType3Choice) Validate() error {
