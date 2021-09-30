@@ -12,7 +12,7 @@ import (
 )
 
 type AccountIdentification4Choice struct {
-	IBAN common.IBAN2007Identifier     `xml:"IBAN"`
+	IBAN *common.IBAN2007Identifier    `xml:"IBAN,omitempty" json:",omitempty"`
 	Othr GenericAccountIdentification1 `xml:"Othr"`
 }
 
