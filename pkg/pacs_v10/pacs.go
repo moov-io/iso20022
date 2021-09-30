@@ -315,8 +315,8 @@ func (r DiscountAmountAndType1) Validate() error {
 }
 
 type DiscountAmountType1Choice struct {
-	Cd    ExternalDiscountAmountType1Code `xml:"Cd"`
-	Prtry common.Max35Text                `xml:"Prtry"`
+	Cd    *ExternalDiscountAmountType1Code `xml:"Cd,omitempty" json:",omitempty"`
+	Prtry common.Max35Text                 `xml:"Prtry"`
 }
 
 func (r DiscountAmountType1Choice) Validate() error {
