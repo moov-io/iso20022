@@ -267,8 +267,8 @@ func (r CustomerPaymentCancellationRequestV09) Validate() error {
 }
 
 type DateAndDateTime2Choice struct {
-	Dt   common.ISODate     `xml:"Dt"`
-	DtTm common.ISODateTime `xml:"DtTm"`
+	Dt   *common.ISODate     `xml:"Dt,omitempty" json:",omitempty"`
+	DtTm *common.ISODateTime `xml:"DtTm,omitempty" json:",omitempty"`
 }
 
 func (r DateAndDateTime2Choice) Validate() error {
