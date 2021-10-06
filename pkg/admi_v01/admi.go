@@ -30,11 +30,11 @@ func (r MessageReference) Validate() error {
 }
 
 type RejectionReason2 struct {
-	RjctgPtyRsn common.Max35Text    `xml:"RjctgPtyRsn"`
-	RjctnDtTm   *common.ISODateTime `xml:"RjctnDtTm,omitempty" json:",omitempty"`
-	ErrLctn     *common.Max350Text  `xml:"ErrLctn,omitempty" json:",omitempty"`
-	RsnDesc     *common.Max350Text  `xml:"RsnDesc,omitempty" json:",omitempty"`
-	AddtlData   *AddtlRawData       `xml:"AddtlData,omitempty" json:",omitempty"`
+	RjctgPtyRsn common.Max35Text     `xml:"RjctgPtyRsn"`
+	RjctnDtTm   *common.ISODateTime  `xml:"RjctnDtTm,omitempty" json:",omitempty"`
+	ErrLctn     *common.Max350Text   `xml:"ErrLctn,omitempty" json:",omitempty"`
+	RsnDesc     *common.Max350Text   `xml:"RsnDesc,omitempty" json:",omitempty"`
+	AddtlData   *common.Max20000Text `xml:"AddtlData,omitempty" json:",omitempty"`
 }
 
 type AddtlRawData struct {
