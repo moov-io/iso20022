@@ -6,7 +6,7 @@ replace github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
 
 require (
 	github.com/antihax/optional v1.0.0
-	github.com/go-kit/kit v0.11.0
+	github.com/go-kit/kit v0.12.0
 	github.com/gorilla/mux v1.8.0
 	github.com/markbates/pkger v0.17.1
 	github.com/moov-io/base v0.25.0
