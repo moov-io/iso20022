@@ -353,14 +353,14 @@ func (doc *Iso20022DocumentObject) InspectMessage() Iso20022Message {
 }
 
 func (doc Iso20022DocumentObject) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	α := struct {
+	a := struct {
 		XMLName xml.Name
 		Attrs   []xml.Attr      `xml:",any,attr,omitempty" json:",omitempty"`
 		Message Iso20022Message `xml:",any"`
 	}(doc)
 
 	updatingStartElement(&start, doc.Attrs, doc.XMLName)
-	return e.EncodeElement(&α, start)
+	return e.EncodeElement(&a, start)
 }
 
 func updatingStartElement(start *xml.StartElement, attrs []xml.Attr, name xml.Name) {
