@@ -10,7 +10,7 @@ require (
 	github.com/go-kit/log v0.2.0
 	github.com/gorilla/mux v1.8.0
 	github.com/markbates/pkger v0.17.1
-	github.com/moov-io/base v0.27.2
+	github.com/moov-io/base v0.27.3
 	github.com/spf13/cobra v1.3.0
 	github.com/stretchr/testify v1.7.0
 	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8
