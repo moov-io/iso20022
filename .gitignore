@@ -21,6 +21,8 @@
 *.test
 *.prof
 
+pkged.go
+
 coverage.html
 cover.out
 coverage.txt
