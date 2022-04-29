@@ -4,6 +4,21 @@
 
 package utils
 
+/*
+	Validate Function will run validate functions of the their data fields
+	A lot of types have special Validate function (all of the implementation are in types.go file)
+	The goal of this validate logic is to call the validate functions
+
+	All of the structures in this package should have validate function
+	If there is not special validate() function, should add dummy validate() function
+	Example:
+    	func (r AccountSwitchTerminationSwitchV01) Validate() error {
+			return utils.Validate(&r)
+		}
+
+	With this logic, we will go validation check about special Iso20022Message
+*/
+
 import (
 	"errors"
 	"reflect"
