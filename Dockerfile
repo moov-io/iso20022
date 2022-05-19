@@ -1,4 +1,4 @@
-FROM golang:1.18-buster as builder
+FROM golang:1.18 as builder
 WORKDIR /src
 ARG VERSION
 
