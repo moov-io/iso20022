@@ -13,18 +13,18 @@ servers:
     description: Local Testing
   - url: https://api.moov.io/
     description: Production
-    
+
 tags:
   - name: 'iso20022 message'
     description: |
       There are 695 iso 20022 meessages. The messages supported in this package are meessages of payments in business domain catalogue
-      
+
 paths:
   /health:
     get:
       tags: ['iso20022 message']
-      summary: health iso8583 service
-      description: Check the iso8583 service to check if running
+      summary: health iso20022 service
+      description: Check the iso20022 service to check if running
       operationId: health
       responses:
         '200':
@@ -89,7 +89,7 @@ paths:
             application/octet-stream:
               schema:
                 type: string
-                description: iso8583 message
+                description: iso20022 message
                 format: xml
                 example:
                   <Document xmlns="urn:iso:std:iso:20022:tech:xsd:acmt.007.001.03" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -149,7 +149,7 @@ paths:
               properties:
                 input:
                   type: string
-                  description: iso8583 message file
+                  description: iso20022 message file
                   format: binary
                   example:
                     {

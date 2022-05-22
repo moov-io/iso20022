@@ -158,8 +158,8 @@ func (a *Iso20022MessageApiService) Convert(ctx _context.Context, localVarOption
 }
 
 /*
-Health health iso8583 service
-Check the iso8583 service to check if running
+Health health iso20022 service
+Check the iso20022 service to check if running
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return Success
 */
@@ -382,7 +382,7 @@ Validator Validate iso20022 message
 Validation iso20022 message.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ValidatorOpts - Optional Parameters:
- * @param "Input" (optional.Interface of *os.File) -  iso8583 message file
+ * @param "Input" (optional.Interface of *os.File) -  iso20022 message file
 @return Success
 */
 func (a *Iso20022MessageApiService) Validator(ctx _context.Context, localVarOptionals *ValidatorOpts) (Success, *_nethttp.Response, error) {

@@ -5,7 +5,7 @@ All URIs are relative to *https://local.moov.io:8208*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Convert**](Iso20022MessageApi.md#Convert) | **Post** /convert | Convert iso20022 message
-[**Health**](Iso20022MessageApi.md#Health) | **Get** /health | health iso8583 service
+[**Health**](Iso20022MessageApi.md#Health) | **Get** /health | health iso20022 service
 [**Print**](Iso20022MessageApi.md#Print) | **Post** /print | Print iso20022 message with specific format
 [**Validator**](Iso20022MessageApi.md#Validator) | **Post** /validator | Validate iso20022 message
 
@@ -59,9 +59,9 @@ No authorization required
 
 > Success Health(ctx, )
 
-health iso8583 service
+health iso20022 service
 
-Check the iso8583 service to check if running
+Check the iso20022 service to check if running
 
 ### Required Parameters
 
@@ -150,9 +150,9 @@ Name | Type | Description  | Notes
 Optional parameters are passed through a pointer to a ValidatorOpts struct
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **input** | **optional.Interface of *os.File****optional.*os.File**| iso8583 message file | 
+Name | Type | Description           | Notes
+------------- | ------------- |-----------------------| -------------
+ **input** | **optional.Interface of *os.File****optional.*os.File**| iso20022 message file | 
 
 ### Return type
 
