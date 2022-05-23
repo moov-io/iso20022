@@ -38,7 +38,7 @@ All URIs are relative to *https://local.moov.io:8208*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *Iso20022MessageApi* | [**Convert**](docs/Iso20022MessageApi.md#convert) | **Post** /convert | Convert iso20022 message
-*Iso20022MessageApi* | [**Health**](docs/Iso20022MessageApi.md#health) | **Get** /health | health iso8583 service
+*Iso20022MessageApi* | [**Health**](docs/Iso20022MessageApi.md#health) | **Get** /health | health iso20022 service
 *Iso20022MessageApi* | [**Print**](docs/Iso20022MessageApi.md#print) | **Post** /print | Print iso20022 message with specific format
 *Iso20022MessageApi* | [**Validator**](docs/Iso20022MessageApi.md#validator) | **Post** /validator | Validate iso20022 message
 

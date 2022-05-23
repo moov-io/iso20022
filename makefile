@@ -49,8 +49,8 @@ docker-hub:
 	docker tag moov/iso20022:${VERSION} moov/iso20022:latest
 
 docker-fuzz:
-	docker build --pull -t moov/iso8583fuzz:$(VERSION) . -f Dockerfile-fuzz
-	docker tag moov/iso8583fuzz:$(VERSION) moov/iso8583fuzz:latest
+	docker build --pull -t moov/iso20022fuzz:$(VERSION) . -f Dockerfile-fuzz
+	docker tag moov/iso20022fuzz:$(VERSION) moov/iso20022fuzz:latest
 
 docker-push:
 	docker push moov/iso20022:${VERSION}
