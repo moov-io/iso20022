@@ -970,6 +970,8 @@ github.com/mattn/go-sqlite3 v1.14.12 h1:TJ1bhYJPV44phC+IMu1u2K/i5RriLTPe+yc68XDJ
 github.com/mattn/go-sqlite3 v1.14.12/go.mod h1:NyWgC/yNuGj7Q9rpYnZvas74GogHl5/Z4A/KQRfk6bU=
 github.com/mattn/go-sqlite3 v1.14.13 h1:1tj15ngiFfcZzii7yd82foL+ks+ouQcj8j/TPq3fk1I=
 github.com/mattn/go-sqlite3 v1.14.13/go.mod h1:NyWgC/yNuGj7Q9rpYnZvas74GogHl5/Z4A/KQRfk6bU=
+github.com/mattn/go-sqlite3 v1.14.14 h1:qZgc/Rwetq+MtyE18WhzjokPD93dNqLGNT3QJuLvBGw=
+github.com/mattn/go-sqlite3 v1.14.14/go.mod h1:NyWgC/yNuGj7Q9rpYnZvas74GogHl5/Z4A/KQRfk6bU=
 github.com/matttproud/golang_protobuf_extensions v1.0.1 h1:4hp9jkHxhMHkqkrB3Ix0jegS5sx/RkqARlsWZ6pIwiU=
 github.com/matttproud/golang_protobuf_extensions v1.0.1/go.mod h1:D8He9yQNgCq6Z5Ld7szi9bcBfOoFv/3dc6xSMkL2PC0=
 github.com/matttproud/golang_protobuf_extensions v1.0.2-0.20181231171920-c182affec369 h1:I0XW9+e1XWDxdcEniV4rQAIOPUGDq67JSCiRCgGCZLI=
@@ -1034,6 +1036,8 @@ github.com/moov-io/base v0.30.0 h1:7U+/dfUpg/N95s6V67OyZSQu9CD9jdn72mqEXjaUMQA=
 github.com/moov-io/base v0.30.0/go.mod h1:YuHialU6ColsPvGY+W2VLPlB7qIoGXTXBqf+lJb6nOY=
 github.com/moov-io/base v0.31.1 h1:qcRv17TTBqD47zwtRYzrhwUJD9QUBbrd6tKKgybjw38=
 github.com/moov-io/base v0.31.1/go.mod h1:IMJvTXG4DjcIaWkDfewLfe/ZmbQwk2L/sOsDldzpxiY=
+github.com/moov-io/base v0.32.0 h1:wc8Wz1EQdreEBeAp6qySCUenXYzyoeHWvSfL7pq0YpM=
+github.com/moov-io/base v0.32.0/go.mod h1:Lp3XucnDlr8qgmaCnwSqibuAjoBxHozsdMNrV78LTiI=
 github.com/morikuni/aec v1.0.0 h1:nP9CBfwrvYnBRgY6qfDQkygYDmYwOilePFkwzv4dU8A=
 github.com/morikuni/aec v1.0.0/go.mod h1:BbKIizmSmc5MMPqRYbxO4ZU0S0+P200+tUnFx7PXmsc=
 github.com/mrunalp/fileutils v0.5.0/go.mod h1:M1WthSahJixYnrXQl/DFQuteStB1weuxD2QJNHXfbSQ=
