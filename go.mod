@@ -1,6 +1,6 @@
 module github.com/moov-io/iso20022
 
-go 1.18
+go 1.19
 
 replace github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
 
