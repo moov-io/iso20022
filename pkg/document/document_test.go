@@ -7,20 +7,21 @@ package document
 import (
 	"encoding/json"
 	"encoding/xml"
-	"github.com/moov-io/iso20022/pkg/utils"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 	"strings"
 	"testing"
+
+	"github.com/moov-io/iso20022/pkg/utils"
 
 	"github.com/stretchr/testify/assert"
 )
 
 func TestJsonXmlWithDocumentCamt05500109(t *testing.T) {
-	inputXml, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_camt_v09.xml"))
+	inputXml, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_camt_v09.xml"))
 	assert.Equal(t, nil, err)
 
-	inputJson, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_camt_v09.json"))
+	inputJson, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_camt_v09.json"))
 	assert.Equal(t, nil, err)
 
 	doc, err := NewDocument(utils.DocumentCamt05500109NameSpace)
@@ -54,10 +55,10 @@ func TestJsonXmlWithDocumentCamt05500109(t *testing.T) {
 }
 
 func TestJsonXmlWithDocumentAcmt00700103(t *testing.T) {
-	inputXml, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_acmt_v03.xml"))
+	inputXml, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_acmt_v03.xml"))
 	assert.Equal(t, nil, err)
 
-	inputJson, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_acmt_v03.json"))
+	inputJson, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_acmt_v03.json"))
 	assert.Equal(t, nil, err)
 
 	doc, err := NewDocument(utils.DocumentAcmt00700103NameSpace)
@@ -91,10 +92,10 @@ func TestJsonXmlWithDocumentAcmt00700103(t *testing.T) {
 }
 
 func TestJsonXmlWithDocumentAuth01800102(t *testing.T) {
-	inputXml, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_auth_v02.xml"))
+	inputXml, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_auth_v02.xml"))
 	assert.Equal(t, nil, err)
 
-	inputJson, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_auth_v02.json"))
+	inputJson, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_auth_v02.json"))
 	assert.Equal(t, nil, err)
 
 	doc, err := NewDocument(utils.DocumentAuth01800102NameSpace)
@@ -128,10 +129,10 @@ func TestJsonXmlWithDocumentAuth01800102(t *testing.T) {
 }
 
 func TestJsonXmlWithDocumentPacs00200111(t *testing.T) {
-	inputXml, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_pacs_v11.xml"))
+	inputXml, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_pacs_v11.xml"))
 	assert.Equal(t, nil, err)
 
-	inputJson, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_pacs_v11.json"))
+	inputJson, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_pacs_v11.json"))
 	assert.Equal(t, nil, err)
 
 	doc, err := NewDocument(utils.DocumentPacs00200111NameSpace)
@@ -165,10 +166,10 @@ func TestJsonXmlWithDocumentPacs00200111(t *testing.T) {
 }
 
 func TestJsonXmlWithDocumentPain00200111(t *testing.T) {
-	inputXml, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_pain_v11.xml"))
+	inputXml, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_pain_v11.xml"))
 	assert.Equal(t, nil, err)
 
-	inputJson, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_pain_v11.json"))
+	inputJson, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_pain_v11.json"))
 	assert.Equal(t, nil, err)
 
 	doc, err := NewDocument(utils.DocumentPain00200111NameSpace)
@@ -202,10 +203,10 @@ func TestJsonXmlWithDocumentPain00200111(t *testing.T) {
 }
 
 func TestJsonXmlWithDocumentReda06600101(t *testing.T) {
-	inputXml, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_reda_v01.xml"))
+	inputXml, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_reda_v01.xml"))
 	assert.Equal(t, nil, err)
 
-	inputJson, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_reda_v01.json"))
+	inputJson, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_reda_v01.json"))
 	assert.Equal(t, nil, err)
 
 	doc, err := NewDocument(utils.DocumentReda06600101NameSpace)
@@ -240,10 +241,10 @@ func TestJsonXmlWithDocumentReda06600101(t *testing.T) {
 }
 
 func TestJsonXmlWithDocumentRemt00100104(t *testing.T) {
-	inputXml, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_remt_v04.xml"))
+	inputXml, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_remt_v04.xml"))
 	assert.Nil(t, err)
 
-	inputJson, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_remt_v04.json"))
+	inputJson, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_remt_v04.json"))
 	assert.Nil(t, err)
 
 	doc, err := NewDocument(utils.DocumentRemt00100104NameSpace)
@@ -278,10 +279,10 @@ func TestJsonXmlWithDocumentRemt00100104(t *testing.T) {
 }
 
 func TestJsonXmlWithDummy(t *testing.T) {
-	inputXml, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_remt_v04.xml"))
+	inputXml, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_remt_v04.xml"))
 	assert.Equal(t, nil, err)
 
-	inputJson, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_remt_v04.json"))
+	inputJson, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_remt_v04.json"))
 	assert.Equal(t, nil, err)
 
 	var docInterface Iso20022Document
@@ -314,7 +315,7 @@ func TestJsonXmlWithFiles(t *testing.T) {
 	}
 
 	for _, fileName := range validFileList {
-		input, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", fileName))
+		input, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", fileName))
 		assert.Equal(t, nil, err)
 
 		var docInterface Iso20022Document
@@ -355,7 +356,7 @@ func TestJsonXmlWithFiles(t *testing.T) {
 	}
 
 	for _, fileName := range unsupportedFileList {
-		input, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", fileName))
+		input, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", fileName))
 		assert.Nil(t, err)
 
 		_, err = ParseIso20022Document(input)
@@ -369,7 +370,7 @@ func TestJsonXmlWithFiles(t *testing.T) {
 	}
 
 	for _, fileName := range fileListWithoutNamespace {
-		input, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", fileName))
+		input, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", fileName))
 		assert.Nil(t, err)
 
 		_, err = ParseIso20022Document(input)
@@ -383,7 +384,7 @@ func TestJsonXmlWithFiles(t *testing.T) {
 	}
 
 	for _, fileName := range invalidFileList {
-		input, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", fileName))
+		input, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", fileName))
 		assert.Nil(t, err)
 
 		_, err = ParseIso20022Document(input)

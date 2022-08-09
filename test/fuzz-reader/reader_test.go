@@ -18,7 +18,6 @@
 package fuzzreader
 
 import (
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -30,7 +29,7 @@ func TestCorpusSymlinks(t *testing.T) {
 	if runtime.GOOS == "windows" {
 		t.Skip()
 	}
-	fds, err := ioutil.ReadDir("corpus")
+	fds, err := os.ReadDir("corpus")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -54,7 +53,7 @@ func TestCorpusSymlinks(t *testing.T) {
 }
 
 func TestFuzzWithInValidData(t *testing.T) {
-	byteData, err := ioutil.ReadFile(filepath.Join(basePath, "..", "testdata", "invalid_acmt_v03.json"))
+	byteData, err := os.ReadFile(filepath.Join(basePath, "..", "testdata", "invalid_acmt_v03.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -65,7 +64,7 @@ func TestFuzzWithInValidData(t *testing.T) {
 }
 
 func TestFuzzWithValidData(t *testing.T) {
-	byteData, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_acmt_v03.json"))
+	byteData, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "valid_acmt_v03.json"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -77,7 +76,7 @@ func TestFuzzWithValidData(t *testing.T) {
 }
 
 func TestFuzzWithInValidFile(t *testing.T) {
-	byteData, err := ioutil.ReadFile(filepath.Join(basePath, "..", "testdata", "invalid_file1"))
+	byteData, err := os.ReadFile(filepath.Join(basePath, "..", "testdata", "invalid_file1"))
 	if err != nil {
 		t.Fatal(err)
 	}
