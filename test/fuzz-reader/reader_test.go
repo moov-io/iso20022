@@ -38,7 +38,7 @@ func TestCorpusSymlinks(t *testing.T) {
 	}
 
 	for i := range fds {
-		if fds[i].Mode()&os.ModeSymlink != 0 {
+		if fds[i].Type()&os.ModeSymlink != 0 {
 			if path, err := os.Readlink(filepath.Join("corpus", fds[i].Name())); err != nil {
 				t.Errorf("broken symlink: %v", err)
 			} else {
