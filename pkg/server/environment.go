@@ -5,14 +5,8 @@
 package server
 
 import (
-	"context"
-	"database/sql"
-	"os"
-	"path/filepath"
-
 	"github.com/gorilla/mux"
 	"github.com/moov-io/base/config"
-	"github.com/moov-io/base/database"
 	"github.com/moov-io/base/log"
 	"github.com/moov-io/base/stime"
 )
@@ -43,14 +37,6 @@ func NewEnvironment(env *Environment) (*Environment, error) {
 		env.Config = &global.ISO20022
 	}
 
-	//db setup
-	db, close, err := initializeDatabase(env.Logger, env.Config.Database)
-	if err != nil {
-		close()
-		return nil, err
-	}
-	_ = db // delete once used.
-
 	if env.TimeService == nil {
 		t := stime.NewSystemTimeService()
 		env.TimeService = &t
@@ -64,40 +50,7 @@ func NewEnvironment(env *Environment) (*Environment, error) {
 	// configure custom handlers
 	ConfigureHandlers(env.PublicRouter)
 
-	env.Shutdown = func() {
-		close()
-	}
+	env.Shutdown = func() {}
 
 	return env, nil
-}
-
-func initializeDatabase(logger log.Logger, config database.DatabaseConfig) (*sql.DB, func(), error) {
-	ctx, cancelFunc := context.WithCancel(context.Background())
-
-	// migrate database
-	db, err := database.New(ctx, logger, config)
-	if err != nil {
-		return nil, cancelFunc, logger.Fatal().LogErrorf("Error creating database", err).Err()
-	}
-
-	shutdown := func() {
-		logger.Info().Log("Shutting down the db")
-		cancelFunc()
-		if err := db.Close(); err != nil {
-			logger.Fatal().LogErrorf("Error closing DB", err).Err()
-		}
-	}
-
-	backupFiles, _ := os.ReadDir(filepath.Join("migrations"))
-	if len(backupFiles) > 0 {
-		if err := database.RunMigrations(logger, config); err != nil {
-			return nil, shutdown, logger.Fatal().LogErrorf("Error running migrations", err).Err()
-		}
-	} else {
-		logger.Info().Log("there is no backup files of database")
-	}
-
-	logger.Info().Log("finished initializing db")
-
-	return db, shutdown, err
 }

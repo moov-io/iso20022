@@ -6,5 +6,3 @@ iso20022:
     Admin:
       Bind:
         Address: ":8209"
-  Database:
-    DatabaseName: "iso20022"

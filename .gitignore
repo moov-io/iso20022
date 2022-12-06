@@ -22,6 +22,7 @@
 *.prof
 
 pkged.go
+gitleaks.tar.gz
 
 coverage.html
 cover.out
