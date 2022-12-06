@@ -8,5 +8,3 @@ iso20022:
         Address: ":8209"
   Database:
     DatabaseName: "iso20022"
-    SQLite:
-      Path: ":memory:"
