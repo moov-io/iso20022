@@ -33,7 +33,14 @@ func isValidXML(buf []byte) bool {
 	if err != nil {
 		return false
 	}
+	var attemptsLeft int = 100
 	for {
+		// Don't let the stream consume resources endlessly
+		attemptsLeft -= 1
+		if attemptsLeft <= 0 {
+			return false
+		}
+		// Decode the next chunk
 		err = decoder.Decode(new(interface{}))
 		if err != nil {
 			break
