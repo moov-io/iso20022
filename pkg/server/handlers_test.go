@@ -95,7 +95,7 @@ func (suite *HandlersTest) TestHealth() {
 
 func (suite *HandlersTest) TestJsonPrint() {
 	writer, body := suite.getWriter(testFileName)
-	err := writer.WriteField("format", utils.DocumentTypeJson)
+	err := writer.WriteField("format", string(utils.DocumentTypeJson))
 	assert.Equal(suite.T(), nil, err)
 	err = writer.Close()
 	assert.Equal(suite.T(), nil, err)
@@ -107,7 +107,7 @@ func (suite *HandlersTest) TestJsonPrint() {
 
 func (suite *HandlersTest) TestXmlPrint() {
 	writer, body := suite.getWriter(testFileName)
-	err := writer.WriteField("format", utils.DocumentTypeXml)
+	err := writer.WriteField("format", string(utils.DocumentTypeXml))
 	assert.Equal(suite.T(), nil, err)
 	err = writer.Close()
 	assert.Equal(suite.T(), nil, err)
@@ -119,7 +119,7 @@ func (suite *HandlersTest) TestXmlPrint() {
 
 func (suite *HandlersTest) TestJsonConvert() {
 	writer, body := suite.getWriter(testFileName)
-	err := writer.WriteField("format", utils.DocumentTypeJson)
+	err := writer.WriteField("format", string(utils.DocumentTypeJson))
 	assert.Equal(suite.T(), nil, err)
 	err = writer.Close()
 	assert.Equal(suite.T(), nil, err)
@@ -131,7 +131,7 @@ func (suite *HandlersTest) TestJsonConvert() {
 
 func (suite *HandlersTest) TestXmlConvert() {
 	writer, body := suite.getWriter(testFileName)
-	err := writer.WriteField("format", utils.DocumentTypeXml)
+	err := writer.WriteField("format", string(utils.DocumentTypeXml))
 	assert.Equal(suite.T(), nil, err)
 	err = writer.Close()
 	assert.Equal(suite.T(), nil, err)
@@ -153,7 +153,7 @@ func (suite *HandlersTest) TestValidator() {
 
 func (suite *HandlersTest) TestPrintWithInvalidForm() {
 	writer, body := suite.getErrWriter(testFileName)
-	err := writer.WriteField("format", utils.DocumentTypeJson)
+	err := writer.WriteField("format", string(utils.DocumentTypeJson))
 	assert.Equal(suite.T(), nil, err)
 	err = writer.Close()
 	assert.Equal(suite.T(), nil, err)
@@ -165,7 +165,7 @@ func (suite *HandlersTest) TestPrintWithInvalidForm() {
 
 func (suite *HandlersTest) TestConvertWithInvalidForm() {
 	writer, body := suite.getErrWriter(testFileName)
-	err := writer.WriteField("format", utils.DocumentTypeJson)
+	err := writer.WriteField("format", string(utils.DocumentTypeJson))
 	assert.Equal(suite.T(), nil, err)
 	err = writer.Close()
 	assert.Equal(suite.T(), nil, err)
@@ -177,7 +177,7 @@ func (suite *HandlersTest) TestConvertWithInvalidForm() {
 
 func (suite *HandlersTest) TestConvertWithInvalidData() {
 	writer, body := suite.getWriter(testInvalidFileName)
-	err := writer.WriteField("format", utils.DocumentTypeJson)
+	err := writer.WriteField("format", string(utils.DocumentTypeJson))
 	assert.Equal(suite.T(), nil, err)
 	err = writer.Close()
 	assert.Equal(suite.T(), nil, err)
@@ -189,7 +189,7 @@ func (suite *HandlersTest) TestConvertWithInvalidData() {
 
 func (suite *HandlersTest) TestPrintWithInvalidData() {
 	writer, body := suite.getWriter(testInvalidFileName)
-	err := writer.WriteField("format", utils.DocumentTypeJson)
+	err := writer.WriteField("format", string(utils.DocumentTypeJson))
 	assert.Equal(suite.T(), nil, err)
 	err = writer.Close()
 	assert.Equal(suite.T(), nil, err)
@@ -211,7 +211,7 @@ func (suite *HandlersTest) TestValidatorWithInvalidData() {
 
 func (suite *HandlersTest) TestPrintWithErrorData() {
 	writer, body := suite.getWriter(testErrorFileName)
-	err := writer.WriteField("format", utils.DocumentTypeJson)
+	err := writer.WriteField("format", string(utils.DocumentTypeJson))
 	assert.Equal(suite.T(), nil, err)
 	err = writer.Close()
 	assert.Equal(suite.T(), nil, err)
@@ -223,7 +223,7 @@ func (suite *HandlersTest) TestPrintWithErrorData() {
 
 func (suite *HandlersTest) TestConvertWithErrorData() {
 	writer, body := suite.getWriter(testErrorFileName)
-	err := writer.WriteField("format", utils.DocumentTypeJson)
+	err := writer.WriteField("format", string(utils.DocumentTypeJson))
 	assert.Equal(suite.T(), nil, err)
 	err = writer.Close()
 	assert.Equal(suite.T(), nil, err)
@@ -245,7 +245,7 @@ func (suite *HandlersTest) TestValidatorWithErrorData() {
 
 func (suite *HandlersTest) TestConvertWithUnknownFormat() {
 	writer, body := suite.getWriter(testInvalidFileName)
-	err := writer.WriteField("format", "unknown")
+	err := writer.WriteField("format", string("unknown"))
 	assert.Equal(suite.T(), nil, err)
 	err = writer.Close()
 	assert.Equal(suite.T(), nil, err)
@@ -257,7 +257,7 @@ func (suite *HandlersTest) TestConvertWithUnknownFormat() {
 
 func (suite *HandlersTest) TestPrintWithUnknownFormat() {
 	writer, body := suite.getWriter(testInvalidFileName)
-	err := writer.WriteField("format", "unknown")
+	err := writer.WriteField("format", string("unknown"))
 	assert.Equal(suite.T(), nil, err)
 	err = writer.Close()
 	assert.Equal(suite.T(), nil, err)
@@ -269,19 +269,20 @@ func (suite *HandlersTest) TestPrintWithUnknownFormat() {
 
 func (suite *HandlersTest) TestConvertWithJsonFile() {
 	writer, body := suite.getWriter(testJsonFileName)
-	err := writer.WriteField("format", utils.DocumentTypeJson)
+	err := writer.WriteField("format", string(utils.DocumentTypeJson))
 	assert.Equal(suite.T(), nil, err)
 	err = writer.Close()
 	assert.Equal(suite.T(), nil, err)
 	recorder, request := suite.makeRequest(http.MethodPost, "/convert", body.String())
 	request.Header.Set("Content-Type", writer.FormDataContentType())
 	suite.testServer.ServeHTTP(recorder, request)
+	suite.T().Log(recorder.Body.String())
 	assert.Equal(suite.T(), http.StatusOK, recorder.Code)
 }
 
 func (suite *HandlersTest) TestPrintWithJsonFile() {
 	writer, body := suite.getWriter(testJsonFileName)
-	err := writer.WriteField("format", utils.DocumentTypeJson)
+	err := writer.WriteField("format", string(utils.DocumentTypeJson))
 	assert.Equal(suite.T(), nil, err)
 	err = writer.Close()
 	assert.Equal(suite.T(), nil, err)
@@ -303,7 +304,7 @@ func (suite *HandlersTest) TestValidatorWithJsonFile() {
 
 func (suite *HandlersTest) TestConvertWithXmlFile() {
 	writer, body := suite.getWriter(testXmlFileName)
-	err := writer.WriteField("format", utils.DocumentTypeJson)
+	err := writer.WriteField("format", string(utils.DocumentTypeJson))
 	assert.Equal(suite.T(), nil, err)
 	err = writer.Close()
 	assert.Equal(suite.T(), nil, err)
@@ -315,7 +316,7 @@ func (suite *HandlersTest) TestConvertWithXmlFile() {
 
 func (suite *HandlersTest) TestPrintWithXmlFile() {
 	writer, body := suite.getWriter(testXmlFileName)
-	err := writer.WriteField("format", utils.DocumentTypeJson)
+	err := writer.WriteField("format", string(utils.DocumentTypeJson))
 	assert.Equal(suite.T(), nil, err)
 	err = writer.Close()
 	assert.Equal(suite.T(), nil, err)

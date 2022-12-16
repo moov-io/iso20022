@@ -9,6 +9,7 @@ import (
 	"encoding/json"
 	"encoding/xml"
 	"errors"
+	"fmt"
 
 	"io"
 	"net/http"
@@ -19,16 +20,16 @@ import (
 )
 
 func outputError(w http.ResponseWriter, code int, err error) {
-	w.WriteHeader(code)
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.WriteHeader(code)
 	json.NewEncoder(w).Encode(map[string]interface{}{
 		"error": err.Error(),
 	})
 }
 
 func outputSuccess(w http.ResponseWriter, output string) {
-	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(map[string]interface{}{
 		"status": output,
 	})
@@ -49,7 +50,7 @@ func parseInputFromRequest(r *http.Request) (document.Iso20022Document, error) {
 	return document.ParseIso20022Document(input.Bytes())
 }
 
-func messageToBuf(format string, doc document.Iso20022Document) ([]byte, error) {
+func messageToBuf(format utils.DocumentType, doc document.Iso20022Document) ([]byte, error) {
 	var output []byte
 	var err error
 	switch format {
@@ -57,11 +58,13 @@ func messageToBuf(format string, doc document.Iso20022Document) ([]byte, error) 
 		output, err = json.MarshalIndent(doc, "", "\t")
 	case utils.DocumentTypeXml:
 		output, err = xml.MarshalIndent(doc, "", "\t")
+	case utils.DocumentTypeUnknown:
+		err = errors.New("unknown document type")
 	}
 	return output, err
 }
 
-func outputBufferToWriter(w http.ResponseWriter, doc document.Iso20022Document, format string) {
+func outputBufferToWriter(w http.ResponseWriter, doc document.Iso20022Document, format utils.DocumentType) {
 	w.WriteHeader(http.StatusOK)
 	switch format {
 	case utils.DocumentTypeJson:
@@ -70,16 +73,22 @@ func outputBufferToWriter(w http.ResponseWriter, doc document.Iso20022Document, 
 	case utils.DocumentTypeXml:
 		w.Header().Set("Content-Type", "application/xml; charset=utf-8")
 		xml.NewEncoder(w).Encode(doc)
+	case utils.DocumentTypeUnknown:
+		w.Header().Set("Content-Type", "application/xml; charset=utf-8")
+		w.Write([]byte(`{"error": "invalid format"}`))
 	}
 }
 
-func getFormat(r *http.Request) (string, error) {
-	format := r.FormValue("format")
-	if format == "" {
+func getFormat(r *http.Request) (utils.DocumentType, error) {
+	var format utils.DocumentType
+	ff := r.FormValue("format")
+	if ff == "" {
 		format = utils.DocumentTypeXml
+	} else {
+		format = utils.DocumentType(ff)
 	}
 	if format != utils.DocumentTypeXml && format != utils.DocumentTypeJson {
-		return format, errors.New("invalid format")
+		return format, fmt.Errorf("%s is an invalid format: %v", ff, format)
 	}
 	return format, nil
 }

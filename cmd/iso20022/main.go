@@ -78,12 +78,13 @@ var Print = &cobra.Command{
 	Short: "Print iso20022 message",
 	Long:  "Print an incoming iso20022 message with special format (options: json, xml)",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		format, err := cmd.Flags().GetString("format")
-		if err != nil {
+		var format utils.DocumentType
+		if ff, err := cmd.Flags().GetString("format"); err != nil {
 			return err
+		} else {
+			format = utils.DocumentType(ff)
 		}
-
-		if format != "" && (format != utils.DocumentTypeJson && format != utils.DocumentTypeXml) {
+		if string(format) != "" && (format != utils.DocumentTypeJson && format != utils.DocumentTypeXml) {
 			return errors.New("don't support the format")
 		} else {
 			format = utils.DocumentTypeXml
@@ -100,6 +101,8 @@ var Print = &cobra.Command{
 			output, err = json.MarshalIndent(doc, "", "\t")
 		case utils.DocumentTypeXml:
 			output, err = xml.MarshalIndent(doc, "", "\t")
+		case utils.DocumentTypeUnknown:
+			err = errors.New("invalid format")
 		}
 		if err != nil {
 			return err
@@ -121,12 +124,13 @@ var Convert = &cobra.Command{
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		format, err := cmd.Flags().GetString("format")
-		if err != nil {
+		var format utils.DocumentType
+		if ff, err := cmd.Flags().GetString("format"); err != nil {
 			return err
+		} else {
+			format = utils.DocumentType(ff)
 		}
-
-		if format != "" && (format != utils.DocumentTypeJson && format != utils.DocumentTypeXml) {
+		if string(format) != "" && (format != utils.DocumentTypeJson && format != utils.DocumentTypeXml) {
 			return errors.New("don't support the format")
 		} else {
 			format = utils.DocumentTypeXml
@@ -143,6 +147,8 @@ var Convert = &cobra.Command{
 			output, err = json.MarshalIndent(doc, "", "\t")
 		case utils.DocumentTypeXml:
 			output, err = xml.MarshalIndent(doc, "", "\t")
+		case utils.DocumentTypeUnknown:
+			err = errors.New("invalid format")
 		}
 		if err != nil {
 			return err

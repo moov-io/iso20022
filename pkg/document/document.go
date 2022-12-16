@@ -267,16 +267,15 @@ func NewDocument(space string) (doc Iso20022Document, err error) {
 
 // ParseIso20022Document will return a interface of ISO 20022 document after pass buffer
 func ParseIso20022Document(buf []byte) (Iso20022Document, error) {
-
-	bType := utils.GetBufferFormat(buf)
-	if bType == utils.DocumentTypeUnknown {
+	docformat := utils.GetDocumentFormat(buf)
+	if docformat == utils.DocumentTypeUnknown {
 		return nil, utils.NewErrInvalidFileType()
 	}
 
 	var dummy documentDummy
 	var err error
 
-	if bType == utils.DocumentTypeXml {
+	if docformat == utils.DocumentTypeXml {
 		err = xml.Unmarshal(buf, &dummy)
 	} else {
 		err = json.Unmarshal(buf, &dummy)
@@ -299,7 +298,7 @@ func ParseIso20022Document(buf []byte) (Iso20022Document, error) {
 		Message: constractor(),
 	}
 
-	if bType == utils.DocumentTypeXml {
+	if docformat == utils.DocumentTypeXml {
 		err = xml.Unmarshal(buf, doc)
 	} else {
 		err = json.Unmarshal(buf, doc)

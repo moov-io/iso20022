@@ -48,7 +48,7 @@ func deleteFile() {
 }
 
 func TestConvertWithoutInput(t *testing.T) {
-	_, err := executeCommand(rootCmd, "convert", "output", "--format", utils.DocumentTypeJson)
+	_, err := executeCommand(rootCmd, "convert", "output", "--format", string(utils.DocumentTypeJson))
 	if err == nil {
 		t.Errorf("invalid input file")
 	}
@@ -56,7 +56,7 @@ func TestConvertWithoutInput(t *testing.T) {
 }
 
 func TestConvertWithInvalidParam(t *testing.T) {
-	_, err := executeCommand(rootCmd, "convert", "--input", testFileName, "--format", utils.DocumentTypeJson)
+	_, err := executeCommand(rootCmd, "convert", "--input", testFileName, "--format", string(utils.DocumentTypeJson))
 	if err == nil {
 		t.Errorf("requires output argument")
 	}
@@ -64,7 +64,7 @@ func TestConvertWithInvalidParam(t *testing.T) {
 }
 
 func TestConvertJson(t *testing.T) {
-	_, err := executeCommand(rootCmd, "convert", "output", "--input", testFileName, "--format", utils.DocumentTypeJson)
+	_, err := executeCommand(rootCmd, "convert", "output", "--input", testFileName, "--format", string(utils.DocumentTypeJson))
 	if err != nil {
 		t.Errorf(err.Error())
 	}
@@ -72,7 +72,7 @@ func TestConvertJson(t *testing.T) {
 }
 
 func TestConvertXml(t *testing.T) {
-	_, err := executeCommand(rootCmd, "convert", "output", "--input", testFileName, "--format", utils.DocumentTypeXml)
+	_, err := executeCommand(rootCmd, "convert", "output", "--input", testFileName, "--format", string(utils.DocumentTypeXml))
 	if err != nil {
 		t.Errorf(err.Error())
 	}
@@ -88,14 +88,14 @@ func TestConvertUnknown(t *testing.T) {
 }
 
 func TestPrintJson(t *testing.T) {
-	_, err := executeCommand(rootCmd, "print", "--input", testFileName, "--format", utils.DocumentTypeJson)
+	_, err := executeCommand(rootCmd, "print", "--input", testFileName, "--format", string(utils.DocumentTypeJson))
 	if err != nil {
 		t.Errorf(err.Error())
 	}
 }
 
 func TestPrintXml(t *testing.T) {
-	_, err := executeCommand(rootCmd, "print", "--input", testFileName, "--format", utils.DocumentTypeXml)
+	_, err := executeCommand(rootCmd, "print", "--input", testFileName, "--format", string(utils.DocumentTypeXml))
 	if err != nil {
 		t.Errorf(err.Error())
 	}
@@ -123,14 +123,14 @@ func TestUnknown(t *testing.T) {
 }
 
 func TestPrintWithInvalidData(t *testing.T) {
-	_, err := executeCommand(rootCmd, "print", "--input", testInvalidFileName, "--format", utils.DocumentTypeJson)
+	_, err := executeCommand(rootCmd, "print", "--input", testInvalidFileName, "--format", string(utils.DocumentTypeJson))
 	if err == nil {
 		t.Errorf("invalid file data")
 	}
 }
 
 func TestConvertWithInvalidData(t *testing.T) {
-	_, err := executeCommand(rootCmd, "convert", "output", "--input", testInvalidFileName, "--format", utils.DocumentTypeJson)
+	_, err := executeCommand(rootCmd, "convert", "output", "--input", testInvalidFileName, "--format", string(utils.DocumentTypeJson))
 	if err == nil {
 		t.Errorf("invalid file data")
 	}
@@ -145,14 +145,14 @@ func TestValidatorWithInvalidData(t *testing.T) {
 }
 
 func TestPrintWithErrorData(t *testing.T) {
-	_, err := executeCommand(rootCmd, "print", "--input", testErrorFileName, "--format", utils.DocumentTypeJson)
+	_, err := executeCommand(rootCmd, "print", "--input", testErrorFileName, "--format", string(utils.DocumentTypeJson))
 	if err == nil {
 		t.Errorf("error data")
 	}
 }
 
 func TestConvertWithErrorData(t *testing.T) {
-	_, err := executeCommand(rootCmd, "convert", "output", "--input", testErrorFileName, "--format", utils.DocumentTypeJson)
+	_, err := executeCommand(rootCmd, "convert", "output", "--input", testErrorFileName, "--format", string(utils.DocumentTypeJson))
 	if err == nil {
 		t.Errorf("error data")
 	}
@@ -167,14 +167,14 @@ func TestValidatorWithErrorData(t *testing.T) {
 }
 
 func TestPrintWithJsonData(t *testing.T) {
-	_, err := executeCommand(rootCmd, "print", "--input", testJsonFileName, "--format", utils.DocumentTypeJson)
+	_, err := executeCommand(rootCmd, "print", "--input", testJsonFileName, "--format", string(utils.DocumentTypeJson))
 	if err != nil {
 		t.Errorf(err.Error())
 	}
 }
 
 func TestConvertWithJsonData(t *testing.T) {
-	_, err := executeCommand(rootCmd, "convert", "output", "--input", testJsonFileName, "--format", utils.DocumentTypeJson)
+	_, err := executeCommand(rootCmd, "convert", "output", "--input", testJsonFileName, "--format", string(utils.DocumentTypeJson))
 	if err != nil {
 		t.Errorf(err.Error())
 	}
@@ -189,14 +189,14 @@ func TestValidatorWithJsonData(t *testing.T) {
 }
 
 func TestPrintWithXmlData(t *testing.T) {
-	_, err := executeCommand(rootCmd, "print", "--input", testXmlFileName, "--format", utils.DocumentTypeXml)
+	_, err := executeCommand(rootCmd, "print", "--input", testXmlFileName, "--format", string(utils.DocumentTypeXml))
 	if err != nil {
 		t.Errorf(err.Error())
 	}
 }
 
 func TestConvertWithXmlData(t *testing.T) {
-	_, err := executeCommand(rootCmd, "convert", "output", "--input", testXmlFileName, "--format", utils.DocumentTypeXml)
+	_, err := executeCommand(rootCmd, "convert", "output", "--input", testXmlFileName, "--format", string(utils.DocumentTypeXml))
 	if err != nil {
 		t.Errorf(err.Error())
 	}

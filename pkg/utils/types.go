@@ -7,11 +7,25 @@ import (
 	"io"
 )
 
+type DocumentType string
+
 const (
-	DocumentTypeJson    = "json"
-	DocumentTypeXml     = "xml"
-	DocumentTypeUnknown = "unknown"
+	DocumentTypeJson    DocumentType = "json"
+	DocumentTypeXml     DocumentType = "xml"
+	DocumentTypeUnknown DocumentType = "unknown"
+
+	XmlDefaultNamespace = "xmlns"
 )
+
+func GetDocumentFormat(buf []byte) DocumentType {
+	if json.Valid(buf) {
+		return DocumentTypeJson
+	}
+	if isValidXML(buf) {
+		return DocumentTypeXml
+	}
+	return DocumentTypeUnknown
+}
 
 func isValidXML(buf []byte) bool {
 	decoder := xml.NewDecoder(bytes.NewBuffer(buf))
@@ -27,26 +41,3 @@ func isValidXML(buf []byte) bool {
 	}
 	return err == io.EOF
 }
-
-func isValidJSON(buf []byte) bool {
-	var dummy map[string]interface{}
-	if err := json.Unmarshal(buf, &dummy); err != nil {
-		return false
-	}
-	return true
-}
-
-// Get buffer format
-func GetBufferFormat(buf []byte) string {
-	if isValidJSON(buf) {
-		return DocumentTypeJson
-	} else if isValidXML(buf) {
-		return DocumentTypeXml
-	}
-	return DocumentTypeUnknown
-}
-
-const (
-	TestTimeString      = "2014-11-12T11:45:26.371Z"
-	XmlDefaultNamespace = "xmlns"
-)
