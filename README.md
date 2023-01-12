@@ -33,7 +33,9 @@ ISO20022 implements a message reader and writer written in Go, decorated with an
 
 ## Project Status
 
-Moov ISO20022 currently offers a Go package with plans for an API and command line tool in the near future. Please star the project if you are interested in its progress. The project supports generating and parsing ISO 20022 messages. Feedback on this early version of ISO20022 is appreciated and vital to its success. Please let us know if you encounter any bugs/unclear documentation or have feature suggestions by opening up an issue. Thanks!
+ISO 20022 is a large and evolving set of specifications. We are deprecating this repository in favor of targeted repositories such as [rtp20022](https://github.com/moov-io/rtp20022).
+
+Please star the project if you are interested in its progress. Feedback on this early version of ISO 20022 is appreciated and vital to its success. Please let us know if you encounter any bugs/unclear documentation or have feature suggestions by opening up an issue. Thanks!
 
 ## Usage
 
